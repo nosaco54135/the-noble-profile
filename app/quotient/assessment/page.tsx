@@ -5,6 +5,9 @@ import { useRouter } from 'next/navigation'
 import { QUESTIONS, shuffleQuestions } from '@/lib/questions'
 import { clientStorage } from '@/lib/storage'
 import { LIKERT_LABELS, PRIMING_INSTRUCTION, type Question } from '@/types'
+import { Container } from '@/components/ui/Container'
+import { Section } from '@/components/ui/Section'
+import { Button } from '@/components/ui/Button'
 
 const generateSeed = (): string => {
   if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
@@ -145,121 +148,101 @@ export default function AssessmentPage() {
 
   if (!currentQuestion) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-noble-600 border-t-transparent rounded-full animate-spin" />
+      <div className="min-h-screen flex items-center justify-center bg-tns-bg">
+        <div className="w-8 h-8 border-4 border-tns-accent border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
-      {/* Header */}
-      <header className="bg-white border-b border-slate-100 px-6 py-4">
-        <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-noble-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xs">N</span>
-            </div>
-            <span className="text-sm font-semibold text-slate-700">The Noble Quotient</span>
-          </div>
-          <span className="text-sm text-slate-400">
-            {answeredCount} of {totalQuestions} answered
-          </span>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-tns-bg flex flex-col">
       {/* Progress bar */}
-      <div className="bg-slate-200 h-1.5">
+      <div className="bg-tns-border h-1">
         <div
-          className="bg-noble-600 h-1.5 transition-all duration-500 ease-out"
+          className="bg-tns-accent h-1 transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
         />
       </div>
 
       {/* Question area */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 py-12">
-        <div className="w-full max-w-2xl">
-          {/* Step indicator */}
-          <p className="text-sm font-semibold text-noble-600 uppercase tracking-widest mb-3 text-center">
+      <Section size="lg" className="flex-1">
+        <Container maxWidth="prose">
+          {/* Step counter */}
+          <p className="font-sans text-sm text-tns-fg text-center mb-tns-sm">
             Question {currentIndex + 1} of {totalQuestions}
           </p>
 
-          {/* Priming instruction — shown on every question per spec Stage 3 */}
-          <p className="text-sm text-slate-500 italic text-center mb-6">
-            {PRIMING_INSTRUCTION}
-          </p>
+          {/* Priming instruction — first question only */}
+          {currentIndex === 0 && (
+            <p className="font-sans text-sm italic text-tns-fg text-center max-w-prose mx-auto mb-tns-xl leading-relaxed">
+              {PRIMING_INSTRUCTION}
+            </p>
+          )}
 
-          {/* Question card */}
-          <div className="card p-8 md:p-10 mb-8">
-            <p className="text-xl md:text-2xl font-medium text-slate-900 leading-relaxed text-center">
+          {/* Question */}
+          <div className="mb-tns-2xl mt-tns-lg">
+            <p className="font-sans text-tns-fg text-xl md:text-2xl leading-relaxed text-center tracking-tight">
               &ldquo;{currentQuestion.text}&rdquo;
             </p>
           </div>
 
-          {/* Frequency scale (Rule 9: no directional anchors; each button = number + own label) */}
-          <div className="space-y-3">
-            <div className="grid grid-cols-5 gap-2 sm:gap-3">
-              {[1, 2, 3, 4, 5].map((value) => (
+          {/* Frequency scale */}
+          <div className="grid grid-cols-5 gap-2 sm:gap-3 mb-tns-2xl">
+            {[1, 2, 3, 4, 5].map((value) => {
+              const isSelected = selected === value
+              return (
                 <button
                   key={value}
                   onClick={() => handleSelect(value)}
                   className={[
-                    'flex flex-col items-center justify-center gap-1.5 p-3 sm:p-4 rounded-xl border-2 transition-all duration-150 min-h-[96px]',
-                    'focus:outline-none focus:ring-2 focus:ring-noble-500 focus:ring-offset-2',
-                    selected === value
-                      ? 'border-noble-600 bg-noble-600 text-white shadow-md scale-105'
-                      : 'border-slate-200 bg-white text-slate-600 hover:border-noble-300 hover:bg-noble-50',
+                    'flex flex-col items-center justify-center gap-1.5 p-3 sm:p-4 border transition-colors duration-150 min-h-[96px]',
+                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-tns-accent focus-visible:ring-offset-2 focus-visible:ring-offset-tns-bg',
+                    isSelected
+                      ? 'bg-tns-bgAlt border-tns-accent text-tns-fg'
+                      : 'bg-tns-bg border-tns-border text-tns-fg hover:bg-tns-bgAlt cursor-pointer',
                   ].join(' ')}
                 >
-                  <span className="text-lg font-bold">{value}</span>
-                  <span className="text-xs sm:text-sm leading-tight text-center font-medium">
+                  <span className="font-display text-lg text-tns-fg">{value}</span>
+                  <span className="font-sans text-xs sm:text-sm leading-tight text-center text-tns-fg">
                     {LIKERT_LABELS[value]}
                   </span>
                 </button>
-              ))}
-            </div>
+              )
+            })}
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-end mt-8">
+          <div className="flex items-center justify-end">
             {isLastQuestion ? (
-              <button
+              <Button
                 onClick={handleSubmit}
                 disabled={selected === null || submitting || answeredCount < totalQuestions}
-                className="btn-primary px-8 py-3"
+                variant="primary"
               >
-                {submitting ? (
-                  <>
-                    <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                    </svg>
-                    Scoring…
-                  </>
-                ) : (
-                  'See my results →'
-                )}
-              </button>
+                {submitting ? 'Scoring…' : 'See my results →'}
+              </Button>
             ) : (
-              <button
+              <Button
                 onClick={handleNext}
                 disabled={selected === null}
-                className="btn-primary px-8 py-3"
+                variant="primary"
               >
                 Next →
-              </button>
+              </Button>
             )}
           </div>
 
           {submitError && (
-            <p className="mt-4 text-center text-sm text-red-600">{submitError}</p>
+            <p className="mt-tns-md font-sans text-center text-sm text-tns-accent">
+              {submitError}
+            </p>
           )}
 
-          <p className="mt-6 text-center text-xs text-slate-400">
-            Tip: Press 1–5 to select, Enter to advance
+          <p className="mt-tns-lg font-sans text-center text-xs text-tns-muted">
+            Tip: Press 1 to 5 to select, Enter to advance
           </p>
-        </div>
-      </main>
+        </Container>
+      </Section>
     </div>
   )
 }

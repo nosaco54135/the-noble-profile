@@ -193,15 +193,15 @@ export const DIMENSION_ORDER: DimensionKey[] = [
 ]
 
 export const LIKERT_LABELS: Record<number, string> = {
-  1: 'Never',
-  2: 'Rarely',
-  3: 'Sometimes',
-  4: 'Often',
-  5: 'Almost always',
+  1: 'Strongly Disagree',
+  2: 'Disagree',
+  3: 'Neutral',
+  4: 'Agree',
+  5: 'Strongly Agree',
 }
 
 export const PRIMING_INSTRUCTION =
-  'Think about what you actually do, not what you think you should do. For situations that don\u2019t come up often, answer based on how you handle them when they do.'
+  'On most questions, both options describe real sellers. Pick the one that\'s closer to how you actually work, not the one that sounds better.'
 
 /**
  * Generic strength copy per dimension. Used on the free results page to render
