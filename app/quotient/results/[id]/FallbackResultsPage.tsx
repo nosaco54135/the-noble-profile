@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { Container } from '@/components/ui/Container'
+import { Section } from '@/components/ui/Section'
+import { LinkButton } from '@/components/ui/Button'
 import { clientStorage, type StoredAssessment } from '@/lib/storage'
+import { DEV_SAMPLE_PAYLOAD } from '@/lib/dev-sample'
 import {
   DIMENSION_LABELS,
   DIMENSION_ORDER,
@@ -20,28 +24,41 @@ export default function FallbackResultsPage({ id }: Props) {
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
+    if (id === 'dev-test') {
+      setData(DEV_SAMPLE_PAYLOAD)
+      setLoaded(true)
+      return
+    }
     setData(clientStorage.loadAssessment(id))
     setLoaded(true)
   }, [id])
 
   if (!loaded) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-noble-600 border-t-transparent rounded-full animate-spin" />
+      <div className="min-h-screen bg-tns-bg flex items-center justify-center">
+        <div className="w-6 h-6 border-2 border-tns-accent border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
 
   if (!data) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-6">
-        <div className="text-center">
-          <h2 className="text-xl font-bold text-slate-900 mb-2">Results not found</h2>
-          <p className="text-slate-500 text-sm mb-6">
-            localStorage data may have been cleared. Please retake the assessment.
-          </p>
-          <Link href="/quotient" className="btn-primary">Start over</Link>
-        </div>
+      <div className="min-h-screen bg-tns-bg text-tns-fg">
+        <Section size="xl">
+          <Container maxWidth="prose">
+            <div className="text-center">
+              <h1 className="font-medium text-tns-fg text-3xl md:text-4xl tracking-tight leading-tight mb-tns-md">
+                Results not found.
+              </h1>
+              <p className="text-tns-muted text-[17px] leading-relaxed mb-tns-2xl max-w-[480px] mx-auto">
+                Local data may have been cleared. Take the assessment again to see your results.
+              </p>
+              <LinkButton href="/quotient" variant="primary">
+                Start over
+              </LinkButton>
+            </div>
+          </Container>
+        </Section>
       </div>
     )
   }
@@ -57,297 +74,292 @@ export default function FallbackResultsPage({ id }: Props) {
   const bottomDims: DimensionKey[] = sortedDims.slice(-3).reverse()
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Nav */}
-      <nav className="bg-white border-b border-slate-100 sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/quotient" className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-noble-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xs">N</span>
+    <div className="min-h-screen bg-tns-bg text-tns-fg">
+      <Section size="lg" className="pt-tns-md">
+        <Container maxWidth="prose">
+          {/* Dev mode banner */}
+          <div className="mb-tns-lg bg-tns-bgAlt px-tns-md py-tns-sm text-xs text-tns-muted">
+            Dev mode · localStorage · payment bypassed
+          </div>
+
+          {/* ── Primary Archetype ────────────────────────────────────── */}
+          <header className="mb-tns-2xl bg-tns-accent text-tns-bg rounded-2xl px-tns-xl py-tns-2xl">
+            <div className="text-center">
+              <p className="text-sm font-semibold uppercase tracking-widest text-tns-bg/70 mb-tns-md">
+                Primary archetype · {primary.matchPercentage}% match
+              </p>
+              <h1 className="font-display font-medium text-4xl md:text-5xl tracking-tight leading-[1.02] mb-tns-2xl">
+                The {primary.name}
+              </h1>
             </div>
-            <span className="text-sm font-semibold text-slate-700">The Noble Seller</span>
-          </Link>
-          <span className="text-sm font-medium text-noble-600">Your Noble Quotient</span>
-        </div>
-      </nav>
 
-      <main className="max-w-4xl mx-auto px-6 py-12 space-y-10">
-
-        {/* Dev mode banner */}
-        <div className="bg-amber-50 border border-amber-200 text-amber-800 rounded-xl px-5 py-4 text-sm">
-          <strong>Dev mode — no Supabase.</strong> Results are stored in localStorage. Payment is bypassed.
-        </div>
-
-        {/* ── Primary Archetype ─────────────────────────────────────── */}
-        <section className="card overflow-hidden">
-          <div className="bg-gradient-to-br from-noble-600 to-noble-800 px-8 py-10 text-white">
-            <p className="text-noble-200 text-xs font-semibold uppercase tracking-widest mb-3">
-              Primary Archetype · {primary.matchPercentage}% match
-            </p>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6">
-              The {primary.name}
-            </h1>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="bg-white/10 rounded-xl px-5 py-4">
-                <p className="text-noble-300 text-xs font-semibold uppercase tracking-widest mb-1">
-                  Trait Axis (How you show up)
+            <div className="grid gap-tns-lg md:grid-cols-2">
+              <div className="border-t border-tns-bg/20 pt-tns-md">
+                <p className="text-sm font-semibold uppercase tracking-widest text-tns-bg/70 mb-tns-xs">
+                  Trait axis
                 </p>
-                <p className="text-white text-xl font-bold">{primary.trait.label}</p>
-                <p className="text-noble-200 text-sm mt-1">{primary.trait.tagline}</p>
-                <p className="text-noble-300 text-xs mt-2 font-mono">
-                  {primary.trait.score.toFixed(1)}/5.0
+                <p className="font-medium text-[18px] leading-snug">
+                  {primary.trait.label}
+                </p>
+                <p className="text-[14px] text-tns-bg/80 leading-relaxed mt-tns-xs">
+                  {primary.trait.tagline}
+                </p>
+                <p className="text-[12px] text-tns-bg/70 mt-tns-sm">
+                  {primary.trait.score.toFixed(1)} / 5
                   {primary.trait.closeRankTie && ` · close with ${primary.trait.tiedWith.map((k) => traitLabels[k]).join(', ')}`}
                 </p>
               </div>
-              <div className="bg-white/10 rounded-xl px-5 py-4">
-                <p className="text-noble-300 text-xs font-semibold uppercase tracking-widest mb-1">
-                  Style Axis (What you do)
+              <div className="border-t border-tns-bg/20 pt-tns-md">
+                <p className="text-sm font-semibold uppercase tracking-widest text-tns-bg/70 mb-tns-xs">
+                  Style axis
                 </p>
-                <p className="text-white text-xl font-bold">{primary.style.label}</p>
-                <p className="text-noble-200 text-sm mt-1">{primary.style.tagline}</p>
-                <p className="text-noble-300 text-xs mt-2 font-mono">
-                  {primary.style.score.toFixed(1)}/5.0
+                <p className="font-medium text-[18px] leading-snug">
+                  {primary.style.label}
+                </p>
+                <p className="text-[14px] text-tns-bg/80 leading-relaxed mt-tns-xs">
+                  {primary.style.tagline}
+                </p>
+                <p className="text-[12px] text-tns-bg/70 mt-tns-sm">
+                  {primary.style.score.toFixed(1)} / 5
                   {primary.style.closeRankTie && ` · close with ${primary.style.tiedWith.map((k) => styleLabels[k]).join(', ')}`}
                 </p>
               </div>
             </div>
-          </div>
+          </header>
 
-          <div className="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-            <div className="px-8 py-6">
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest mb-2">
-                Secondary Archetype · {secondary.matchPercentage}% match
+          {/* ── Secondary + Tertiary ─────────────────────────────────── */}
+          <section className="mb-tns-2xl pt-tns-lg border-t border-tns-border grid gap-tns-2xl md:grid-cols-2">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+                Secondary archetype · {secondary.matchPercentage}%
               </p>
-              <p className="font-bold text-slate-800 text-lg mb-1">The {secondary.name}</p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-medium">
-                  {secondary.trait.label} ({secondary.trait.score.toFixed(1)})
-                </span>
-                <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-medium">
-                  {secondary.style.label} ({secondary.style.score.toFixed(1)})
-                </span>
-              </div>
-            </div>
-            <div className="px-8 py-6">
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest mb-2">
-                Tertiary Awareness · {tertiary.matchPercentage}% match
+              <p className="font-medium text-tns-fg text-xl md:text-2xl leading-tight mb-tns-sm">
+                The {secondary.name}
               </p>
-              <p className="font-bold text-slate-800 text-lg mb-1">The {tertiary.name}</p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-medium">
-                  {tertiary.trait.label} ({tertiary.trait.score.toFixed(1)})
-                </span>
-                <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-medium">
-                  {tertiary.style.label} ({tertiary.style.score.toFixed(1)})
-                </span>
-              </div>
+              <p className="text-[14px] text-tns-muted">
+                {secondary.trait.label} ({secondary.trait.score.toFixed(1)}) · {secondary.style.label} ({secondary.style.score.toFixed(1)})
+              </p>
             </div>
-          </div>
-        </section>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+                Tertiary archetype · {tertiary.matchPercentage}%
+              </p>
+              <p className="font-medium text-tns-fg text-xl md:text-2xl leading-tight mb-tns-sm">
+                The {tertiary.name}
+              </p>
+              <p className="text-[14px] text-tns-muted">
+                {tertiary.trait.label} ({tertiary.trait.score.toFixed(1)}) · {tertiary.style.label} ({tertiary.style.score.toFixed(1)})
+              </p>
+            </div>
+          </section>
 
-        {/* ── Honest framing line (spec Stage 4) ────────────────────── */}
-        <section className="bg-white rounded-2xl border border-slate-200 px-6 py-5">
-          <p className="text-slate-700 leading-relaxed text-[15px]">
-            No one scores high across every dimension. Your top scores reveal
-            your natural selling identity. Your lower scores aren&rsquo;t
-            weaknesses. They&rsquo;re the specific areas where focused
-            development will move your performance most.
+          {/* ── Honest framing ───────────────────────────────────────── */}
+          <p className="mt-tns-sm mb-tns-2xl text-[17px] text-tns-fg leading-relaxed">
+            You won&rsquo;t score high on everything. No one does. Your highest scores reveal your natural selling style and the reasons behind your wins. Your lowest scores aren&rsquo;t failures, they&rsquo;re where focused work pays off fastest.
           </p>
-        </section>
 
-        {/* ── Top 3 Strengths ───────────────────────────────────────── */}
-        <section className="card px-8 py-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-1">Your Top 3 Strengths</h2>
-          <p className="text-sm text-slate-400 mb-6">Where your scores run strongest</p>
-          <div className="space-y-5">
-            {topDims.map((dim, i) => (
-              <div key={dim} className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
-                  {i + 1}
-                </div>
-                <div>
-                  <div className="flex items-baseline gap-3 mb-1">
-                    <h3 className="font-bold text-slate-900">{DIMENSION_LABELS[dim]}</h3>
-                    <span className="text-sm font-mono text-slate-500">
-                      {scores[dim].toFixed(1)}/5.0
-                    </span>
+          {/* ── Top 3 Strengths ──────────────────────────────────────── */}
+          <section className="mb-tns-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+              Where you run strongest
+            </p>
+            <h2 className="font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-tight mb-tns-xl">
+              Your top 3 strengths
+            </h2>
+            <ol className="space-y-tns-lg">
+              {topDims.map((dim, i) => (
+                <li key={dim} className="flex items-start gap-tns-md">
+                  <span className="size-7 shrink-0 mt-0.5 rounded-full bg-tns-accent text-tns-bg text-[13px] font-medium flex items-center justify-center">
+                    {i + 1}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
+                      <h3 className="font-medium text-tns-fg text-[17px]">{DIMENSION_LABELS[dim]}</h3>
+                      <span className="text-[13px] text-tns-muted shrink-0">
+                        {scores[dim].toFixed(1)} / 5
+                      </span>
+                    </div>
+                    <p className="text-[15px] text-tns-muted leading-relaxed">
+                      {DIMENSION_STRENGTHS[dim]}
+                    </p>
                   </div>
-                  <p className="text-slate-600 leading-relaxed text-sm">
-                    {DIMENSION_STRENGTHS[dim]}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+                </li>
+              ))}
+            </ol>
+          </section>
 
-        {/* ── Top 3 Blind Spots ─────────────────────────────────────── */}
-        <section className="card px-8 py-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-1">Your Top 3 Blind Spots</h2>
-          <p className="text-sm text-slate-400 mb-6">Where focused work pays off fastest</p>
-          <div className="space-y-5">
-            {bottomDims.map((dim, i) => (
-              <div key={dim} className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
-                  {i + 1}
-                </div>
-                <div>
-                  <div className="flex items-baseline gap-3 mb-1">
-                    <h3 className="font-bold text-slate-900">{DIMENSION_LABELS[dim]}</h3>
-                    <span className="text-sm font-mono text-slate-500">
-                      {scores[dim].toFixed(1)}/5.0
-                    </span>
+          {/* ── Top 3 Blind Spots ────────────────────────────────────── */}
+          <section className="mb-tns-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+              Where focused work pays off fastest
+            </p>
+            <h2 className="font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-tight mb-tns-xl">
+              Your top 3 blind spots
+            </h2>
+            <ol className="space-y-tns-lg">
+              {bottomDims.map((dim, i) => (
+                <li key={dim} className="flex items-start gap-tns-md">
+                  <span className="size-7 shrink-0 mt-0.5 rounded-full bg-tns-accent text-tns-bg text-[13px] font-medium flex items-center justify-center">
+                    {i + 1}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
+                      <h3 className="font-medium text-tns-fg text-[17px]">{DIMENSION_LABELS[dim]}</h3>
+                      <span className="text-[13px] text-tns-muted shrink-0">
+                        {scores[dim].toFixed(1)} / 5
+                      </span>
+                    </div>
+                    <p className="text-[15px] text-tns-muted leading-relaxed">
+                      {DIMENSION_BLIND_SPOTS[dim]}
+                    </p>
                   </div>
-                  <p className="text-slate-600 leading-relaxed text-sm">
-                    {DIMENSION_BLIND_SPOTS[dim]}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+                </li>
+              ))}
+            </ol>
+          </section>
 
-        {/* ── Trait + Style Rankings ─────────────────────────────────── */}
-        <div className="grid sm:grid-cols-2 gap-6">
-          <section className="card px-6 py-6">
-            <h2 className="text-base font-bold text-slate-900 mb-1">Trait Axis Rankings</h2>
-            <p className="text-xs text-slate-400 mb-5">How you naturally show up</p>
-            <div className="space-y-4">
-              {traits.map((trait, i) => (
-                <div key={trait.key}>
-                  <div className="flex items-center justify-between mb-1">
-                    <div className="flex items-center gap-1.5">
-                      {i === 0 && (
-                        <span className="text-xs bg-noble-100 text-noble-700 font-semibold px-1.5 py-0.5 rounded-full">
-                          #1
-                        </span>
-                      )}
-                      <span className="text-sm font-semibold text-slate-800">{trait.label}</span>
+          {/* ── Trait Axis Rankings ──────────────────────────────────── */}
+          <section className="mb-tns-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+              Trait axis rankings
+            </p>
+            <h2 className="font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-tight mb-tns-xl">
+              How you naturally show up
+            </h2>
+            <ul className="space-y-tns-md">
+              {traits.map((trait) => (
+                <li key={trait.key}>
+                  <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
+                    <span className="text-[15px] font-medium text-tns-fg">
+                      {trait.label}
                       {trait.closeRankTie && (
-                        <span className="text-[10px] text-slate-400 font-normal">
+                        <span className="text-[12px] text-tns-muted font-normal ml-tns-sm">
                           (near {trait.tiedWith.map((k) => traitLabels[k]).join(', ')})
                         </span>
                       )}
-                    </div>
-                    <span className="text-sm font-bold text-noble-700">
+                    </span>
+                    <span className="text-[13px] text-tns-muted shrink-0">
                       {trait.matchPercentage}%
                     </span>
                   </div>
-                  <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-1 bg-tns-border w-full">
                     <div
-                      className={`h-full rounded-full transition-all duration-700 ${i === 0 ? 'bg-noble-600' : 'bg-noble-300'}`}
+                      className="h-full bg-tns-accent transition-all duration-700"
                       style={{ width: `${trait.matchPercentage}%` }}
                     />
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
 
-          <section className="card px-6 py-6">
-            <h2 className="text-base font-bold text-slate-900 mb-1">Style Axis Rankings</h2>
-            <p className="text-xs text-slate-400 mb-5">What you naturally do</p>
-            <div className="space-y-4">
-              {styles.map((style, i) => (
-                <div key={style.key}>
-                  <div className="flex items-center justify-between mb-1">
-                    <div className="flex items-center gap-1.5">
-                      {i === 0 && (
-                        <span className="text-xs bg-noble-100 text-noble-700 font-semibold px-1.5 py-0.5 rounded-full">
-                          #1
-                        </span>
-                      )}
-                      <span className="text-sm font-semibold text-slate-800">{style.label}</span>
+          {/* ── Style Axis Rankings ──────────────────────────────────── */}
+          <section className="mb-tns-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+              Style axis rankings
+            </p>
+            <h2 className="font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-tight mb-tns-xl">
+              What you naturally do
+            </h2>
+            <ul className="space-y-tns-md">
+              {styles.map((style) => (
+                <li key={style.key}>
+                  <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
+                    <span className="text-[15px] font-medium text-tns-fg">
+                      {style.label}
                       {style.closeRankTie && (
-                        <span className="text-[10px] text-slate-400 font-normal">
+                        <span className="text-[12px] text-tns-muted font-normal ml-tns-sm">
                           (near {style.tiedWith.map((k) => styleLabels[k]).join(', ')})
                         </span>
                       )}
-                    </div>
-                    <span className="text-sm font-bold text-noble-700">
+                    </span>
+                    <span className="text-[13px] text-tns-muted shrink-0">
                       {style.matchPercentage}%
                     </span>
                   </div>
-                  <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-1 bg-tns-border w-full">
                     <div
-                      className={`h-full rounded-full transition-all duration-700 ${i === 0 ? 'bg-noble-600' : 'bg-noble-300'}`}
+                      className="h-full bg-tns-accent transition-all duration-700"
                       style={{ width: `${style.matchPercentage}%` }}
                     />
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
-        </div>
 
-        {/* ── 12 Dimension Scores ───────────────────────────────────── */}
-        <section className="card px-8 py-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-6">Your 12 Dimension Scores</h2>
-          <div className="space-y-4">
-            {DIMENSION_ORDER.map((key) => {
-              const value = scores[key] ?? 0
-              const pct = (value / 5) * 100
-              const label = DIMENSION_LABELS[key]
-              const level =
-                value >= 4.5 ? 'Very High' :
-                value >= 3.5 ? 'High' :
-                value >= 2.5 ? 'Moderate' :
-                value >= 1.5 ? 'Low' : 'Very Low'
-              const levelColor =
-                value >= 4.5 ? 'text-emerald-700' :
-                value >= 3.5 ? 'text-noble-700' :
-                value >= 2.5 ? 'text-amber-600' :
-                'text-red-500'
-
-              return (
-                <div key={key}>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-sm font-medium text-slate-700">{label}</span>
-                    <div className="flex items-center gap-2">
-                      <span className={`text-xs font-semibold ${levelColor}`}>{level}</span>
-                      <span className="text-sm font-bold text-slate-900 w-8 text-right">
-                        {value.toFixed(1)}
+          {/* ── 12 Dimension Scores ──────────────────────────────────── */}
+          <section className="mb-tns-2xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+              All 12 dimensions
+            </p>
+            <h2 className="font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-tight mb-tns-xl">
+              Your full score profile
+            </h2>
+            <ul className="space-y-tns-md">
+              {DIMENSION_ORDER.map((key) => {
+                const value = scores[key] ?? 0
+                const pct = (value / 5) * 100
+                return (
+                  <li key={key}>
+                    <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
+                      <span className="text-[15px] font-medium text-tns-fg">
+                        {DIMENSION_LABELS[key]}
+                      </span>
+                      <span className="text-[13px] text-tns-muted shrink-0">
+                        {value.toFixed(1)} / 5
                       </span>
                     </div>
-                  </div>
-                  <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-noble-600 transition-all duration-700"
-                      style={{ width: `${pct}%` }}
-                    />
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </section>
+                    <div className="h-1 bg-tns-border w-full">
+                      <div
+                        className="h-full bg-tns-accent transition-all duration-700"
+                        style={{ width: `${pct}%` }}
+                      />
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+        </Container>
+      </Section>
 
-        {/* ── Dev Codex CTA (no paywall) ────────────────────────────── */}
-        <section className="card bg-noble-600 p-8 text-center text-white">
-          <p className="text-noble-200 text-sm font-semibold uppercase tracking-widest mb-2">
-            Dev mode — payment bypassed
-          </p>
-          <h3 className="text-2xl font-bold mb-4">
-            Generate Your {primary.name} Codex
-          </h3>
-          <Link
-            href={`/codex/${id}?fallback=true`}
-            className="inline-flex items-center gap-2 bg-white text-noble-700 font-semibold
-                       px-8 py-3 rounded-lg hover:bg-noble-50 transition"
-          >
-            Open My Codex →
-          </Link>
-        </section>
-      </main>
+      {/* ── Codex CTA panel ─────────────────────────────────────────── */}
+      <div className="border-t border-tns-border">
+        <Section size="xl">
+          <Container maxWidth="prose">
+            <div className="bg-tns-bgAlt rounded-2xl px-tns-xl py-tns-3xl text-center">
+              <p className="text-base font-semibold uppercase tracking-widest text-tns-fg mb-tns-md">
+                YOUR RESULTS ARE IN
+              </p>
+              <h2 className="font-display font-medium text-tns-fg text-3xl md:text-4xl tracking-tight leading-tight mb-tns-xs">
+                Your Codex is ready.
+              </h2>
+              <p className="font-display italic text-tns-muted text-xl md:text-2xl tracking-tight leading-tight mt-tns-lg mb-tns-sm">
+                {primary.name}
+              </p>
+              <p className="font-sans text-base md:text-lg text-tns-fg leading-relaxed max-w-prose mx-auto mb-tns-xl">
+                Stop guessing why you win or lose deals. Your results reveal the preparation styles and selling habits that are holding you back. The Codex teaches you how to fix them.
+              </p>
+              <Link
+                href={`/codex/${id}?fallback=true`}
+                className="inline-flex items-center justify-center bg-tns-accent text-tns-bg font-medium px-6 py-3 rounded-lg hover:bg-tns-accentDark transition-colors duration-150"
+              >
+                Get my Codex
+              </Link>
+            </div>
+          </Container>
+        </Section>
+      </div>
 
-      <footer className="border-t border-slate-100 py-8 mt-12">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-xs text-slate-400">
+      {/* ── Footer ──────────────────────────────────────────────────── */}
+      <Section size="md" as="footer" className="border-t border-tns-border">
+        <Container maxWidth="prose">
+          <p className="text-[12px] text-tns-muted text-center">
             © {new Date().getFullYear()} The Noble Seller · The Noble Quotient
           </p>
-        </div>
-      </footer>
+        </Container>
+      </Section>
     </div>
   )
 }

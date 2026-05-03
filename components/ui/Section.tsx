@@ -9,9 +9,9 @@ type Props = {
 }
 
 const sizeMap: Record<NonNullable<Props['size']>, string> = {
-  md: 'py-tns-md',
-  lg: 'py-tns-2xl',
-  xl: 'py-tns-4xl',
+  md: 'py-tns-sm',
+  lg: 'py-tns-xl',
+  xl: 'py-tns-3xl',
 }
 
 export function Section({ children, size = 'lg', as: Tag = 'section', className = '', id }: Props) {

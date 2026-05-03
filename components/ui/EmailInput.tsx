@@ -80,12 +80,12 @@ export function EmailInput({
           required
           autoComplete="email"
           disabled={isLoading}
-          className="flex-1 bg-transparent border-b border-tns-border px-0 py-3 text-tns-fg placeholder:text-tns-muted focus:outline-none focus:border-tns-accent transition-colors disabled:opacity-60"
+          className="flex-1 bg-transparent border-b border-tns-border rounded-lg px-0 py-3 text-tns-fg placeholder:text-tns-muted focus:outline-none focus:border-tns-accent transition-colors disabled:opacity-60"
         />
         <button
           type="submit"
           disabled={isLoading}
-          className="bg-tns-accent text-tns-bg px-6 py-3 font-medium hover:bg-tns-accentDark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-tns-accent focus-visible:ring-offset-2 disabled:opacity-60"
+          className="bg-tns-accent text-tns-bg px-6 py-3 rounded-lg font-medium hover:bg-tns-accentDark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-tns-accent focus-visible:ring-offset-2 disabled:opacity-60"
         >
           {isLoading ? '···' : buttonLabel}
         </button>

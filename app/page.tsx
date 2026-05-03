@@ -31,7 +31,7 @@ export default function HomePage() {
       <Section size="lg">
         <Container maxWidth="prose">
           <div className="text-center">
-            <p className="text-[12px] uppercase tracking-[0.08em] text-tns-muted mb-tns-md">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-md">
               What&apos;s inside
             </p>
             <h2 className="font-display font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-[1.1] mb-tns-2xl md:mb-tns-3xl">
@@ -78,7 +78,7 @@ export default function HomePage() {
         <Section size="xl" className="py-tns-5xl">
           <Container maxWidth="prose">
             <div className="text-center">
-              <p className="text-xs uppercase tracking-wider text-tns-muted mb-6">
+              <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-6">
                 Who this is for
               </p>
               <h2 className="font-display font-medium text-tns-fg text-3xl md:text-4xl tracking-tight leading-[1.1] mb-8">
@@ -99,7 +99,7 @@ export default function HomePage() {
       <Section size="xl" className="pb-tns-2xl">
         <Container maxWidth="prose">
           <div className="text-center">
-            <p className="text-[12px] uppercase tracking-[0.08em] text-tns-muted mb-tns-lg">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-lg">
               Start here
             </p>
             <h2 className="font-display font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-[1.1] mb-tns-lg">

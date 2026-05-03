@@ -38,15 +38,11 @@ export default function PaywallButton({ assessmentId, isSubscriber, devMode = fa
   }
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-tns-sm">
       <button
         onClick={handleCheckout}
         disabled={loading}
-        className={
-          devMode
-            ? 'w-full sm:w-auto px-10 py-4 bg-amber-500 text-white font-semibold rounded-lg hover:bg-amber-600 transition disabled:opacity-50 flex items-center justify-center gap-2'
-            : 'btn-primary text-base px-10 py-4 w-full sm:w-auto'
-        }
+        className="inline-flex items-center justify-center gap-2 bg-tns-accent text-tns-bg font-medium px-8 py-3 rounded-lg hover:bg-tns-accentDark transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-tns-accent focus-visible:ring-offset-2"
       >
         {loading ? (
           <>
@@ -57,12 +53,12 @@ export default function PaywallButton({ assessmentId, isSubscriber, devMode = fa
             {devMode ? 'Unlocking…' : 'Redirecting to checkout…'}
           </>
         ) : devMode ? (
-          <>DEV MODE — Bypass payment</>
+          <>Dev mode · bypass payment</>
         ) : (
-          <>Unlock My Codex — {isSubscriber ? '$37' : '$47'}</>
+          <>Unlock my Codex · {isSubscriber ? '$37' : '$47'}</>
         )}
       </button>
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-[13px] text-tns-accent">{error}</p>}
     </div>
   )
 }

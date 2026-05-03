@@ -8,7 +8,7 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-tns-accent text-tns-bg px-6 py-3 hover:bg-tns-accentDark',
+    'bg-tns-accent text-tns-bg px-6 py-3 rounded-lg hover:bg-tns-accentDark',
   ghost:
     'bg-transparent text-tns-accent px-2 py-1 hover:underline underline-offset-4',
   link:

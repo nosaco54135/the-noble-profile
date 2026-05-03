@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Container } from './Container'
+import { HeaderNav } from './HeaderNav'
 
 export function SiteHeader() {
   return (
@@ -11,14 +12,7 @@ export function SiteHeader() {
         >
           The Noble Seller
         </Link>
-        <nav className="hidden md:flex items-center gap-tns-lg text-sm text-tns-muted">
-          <Link href="/quotient" className="hover:text-tns-fg transition-colors">
-            The Noble Quotient
-          </Link>
-          <a href="/#subscribe" className="hover:text-tns-fg transition-colors">
-            Subscribe
-          </a>
-        </nav>
+        <HeaderNav />
       </Container>
     </header>
   )

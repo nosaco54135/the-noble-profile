@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { Container } from '@/components/ui/Container'
+import { Section } from '@/components/ui/Section'
 import { serverStorage } from '@/lib/storage'
 import { isStripeConfigured } from '@/lib/stripe'
 import {
@@ -14,6 +16,112 @@ import {
 import PaywallButton from './PaywallButton'
 import FallbackResultsPage from './FallbackResultsPage'
 
+// DEV ONLY — stable sample data for /quotient/results/dev-test
+// Allows design iteration without running a real assessment.
+const DEV_SAMPLE_DATA = {
+  id: 'dev-test',
+  primaryArchetype: {
+    name: 'The Empathic Closer',
+    traitLabel: 'Empathic',
+    styleLabel: 'Closer',
+    matchPercentage: 58,
+    traitTagline: 'Reads the room and makes the other person feel it.',
+    styleTagline: 'Asks for the decision without flinching.',
+    traitScore: 3.9,
+    styleScore: 3.8,
+    nearTrait: 'Curious',
+    nearStyle: 'Advisor'
+  },
+  secondaryArchetype: {
+    name: 'The Curious Advisor',
+    traitLabel: 'Curious',
+    styleLabel: 'Advisor',
+    matchPercentage: 36,
+    traitScore: 3.6,
+    styleScore: 3.5,
+    nearTrait: null,
+    nearStyle: null
+  },
+  tertiaryArchetype: {
+    name: 'The Authentic Hunter',
+    traitLabel: 'Authentic',
+    styleLabel: 'Hunter',
+    matchPercentage: 31,
+    traitScore: 3.2,
+    styleScore: 3.1,
+    nearTrait: null,
+    nearStyle: null
+  },
+  dimensionScores: {
+    eq_trust: 4.1,
+    active_listening: 3.8,
+    curiosity: 3.6,
+    mindset_resilience: 2.2,
+    closing_confidence: 3.8,
+    prospecting_comfort: 2.1,
+    data_driven: 1.9,
+    authenticity: 2.2,
+    process_oriented: 2.4,
+    problem_solving: 3.1,
+    customer_centric: 2.3,
+    learning_style: 2.7
+  },
+  traitScores: {
+    Empathic: 0.96,
+    Curious: 0.58,
+    Authentic: 0.53,
+    Adaptive: 0.49,
+    Strategic: 0.50,
+    Devoted: 0.50,
+    Resilient: 0.43,
+    Methodical: 0.45
+  },
+  styleScores: {
+    Closer: 0.57,
+    Advisor: 0.56,
+    Hunter: 0.48,
+    Student: 0.48,
+    Architect: 0.51,
+    Connector: 0.46,
+    Challenger: 0.45,
+    Cultivator: 0.46
+  },
+  topStrengths: [
+    {
+      dimension: 'EQ / Trust',
+      score: 4.1,
+      insight: 'You read the room and respond to what people actually feel, not just what they say. Prospects tell you things they don\'t tell other reps.'
+    },
+    {
+      dimension: 'Problem Solving',
+      score: 3.1,
+      insight: 'You find the creative path when the standard one is blocked. Deals move forward because you think around corners.'
+    },
+    {
+      dimension: 'Curiosity',
+      score: 3.6,
+      insight: 'You pull threads other reps drop. One more question than most people ask is usually the one that unlocks the deal.'
+    }
+  ],
+  topBlindSpots: [
+    {
+      dimension: 'Data-Driven',
+      score: 1.9,
+      insight: 'You pitch features before business impact. Executives buy outcomes. Lead with cost saved, revenue gained, or time recovered.'
+    },
+    {
+      dimension: 'Prospecting Comfort',
+      score: 2.1,
+      insight: 'You work existing deals instead of opening new ones. That feels safe but it starves your pipeline 60 days out.'
+    },
+    {
+      dimension: 'Authenticity',
+      score: 2.2,
+      insight: 'You soften hard truths to protect the deal. Prospects feel it, and they trust the rep who tells them the thing they didn\'t want to hear.'
+    }
+  ]
+}
+
 interface Props {
   params: Promise<{ id: string }>
   searchParams: Promise<{ canceled?: string; fallback?: string }>
@@ -26,7 +134,6 @@ interface Props {
  */
 function closeTieSuffix(
   ranked: RankedTrait | RankedStyle,
-  // A lookup from key → label, used to show the tie partner's label.
   lookup: Record<string, string>,
 ): string {
   if (!ranked.closeRankTie || ranked.tiedWith.length === 0) return ''
@@ -38,7 +145,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
   const { id } = await params
   const { canceled, fallback } = await searchParams
 
-  if (fallback === 'true' || !serverStorage.isAvailable()) {
+  if (id === 'dev-test' || fallback === 'true' || !serverStorage.isAvailable()) {
     return <FallbackResultsPage id={id} />
   }
 
@@ -50,364 +157,318 @@ export default async function ResultsPage({ params, searchParams }: Props) {
 
   const { primary, secondary, tertiary, traits, styles } = result
 
-  // Build label lookups for close-tie annotations
   const traitLabels: Record<string, string> = Object.fromEntries(traits.map((t) => [t.key, t.label]))
   const styleLabels: Record<string, string> = Object.fromEntries(styles.map((s) => [s.key, s.label]))
 
-  // Top 3 / bottom 3 dimensions for strengths + blind spots
   const sortedDims = [...DIMENSION_ORDER].sort((a, b) => scores[b] - scores[a])
   const topDims: DimensionKey[] = sortedDims.slice(0, 3)
-  const bottomDims: DimensionKey[] = sortedDims.slice(-3).reverse() // weakest first
+  const bottomDims: DimensionKey[] = sortedDims.slice(-3).reverse()
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Nav */}
-      <nav className="bg-white border-b border-slate-100 sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/quotient" className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-noble-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xs">N</span>
+    <div className="min-h-screen bg-tns-bg text-tns-fg">
+      <Section size="lg">
+        <Container maxWidth="prose">
+          {canceled && (
+            <div className="mb-tns-3xl border border-tns-border bg-tns-bgAlt px-tns-lg py-tns-md text-[14px] text-tns-fg">
+              Payment was canceled. Your results are still here whenever you&apos;re ready to unlock your Codex.
             </div>
-            <span className="text-sm font-semibold text-slate-700">The Noble Seller</span>
-          </Link>
-          <span className="text-sm font-medium text-noble-600">Your Noble Quotient</span>
-        </div>
-      </nav>
+          )}
 
-      <main className="max-w-4xl mx-auto px-6 py-12 space-y-10">
-        {canceled && (
-          <div className="bg-amber-50 border border-amber-200 text-amber-800 rounded-xl px-5 py-4 text-sm">
-            Payment was canceled. Your results are still here whenever you&apos;re ready to unlock your Codex.
-          </div>
-        )}
+          {/* ── Primary Archetype (magazine cover line) ──────────────── */}
+          <header className="mb-tns-4xl bg-tns-accent text-tns-bg rounded-2xl px-tns-xl py-tns-2xl">
+            <div className="text-center">
+              <p className="text-sm font-semibold uppercase tracking-widest text-tns-bg/70 mb-tns-md">
+                Primary archetype · {primary.matchPercentage}% match
+              </p>
+              <h1 className="font-display font-medium text-4xl md:text-5xl tracking-tight leading-[1.02] mb-tns-2xl">
+                The {primary.name}
+              </h1>
+            </div>
 
-        {/* ── Primary Archetype ─────────────────────────────────────── */}
-        <section className="card overflow-hidden">
-          <div className="bg-gradient-to-br from-noble-600 to-noble-800 px-8 py-10 text-white">
-            <p className="text-noble-200 text-xs font-semibold uppercase tracking-widest mb-3">
-              Primary Archetype · {primary.matchPercentage}% match
-            </p>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6">
-              The {primary.name}
-            </h1>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="bg-white/10 rounded-xl px-5 py-4">
-                <p className="text-noble-300 text-xs font-semibold uppercase tracking-widest mb-1">
-                  Trait Axis (How you show up)
+            <div className="grid gap-tns-lg md:grid-cols-2">
+              <div className="border-t border-tns-bg/20 pt-tns-md">
+                <p className="text-sm font-semibold uppercase tracking-widest text-tns-bg/70 mb-tns-xs">
+                  Trait axis
                 </p>
-                <p className="text-white text-xl font-bold">
+                <p className="font-medium text-[18px] leading-snug">
                   {primary.trait.label}
                 </p>
-                <p className="text-noble-200 text-sm mt-1">{primary.trait.tagline}</p>
-                <p className="text-noble-300 text-xs mt-2 font-mono">
-                  {primary.trait.score.toFixed(1)}/5.0{closeTieSuffix(primary.trait, traitLabels)}
+                <p className="text-[14px] text-tns-bg/80 leading-relaxed mt-tns-xs">
+                  {primary.trait.tagline}
+                </p>
+                <p className="text-[12px] text-tns-bg/70 mt-tns-sm">
+                  {primary.trait.score.toFixed(1)} / 5{closeTieSuffix(primary.trait, traitLabels)}
                 </p>
               </div>
-              <div className="bg-white/10 rounded-xl px-5 py-4">
-                <p className="text-noble-300 text-xs font-semibold uppercase tracking-widest mb-1">
-                  Style Axis (What you do)
+              <div className="border-t border-tns-bg/20 pt-tns-md">
+                <p className="text-sm font-semibold uppercase tracking-widest text-tns-bg/70 mb-tns-xs">
+                  Style axis
                 </p>
-                <p className="text-white text-xl font-bold">
+                <p className="font-medium text-[18px] leading-snug">
                   {primary.style.label}
                 </p>
-                <p className="text-noble-200 text-sm mt-1">{primary.style.tagline}</p>
-                <p className="text-noble-300 text-xs mt-2 font-mono">
-                  {primary.style.score.toFixed(1)}/5.0{closeTieSuffix(primary.style, styleLabels)}
+                <p className="text-[14px] text-tns-bg/80 leading-relaxed mt-tns-xs">
+                  {primary.style.tagline}
+                </p>
+                <p className="text-[12px] text-tns-bg/70 mt-tns-sm">
+                  {primary.style.score.toFixed(1)} / 5{closeTieSuffix(primary.style, styleLabels)}
                 </p>
               </div>
             </div>
-          </div>
+          </header>
 
-          {/* Secondary + Tertiary */}
-          <div className="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-            <div className="px-8 py-6">
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest mb-2">
-                Secondary Archetype · {secondary.matchPercentage}% match
+          {/* ── Secondary + Tertiary ─────────────────────────────────── */}
+          <section className="mb-tns-4xl pt-tns-2xl border-t border-tns-border grid gap-tns-2xl md:grid-cols-2">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+                Secondary archetype · {secondary.matchPercentage}%
               </p>
-              <p className="font-bold text-slate-800 text-lg mb-1">The {secondary.name}</p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-medium">
-                  {secondary.trait.label} ({secondary.trait.score.toFixed(1)})
-                </span>
-                <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-medium">
-                  {secondary.style.label} ({secondary.style.score.toFixed(1)})
-                </span>
-              </div>
-            </div>
-            <div className="px-8 py-6">
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest mb-2">
-                Tertiary Awareness · {tertiary.matchPercentage}% match
+              <p className="font-medium text-tns-fg text-xl md:text-2xl leading-tight mb-tns-sm">
+                The {secondary.name}
               </p>
-              <p className="font-bold text-slate-800 text-lg mb-1">The {tertiary.name}</p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-medium">
-                  {tertiary.trait.label} ({tertiary.trait.score.toFixed(1)})
-                </span>
-                <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-medium">
-                  {tertiary.style.label} ({tertiary.style.score.toFixed(1)})
-                </span>
-              </div>
+              <p className="text-[14px] text-tns-muted">
+                {secondary.trait.label} ({secondary.trait.score.toFixed(1)}) · {secondary.style.label} ({secondary.style.score.toFixed(1)})
+              </p>
             </div>
-          </div>
-        </section>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+                Tertiary archetype · {tertiary.matchPercentage}%
+              </p>
+              <p className="font-medium text-tns-fg text-xl md:text-2xl leading-tight mb-tns-sm">
+                The {tertiary.name}
+              </p>
+              <p className="text-[14px] text-tns-muted">
+                {tertiary.trait.label} ({tertiary.trait.score.toFixed(1)}) · {tertiary.style.label} ({tertiary.style.score.toFixed(1)})
+              </p>
+            </div>
+          </section>
 
-        {/* ── Honest framing line (spec Stage 4) ────────────────────── */}
-        <section className="bg-white rounded-2xl border border-slate-200 px-6 py-5">
-          <p className="text-slate-700 leading-relaxed text-[15px]">
-            No one scores high across every dimension. Your top scores reveal
-            your natural selling identity. Your lower scores aren&rsquo;t
-            weaknesses. They&rsquo;re the specific areas where focused
-            development will move your performance most.
+          {/* ── Honest framing ───────────────────────────────────────── */}
+          <p className="mb-tns-4xl text-[17px] text-tns-fg leading-relaxed">
+            No one scores high across every dimension. Your top scores reveal your natural selling identity. Your lower scores aren&rsquo;t weaknesses. They&rsquo;re the specific areas where focused development will move your performance most.
           </p>
-        </section>
 
-        {/* ── Top 3 Strengths ───────────────────────────────────────── */}
-        <section className="card px-8 py-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-1">Your Top 3 Strengths</h2>
-          <p className="text-sm text-slate-400 mb-6">Where your scores run strongest</p>
-          <div className="space-y-5">
-            {topDims.map((dim, i) => (
-              <div key={dim} className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
-                  {i + 1}
-                </div>
-                <div>
-                  <div className="flex items-baseline gap-3 mb-1">
-                    <h3 className="font-bold text-slate-900">{DIMENSION_LABELS[dim]}</h3>
-                    <span className="text-sm font-mono text-slate-500">
-                      {scores[dim].toFixed(1)}/5.0
-                    </span>
+          {/* ── Top 3 Strengths ──────────────────────────────────────── */}
+          <section className="mb-tns-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+              Where you run strongest
+            </p>
+            <h2 className="font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-tight mb-tns-xl">
+              Your top 3 strengths
+            </h2>
+            <ol className="space-y-tns-lg">
+              {topDims.map((dim, i) => (
+                <li key={dim} className="flex items-start gap-tns-md">
+                  <span className="size-7 shrink-0 mt-0.5 rounded-full bg-tns-accent text-tns-bg text-[13px] font-medium flex items-center justify-center">
+                    {i + 1}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
+                      <h3 className="font-medium text-tns-fg text-[17px]">{DIMENSION_LABELS[dim]}</h3>
+                      <span className="text-[13px] text-tns-muted shrink-0">
+                        {scores[dim].toFixed(1)} / 5
+                      </span>
+                    </div>
+                    <p className="text-[15px] text-tns-muted leading-relaxed">
+                      {DIMENSION_STRENGTHS[dim]}
+                    </p>
                   </div>
-                  <p className="text-slate-600 leading-relaxed text-sm">
-                    {DIMENSION_STRENGTHS[dim]}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+                </li>
+              ))}
+            </ol>
+          </section>
 
-        {/* ── Top 3 Blind Spots ─────────────────────────────────────── */}
-        <section className="card px-8 py-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-1">Your Top 3 Blind Spots</h2>
-          <p className="text-sm text-slate-400 mb-6">Where focused work pays off fastest</p>
-          <div className="space-y-5">
-            {bottomDims.map((dim, i) => (
-              <div key={dim} className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
-                  {i + 1}
-                </div>
-                <div>
-                  <div className="flex items-baseline gap-3 mb-1">
-                    <h3 className="font-bold text-slate-900">{DIMENSION_LABELS[dim]}</h3>
-                    <span className="text-sm font-mono text-slate-500">
-                      {scores[dim].toFixed(1)}/5.0
-                    </span>
+          {/* ── Top 3 Blind Spots ────────────────────────────────────── */}
+          <section className="mb-tns-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+              Where focused work pays off fastest
+            </p>
+            <h2 className="font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-tight mb-tns-xl">
+              Your top 3 blind spots
+            </h2>
+            <ol className="space-y-tns-lg">
+              {bottomDims.map((dim, i) => (
+                <li key={dim} className="flex items-start gap-tns-md">
+                  <span className="size-7 shrink-0 mt-0.5 rounded-full bg-tns-accent text-tns-bg text-[13px] font-medium flex items-center justify-center">
+                    {i + 1}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
+                      <h3 className="font-medium text-tns-fg text-[17px]">{DIMENSION_LABELS[dim]}</h3>
+                      <span className="text-[13px] text-tns-muted shrink-0">
+                        {scores[dim].toFixed(1)} / 5
+                      </span>
+                    </div>
+                    <p className="text-[15px] text-tns-muted leading-relaxed">
+                      {DIMENSION_BLIND_SPOTS[dim]}
+                    </p>
                   </div>
-                  <p className="text-slate-600 leading-relaxed text-sm">
-                    {DIMENSION_BLIND_SPOTS[dim]}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+                </li>
+              ))}
+            </ol>
+          </section>
 
-        {/* ── Trait + Style Rankings (two columns) ─────────────────── */}
-        <div className="grid sm:grid-cols-2 gap-6">
-          <section className="card px-6 py-6">
-            <h2 className="text-base font-bold text-slate-900 mb-1">Trait Axis Rankings</h2>
-            <p className="text-xs text-slate-400 mb-5">How you naturally show up</p>
-            <div className="space-y-4">
-              {traits.map((trait, i) => (
-                <div key={trait.key}>
-                  <div className="flex items-center justify-between mb-1">
-                    <div className="flex items-center gap-1.5">
-                      {i === 0 && (
-                        <span className="text-xs bg-noble-100 text-noble-700 font-semibold px-1.5 py-0.5 rounded-full">
-                          #1
-                        </span>
-                      )}
-                      <span className="text-sm font-semibold text-slate-800">{trait.label}</span>
+          {/* ── Trait Axis Rankings ──────────────────────────────────── */}
+          <section className="mb-tns-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+              Trait axis rankings
+            </p>
+            <h2 className="font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-tight mb-tns-xl">
+              How you naturally show up
+            </h2>
+            <ul className="space-y-tns-md">
+              {traits.map((trait) => (
+                <li key={trait.key}>
+                  <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
+                    <span className="text-[15px] font-medium text-tns-fg">
+                      {trait.label}
                       {trait.closeRankTie && (
-                        <span className="text-[10px] text-slate-400 font-normal">
+                        <span className="text-[12px] text-tns-muted font-normal ml-tns-sm">
                           (near {trait.tiedWith.map((k) => traitLabels[k]).join(', ')})
                         </span>
                       )}
-                    </div>
-                    <span className="text-sm font-bold text-noble-700">
+                    </span>
+                    <span className="text-[13px] text-tns-muted shrink-0">
                       {trait.matchPercentage}%
                     </span>
                   </div>
-                  <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-1 bg-tns-border w-full">
                     <div
-                      className={`h-full rounded-full transition-all duration-700 ${i === 0 ? 'bg-noble-600' : 'bg-noble-300'}`}
+                      className="h-full bg-tns-accent transition-all duration-700"
                       style={{ width: `${trait.matchPercentage}%` }}
                     />
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
 
-          <section className="card px-6 py-6">
-            <h2 className="text-base font-bold text-slate-900 mb-1">Style Axis Rankings</h2>
-            <p className="text-xs text-slate-400 mb-5">What you naturally do</p>
-            <div className="space-y-4">
-              {styles.map((style, i) => (
-                <div key={style.key}>
-                  <div className="flex items-center justify-between mb-1">
-                    <div className="flex items-center gap-1.5">
-                      {i === 0 && (
-                        <span className="text-xs bg-noble-100 text-noble-700 font-semibold px-1.5 py-0.5 rounded-full">
-                          #1
-                        </span>
-                      )}
-                      <span className="text-sm font-semibold text-slate-800">{style.label}</span>
+          {/* ── Style Axis Rankings ──────────────────────────────────── */}
+          <section className="mb-tns-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+              Style axis rankings
+            </p>
+            <h2 className="font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-tight mb-tns-xl">
+              What you naturally do
+            </h2>
+            <ul className="space-y-tns-md">
+              {styles.map((style) => (
+                <li key={style.key}>
+                  <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
+                    <span className="text-[15px] font-medium text-tns-fg">
+                      {style.label}
                       {style.closeRankTie && (
-                        <span className="text-[10px] text-slate-400 font-normal">
+                        <span className="text-[12px] text-tns-muted font-normal ml-tns-sm">
                           (near {style.tiedWith.map((k) => styleLabels[k]).join(', ')})
                         </span>
                       )}
-                    </div>
-                    <span className="text-sm font-bold text-noble-700">
+                    </span>
+                    <span className="text-[13px] text-tns-muted shrink-0">
                       {style.matchPercentage}%
                     </span>
                   </div>
-                  <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-1 bg-tns-border w-full">
                     <div
-                      className={`h-full rounded-full transition-all duration-700 ${i === 0 ? 'bg-noble-600' : 'bg-noble-300'}`}
+                      className="h-full bg-tns-accent transition-all duration-700"
                       style={{ width: `${style.matchPercentage}%` }}
                     />
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
-        </div>
 
-        {/* ── 12 Dimension Scores ───────────────────────────────────── */}
-        <section className="card px-8 py-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-6">Your 12 Dimension Scores</h2>
-          <div className="space-y-4">
-            {DIMENSION_ORDER.map((key) => {
-              const value = scores[key] ?? 0
-              const pct = (value / 5) * 100
-              const label = DIMENSION_LABELS[key]
-              const level =
-                value >= 4.5 ? 'Very High' :
-                value >= 3.5 ? 'High' :
-                value >= 2.5 ? 'Moderate' :
-                value >= 1.5 ? 'Low' : 'Very Low'
-              const levelColor =
-                value >= 4.5 ? 'text-emerald-700' :
-                value >= 3.5 ? 'text-noble-700' :
-                value >= 2.5 ? 'text-amber-600' :
-                'text-red-500'
-
-              return (
-                <div key={key}>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-sm font-medium text-slate-700">{label}</span>
-                    <div className="flex items-center gap-2">
-                      <span className={`text-xs font-semibold ${levelColor}`}>{level}</span>
-                      <span className="text-sm font-bold text-slate-900 w-8 text-right">
-                        {value.toFixed(1)}
+          {/* ── 12 Dimension Scores ──────────────────────────────────── */}
+          <section className="mb-tns-2xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
+              All 12 dimensions
+            </p>
+            <h2 className="font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-tight mb-tns-xl">
+              Your full score profile
+            </h2>
+            <ul className="space-y-tns-md">
+              {DIMENSION_ORDER.map((key) => {
+                const value = scores[key] ?? 0
+                const pct = (value / 5) * 100
+                return (
+                  <li key={key}>
+                    <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
+                      <span className="text-[15px] font-medium text-tns-fg">
+                        {DIMENSION_LABELS[key]}
+                      </span>
+                      <span className="text-[13px] text-tns-muted shrink-0">
+                        {value.toFixed(1)} / 5
                       </span>
                     </div>
-                  </div>
-                  <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-noble-600 transition-all duration-700"
-                      style={{ width: `${pct}%` }}
+                    <div className="h-1 bg-tns-border w-full">
+                      <div
+                        className="h-full bg-tns-accent transition-all duration-700"
+                        style={{ width: `${pct}%` }}
+                      />
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+        </Container>
+      </Section>
+
+      {/* ── Codex CTA panel ────────────────────────────────────────── */}
+      <div className="border-t border-tns-border">
+        <Section size="xl">
+          <Container maxWidth="prose">
+            <div className="bg-tns-bgAlt rounded-2xl px-tns-xl py-tns-3xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-md">
+                GO DEEPER
+              </p>
+              <h2 className="font-display font-medium text-tns-fg text-3xl md:text-4xl tracking-tight leading-tight">
+                Your Codex is ready.
+              </h2>
+              <p className="font-display italic text-tns-muted text-xl md:text-2xl tracking-tight leading-tight mt-tns-xs mb-tns-lg">
+                — The {primary.name}
+              </p>
+              <p className="font-sans text-base md:text-lg text-tns-fg leading-relaxed max-w-prose mx-auto mb-tns-xl">
+                Your archetype is just the start. The Codex turns your scores into six sections of personalized coaching: your selling identity, your prospecting style, your blind spots, your 30/60/90 plan, and more.
+              </p>
+              {paymentStatus === 'paid' ? (
+                <Link
+                  href={`/codex/${id}`}
+                  className="inline-flex items-center justify-center bg-tns-accent text-tns-bg font-medium px-6 py-3 rounded-lg hover:bg-tns-accentDark transition-colors duration-150"
+                >
+                  Open my Codex
+                </Link>
+              ) : (
+                <>
+                  <div className="flex justify-center mb-tns-md">
+                    <PaywallButton
+                      assessmentId={id}
+                      isSubscriber={isSubscriber}
+                      devMode={!isStripeConfigured()}
                     />
                   </div>
-                </div>
-              )
-            })}
-          </div>
-        </section>
-
-        {/* ── Codex Paywall ─────────────────────────────────────────── */}
-        {paymentStatus === 'paid' ? (
-          <section className="card bg-noble-600 p-8 text-center text-white">
-            <p className="text-noble-200 text-sm font-semibold uppercase tracking-widest mb-2">
-              Your Codex is ready
-            </p>
-            <h3 className="text-2xl font-bold mb-4">
-              Access Your {primary.name} Codex
-            </h3>
-            <Link
-              href={`/codex/${id}`}
-              className="inline-flex items-center gap-2 bg-white text-noble-700 font-semibold
-                         px-8 py-3 rounded-lg hover:bg-noble-50 transition"
-            >
-              Open My Codex →
-            </Link>
-          </section>
-        ) : (
-          <section className="card overflow-hidden">
-            <div className="relative">
-              <div className="px-8 py-8 select-none pointer-events-none">
-                <h3 className="text-lg font-bold text-slate-800 mb-4">
-                  The {primary.name} Codex
-                </h3>
-                <div className="space-y-3 blur-sm opacity-60">
-                  {[
-                    'Section 1: Your Selling Identity',
-                    'Section 2: Prospecting Approach for Your Style',
-                    'Section 3: Discovery & Closing Tactics',
-                    'Section 4: Your Blind Spot Playbook',
-                    'Section 5: Tools and Resources',
-                    'Section 6: Your 30/60/90 Day Plan',
-                  ].map((s) => (
-                    <div key={s} className="space-y-1.5">
-                      <div className="h-5 bg-slate-200 rounded w-48" />
-                      <div className="h-3 bg-slate-100 rounded w-full" />
-                      <div className="h-3 bg-slate-100 rounded w-4/5" />
-                      <div className="h-3 bg-slate-100 rounded w-3/4" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white" />
+                  <p className="text-[13px] text-tns-muted">
+                    {isSubscriber ? (
+                      <>Subscriber price: <strong className="text-tns-fg font-medium">$37</strong></>
+                    ) : (
+                      <>One-time payment: <strong className="text-tns-fg font-medium">$47</strong> · Instant access · Printable PDF</>
+                    )}
+                  </p>
+                </>
+              )}
             </div>
+          </Container>
+        </Section>
+      </div>
 
-            <div className="px-8 pb-8 text-center space-y-4">
-              <div>
-                <p className="text-xl font-bold text-slate-900 mb-1">
-                  Unlock Your {primary.name} Codex
-                </p>
-                <p className="text-sm text-slate-500 max-w-md mx-auto">
-                  6 sections written specifically for your {primary.trait.label}/{primary.style.label} profile:
-                  prospecting tactics, closing strategies, blind spots, and a 30/60/90 day plan.
-                </p>
-              </div>
-              <PaywallButton
-                assessmentId={id}
-                isSubscriber={isSubscriber}
-                devMode={!isStripeConfigured()}
-              />
-              <p className="text-xs text-slate-400">
-                {isSubscriber ? (
-                  <>Subscriber price: <strong className="text-noble-600">$37</strong> (you saved $10)</>
-                ) : (
-                  <>One-time payment: <strong>$47</strong> · Instant access · Printable PDF</>
-                )}
-              </p>
-            </div>
-          </section>
-        )}
-      </main>
-
-      <footer className="border-t border-slate-100 py-8 mt-12">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-xs text-slate-400">
+      {/* ── Footer ──────────────────────────────────────────────────── */}
+      <Section size="md" as="footer" className="border-t border-tns-border">
+        <Container maxWidth="prose">
+          <p className="text-[12px] text-tns-muted text-center">
             © {new Date().getFullYear()} The Noble Seller · The Noble Quotient
           </p>
-        </div>
-      </footer>
+        </Container>
+      </Section>
     </div>
   )
 }

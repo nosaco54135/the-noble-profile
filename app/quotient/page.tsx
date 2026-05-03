@@ -39,7 +39,7 @@ export default function LandingPage() {
       <Section size="lg" className="pt-16 md:pt-24">
         <Container maxWidth="prose">
           <div className="text-center">
-            <p className="font-sans text-xs uppercase tracking-widest font-medium text-tns-muted mb-tns-md">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-md">
               The Noble Quotient
             </p>
             <h1 className="font-display font-medium text-tns-fg text-[clamp(40px,5vw,60px)] tracking-tight leading-[1.02] mb-tns-lg">
@@ -130,7 +130,7 @@ export default function LandingPage() {
       <Section size="lg">
         <Container maxWidth="prose">
           <div className="text-center">
-            <p className="font-sans text-xs uppercase tracking-widest font-medium text-tns-muted mb-tns-md">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-md">
               What&apos;s inside
             </p>
             <h2 className="font-display font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-[1.1] mb-tns-2xl">
@@ -170,7 +170,7 @@ export default function LandingPage() {
       <Section size="lg">
         <Container maxWidth="prose">
           <div className="text-center">
-            <p className="font-sans text-xs uppercase tracking-widest font-medium text-tns-muted mb-tns-md">
+            <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-md">
               Built by The Noble Seller
             </p>
             <p className="font-sans text-[17px] text-tns-fg leading-relaxed max-w-[560px] mx-auto">
