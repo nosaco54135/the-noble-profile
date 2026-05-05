@@ -9,6 +9,21 @@ interface Props {
   archetypeResult: ScoringResult
 }
 
+const SALES_QUOTES = [
+  "The rep who talks least in discovery usually wins the deal.",
+  "Pipeline is not optimism. It's evidence.",
+  "You can feel rapport and still lose the deal. Rapport is not momentum.",
+  "The close doesn't happen at the end of the call. It happens in the first ten minutes.",
+  "Most sellers ask good questions. Few listen to the answers.",
+  "A full pipeline hides bad habits. A thin one reveals them.",
+  "Buyers don't resist salespeople. They resist salespeople who make them feel sold.",
+  "The follow-up email everyone sends is the one that gets ignored. Write a different one.",
+  "Your instincts are data. Treat them like it.",
+  "The best discovery question is the one you ask after they've stopped talking.",
+  "Confidence in the close comes from certainty in the discovery. Do the work early.",
+  "Nobody buys from the most prepared rep. They buy from the most trusted one.",
+]
+
 /**
  * Client component that triggers on-demand Codex generation
  * when the user lands on the Codex page before it has been generated.
@@ -17,6 +32,8 @@ export default function CodexGenerator({ assessmentId, archetypeResult }: Props)
   const [status, setStatus] = useState<'generating' | 'done' | 'error'>('generating')
   const [codex, setCodex] = useState<string | null>(null)
   const [error, setError] = useState('')
+  const [quoteIndex, setQuoteIndex] = useState(0)
+  const [quoteVisible, setQuoteVisible] = useState(true)
 
   async function generateCodex() {
     setStatus('generating')
@@ -47,12 +64,23 @@ export default function CodexGenerator({ assessmentId, archetypeResult }: Props)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [assessmentId])
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setQuoteVisible(false)
+      setTimeout(() => {
+        setQuoteIndex(prev => (prev + 1) % SALES_QUOTES.length)
+        setQuoteVisible(true)
+      }, 400)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
   if (status === 'error') {
     return (
-      <div className="card px-8 py-10 text-center">
+      <div className="bg-[#FAFAF7] border border-[#E8E6DF] rounded-2xl shadow-sm px-8 py-10 text-center">
         <div className="text-4xl mb-4">⚠️</div>
-        <h3 className="font-bold text-slate-900 mb-2">Generation failed</h3>
-        <p className="text-sm text-slate-500 mb-6">{error}</p>
+        <h3 className="font-bold text-[#0F0F0F] mb-2">Generation failed</h3>
+        <p className="text-sm text-[#6B6B6B] mb-6">{error}</p>
         <button
           onClick={generateCodex}
           className="btn-primary"
@@ -78,37 +106,41 @@ export default function CodexGenerator({ assessmentId, archetypeResult }: Props)
   ]
 
   return (
-    <div className="card px-8 py-12 text-center">
-      <div className="w-16 h-16 rounded-full bg-noble-50 border-4 border-noble-200 flex items-center justify-center mx-auto mb-6">
-        <svg
-          className="w-8 h-8 text-noble-600 animate-spin"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
-          <path
-            className="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-          />
-        </svg>
+    <div className="bg-[#FAFAF7] border border-[#E8E6DF] rounded-2xl shadow-sm px-8 py-12 text-center">
+      <div className="w-16 h-16 rounded-full bg-[#F2F0EB] border-4 border-[#E8E6DF] flex items-center justify-center mx-auto mb-6">
+        <div className="w-8 h-8 rounded-full border-4 border-[#E8E6DF] border-t-[#722F37] animate-spin" />
       </div>
 
-      <h3 className="text-xl font-bold text-slate-900 mb-2">
+      <h3 className="text-xl font-bold text-[#0F0F0F] mb-2">
         Generating your personal Codex…
       </h3>
-      <p className="text-sm text-slate-500 mb-8 max-w-sm mx-auto">
+      <p className="text-sm text-[#6B6B6B] mb-8 max-w-sm mx-auto">
         Your scores are being translated into a personal Codex.
-        This usually takes 20–40 seconds.
+        This usually takes 60–90 seconds.
       </p>
 
       <div className="max-w-xs mx-auto space-y-2 text-left">
         {steps.map((step, i) => (
           <div key={i} className="flex items-center gap-2.5">
-            <div className="w-4 h-4 rounded-full border-2 border-noble-300 flex-shrink-0" />
-            <span className="text-sm text-slate-400">{step}</span>
+            <div className="w-4 h-4 rounded-full border-2 border-[#E8E6DF] flex-shrink-0" />
+            <span className="text-sm text-[#6B6B6B]">{step}</span>
           </div>
         ))}
+      </div>
+
+      <div
+        className="mt-8 pt-8 border-t border-[#E8E6DF] max-w-sm mx-auto text-center"
+        style={{
+          opacity: quoteVisible ? 1 : 0,
+          transition: 'opacity 0.4s ease-in-out',
+        }}
+      >
+        <p className="font-display italic text-base text-[#0F0F0F] leading-relaxed mb-3">
+          &ldquo;{SALES_QUOTES[quoteIndex]}&rdquo;
+        </p>
+        <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B]">
+          The Noble Seller
+        </p>
       </div>
     </div>
   )

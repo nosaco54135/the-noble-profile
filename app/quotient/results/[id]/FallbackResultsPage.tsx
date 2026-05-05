@@ -342,7 +342,7 @@ export default function FallbackResultsPage({ id }: Props) {
                 Stop guessing why you win or lose deals. Your results reveal the preparation styles and selling habits that are holding you back. The Codex teaches you how to fix them.
               </p>
               <Link
-                href={`/codex/${id}?fallback=true`}
+                href={`/codex/${id}`}
                 className="inline-flex items-center justify-center bg-tns-accent text-tns-bg font-medium px-6 py-3 rounded-lg hover:bg-tns-accentDark transition-colors duration-150"
               >
                 Get my Codex

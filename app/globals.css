@@ -13,6 +13,16 @@
   }
 }
 
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 @layer components {
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 bg-noble-600 hover:bg-noble-700
@@ -33,9 +43,87 @@
   }
 }
 
-/* Print styles for Codex */
 @media print {
-  nav, .no-print { display: none !important; }
-  body { background: white !important; }
-  .print-page { padding: 0 !important; }
+  /* Hide everything that isn't content */
+  header,
+  nav,
+  [data-print-hide],
+  .no-print {
+    display: none !important;
+  }
+
+  /* Page setup */
+  body {
+    background: white !important;
+    color: #0F0F0F !important;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+
+  /* Cover block */
+  h1 {
+    font-size: 28pt;
+    line-height: 1.1;
+    margin-bottom: 8pt;
+    page-break-after: avoid;
+  }
+
+  /* Section headings */
+  h2 {
+    font-size: 14pt;
+    margin-top: 24pt;
+    margin-bottom: 6pt;
+    page-break-after: avoid;
+  }
+
+  /* Keep heading with its paragraph */
+  h2 + p {
+    page-break-before: avoid;
+  }
+
+  /* Section articles — avoid breaking mid-section where possible */
+  article {
+    page-break-inside: avoid;
+  }
+
+  /* Oxblood border still prints */
+  article {
+    border-left: 2pt solid #722F37;
+    padding-left: 12pt;
+    margin-bottom: 18pt;
+  }
+
+  /* Links — don't show URLs */
+  a::after {
+    content: none !important;
+  }
+
+  /* Disclosure block */
+  .disclosure-block {
+    margin-top: 24pt;
+    padding-top: 12pt;
+    border-top: 1pt solid #E8E6DF;
+    font-size: 9pt;
+    color: #6B6B6B;
+  }
+
+  /* Footer */
+  footer {
+    display: block !important;
+    margin-top: 12pt;
+    font-size: 9pt;
+    color: #6B6B6B;
+    border-top: 1pt solid #E8E6DF;
+  }
+
+  /* Phase grid: single column in print */
+  .grid.md\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  ol li, .space-y-3 > div {
+    page-break-inside: avoid;
+  }
+  .grid.grid-cols-3, .grid.md\:grid-cols-2 {
+    page-break-inside: avoid;
+  }
 }
