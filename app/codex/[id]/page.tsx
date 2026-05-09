@@ -329,6 +329,14 @@ export default async function CodexPage({ params, searchParams }: Props) {
           <CodexGenerator
             assessmentId={id}
             archetypeResult={assessment.archetypeResult}
+            dimensionScores={dimensionScores}
+            archetypes={{
+              primary: { name: primaryName, matchPercentage: primaryMatchPercentage },
+              secondary: { name: secondaryName, matchPercentage: secondaryMatchPercentage },
+              tertiary: { name: tertiaryName, matchPercentage: tertiaryMatchPercentage },
+            }}
+            topDimensions={topDimensions}
+            gapDimensions={gapDimensions}
           />
         )}
       </main>

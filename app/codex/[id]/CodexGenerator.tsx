@@ -7,6 +7,14 @@ import CodexContent from './CodexContent'
 interface Props {
   assessmentId: string
   archetypeResult: ScoringResult
+  dimensionScores: { key: string; label: string; score: number; max: number }[]
+  archetypes: {
+    primary: { name: string; matchPercentage: number }
+    secondary: { name: string; matchPercentage: number }
+    tertiary: { name: string; matchPercentage: number }
+  }
+  topDimensions: { key: string; label: string; score: number }[]
+  gapDimensions: { key: string; label: string; score: number }[]
 }
 
 const SALES_QUOTES = [
@@ -28,7 +36,7 @@ const SALES_QUOTES = [
  * Client component that triggers on-demand Codex generation
  * when the user lands on the Codex page before it has been generated.
  */
-export default function CodexGenerator({ assessmentId, archetypeResult }: Props) {
+export default function CodexGenerator({ assessmentId, archetypeResult, dimensionScores, archetypes, topDimensions, gapDimensions }: Props) {
   const [status, setStatus] = useState<'generating' | 'done' | 'error'>('generating')
   const [codex, setCodex] = useState<string | null>(null)
   const [error, setError] = useState('')
@@ -92,7 +100,15 @@ export default function CodexGenerator({ assessmentId, archetypeResult }: Props)
   }
 
   if (status === 'done' && codex) {
-    return <CodexContent markdown={codex} />
+    return (
+      <CodexContent
+        markdown={codex}
+        dimensionScores={dimensionScores}
+        archetypes={archetypes}
+        topDimensions={topDimensions}
+        gapDimensions={gapDimensions}
+      />
+    )
   }
 
   // Generating state
