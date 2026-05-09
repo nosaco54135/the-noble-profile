@@ -44,24 +44,24 @@ export async function sendAssessmentConfirmation({
         </head>
         <body style="font-family: system-ui, sans-serif; background: #f8fafc; margin: 0; padding: 0;">
           <div style="max-width: 560px; margin: 40px auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <div style="background: #0d9488; padding: 32px 40px;">
-              <p style="color: #ccfbf1; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px;">The Noble Seller</p>
+            <div style="background: #722F37; padding: 32px 40px;">
+              <p style="color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px;">The Noble Seller</p>
               <h1 style="color: white; font-size: 24px; font-weight: 700; margin: 0;">Your Noble Quotient is ready.</h1>
             </div>
             <div style="padding: 40px;">
-              <p style="color: #334155; font-size: 16px; line-height: 1.6; margin: 0 0 16px;">
-                Your assessment results are in. Your primary archetype is:
-              </p>
-              <div style="background: #f0fdfa; border: 2px solid #99f6e4; border-radius: 8px; padding: 20px 24px; margin: 0 0 24px;">
-                <p style="color: #0f766e; font-size: 20px; font-weight: 700; margin: 0;">
-                  ${primaryArchetype}
+              <div style="text-align: center; padding: 32px 0;">
+                <p style="margin: 0 0 8px 0; font-family: Georgia, serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6B6B6B;">
+                  You are
+                </p>
+                <p style="margin: 0; font-family: Georgia, serif; font-size: 32px; font-weight: 400; color: #0F0F0F; line-height: 1.2;">
+                  The ${primaryArchetype}
                 </p>
               </div>
               <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin: 0 0 28px;">
                 View your full dimension breakdown, all 8 archetype scores, and unlock your personalized Codex.
               </p>
               <a href="${resultsUrl}"
-                style="display: inline-block; background: #0d9488; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 28px; border-radius: 8px;">
+                style="display: inline-block; background: #722F37; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 28px; border-radius: 8px;">
                 View My Results →
               </a>
             </div>
@@ -102,8 +102,8 @@ export async function sendCodexDelivery({
       <html>
         <body style="font-family: system-ui, sans-serif; background: #f8fafc; margin: 0; padding: 0;">
           <div style="max-width: 560px; margin: 40px auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <div style="background: #0d9488; padding: 32px 40px;">
-              <p style="color: #ccfbf1; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px;">The Noble Seller</p>
+            <div style="background: #722F37; padding: 32px 40px;">
+              <p style="color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px;">The Noble Seller</p>
               <h1 style="color: white; font-size: 24px; font-weight: 700; margin: 0;">Your Codex is ready.</h1>
             </div>
             <div style="padding: 40px;">
@@ -111,7 +111,7 @@ export async function sendCodexDelivery({
                 Your personalized <strong>${primaryArchetype}</strong> Codex has been generated. It includes 6 sections tailored specifically to your Noble Quotient scores.
               </p>
               <a href="${codexUrl}"
-                style="display: inline-block; background: #0d9488; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 28px; border-radius: 8px; margin: 8px 0 24px;">
+                style="display: inline-block; background: #722F37; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 28px; border-radius: 8px; margin: 8px 0 24px;">
                 Open My Codex →
               </a>
               <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin: 0;">

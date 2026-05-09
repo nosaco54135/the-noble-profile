@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getStripeClient } from '@/lib/stripe'
 import { updatePaymentStatus } from '@/lib/supabase'
+import { sendCodexDelivery } from '@/lib/resend'
 import type Stripe from 'stripe'
 
 export const maxDuration = 30
@@ -49,6 +50,16 @@ export async function POST(req: NextRequest) {
     try {
       await updatePaymentStatus(assessmentId, session.id)
       console.log(`Assessment ${assessmentId} marked as paid via session ${session.id}`)
+
+      const customerEmail = session.customer_details?.email
+      const archetypeName = session.metadata?.archetype_name ?? ''
+
+      if (customerEmail) {
+        const codexUrl = `${process.env.NEXT_PUBLIC_APP_URL}/codex/${assessmentId}`
+        await sendCodexDelivery({ email: customerEmail, primaryArchetype: archetypeName, codexUrl }).catch(err =>
+          console.error('[webhook] sendCodexDelivery failed:', err)
+        )
+      }
     } catch (err) {
       console.error('Failed to update payment status:', err)
       // Return 500 so Stripe retries the webhook

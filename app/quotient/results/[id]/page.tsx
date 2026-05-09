@@ -419,17 +419,17 @@ export default async function ResultsPage({ params, searchParams }: Props) {
         <Section size="xl">
           <Container maxWidth="prose">
             <div className="bg-tns-bgAlt rounded-2xl px-tns-xl py-tns-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-md">
-                GO DEEPER
+              <p className="text-base font-semibold uppercase tracking-widest text-tns-fg mb-tns-md">
+                YOUR RESULTS ARE IN
               </p>
               <h2 className="font-display font-medium text-tns-fg text-3xl md:text-4xl tracking-tight leading-tight">
                 Your Codex is ready.
               </h2>
-              <p className="font-display italic text-tns-muted text-xl md:text-2xl tracking-tight leading-tight mt-tns-xs mb-tns-lg">
-                — The {primary.name}
+              <p className="font-display italic text-tns-muted text-xl md:text-2xl tracking-tight leading-tight mt-tns-lg mb-tns-sm">
+                {primary.name}
               </p>
               <p className="font-sans text-base md:text-lg text-tns-fg leading-relaxed max-w-prose mx-auto mb-tns-xl">
-                Your archetype is just the start. The Codex turns your scores into six sections of personalized coaching: your selling identity, your prospecting style, your blind spots, your 30/60/90 plan, and more.
+                Stop guessing why you win or lose deals. Your results reveal the preparation styles and selling habits that are holding you back. The Codex teaches you how to fix them.
               </p>
               {paymentStatus === 'paid' ? (
                 <Link

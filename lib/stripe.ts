@@ -25,11 +25,13 @@ export async function createCheckoutSession({
   email,
   isSubscriber,
   appUrl,
+  archetypeName = '',
 }: {
   assessmentId: string
   email: string
   isSubscriber: boolean
   appUrl: string
+  archetypeName?: string
 }): Promise<string> {
   const amount = isSubscriber ? PRICES.subscriber : PRICES.standard
 
@@ -54,6 +56,7 @@ export async function createCheckoutSession({
     ],
     metadata: {
       assessment_id: assessmentId,
+      archetype_name: archetypeName,
     },
     success_url: `${appUrl}/codex/${assessmentId}?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${appUrl}/quotient/results/${assessmentId}?canceled=true`,

@@ -40,6 +40,7 @@ export async function POST(req: NextRequest) {
       email: assessment.email,
       isSubscriber: Boolean(isSubscriber),
       appUrl,
+      archetypeName: assessment.archetypeResult?.primary?.name ?? '',
     })
 
     return NextResponse.json({ url })
