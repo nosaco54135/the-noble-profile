@@ -4,8 +4,7 @@ import { generateCodex } from '@/lib/claude'
 import { sendCodexDelivery } from '@/lib/resend'
 import type { ScoringResult } from '@/types'
 
-// Allow up to 60s on Vercel (configured in vercel.json too)
-export const maxDuration = 60
+export const maxDuration = 300
 
 /**
  * Generates the Noble Codex for a paid assessment via Claude.
