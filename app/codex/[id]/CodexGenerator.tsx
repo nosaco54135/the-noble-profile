@@ -131,8 +131,7 @@ export default function CodexGenerator({ assessmentId, archetypeResult, dimensio
         Generating your personal Codex…
       </h3>
       <p className="text-sm text-[#6B6B6B] mb-8 max-w-sm mx-auto">
-        Your scores are being translated into a personal Codex.
-        This usually takes 60–90 seconds.
+        This usually takes 1–2 minutes. Your full coaching report is being written.
       </p>
 
       <div className="max-w-xs mx-auto space-y-2 text-left">
