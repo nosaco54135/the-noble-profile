@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { subscribeEmail } from '@/lib/beehiiv'
 
 export async function POST(request: NextRequest) {
   try {
@@ -11,47 +12,16 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const apiKey = process.env.BEEHIIV_API_KEY
-    const publicationId = process.env.BEEHIIV_PUBLICATION_ID
+    const success = await subscribeEmail(email, 'thenobleseller.com')
 
-    if (!apiKey || !publicationId) {
-      console.error('Beehiiv env vars missing')
+    if (!success) {
       return NextResponse.json(
-        { error: 'Server configuration error' },
+        { error: 'Subscription failed' },
         { status: 500 }
       )
     }
 
-    const response = await fetch(
-      `https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          email,
-          reactivate_existing: false,
-          send_welcome_email: true,
-          utm_source: 'thenobleseller.com',
-          utm_medium: 'organic',
-          utm_campaign: 'homepage',
-        }),
-      }
-    )
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}))
-      console.error('Beehiiv API error:', response.status, errorData)
-      return NextResponse.json(
-        { error: 'Subscription failed' },
-        { status: response.status }
-      )
-    }
-
-    const data = await response.json()
-    return NextResponse.json({ success: true, data })
+    return NextResponse.json({ success: true })
 
   } catch (error) {
     console.error('Subscribe route error:', error)
