@@ -9,12 +9,8 @@ import { Button } from '@/components/ui/Button'
 export default function LandingPage() {
   const router = useRouter()
   const [email, setEmail] = useState('')
-  const [isSubscriber, setIsSubscriber] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-
-  const price = isSubscriber ? '$37' : '$47'
-  const originalPrice = '$47'
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -27,9 +23,7 @@ export default function LandingPage() {
     }
 
     setLoading(true)
-    // Store in sessionStorage so the assessment page can read them
     sessionStorage.setItem('tnq_email', email)
-    sessionStorage.setItem('tnq_subscriber', String(isSubscriber))
     router.push('/quotient/assessment')
   }
 
@@ -72,38 +66,6 @@ export default function LandingPage() {
                   />
                   {error && (
                     <p className="mt-tns-sm font-sans text-sm text-tns-accent">{error}</p>
-                  )}
-                </div>
-
-                {/* Subscriber checkbox */}
-                <label className="flex items-start gap-tns-sm cursor-pointer group">
-                  <input
-                    type="checkbox"
-                    checked={isSubscriber}
-                    onChange={(e) => setIsSubscriber(e.target.checked)}
-                    className="mt-1 w-4 h-4 border-tns-border text-tns-accent
-                               focus:ring-tns-accent cursor-pointer"
-                  />
-                  <span className="font-sans text-sm text-tns-fg leading-relaxed">
-                    I&apos;m a Noble Seller newsletter subscriber.{' '}
-                    <span className="text-tns-accent">Save $10 on The Noble Codex.</span>
-                  </span>
-                </label>
-
-                {/* Price */}
-                <div className="flex items-center justify-center gap-tns-sm py-tns-sm border-t border-tns-border">
-                  <span className="font-sans text-sm text-tns-muted">
-                    Free assessment. The Noble Codex:
-                  </span>
-                  {isSubscriber ? (
-                    <>
-                      <span className="font-sans text-tns-muted line-through text-base">
-                        {originalPrice}
-                      </span>
-                      <span className="font-display text-2xl text-tns-accent">{price}</span>
-                    </>
-                  ) : (
-                    <span className="font-display text-2xl text-tns-fg">{price}</span>
                   )}
                 </div>
 

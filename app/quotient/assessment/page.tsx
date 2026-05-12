@@ -21,7 +21,6 @@ export default function AssessmentPage() {
 
   // Session data
   const [email, setEmail] = useState<string>('')
-  const [isSubscriber, setIsSubscriber] = useState(false)
 
   // Question state
   const [shuffled, setShuffled] = useState<Question[]>([])
@@ -37,7 +36,6 @@ export default function AssessmentPage() {
   useEffect(() => {
     // Read session data set by the landing page
     const storedEmail = sessionStorage.getItem('tnq_email') ?? ''
-    const storedSubscriber = sessionStorage.getItem('tnq_subscriber') === 'true'
 
     if (!storedEmail) {
       router.replace('/quotient')
@@ -45,7 +43,6 @@ export default function AssessmentPage() {
     }
 
     setEmail(storedEmail)
-    setIsSubscriber(storedSubscriber)
     // Reuse any existing seed so mid-assessment reloads keep the same order
     const existingSeed = sessionStorage.getItem('tnq_seed')
     const activeSeed = existingSeed ?? generateSeed()
@@ -94,7 +91,7 @@ export default function AssessmentPage() {
       const res = await fetch('/api/submit-assessment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, isSubscriber, responses: orderedResponses, seed }),
+        body: JSON.stringify({ email, isSubscriber: false, responses: orderedResponses, seed }),
       })
 
       if (!res.ok) {
@@ -107,7 +104,6 @@ export default function AssessmentPage() {
 
       // Clear session storage — no longer needed
       sessionStorage.removeItem('tnq_email')
-      sessionStorage.removeItem('tnq_subscriber')
       sessionStorage.removeItem('tnq_seed')
 
       if (data.fallback) {
@@ -130,7 +126,7 @@ export default function AssessmentPage() {
       setSubmitError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
       setSubmitting(false)
     }
-  }, [responses, submitting, email, isSubscriber, seed, router])
+  }, [responses, submitting, email, seed, router])
 
   // Keyboard support: number keys 1-5, Enter/→ to advance
   useEffect(() => {
