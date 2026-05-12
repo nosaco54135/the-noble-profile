@@ -27,7 +27,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 'Q2',
     canonicalIndex: 1,
-    text: 'I sometimes lose track of what a prospect has already told me earlier in a conversation.',
+    text: 'In long discovery conversations, I sometimes have to ask a prospect to repeat something they already told me.',
     reverse: true,
     weights: { active_listening: -0.9, eq_trust: -0.3, curiosity: -0.3 },
   },
@@ -50,7 +50,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 'Q5',
     canonicalIndex: 4,
-    text: 'I\'d rather lose control of the narrative mid-call than ignore a shift in a prospect\'s energy.',
+    text: 'I\'d rather veer off my planned pitch to follow a shift in the prospect\'s energy, at the expense of narrative momentum.',
     reverse: false,
     weights: { eq_trust: 0.9, active_listening: 0.6, curiosity: 0.3 },
   },
@@ -141,7 +141,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 'Q18',
     canonicalIndex: 17,
-    text: 'I bring lessons from outside sales (books, hobbies, other industries) into how I handle live conversations with prospects.',
+    text: 'I find lessons from outside sales (reading, hobbies, other industries) apply to live client conversations as directly as formal sales training does.',
     reverse: false,
     weights: { learning_style: 0.9, curiosity: 0.6, problem_solving: 0.3 },
   },
@@ -171,7 +171,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 'Q22',
     canonicalIndex: 21,
-    text: 'After a run of bad calls, I\'d rather step away to reset than push through and risk making the next one worse.',
+    text: 'After a run of bad calls, I\'d rather take a deliberate break before my next one than try to reset on the fly between calls.',
     reverse: true,
     weights: { mindset_resilience: -0.9, prospecting_comfort: -0.6, eq_trust: 0.3, learning_style: 0.3 },
   },

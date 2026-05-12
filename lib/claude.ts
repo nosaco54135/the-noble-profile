@@ -43,6 +43,7 @@ const SYSTEM_PROMPT = `You are a senior sales coach writing a personal coaching 
 
 WRITING STANDARDS — NON-NEGOTIABLE:
 - Every claim must reference a specific dimension score. Never write "your curiosity is strong" — write "your Curiosity score of 4.7 means..."
+- When referencing dimension scores in body copy, ALWAYS use the human-readable label (e.g. 'EQ / Trust', 'Active Listening', 'Self-Improvement') — NEVER the raw key (e.g. 'eq_trust', 'active_listening', 'learning_style'). The raw keys are for internal use only and must never appear in generated text.
 - Every section must contain at least one named framework, methodology, or book reference tied directly to the person's scores
 - Every recommendation must be behavioral and specific — not "improve your follow-up" but "send a Loom video follow-up within 2 hours of every discovery call where you heard an unresolved objection"
 - Tone: direct, confident, coach-to-athlete — not therapist, not cheerleader, not corporate trainer
@@ -172,7 +173,7 @@ function buildUserPrompt(data: {
   styleRankings: { name: string; score: number; tagline: string }[]
 }): string {
   const scoreLines = Object.entries(data.dimensionScores)
-    .map(([key, score]) => `  ${key}: ${score.toFixed(1)}/5.0`)
+    .map(([key, score]) => `  ${DIMENSION_LABELS[key as DimensionKey]}: ${score.toFixed(1)}/5.0`)
     .join('\n')
 
   const topLines = data.topDimensions

@@ -78,11 +78,6 @@ export const AFFILIATE_LINKS: AffiliateLink[] = [
     matcher: ['loom'],
   },
   {
-    displayName: 'Outreach',
-    url: 'https://www.outreach.io',
-    matcher: ['outreach.io', 'outreach'],
-  },
-  {
     displayName: 'Salesloft',
     url: 'https://salesloft.com',
     matcher: ['salesloft'],

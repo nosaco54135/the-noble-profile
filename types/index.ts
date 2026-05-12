@@ -174,7 +174,7 @@ export const DIMENSION_LABELS: Record<DimensionKey, string> = {
   process_oriented:    'Process-Oriented',
   problem_solving:     'Problem Solving',
   customer_centric:    'Customer-Centric',
-  learning_style:      'Learning Style',
+  learning_style:      'Self-Improvement',
 }
 
 export const DIMENSION_ORDER: DimensionKey[] = [

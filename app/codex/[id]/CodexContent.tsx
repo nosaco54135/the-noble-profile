@@ -27,7 +27,7 @@ type PhasePlan = {
   pullQuotes: string[]
 }
 
-type ChannelFit = 'Best Fit' | 'Workable' | 'Avoid'
+type ChannelFit = 'Best Fit' | 'Workable' | 'Challenge'
 
 const SECTION_PILLS: Record<number, string[]> = {
   0: ['curiosity', 'closing_confidence', 'problem_solving'],
@@ -407,11 +407,11 @@ export default function CodexContent({
               },
               {
                 name: 'Cold Email',
-                fit: getScore('data_driven') >= 4 ? 'Workable' : 'Avoid',
+                fit: getScore('data_driven') >= 4 ? 'Workable' : 'Challenge',
               },
               {
                 name: 'Cold Call',
-                fit: getScore('prospecting_comfort') >= 4 ? 'Workable' : 'Avoid',
+                fit: getScore('prospecting_comfort') >= 4 ? 'Workable' : 'Challenge',
               },
               {
                 name: 'Referral',
@@ -419,14 +419,14 @@ export default function CodexContent({
               },
             ]
             const fitColors: Record<ChannelFit, string> = {
-              'Best Fit': 'bg-[#722F37] text-[#FAFAF7]',
-              'Workable': 'bg-[#E8DFDA] text-[#0F0F0F]',
-              'Avoid':    'bg-[#F2F0EB] text-[#6B6B6B]',
+              'Best Fit':  'bg-[#722F37] text-[#FAFAF7]',
+              'Workable':  'bg-[#E8DFDA] text-[#0F0F0F]',
+              'Challenge': 'bg-[#F2F0EB] text-[#6B6B6B]',
             }
             const barWidths: Record<ChannelFit, string> = {
-              'Best Fit': '100%',
-              'Workable': '60%',
-              'Avoid':    '25%',
+              'Best Fit':  '100%',
+              'Workable':  '60%',
+              'Challenge': '25%',
             }
             return (
               <div className="mb-8 overflow-hidden">

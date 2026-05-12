@@ -69,6 +69,9 @@ export default function FallbackResultsPage({ id }: Props) {
   const traitLabels: Record<string, string> = Object.fromEntries(traits.map((t) => [t.key, t.label]))
   const styleLabels: Record<string, string> = Object.fromEntries(styles.map((s) => [s.key, s.label]))
 
+  const sortedTraits = [...traits].sort((a, b) => b.score - a.score)
+  const sortedStyles = [...styles].sort((a, b) => b.score - a.score)
+
   const sortedDims = [...DIMENSION_ORDER].sort((a, b) => scores[b] - scores[a])
   const topDims: DimensionKey[] = sortedDims.slice(0, 3)
   const bottomDims: DimensionKey[] = sortedDims.slice(-3).reverse()
@@ -227,7 +230,7 @@ export default function FallbackResultsPage({ id }: Props) {
               How you naturally show up
             </h2>
             <ul className="space-y-tns-md">
-              {traits.map((trait) => (
+              {sortedTraits.map((trait) => (
                 <li key={trait.key}>
                   <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
                     <span className="text-[15px] font-medium text-tns-fg">
@@ -262,7 +265,7 @@ export default function FallbackResultsPage({ id }: Props) {
               What you naturally do
             </h2>
             <ul className="space-y-tns-md">
-              {styles.map((style) => (
+              {sortedStyles.map((style) => (
                 <li key={style.key}>
                   <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
                     <span className="text-[15px] font-medium text-tns-fg">
