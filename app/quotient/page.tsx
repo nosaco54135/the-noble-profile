@@ -47,6 +47,7 @@ export default function LandingPage() {
             <div className="max-w-[480px] mx-auto bg-tns-bgAlt border border-tns-border p-tns-xl text-left">
               <form onSubmit={handleSubmit} className="space-y-tns-lg">
                 <div>
+                  <p className="font-sans text-[10px] uppercase tracking-[0.12em] text-[#722F37] font-semibold mb-2">Free Assessment · Instant Results</p>
                   <label
                     htmlFor="email"
                     className="block font-sans text-sm font-medium text-tns-fg mb-tns-sm"
@@ -75,13 +76,12 @@ export default function LandingPage() {
                   disabled={loading}
                   className="w-full md:w-auto md:px-8 md:mx-auto md:flex"
                 >
-                  {loading ? 'Starting…' : 'Take the Assessment →'}
+                  {loading ? 'Starting…' : 'Take the Free Assessment →'}
                 </Button>
               </form>
 
               <p className="mt-tns-md font-sans text-xs text-center text-tns-muted leading-relaxed">
-                Assessment takes about 5 minutes. Results shown immediately.
-                <br />Payment only required for The Noble Codex, your custom coaching guide.
+                The Noble Quotient is 100% free. 25 questions, about 5 minutes, full results shown immediately. The Codex is an optional paid coaching guide based on your results.
               </p>
             </div>
           </div>
