@@ -120,6 +120,14 @@ export default function PaywallButton({ assessmentId, email, devMode = false }: 
         {buttonLabel}
       </button>
 
+      <p className="text-[13px] text-tns-muted text-center">
+        {subscribed === null
+          ? 'One-time payment.'
+          : subscribed
+          ? 'One-time payment of $37.'
+          : 'One-time payment of $47.'}
+      </p>
+
       {phase === 'upsell' && (
         <div className="bg-[#F2F0EB] rounded-lg p-4 mt-3 text-left">
           <p className="font-display text-lg text-[#0F0F0F] mb-1">Save $10 on your Codex</p>
