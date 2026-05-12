@@ -11,7 +11,7 @@ import { serverStorage } from '@/lib/storage'
  */
 export async function POST(req: NextRequest) {
   try {
-    const { assessmentId, isSubscriber } = await req.json()
+    let { assessmentId, isSubscriber } = await req.json()
 
     if (!assessmentId || typeof assessmentId !== 'string') {
       return NextResponse.json({ error: 'assessmentId is required.' }, { status: 400 })
@@ -20,6 +20,15 @@ export async function POST(req: NextRequest) {
     const assessment = await serverStorage.loadAssessment(assessmentId)
     if (!assessment) {
       return NextResponse.json({ error: 'Assessment not found.' }, { status: 404 })
+    }
+
+    // Server-side Beehiiv re-verification — prevents discount bypass via crafted requests
+    if (isSubscriber === true) {
+      const { isActiveSubscriber } = await import('@/lib/beehiiv')
+      const verified = await isActiveSubscriber(assessment.email.toLowerCase().trim())
+      if (!verified) {
+        isSubscriber = false
+      }
     }
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'

@@ -300,7 +300,7 @@ export default function FallbackResultsPage({ id }: Props) {
               Your full score profile
             </h2>
             <ul className="space-y-tns-md">
-              {DIMENSION_ORDER.map((key) => {
+              {sortedDims.map((key) => {
                 const value = scores[key] ?? 0
                 const pct = (value / 5) * 100
                 return (

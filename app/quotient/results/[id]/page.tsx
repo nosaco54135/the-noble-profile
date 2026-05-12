@@ -152,7 +152,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
   const assessment = await serverStorage.loadAssessment(id)
   if (!assessment) notFound()
 
-  const { dimensionScores: scores, archetypeResult: result, isSubscriber, paymentStatus } = assessment
+  const { dimensionScores: scores, archetypeResult: result, paymentStatus } = assessment
   if (!result?.primary) notFound()
 
   const { primary, secondary, tertiary, traits, styles } = result
@@ -390,7 +390,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
               Your full score profile
             </h2>
             <ul className="space-y-tns-md">
-              {DIMENSION_ORDER.map((key) => {
+              {sortedDims.map((key) => {
                 const value = scores[key] ?? 0
                 const pct = (value / 5) * 100
                 return (
@@ -446,16 +446,12 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                   <div className="flex justify-center mb-tns-md">
                     <PaywallButton
                       assessmentId={id}
-                      isSubscriber={isSubscriber}
+                      email={assessment.email}
                       devMode={!isStripeConfigured()}
                     />
                   </div>
                   <p className="text-[13px] text-tns-muted">
-                    {isSubscriber ? (
-                      <>Subscriber price: <strong className="text-tns-fg font-medium">$37</strong></>
-                    ) : (
-                      <>One-time payment: <strong className="text-tns-fg font-medium">$47</strong> · Instant access · Printable PDF</>
-                    )}
+                    One-time payment: <strong className="text-tns-fg font-medium">$47</strong> · Instant access · Printable PDF
                   </p>
                 </>
               )}
