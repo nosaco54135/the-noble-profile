@@ -227,7 +227,7 @@ export default function MethodologyPage() {
     <main className="bg-[#FAFAF7] min-h-screen">
 
       {/* SECTION 1 — Hero */}
-      <Section size="xl">
+      <section className="pt-tns-3xl pb-tns-lg">
         <Container maxWidth="prose">
           <p className="font-sans text-[10px] uppercase tracking-[0.12em] text-[#722F37] font-semibold mb-4">
             THE NOBLE QUOTIENT
@@ -240,10 +240,10 @@ export default function MethodologyPage() {
           </p>
         </Container>
         <div className="border-b border-[#E8E6DF] mt-tns-2xl" />
-      </Section>
+      </section>
 
       {/* SECTION 2 — How it works */}
-      <Section size="lg">
+      <section className="pt-tns-lg pb-tns-xl">
         <Container maxWidth="prose">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -273,7 +273,7 @@ export default function MethodologyPage() {
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
       {/* Divider */}
       <div className="border-t border-[#E8E6DF]" />
