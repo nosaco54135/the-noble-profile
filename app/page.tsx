@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { LinkButton } from '@/components/ui/Button'
@@ -138,39 +137,6 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Footer */}
-      <Section size="md" as="footer" className="border-t border-tns-border">
-        <Container maxWidth="prose">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-tns-lg">
-            <div>
-              <p className="text-tns-fg text-[18px] mb-tns-xs">The Noble Seller</p>
-              <p className="italic text-tns-muted text-[14px]">
-                Authentic influence. Engineered results.
-              </p>
-            </div>
-            <nav className="flex flex-col md:flex-row md:items-center gap-tns-sm md:gap-0 text-[14px] text-tns-muted">
-              <Link href="/quotient" className="hover:text-tns-fg transition-colors">
-                The Noble Quotient
-              </Link>
-              <span className="hidden md:inline mx-tns-md text-tns-border">·</span>
-              <a href="#subscribe" className="hover:text-tns-fg transition-colors">
-                Subscribe
-              </a>
-              <span className="hidden md:inline mx-tns-md text-tns-border">·</span>
-              <Link href="/privacy" className="hover:text-tns-fg transition-colors">
-                Privacy
-              </Link>
-              <span className="hidden md:inline mx-tns-md text-tns-border">·</span>
-              <a href="mailto:hello@thenobleseller.com" className="hover:text-tns-fg transition-colors">
-                Contact
-              </a>
-            </nav>
-          </div>
-          <p className="text-[12px] text-tns-muted mt-tns-2xl">
-            © 2026 The Noble Seller
-          </p>
-        </Container>
-      </Section>
     </div>
   )
 }

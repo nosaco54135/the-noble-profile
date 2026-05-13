@@ -45,7 +45,7 @@ const TRAITS: AxisEntry[] = [
   },
   {
     name: 'Resilient',
-    tagline: "Keeps dialing through the no's.",
+    tagline: 'Keeps dialing through the nos.',
     dimensions: ['Mindset / Resilience', 'Prospecting Comfort'],
     definition: "The Resilient seller maintains activity through rejection. They don't take individual no's personally and they don't slow down after a bad week. They protect their outreach numbers even when their motivation drops.",
     best: 'Out-prospects more talented sellers through sheer consistency. Compounds over time.',
@@ -156,16 +156,16 @@ const STYLES: AxisEntry[] = [
 
 function AxisCard({ entry }: { entry: AxisEntry }) {
   return (
-    <div className="bg-[#F2F0EB] rounded-lg p-6">
+    <div className="bg-[#F2F0EB] rounded-lg p-6 overflow-hidden w-full">
       <p className="font-display font-semibold text-xl text-[#0F0F0F] mb-1">{entry.name}</p>
       <p className="font-display italic text-base text-[#6B6B6B] mb-4">{entry.tagline}</p>
 
       <p className="font-sans text-[10px] uppercase tracking-[0.08em] text-[#6B6B6B] mb-2">Composed of</p>
-      <div className="flex flex-wrap gap-1.5 mb-4">
+      <div className="flex flex-wrap gap-2 mt-2 mb-4">
         {entry.dimensions.map((dim) => (
           <span
             key={dim}
-            className="bg-white text-[#6B6B6B] text-[11px] font-sans px-2.5 py-1 rounded-full"
+            className="font-sans text-[11px] text-[#6B6B6B] bg-[#FAFAF7] border border-[#E8E6DF] px-2.5 py-1 rounded-full whitespace-nowrap"
           >
             {dim}
           </span>
@@ -174,7 +174,7 @@ function AxisCard({ entry }: { entry: AxisEntry }) {
 
       <p className="font-sans text-sm text-[#0F0F0F] leading-relaxed mb-4">{entry.definition}</p>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 mt-4 pt-4 border-t border-[#E8E6DF]">
         <div>
           <p className="font-sans text-[10px] uppercase tracking-[0.08em] text-[#722F37] mb-1">At its best</p>
           <p className="font-sans text-sm text-[#0F0F0F] leading-relaxed">{entry.best}</p>
@@ -202,15 +202,15 @@ function AxisSection({
   return (
     <Section size="xl">
       <Container maxWidth="prose">
-        <p className="font-sans text-[10px] uppercase tracking-[0.12em] text-[#722F37] font-semibold mb-3">
+        <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-3">
           {eyebrow}
         </p>
         <h2 className="font-display font-semibold text-3xl md:text-4xl text-[#0F0F0F] tracking-tight leading-[1.1] mb-4">
           {heading}
         </h2>
-        <p className="font-sans text-base text-[#6B6B6B] leading-relaxed mb-tns-2xl">{intro}</p>
+        <p className="font-sans text-base text-[#6B6B6B] leading-relaxed max-w-[560px] mt-3 mb-8">{intro}</p>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6">
           {entries.map((entry) => (
             <AxisCard key={entry.name} entry={entry} />
           ))}
@@ -307,12 +307,14 @@ export default function MethodologyPage() {
             <h2 className="font-display font-semibold text-3xl md:text-4xl text-[#0F0F0F] tracking-tight leading-[1.1] mb-4">
               Find out where you land.
             </h2>
-            <p className="font-sans text-base text-[#6B6B6B] leading-relaxed mb-8">
+            <p className="font-sans text-base text-[#6B6B6B] leading-relaxed mb-6">
               The Noble Quotient is a free 25-question assessment. Full results shown immediately.
             </p>
-            <LinkButton href="/quotient" variant="primary">
-              Take the Free Assessment →
-            </LinkButton>
+            <div className="mt-6">
+              <LinkButton href="/quotient" variant="primary">
+                Take the Free Assessment →
+              </LinkButton>
+            </div>
           </div>
         </Container>
       </Section>
