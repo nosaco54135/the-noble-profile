@@ -1,6 +1,6 @@
 'use client'
 
-import { parseAffiliateSegments } from '@/lib/affiliate-links'
+import { parseAffiliateSegments } from '@/lib/affiliate-config'
 
 interface CodexContentProps {
   markdown: string
@@ -48,12 +48,12 @@ function renderTextContent(text: string, withLinks: boolean) {
   if (!withLinks) return text
   const segments = parseAffiliateSegments(text)
   return segments.map((seg, idx) =>
-    seg.href ? (
+    seg.slug ? (
       <a
         key={idx}
-        href={seg.href}
+        href={`/go/${seg.slug}`}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer sponsored"
         className="text-[#722F37] underline underline-offset-2 decoration-[#722F37]/40 hover:decoration-[#722F37] transition-colors"
       >
         {seg.displayName || seg.text}

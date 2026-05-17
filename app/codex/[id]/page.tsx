@@ -163,6 +163,9 @@ export default async function CodexPage({ params, searchParams }: Props) {
             <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed max-w-[560px]">
               Your scores were run through a generation pipeline that translated them into six sections of personalized coaching. The analysis is specific to your profile, not a category. It will not match anyone else's Codex.
             </p>
+            <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed max-w-[560px] mt-3">
+              Some links in the Recommended Tools section are affiliate links. The Noble Seller may earn a commission if you make a purchase, at no additional cost to you. Recommendations are based on your scores, not on commission.
+            </p>
           </div>
         </div>
 
@@ -348,6 +351,9 @@ export default async function CodexPage({ params, searchParams }: Props) {
           </p>
           <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed max-w-[560px]">
             Your scores were run through a generation pipeline that translated them into six sections of personalized coaching. The analysis is specific to your profile, not a category. It will not match anyone else's Codex.
+          </p>
+          <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed max-w-[560px] mt-3">
+            Some links in the Recommended Tools section are affiliate links. The Noble Seller may earn a commission if you make a purchase, at no additional cost to you. Recommendations are based on your scores, not on commission.
           </p>
         </div>
       </div>
