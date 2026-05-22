@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Fraunces, Inter } from 'next/font/google'
+import { Cormorant, Inter } from 'next/font/google'
 import { SiteHeader } from '@/components/ui/SiteHeader'
 import './globals.css'
 
-const fraunces = Fraunces({
+const cormorant = Cormorant({
   subsets: ['latin'],
-  weight: ['400', '600'],
+  weight: ['600', '700'],
+  style: ['normal', 'italic'],
   variable: '--font-display',
   display: 'swap',
 })
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body className="min-h-screen bg-white antialiased flex flex-col">
         <SiteHeader />
         <div className="flex-1">{children}</div>
