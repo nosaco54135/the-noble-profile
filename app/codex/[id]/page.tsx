@@ -49,7 +49,7 @@ export default async function CodexPage({ params, searchParams }: Props) {
             <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-6">
               The Noble Codex
             </p>
-            <h1 className="font-display text-5xl md:text-6xl font-semibold text-[#0F0F0F] leading-[1.05] mb-4">
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-[#0F0F0F] leading-[1.05] mb-4">
               The {DEV_CODEX_PAYLOAD.archetypeName} Codex
             </h1>
             <p className="font-display italic text-xl text-[#6B6B6B] mb-8">
@@ -223,7 +223,7 @@ export default async function CodexPage({ params, searchParams }: Props) {
           <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-6">
             The Noble Codex
           </p>
-          <h1 className="font-display text-5xl md:text-6xl font-semibold text-[#0F0F0F] leading-[1.05] mb-4">
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-[#0F0F0F] leading-[1.05] mb-4">
             The {primaryName} Codex
           </h1>
           <p className="font-display italic text-xl text-[#6B6B6B] mb-8">
