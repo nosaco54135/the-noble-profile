@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import { track } from "@vercel/analytics"
 import { QUESTIONS, shuffleQuestions } from '@/lib/questions'
 import { clientStorage } from '@/lib/storage'
 import { LIKERT_LABELS, PRIMING_INSTRUCTION, type Question } from '@/types'
@@ -101,6 +102,8 @@ export default function AssessmentPage() {
 
       const data = await res.json()
       const { id } = data
+
+      track('nq_completed', { archetype: data.archetypeResult?.primary?.name ?? '' })
 
       // Clear session storage — no longer needed
       sessionStorage.removeItem('tnq_email')

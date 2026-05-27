@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { track } from "@vercel/analytics"
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
@@ -23,6 +24,7 @@ export default function LandingPage() {
     }
 
     setLoading(true)
+    track('nq_started')
     sessionStorage.setItem('tnq_email', email)
     router.push('/quotient/assessment')
   }

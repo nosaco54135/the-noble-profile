@@ -10,12 +10,12 @@ import { DIMENSION_LABELS, DIMENSION_ORDER } from '@/types'
 
 interface Props {
   params: Promise<{ id: string }>
-  searchParams: Promise<{ fallback?: string }>
+  searchParams: Promise<{ fallback?: string; session_id?: string }>
 }
 
 export default async function CodexPage({ params, searchParams }: Props) {
   const { id } = await params
-  const { fallback } = await searchParams
+  const { fallback, session_id } = await searchParams
 
   if (id === 'dev-test') {
     const devMarkdown = DEV_CODEX_PAYLOAD.sections
@@ -340,6 +340,8 @@ export default async function CodexPage({ params, searchParams }: Props) {
             }}
             topDimensions={topDimensions}
             gapDimensions={gapDimensions}
+            sessionId={session_id}
+            archetype={primaryName}
           />
         )}
       </main>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import type { ScoringResult } from '@/types'
 import CodexContent from './CodexContent'
+import { track } from "@vercel/analytics"
 
 interface Props {
   assessmentId: string
@@ -15,6 +16,8 @@ interface Props {
   }
   topDimensions: { key: string; label: string; score: number }[]
   gapDimensions: { key: string; label: string; score: number }[]
+  sessionId?: string
+  archetype: string
 }
 
 const SALES_QUOTES = [
@@ -36,12 +39,20 @@ const SALES_QUOTES = [
  * Client component that triggers on-demand Codex generation
  * when the user lands on the Codex page before it has been generated.
  */
-export default function CodexGenerator({ assessmentId, archetypeResult, dimensionScores, archetypes, topDimensions, gapDimensions }: Props) {
+export default function CodexGenerator({ assessmentId, archetypeResult, dimensionScores, archetypes, topDimensions, gapDimensions, sessionId, archetype }: Props) {
   const [status, setStatus] = useState<'generating' | 'done' | 'error'>('generating')
   const [codex, setCodex] = useState<string | null>(null)
   const [error, setError] = useState('')
   const [quoteIndex, setQuoteIndex] = useState(0)
   const [quoteVisible, setQuoteVisible] = useState(true)
+  const [hasTrackedPurchase, setHasTrackedPurchase] = useState(false)
+
+  useEffect(() => {
+    if (sessionId && !hasTrackedPurchase) {
+      track('codex_purchase_completed', { archetype })
+      setHasTrackedPurchase(true)
+    }
+  }, [sessionId, archetype])
 
   async function generateCodex() {
     setStatus('generating')
