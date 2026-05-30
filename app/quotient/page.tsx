@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { track } from "@vercel/analytics"
 import { Container } from '@/components/ui/Container'
@@ -9,79 +8,38 @@ import { Button } from '@/components/ui/Button'
 
 export default function LandingPage() {
   const router = useRouter()
-  const [email, setEmail] = useState('')
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setError('')
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
-      setError('Please enter a valid email address.')
-      return
-    }
-
-    setLoading(true)
+  function handleStart() {
     track('nq_started')
-    sessionStorage.setItem('tnq_email', email)
     router.push('/quotient/assessment')
   }
 
   return (
     <div className="min-h-screen bg-tns-bg text-tns-fg">
       {/* Hero */}
-      <Section size="lg" className="pt-16 md:pt-24">
+      <Section size="lg" className="pt-8 md:pt-12">
         <Container maxWidth="prose">
           <div className="text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-md">
               The Noble Quotient
             </p>
-            <h1 className="font-display font-medium text-tns-fg text-[clamp(40px,5vw,60px)] tracking-tight leading-[1.02] mb-tns-lg">
+            <h1 className="font-display font-medium text-tns-fg text-[clamp(40px,5vw,46px)] tracking-tight leading-[1.02] mb-tns-md">
               Discover your natural selling style. And what&apos;s holding you back.
             </h1>
-            <p className="font-sans text-tns-muted text-[18px] leading-relaxed mb-tns-2xl max-w-[560px] mx-auto">
+            <p className="font-sans text-tns-muted text-[18px] leading-relaxed mb-tns-lg max-w-[560px] mx-auto">
               The Noble Quotient is a 25-question assessment built for sales professionals. Find out how you sell, how you learn, and exactly where to focus to hit your next level.
             </p>
 
-            {/* Form card */}
+            {/* CTA card */}
             <div className="max-w-[480px] mx-auto bg-tns-bgAlt border border-tns-border p-tns-xl text-left">
-              <form onSubmit={handleSubmit} className="space-y-tns-lg">
-                <div>
-                  <p className="font-sans text-[10px] uppercase tracking-[0.12em] text-[#722F37] font-semibold mb-2">Free Assessment · Instant Results</p>
-                  <label
-                    htmlFor="email"
-                    className="block font-sans text-sm font-medium text-tns-fg mb-tns-sm"
-                  >
-                    Your email address
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    className="w-full px-4 py-3 bg-tns-bg border border-tns-border font-sans text-tns-fg placeholder:text-tns-muted
-                               focus:outline-none focus:border-tns-accent focus:ring-1 focus:ring-tns-accent transition-colors"
-                    required
-                    autoComplete="email"
-                  />
-                  {error && (
-                    <p className="mt-tns-sm font-sans text-sm text-tns-accent">{error}</p>
-                  )}
-                </div>
-
-                <Button
-                  type="submit"
-                  variant="primary"
-                  disabled={loading}
-                  className="w-full md:w-auto md:px-8 md:mx-auto md:flex"
-                >
-                  {loading ? 'Starting…' : 'Take the Free Assessment →'}
-                </Button>
-              </form>
-
+              <p className="font-sans text-[10px] uppercase tracking-[0.12em] text-[#722F37] font-semibold text-center mb-tns-lg">Free Assessment · Instant Results</p>
+              <Button
+                onClick={handleStart}
+                variant="primary"
+                className="w-full md:w-auto md:px-8 md:mx-auto md:flex"
+              >
+                Take the Free Assessment →
+              </Button>
               <p className="mt-tns-md font-sans text-xs text-center text-tns-muted leading-relaxed">
                 The Noble Quotient is 100% free. 25 questions, about 5 minutes, full results shown immediately. The Codex is an optional paid coaching guide based on your results.
               </p>

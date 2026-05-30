@@ -20,9 +20,6 @@ const generateSeed = (): string => {
 export default function AssessmentPage() {
   const router = useRouter()
 
-  // Session data
-  const [email, setEmail] = useState<string>('')
-
   // Question state
   const [shuffled, setShuffled] = useState<Question[]>([])
   const [seed, setSeed] = useState<string>('')
@@ -30,33 +27,29 @@ export default function AssessmentPage() {
   const [responses, setResponses] = useState<Record<string, number>>({}) // questionId → value
   const [selected, setSelected] = useState<number | null>(null)
 
+  // Email capture step state
+  const [showCapture, setShowCapture] = useState(false)
+  const [captureEmail, setCaptureEmail] = useState('')
+  const [captureError, setCaptureError] = useState('')
+  const [subscribeChecked, setSubscribeChecked] = useState(false)
+
   // Submission state
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
 
   useEffect(() => {
-    // Read session data set by the landing page
-    const storedEmail = sessionStorage.getItem('tnq_email') ?? ''
-
-    if (!storedEmail) {
-      router.replace('/quotient')
-      return
-    }
-
-    setEmail(storedEmail)
     // Reuse any existing seed so mid-assessment reloads keep the same order
     const existingSeed = sessionStorage.getItem('tnq_seed')
     const activeSeed = existingSeed ?? generateSeed()
     if (!existingSeed) sessionStorage.setItem('tnq_seed', activeSeed)
     setSeed(activeSeed)
     setShuffled(shuffleQuestions(QUESTIONS, activeSeed))
-  }, [router])
+  }, [])
 
   const currentQuestion = shuffled[currentIndex]
   const totalQuestions = shuffled.length
   const progress = totalQuestions > 0 ? (currentIndex / totalQuestions) * 100 : 0
   const isLastQuestion = currentIndex === totalQuestions - 1
-  const answeredCount = Object.keys(responses).length
 
   // When moving to a new question, restore any previously selected value
   useEffect(() => {
@@ -64,24 +57,17 @@ export default function AssessmentPage() {
     setSelected(responses[currentQuestion.id] ?? null)
   }, [currentIndex, currentQuestion, responses])
 
-  const handleSelect = useCallback(
-    (value: number) => {
-      if (!currentQuestion) return
-      setSelected(value)
-      setResponses((prev) => ({ ...prev, [currentQuestion.id]: value }))
-    },
-    [currentQuestion],
-  )
+  const handleCaptureSubmit = useCallback(async (e: React.FormEvent) => {
+    e.preventDefault()
+    setCaptureError('')
 
-  const handleNext = useCallback(() => {
-    if (selected === null) return
-    setCurrentIndex((i) => Math.min(i + 1, totalQuestions - 1))
-  }, [selected, totalQuestions])
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(captureEmail)) {
+      setCaptureError('Please enter a valid email address.')
+      return
+    }
 
-  const handleSubmit = useCallback(async () => {
-    if (Object.keys(responses).length < QUESTIONS.length) return
     if (submitting) return
-
     setSubmitting(true)
     setSubmitError('')
 
@@ -92,7 +78,7 @@ export default function AssessmentPage() {
       const res = await fetch('/api/submit-assessment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, isSubscriber: false, responses: orderedResponses, seed }),
+        body: JSON.stringify({ email: captureEmail, isSubscriber: false, responses: orderedResponses, seed }),
       })
 
       if (!res.ok) {
@@ -104,6 +90,15 @@ export default function AssessmentPage() {
       const { id } = data
 
       track('nq_completed', { archetype: data.archetypeResult?.primary?.name ?? '' })
+
+      // Fire-and-forget subscribe if checkbox was checked — must not block results navigation
+      if (subscribeChecked) {
+        fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: captureEmail }),
+        }).catch(() => {})
+      }
 
       // Clear session storage — no longer needed
       sessionStorage.removeItem('tnq_email')
@@ -129,13 +124,43 @@ export default function AssessmentPage() {
       setSubmitError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
       setSubmitting(false)
     }
-  }, [responses, submitting, email, seed, router])
+  }, [captureEmail, submitting, responses, seed, subscribeChecked, router])
 
-  // Keyboard support: number keys 1-5, Enter/→ to advance
+  const handleBack = useCallback(() => {
+    setCurrentIndex((i) => Math.max(i - 1, 0))
+  }, [])
+
+  const handleSelect = useCallback(
+    (value: number) => {
+      if (!currentQuestion) return
+      setSelected(value)
+      setResponses((prev) => ({ ...prev, [currentQuestion.id]: value }))
+
+      setTimeout(() => {
+        if (isLastQuestion) {
+          setShowCapture(true)
+        } else {
+          setCurrentIndex((i) => Math.min(i + 1, totalQuestions - 1))
+        }
+      }, 200)
+    },
+    [currentQuestion, isLastQuestion, totalQuestions],
+  )
+
+  const handleNext = useCallback(() => {
+    if (selected === null) return
+    setCurrentIndex((i) => Math.min(i + 1, totalQuestions - 1))
+  }, [selected, totalQuestions])
+
+  // Keyboard support: number keys 1-5, ←/→/Enter to navigate
   useEffect(() => {
+    if (showCapture) return
     function onKey(e: KeyboardEvent) {
       if (['1', '2', '3', '4', '5'].includes(e.key)) {
         handleSelect(Number(e.key))
+      }
+      if (e.key === 'ArrowLeft' && currentIndex > 0) {
+        handleBack()
       }
       if (e.key === 'Enter' || e.key === 'ArrowRight') {
         if (selected !== null && !isLastQuestion) handleNext()
@@ -143,12 +168,87 @@ export default function AssessmentPage() {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [handleSelect, handleNext, selected, isLastQuestion])
+  }, [showCapture, handleSelect, handleNext, handleBack, selected, isLastQuestion, currentIndex])
 
   if (!currentQuestion) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-tns-bg">
         <div className="w-8 h-8 border-4 border-tns-accent border-t-transparent rounded-full animate-spin" />
+      </div>
+    )
+  }
+
+  if (showCapture) {
+    return (
+      <div className="min-h-screen bg-tns-bg flex flex-col">
+        {/* Progress bar at 100% */}
+        <div className="bg-tns-border h-1">
+          <div className="bg-tns-accent h-1 w-full" />
+        </div>
+
+        <Section size="lg" className="flex-1">
+          <Container maxWidth="prose">
+            <div className="max-w-[480px] mx-auto">
+              <h2 className="font-display font-medium text-tns-fg text-2xl md:text-3xl tracking-tight leading-[1.1] mb-tns-md text-center">
+                You&apos;re done.
+              </h2>
+              <p className="font-sans text-tns-muted text-[18px] leading-relaxed mb-tns-2xl text-center">
+                Enter your email to see your archetype and full breakdown.
+              </p>
+              <form onSubmit={handleCaptureSubmit} className="space-y-tns-lg">
+                <div>
+                  <label
+                    htmlFor="capture-email"
+                    className="block font-sans text-sm font-medium text-tns-fg mb-tns-sm"
+                  >
+                    Your email address
+                  </label>
+                  <input
+                    id="capture-email"
+                    type="email"
+                    value={captureEmail}
+                    onChange={(e) => setCaptureEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    className="w-full px-4 py-3 bg-tns-bg border border-tns-border font-sans text-tns-fg placeholder:text-tns-muted
+                               focus:outline-none focus:border-tns-accent focus:ring-1 focus:ring-tns-accent transition-colors"
+                    autoComplete="email"
+                  />
+                  {captureError && (
+                    <p className="mt-tns-sm font-sans text-sm text-tns-accent">{captureError}</p>
+                  )}
+                </div>
+                <div className="flex items-start gap-3">
+                  <input
+                    id="subscribe-checkbox"
+                    type="checkbox"
+                    checked={subscribeChecked}
+                    onChange={(e) => setSubscribeChecked(e.target.checked)}
+                    className="mt-1 accent-tns-accent"
+                  />
+                  <label
+                    htmlFor="subscribe-checkbox"
+                    className="font-sans text-sm text-tns-fg leading-relaxed cursor-pointer"
+                  >
+                    Subscribe to The Noble Seller and take $10 off the Codex.
+                  </label>
+                </div>
+                <Button
+                  type="submit"
+                  variant="primary"
+                  disabled={submitting}
+                  className="w-full md:w-auto md:px-8 md:mx-auto md:flex"
+                >
+                  {submitting ? 'Scoring…' : 'See my results'}
+                </Button>
+              </form>
+              {submitError && (
+                <p className="mt-tns-md font-sans text-center text-sm text-tns-accent">
+                  {submitError}
+                </p>
+              )}
+            </div>
+          </Container>
+        </Section>
       </div>
     )
   }
@@ -211,34 +311,18 @@ export default function AssessmentPage() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-end">
-            {isLastQuestion ? (
-              <Button
-                onClick={handleSubmit}
-                disabled={selected === null || submitting || answeredCount < totalQuestions}
-                variant="primary"
-              >
-                {submitting ? 'Scoring…' : 'See my results →'}
+          <div className="flex items-center justify-between">
+            {currentIndex > 0 ? (
+              <Button onClick={handleBack} variant="ghost">
+                ← Back
               </Button>
             ) : (
-              <Button
-                onClick={handleNext}
-                disabled={selected === null}
-                variant="primary"
-              >
-                Next →
-              </Button>
+              <span />
             )}
           </div>
 
-          {submitError && (
-            <p className="mt-tns-md font-sans text-center text-sm text-tns-accent">
-              {submitError}
-            </p>
-          )}
-
           <p className="mt-tns-lg font-sans text-center text-xs text-tns-muted">
-            Tip: Press 1 to 5 to select, Enter to advance
+            Tip: Press 1–5 to select · ← → to navigate
           </p>
         </Container>
       </Section>
