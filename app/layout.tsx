@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   title: 'The Noble Seller',
   description:
     "A weekly newsletter for sellers who are tired of watered-down advice. Frameworks, tactics, and what actually works.",
+  verification: {
+    google: 'mYpbitLkDfPx2A8zzVso9hOsWz2Nkxuj6zNilAWWEMo',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
