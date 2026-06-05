@@ -15,6 +15,23 @@ import {
   type DimensionKey,
 } from '@/types'
 
+const CODEX_TEASERS: Record<string, string> = {
+  'Prospecting Comfort': 'how this score drains your pipeline without you noticing, and the eight-minute daily fix that stops it.',
+  'Closing Confidence': 'why your asks keep landing soft, and the exact closing move that fits how you sell.',
+  'Process-Oriented': "the deals slipping away while you think they're alive, and the fifteen-minute weekly system that catches them.",
+  'Data-Driven': 'where running on instinct is costing you deals, and the simple way to put numbers behind your gut.',
+  'EQ / Trust': "the buyer signals you're missing in the moment, and how to catch disengagement before it kills the deal.",
+  'Mindset / Resilience': 'how rejection is quietly shaping your behavior, and the proven way to recover faster and keep moving.',
+  'Problem Solving': "where you're solving the wrong problem for the buyer, and how to reframe it into a reason to act.",
+  'Active Listening': 'the listening habit costing you the details that close deals, and the technique that fixes it on your next call.',
+  'Customer-Centric': "the moments your own agenda leaks into the room, and how to put the buyer's outcome first without losing the deal.",
+  'Curiosity': 'the questions you stop asking too early, and the discovery move that surfaces what the buyer never volunteers.',
+  'Authenticity': 'where you slip into a performed version of yourself under pressure, and how to stay direct when the deal gets tense.',
+  'Self-Improvement': "the gap between what you've learned and what you've actually changed, and how to close it for good.",
+}
+
+const CODEX_TEASER_FALLBACK = 'the exact pattern this score creates, and the fix built for how you sell.'
+
 interface Props {
   id: string
 }
@@ -215,6 +232,9 @@ export default function FallbackResultsPage({ id }: Props) {
                     <p className="text-[15px] text-tns-muted leading-relaxed">
                       {DIMENSION_BLIND_SPOTS[dim]}
                     </p>
+                    <p className="text-[15px] text-tns-accent leading-relaxed mt-tns-xs">
+                      <strong>In your Codex:</strong>{' '}{CODEX_TEASERS[DIMENSION_LABELS[dim]] ?? CODEX_TEASER_FALLBACK}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -331,25 +351,72 @@ export default function FallbackResultsPage({ id }: Props) {
       <div className="border-t border-tns-border">
         <Section size="xl">
           <Container maxWidth="prose">
-            <div className="bg-tns-bgAlt rounded-2xl px-tns-xl py-tns-3xl text-center">
-              <p className="text-base font-semibold uppercase tracking-widest text-tns-fg mb-tns-md">
-                YOUR RESULTS ARE IN
+            <div className="bg-tns-bgAlt rounded-2xl px-tns-xl py-tns-2xl text-center">
+              {/* 1. Eyebrow */}
+              <p className="text-xs font-semibold uppercase tracking-widest text-tns-muted mb-tns-md">
+                The {primary.name} Codex
               </p>
-              <h2 className="font-display font-medium text-tns-fg text-3xl md:text-4xl tracking-tight leading-tight mb-tns-xs">
-                Your Codex is ready.
+
+              {/* 2. Headline */}
+              <h2 className="font-display font-bold text-tns-fg text-3xl md:text-4xl tracking-tight leading-tight mb-tns-sm">
+                You&rsquo;ve seen the what.<br />
+                Now get the why, and the fix.
               </h2>
-              <p className="font-display italic text-tns-muted text-xl md:text-2xl tracking-tight leading-tight mt-tns-lg mb-tns-sm">
-                {primary.name}
+
+              {/* 3. Italic accent */}
+              <p className="font-display italic text-tns-accent text-xl md:text-2xl tracking-tight leading-tight mb-tns-xl">
+                Built from your scores. It won&rsquo;t match anyone else&rsquo;s.
               </p>
-              <p className="font-sans text-base md:text-lg text-tns-fg leading-relaxed max-w-prose mx-auto mb-tns-xl">
-                Stop guessing why you win or lose deals. Your results reveal the preparation styles and selling habits that are holding you back. The Codex teaches you how to fix them.
+
+              {/* 4. Divider label */}
+              <p className="text-xs font-semibold uppercase tracking-widest text-tns-muted mb-tns-md">
+                What&rsquo;s inside
               </p>
-              <Link
-                href={`/codex/${id}`}
-                className="inline-flex items-center justify-center bg-tns-accent text-tns-bg font-medium px-6 py-3 rounded-lg hover:bg-tns-accentDark transition-colors duration-150"
-              >
-                Get my Codex
-              </Link>
+
+              {/* 5. Six sections */}
+              <ol className="text-left divide-y divide-tns-border mb-tns-lg">
+                {[
+                  { n: '01', title: 'Your Selling Identity', desc: 'Your three archetypes and the moves behind them.' },
+                  { n: '02', title: 'Your Prospecting Approach', desc: 'The channels that fit you, and a cadence to match.' },
+                  { n: '03', title: 'Discovery and Closing Tactics', desc: 'Questions in your voice, and the close to drill.' },
+                  { n: '04', title: 'Your Blind Spot Teardown', desc: 'Each low score: the pattern, the excuse, the fix.' },
+                  { n: '05', title: 'Tools and Resources', desc: 'Books, CRMs, and tools matched to your gaps.' },
+                  { n: '06', title: 'Your 30/60/90 Day Plan', desc: 'A dated plan with milestones, not motivation.' },
+                ].map(({ n, title, desc }) => (
+                  <li key={n} className="flex items-start gap-tns-md py-[11px]">
+                    <span className="font-display text-2xl font-bold text-tns-accent leading-none w-10 shrink-0 text-right">{n}</span>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold text-tns-fg text-[0.9rem] leading-[1.3]">{title}</p>
+                      <p className="text-[0.79rem] leading-[1.3] text-[#7a746e]">{desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+
+              {/* 6. Anchor lines */}
+              <p className="text-[13px] font-medium text-tns-fg mb-tns-xs">
+                Six sections, built from all 12 of your scores.
+              </p>
+              <p className="text-[13px] text-tns-muted mb-tns-xs">
+                Specific to your profile, not a category.
+              </p>
+
+              {/* 7. AI transparency */}
+              <p className="text-[13px] italic text-tns-muted mb-tns-lg">
+                Powered by AI, built entirely from your results.
+              </p>
+
+              {/* 9–10. Button and reassurance (fallback bypasses payment) */}
+              <div className="mb-tns-md">
+                <Link
+                  href={`/codex/${id}`}
+                  className="inline-flex items-center justify-center w-full bg-tns-accent text-tns-bg font-medium px-6 py-3 rounded-lg hover:bg-tns-accentDark transition-colors duration-150"
+                >
+                  Unlock my Codex
+                </Link>
+              </div>
+              <p className="text-[14px] text-tns-fg mb-tns-xs">One hour with a sales coach costs 4x that, and tells you less.</p>
+              <p className="text-[12px] text-tns-muted">One-time payment · Instant access · Printable PDF, yours to keep.</p>
             </div>
           </Container>
         </Section>
