@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { track } from "@vercel/analytics"
 import { QUESTIONS, shuffleQuestions } from '@/lib/questions'
@@ -26,12 +26,14 @@ export default function AssessmentPage() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [responses, setResponses] = useState<Record<string, number>>({}) // questionId → value
   const [selected, setSelected] = useState<number | null>(null)
+  // Ref always holds the latest committed responses — reads in handleCaptureSubmit
+  // bypass the async state closure and see the last answer immediately.
+  const responsesRef = useRef<Record<string, number>>({})
 
   // Email capture step state
   const [showCapture, setShowCapture] = useState(false)
   const [captureEmail, setCaptureEmail] = useState('')
   const [captureError, setCaptureError] = useState('')
-  const [subscribeChecked, setSubscribeChecked] = useState(false)
 
   // Submission state
   const [submitting, setSubmitting] = useState(false)
@@ -72,8 +74,17 @@ export default function AssessmentPage() {
     setSubmitError('')
 
     try {
-      // Convert responseMap → ordered array in canonical question order
-      const orderedResponses = QUESTIONS.map((q) => responses[q.id])
+      // Convert responseMap → ordered array in canonical question order.
+      // Read from ref so the last answer is always present regardless of
+      // whether React has flushed the final setResponses call to state yet.
+      const orderedResponses = QUESTIONS.map((q) => responsesRef.current[q.id])
+
+      const missing = QUESTIONS.filter((q) => responsesRef.current[q.id] === undefined)
+      if (missing.length > 0) {
+        setSubmitError('Something went wrong saving your answers. Please try again.')
+        setSubmitting(false)
+        return
+      }
 
       const res = await fetch('/api/submit-assessment', {
         method: 'POST',
@@ -90,15 +101,6 @@ export default function AssessmentPage() {
       const { id } = data
 
       track('nq_completed', { archetype: data.archetypeResult?.primary?.name ?? '' })
-
-      // Fire-and-forget subscribe if checkbox was checked — must not block results navigation
-      if (subscribeChecked) {
-        fetch('/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: captureEmail }),
-        }).catch(() => {})
-      }
 
       // Clear session storage — no longer needed
       sessionStorage.removeItem('tnq_email')
@@ -124,7 +126,7 @@ export default function AssessmentPage() {
       setSubmitError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
       setSubmitting(false)
     }
-  }, [captureEmail, submitting, responses, seed, subscribeChecked, router])
+  }, [captureEmail, submitting, seed, router])
 
   const handleBack = useCallback(() => {
     setCurrentIndex((i) => Math.max(i - 1, 0))
@@ -134,7 +136,9 @@ export default function AssessmentPage() {
     (value: number) => {
       if (!currentQuestion) return
       setSelected(value)
-      setResponses((prev) => ({ ...prev, [currentQuestion.id]: value }))
+      const updated = { ...responses, [currentQuestion.id]: value }
+      setResponses(updated)
+      responsesRef.current = updated
 
       setTimeout(() => {
         if (isLastQuestion) {
@@ -144,7 +148,7 @@ export default function AssessmentPage() {
         }
       }, 200)
     },
-    [currentQuestion, isLastQuestion, totalQuestions],
+    [currentQuestion, isLastQuestion, totalQuestions, responses],
   )
 
   const handleNext = useCallback(() => {
@@ -217,21 +221,7 @@ export default function AssessmentPage() {
                     <p className="mt-tns-sm font-sans text-sm text-tns-accent">{captureError}</p>
                   )}
                 </div>
-                <div className="flex items-start gap-3">
-                  <input
-                    id="subscribe-checkbox"
-                    type="checkbox"
-                    checked={subscribeChecked}
-                    onChange={(e) => setSubscribeChecked(e.target.checked)}
-                    className="mt-1 accent-tns-accent"
-                  />
-                  <label
-                    htmlFor="subscribe-checkbox"
-                    className="font-sans text-sm text-tns-fg leading-relaxed cursor-pointer"
-                  >
-                    Subscribe to The Noble Seller and take $10 off the Codex.
-                  </label>
-                </div>
+
                 <Button
                   type="submit"
                   variant="primary"
