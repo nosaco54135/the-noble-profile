@@ -29,6 +29,7 @@ export default function AssessmentPage() {
   // Ref always holds the latest committed responses — reads in handleCaptureSubmit
   // bypass the async state closure and see the last answer immediately.
   const responsesRef = useRef<Record<string, number>>({})
+  const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // Email capture step state
   const [showCapture, setShowCapture] = useState(false)
@@ -135,26 +136,32 @@ export default function AssessmentPage() {
   const handleSelect = useCallback(
     (value: number) => {
       if (!currentQuestion) return
+      clearTimeout(advanceTimerRef.current ?? undefined)
       setSelected(value)
-      const updated = { ...responses, [currentQuestion.id]: value }
-      setResponses(updated)
+      const updated = { ...responsesRef.current, [currentQuestion.id]: value }
       responsesRef.current = updated
+      setResponses(updated)
 
-      setTimeout(() => {
-        if (isLastQuestion) {
+      const answeredIndex = currentIndex
+      const wasLast = isLastQuestion
+      advanceTimerRef.current = setTimeout(() => {
+        if (wasLast) {
           setShowCapture(true)
         } else {
-          setCurrentIndex((i) => Math.min(i + 1, totalQuestions - 1))
+          setCurrentIndex(answeredIndex + 1)
         }
       }, 200)
     },
-    [currentQuestion, isLastQuestion, totalQuestions, responses],
+    [currentQuestion, currentIndex, isLastQuestion, responses],
   )
 
   const handleNext = useCallback(() => {
     if (selected === null) return
     setCurrentIndex((i) => Math.min(i + 1, totalQuestions - 1))
   }, [selected, totalQuestions])
+
+  // Cancel any pending auto-advance on unmount
+  useEffect(() => () => { clearTimeout(advanceTimerRef.current ?? undefined) }, [])
 
   // Keyboard support: number keys 1-5, ←/→/Enter to navigate
   useEffect(() => {
