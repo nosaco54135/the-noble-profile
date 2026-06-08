@@ -1,4 +1,11 @@
 import { Resend } from 'resend'
+import {
+  DIMENSION_ORDER,
+  DIMENSION_LABELS,
+  CODEX_TEASERS,
+  CODEX_TEASER_FALLBACK,
+  type DimensionKey,
+} from '@/types'
 
 const FROM = process.env.RESEND_FROM_EMAIL ?? 'noreply@thenobleseller.com'
 
@@ -22,20 +29,34 @@ function logEmailToConsole(payload: { to: string; subject: string; html: string 
   console.log('======================================\n')
 }
 
-/**
- * Sends a confirmation email after assessment submission.
- */
-export async function sendAssessmentConfirmation({
-  email,
+export function buildAssessmentConfirmationHtml({
   primaryArchetype,
   resultsUrl,
+  dimensionScores,
 }: {
-  email: string
   primaryArchetype: string
   resultsUrl: string
-}): Promise<void> {
-  const subject = `Your Noble Quotient results are ready: ${primaryArchetype}`
-  const html = `
+  dimensionScores?: Record<DimensionKey, number>
+}): string {
+  let blindSpotBlock: string
+  if (dimensionScores && Object.keys(dimensionScores).length > 0) {
+    const lowest3 = [...DIMENSION_ORDER]
+      .sort((a, b) => (dimensionScores[a] ?? 5) - (dimensionScores[b] ?? 5))
+      .slice(0, 3)
+    blindSpotBlock = lowest3
+      .map((dim) => {
+        const label = DIMENSION_LABELS[dim]
+        if (!label) return ''
+        const teaser = CODEX_TEASERS[label] ?? CODEX_TEASER_FALLBACK
+        return `<p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 20px;"><strong style="color: #722F37;">${label}:</strong> ${teaser}</p>`
+      })
+      .filter(Boolean)
+      .join('')
+  } else {
+    blindSpotBlock = `<p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 12px;">Your full results reveal the specific dimensions where focused work will move your performance most.</p>`
+  }
+
+  return `
       <!DOCTYPE html>
       <html>
         <head>
@@ -49,7 +70,7 @@ export async function sendAssessmentConfirmation({
               <h1 style="color: white; font-size: 24px; font-weight: 700; margin: 0;">Your Noble Quotient is ready.</h1>
             </div>
             <div style="padding: 40px;">
-              <div style="text-align: center; padding: 32px 0;">
+              <div style="text-align: center; padding: 8px 0 32px;">
                 <p style="margin: 0 0 8px 0; font-family: Georgia, serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6B6B6B;">
                   You are
                 </p>
@@ -58,12 +79,41 @@ export async function sendAssessmentConfirmation({
                 </p>
               </div>
               <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin: 0 0 28px;">
-                View your full dimension breakdown, all 8 archetype scores, and unlock your personalized Codex.
+                View your full dimension breakdown, all 8 archetype scores, and your personalized sales playbook, the Codex.
               </p>
               <a href="${resultsUrl}"
                 style="display: inline-block; background: #722F37; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 28px; border-radius: 8px;">
                 View My Results →
               </a>
+              <p style="font-family: Georgia, serif; font-style: italic; color: #1a1a1a; font-size: 16px; line-height: 1.5; margin: 18px 0 0;">
+                Your results exposed three places you're losing deals you can't see.
+              </p>
+
+              <div style="border-top: 1px solid #e2e8f0; margin-top: 20px; padding-top: 24px;">
+                <p style="margin: 0 0 10px 0; font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #0F0F0F; line-height: 1.2;">
+                  You've seen the what.<br>Now get the why, and the fix.
+                </p>
+                <p style="margin: 0 0 24px 0; font-family: Georgia, serif; font-style: italic; font-size: 16px; color: #722F37; line-height: 1.5;">
+                  Built from your scores. It won't match anyone else's.
+                </p>
+                ${blindSpotBlock}
+                <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin: 20px 0 6px;">
+                  Your Codex is where the full diagnosis and the fixes live.
+                </p>
+                <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 24px;">
+                  Six sections, built from all 12 of your scores, specific to your profile.
+                </p>
+                <a href="${resultsUrl}"
+                  style="display: block; width: 100%; box-sizing: border-box; text-align: center; background: #722F37; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 16px 28px; border-radius: 8px;">
+                  Unlock My Codex →
+                </a>
+                <p style="color: #334155; font-size: 14px; line-height: 1.5; text-align: center; margin: 14px 0 10px;">
+                  $47, or <strong>$37</strong> when you subscribe to the newsletter.
+                </p>
+                <p style="color: #475569; font-size: 14px; line-height: 1.5; text-align: center; margin: 0;">
+                  One hour with a sales coach costs more, and tells you less.
+                </p>
+              </div>
             </div>
             <div style="border-top: 1px solid #e2e8f0; padding: 24px 40px;">
               <p style="color: #94a3b8; font-size: 13px; margin: 0;">
@@ -74,6 +124,22 @@ export async function sendAssessmentConfirmation({
         </body>
       </html>
     `
+}
+
+/**
+ * Sends a confirmation email after assessment submission.
+ */
+export async function sendAssessmentConfirmation({
+  email,
+  primaryArchetype,
+  resultsUrl,
+}: {
+  email: string
+  primaryArchetype: string
+  resultsUrl: string
+}): Promise<void> {
+  const subject = `Your Noble Quotient results are ready: ${primaryArchetype}`
+  const html = buildAssessmentConfirmationHtml({ primaryArchetype, resultsUrl })
 
   if (!isResendConfigured()) {
     logEmailToConsole({ to: email, subject, html })

@@ -9,6 +9,8 @@ import {
   DIMENSION_ORDER,
   DIMENSION_STRENGTHS,
   DIMENSION_BLIND_SPOTS,
+  CODEX_TEASERS,
+  CODEX_TEASER_FALLBACK,
   type DimensionKey,
   type RankedTrait,
   type RankedStyle,
@@ -122,22 +124,6 @@ const DEV_SAMPLE_DATA = {
   ]
 }
 
-const CODEX_TEASERS: Record<string, string> = {
-  'Prospecting Comfort': 'how this score drains your pipeline without you noticing, and the eight-minute daily fix that stops it.',
-  'Closing Confidence': 'why your asks keep landing soft, and the exact closing move that fits how you sell.',
-  'Process-Oriented': "the deals slipping away while you think they're alive, and the fifteen-minute weekly system that catches them.",
-  'Data-Driven': 'where running on instinct is costing you deals, and the simple way to put numbers behind your gut.',
-  'EQ / Trust': "the buyer signals you're missing in the moment, and how to catch disengagement before it kills the deal.",
-  'Mindset / Resilience': 'how rejection is quietly shaping your behavior, and the proven way to recover faster and keep moving.',
-  'Problem Solving': "where you're solving the wrong problem for the buyer, and how to reframe it into a reason to act.",
-  'Active Listening': 'the listening habit costing you the details that close deals, and the technique that fixes it on your next call.',
-  'Customer-Centric': "the moments your own agenda leaks into the room, and how to put the buyer's outcome first without losing the deal.",
-  'Curiosity': 'the questions you stop asking too early, and the discovery move that surfaces what the buyer never volunteers.',
-  'Authenticity': 'where you slip into a performed version of yourself under pressure, and how to stay direct when the deal gets tense.',
-  'Self-Improvement': "the gap between what you've learned and what you've actually changed, and how to close it for good.",
-}
-
-const CODEX_TEASER_FALLBACK = 'the exact pattern this score creates, and the fix built for how you sell.'
 
 interface Props {
   params: Promise<{ id: string }>
