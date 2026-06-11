@@ -427,9 +427,9 @@ export default async function ResultsPage({ params, searchParams }: Props) {
       <div className="border-t border-tns-border">
         <Section size="xl">
           <Container maxWidth="prose">
-            <div className="bg-tns-bgAlt rounded-2xl px-tns-xl py-tns-2xl text-center">
+            <div className="bg-tns-bgAlt rounded-2xl px-tns-xl py-tns-xl text-center">
               {/* 1. Eyebrow */}
-              <p className="text-xs font-semibold uppercase tracking-widest text-tns-muted mb-tns-md">
+              <p id="codex" className="text-xs font-semibold uppercase tracking-widest text-tns-muted mb-tns-md">
                 The {primary.name} Codex
               </p>
 
@@ -450,7 +450,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
               </p>
 
               {/* 5. Six sections */}
-              <ol className="text-left divide-y divide-tns-border mb-tns-lg">
+              <ol className="text-left divide-y divide-tns-border mb-tns-md">
                 {[
                   { n: '01', title: 'Your Selling Identity', desc: 'Your three archetypes and the moves behind them.' },
                   { n: '02', title: 'Your Prospecting Approach', desc: 'The channels that fit you, and a cadence to match.' },
@@ -478,7 +478,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
               </p>
 
               {/* 7. AI transparency */}
-              <p className="text-[13px] italic text-tns-muted mb-tns-lg">
+              <p className="text-[13px] italic text-tns-muted mb-tns-md">
                 Powered by AI, built entirely from your results.
               </p>
 
