@@ -25,6 +25,9 @@ export default async function Image({ params }: { params: Promise<{ id: string }
   const interRegular = readFileSync(join(fontsDir, 'Inter-Regular.ttf'))
   const interSemiBold = readFileSync(join(fontsDir, 'Inter-SemiBold.ttf'))
 
+  const sealBuffer = readFileSync(join(process.cwd(), 'public/tns-seal.png'))
+  const sealDataUrl = `data:image/png;base64,${sealBuffer.toString('base64')}`
+
   const fonts = [
     { name: 'Cormorant', data: cormorantBold, weight: 700 as const, style: 'normal' as const },
     { name: 'Inter', data: interRegular, weight: 400 as const, style: 'normal' as const },
@@ -66,7 +69,6 @@ export default async function Image({ params }: { params: Promise<{ id: string }
   const nameWithoutThe = archetypeName.startsWith('The ') ? archetypeName.slice(4) : archetypeName
   const nameFontSize = archetypeName.length > 22 ? 64 : 76
 
-  // Look up tagline from archetypes config by matching name
   const archetypeConfig = archetypes.find(
     (a) => a.name.toLowerCase() === archetypeName.toLowerCase() ||
            a.name.toLowerCase() === nameWithoutThe.toLowerCase()
@@ -96,19 +98,14 @@ export default async function Image({ params }: { params: Promise<{ id: string }
           <p style={{ margin: 0, marginBottom: 16, fontFamily: 'Cormorant', fontWeight: 700, fontSize: nameFontSize, color: INK, lineHeight: 1 }}>{archetypeName}</p>
           <p style={{ margin: 0, fontFamily: 'Inter', fontWeight: 400, fontSize: 16, color: MUTED, fontStyle: 'italic' }}>{tagline}</p>
 
-          {/* Seal — larger, better proportioned */}
-          <div style={{ display: 'flex', position: 'absolute', right: 56, bottom: 24, width: 124, height: 124 }}>
-            <svg width="124" height="124" viewBox="0 0 124 124" style={{ position: 'absolute', top: 0, left: 0 }}>
-              <circle cx="62" cy="62" r="60" fill={OXBLOOD} />
-              <circle cx="62" cy="62" r="50" fill="none" stroke="rgba(250,240,235,0.2)" strokeWidth="0.75" />
-              <line x1="40" y1="66" x2="84" y2="66" stroke="rgba(250,240,235,0.35)" strokeWidth="0.75" />
-            </svg>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'absolute', top: 0, left: 0, width: 124, height: 124 }}>
-              <p style={{ margin: 0, marginBottom: 10, fontFamily: 'Cormorant', fontWeight: 700, fontSize: 22, color: CREAM, lineHeight: 1 }}>TNS</p>
-              <p style={{ margin: 0, marginBottom: 2, fontFamily: 'Inter', fontWeight: 600, fontSize: 7, letterSpacing: 2, color: 'rgba(250,240,235,0.75)', textTransform: 'uppercase', lineHeight: 1 }}>THE NOBLE</p>
-              <p style={{ margin: 0, fontFamily: 'Inter', fontWeight: 600, fontSize: 7, letterSpacing: 2, color: 'rgba(250,240,235,0.75)', textTransform: 'uppercase', lineHeight: 1 }}>QUOTIENT</p>
-            </div>
-          </div>
+          {/* Seal — pre-rendered PNG */}
+          <img
+            src={sealDataUrl}
+            width={130}
+            height={130}
+            alt=""
+            style={{ position: 'absolute', right: 48, bottom: 20 }}
+          />
 
         </div>
 
