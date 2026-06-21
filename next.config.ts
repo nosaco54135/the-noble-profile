@@ -1,13 +1,11 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  experimental: {
-    outputFileTracingIncludes: {
-      '/quotient/results/[id]/opengraph-image': [
-        './public/fonts/**/*',
-        './public/tns-seal.png',
-      ],
-    },
+  outputFileTracingIncludes: {
+    '/quotient/results/[id]/opengraph-image': [
+      './public/fonts/**/*',
+      './public/tns-seal.png',
+    ],
   },
 }
 
