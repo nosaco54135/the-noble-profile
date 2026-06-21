@@ -8,6 +8,7 @@ export const runtime = 'nodejs'
 export const alt = 'The Noble Quotient — your sales archetype result'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
+export const revalidate = 86400 // cache for 24 hours
 
 const OXBLOOD = '#722F37'
 const CREAM = '#FAFAF7'
