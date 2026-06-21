@@ -1,7 +1,14 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  // Vercel-ready — no extra config needed for basic deployment
+  experimental: {
+    outputFileTracingIncludes: {
+      '/quotient/results/[id]/opengraph-image': [
+        './public/fonts/**/*',
+        './public/tns-seal.png',
+      ],
+    },
+  },
 }
 
 export default nextConfig
