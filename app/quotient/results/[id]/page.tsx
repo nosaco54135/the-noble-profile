@@ -16,6 +16,8 @@ import {
   type RankedTrait,
   type RankedStyle,
 } from '@/types'
+export const dynamic = 'force-dynamic'
+
 import PaywallButton from './PaywallButton'
 import FallbackResultsPage from './FallbackResultsPage'
 
