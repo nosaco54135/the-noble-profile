@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -144,6 +145,20 @@ function closeTieSuffix(
   return ` · close with ${names}`
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params
+  if (id === 'dev-test' || !serverStorage.isAvailable()) {
+    return { title: 'Your Results — The Noble Quotient' }
+  }
+  const assessment = await serverStorage.loadAssessment(id)
+  const primary = assessment?.archetypeResult?.primary
+  if (!primary) return { title: 'Your Results — The Noble Quotient' }
+  return {
+    title: `The ${primary.name} — The Noble Quotient`,
+    description: `${primary.matchPercentage}% match for The ${primary.name}. Discover your sales archetype and top strengths on The Noble Quotient.`,
+  }
+}
+
 export default async function ResultsPage({ params, searchParams }: Props) {
   const { id } = await params
   const { canceled, fallback } = await searchParams
@@ -170,8 +185,10 @@ export default async function ResultsPage({ params, searchParams }: Props) {
   const topDims: DimensionKey[] = sortedDims.slice(0, 3)
   const bottomDims: DimensionKey[] = sortedDims.slice(-3).reverse()
 
+  const resultsUrl = `https://thenobleseller.com/quotient/results/${id}`
+
   return (
-    <div className="min-h-screen bg-tns-bg text-tns-fg">
+    <div className="min-h-screen bg-tns-bg text-tns-fg pb-[80px]">
       <Section size="lg">
         <Container maxWidth="prose">
           {canceled && (
@@ -519,6 +536,41 @@ export default async function ResultsPage({ params, searchParams }: Props) {
           </p>
         </Container>
       </Section>
+
+      {/* ── Sticky Share Bar ────────────────────────────────────────── */}
+      <div
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          background: '#FAFAF7',
+          borderTop: '1px solid #E0D8D0',
+          padding: '12px 24px',
+          paddingBottom: 'max(12px, env(safe-area-inset-bottom))',
+          zIndex: 50,
+        }}
+      >
+        <div style={{ maxWidth: '560px', margin: '0 auto', textAlign: 'center' }}>
+          <a
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(resultsUrl)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              background: '#722F37',
+              color: '#FAFAF7',
+              fontWeight: 600,
+              fontSize: '14px',
+              padding: '10px 24px',
+              borderRadius: '6px',
+              textDecoration: 'none',
+            }}
+          >
+            Share your archetype on LinkedIn →
+          </a>
+        </div>
+      </div>
     </div>
   )
 }
