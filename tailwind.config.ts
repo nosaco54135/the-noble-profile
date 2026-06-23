@@ -8,13 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      padding: {
-        safe: 'env(safe-area-inset-bottom)',
-      },
-    },
-    extend: {
       colors: {
-        // Existing NQ palette — kept for legacy /quotient pages
         noble: {
           50:  '#f0fdfa',
           100: '#ccfbf1',
@@ -28,7 +22,6 @@ const config: Config = {
           900: '#134e4a',
           950: '#042f2e',
         },
-        // The Noble Seller (parent brand) tokens
         tns: {
           bg: '#FAFAF7',
           bgAlt: '#F2F0E8',
@@ -57,6 +50,9 @@ const config: Config = {
       maxWidth: {
         prose: '760px',
         wide: '1080px',
+      },
+      padding: {
+        safe: 'env(safe-area-inset-bottom)',
       },
     },
   },
