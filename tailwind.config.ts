@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      padding: {
+        safe: 'env(safe-area-inset-bottom)',
+      },
+    },
+    extend: {
       colors: {
         // Existing NQ palette — kept for legacy /quotient pages
         noble: {
