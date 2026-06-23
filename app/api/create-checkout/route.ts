@@ -11,7 +11,7 @@ import { serverStorage } from '@/lib/storage'
  */
 export async function POST(req: NextRequest) {
   try {
-    let { assessmentId, isSubscriber } = await req.json()
+    let { assessmentId, isSubscriber, justSubscribed } = await req.json()
 
     if (!assessmentId || typeof assessmentId !== 'string') {
       return NextResponse.json({ error: 'assessmentId is required.' }, { status: 400 })
@@ -22,8 +22,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Assessment not found.' }, { status: 404 })
     }
 
-    // Server-side Beehiiv re-verification — prevents discount bypass via crafted requests
-    if (isSubscriber === true) {
+    // Server-side Beehiiv re-verification — prevents discount bypass via crafted requests.
+    // Skipped when justSubscribed is true: the subscription was just created moments ago
+    // and hasn't reached active status in Beehiiv yet, so re-verification would always fail.
+    if (isSubscriber === true && !justSubscribed) {
       const { isActiveSubscriber } = await import('@/lib/beehiiv')
       const verified = await isActiveSubscriber(assessment.email.toLowerCase().trim())
       if (!verified) {

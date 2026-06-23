@@ -41,14 +41,14 @@ export default function PaywallButton({ assessmentId, email, devMode = false }: 
     return () => { cancelled = true }
   }, [email, devMode])
 
-  async function goToCheckout(isSubscriber: boolean) {
+  async function goToCheckout(isSubscriber: boolean, justSubscribed = false) {
     setPhase('redirecting')
     setError('')
     try {
       const res = await fetch('/api/create-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ assessmentId, isSubscriber }),
+        body: JSON.stringify({ assessmentId, isSubscriber, justSubscribed }),
       })
       if (!res.ok) {
         const data = await res.json()
@@ -88,7 +88,7 @@ export default function PaywallButton({ assessmentId, email, devMode = false }: 
         await goToCheckout(false)
         return
       }
-      await goToCheckout(true)
+      await goToCheckout(true, true)
     } catch {
       console.warn('[PaywallButton] Subscribe error, falling back to $47')
       await goToCheckout(false)
