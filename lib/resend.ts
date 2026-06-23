@@ -89,15 +89,6 @@ export function buildAssessmentConfirmationHtml({
                 Your results exposed three places you're losing deals you can't see.
               </p>
 
-              <div style="border-top: 1px solid #e2e8f0; margin-top: 28px; padding-top: 24px; text-align: center;">
-                <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin: 0 0 16px;">
-                  Know another AE who should know their archetype?
-                </p>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url=${resultsUrl}"
-                  style="display: inline-block; background: #0A66C2; color: white; font-size: 14px; font-weight: 600; text-decoration: none; padding: 12px 24px; border-radius: 8px;">
-                  Share Your Result on LinkedIn →
-                </a>
-              </div>
 
               <div style="border-top: 1px solid #e2e8f0; margin-top: 20px; padding-top: 24px;">
                 <p style="margin: 0 0 10px 0; font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #0F0F0F; line-height: 1.2;">
@@ -125,6 +116,16 @@ export function buildAssessmentConfirmationHtml({
                 </p>
               </div>
             </div>
+
+              <div style="border-top: 1px solid #e2e8f0; margin-top: 28px; padding-top: 24px; text-align: center;">
+                <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin: 0 0 16px;">
+                  Know another AE who should know their archetype?
+                </p>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=${resultsUrl}"
+                  style="display: inline-block; background: #0A66C2; color: white; font-size: 14px; font-weight: 600; text-decoration: none; padding: 12px 24px; border-radius: 8px;">
+                  Share Your Result on LinkedIn →
+                </a>
+              </div>
             <div style="border-top: 1px solid #e2e8f0; padding: 24px 40px;">
               <p style="color: #94a3b8; font-size: 13px; margin: 0;">
                 The Noble Seller · The Noble Quotient
