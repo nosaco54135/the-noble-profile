@@ -18,6 +18,7 @@ import {
 } from '@/types'
 export const dynamic = 'force-dynamic'
 
+import { archetypes } from '@/lib/archetypes'
 import PaywallButton from './PaywallButton'
 import FallbackResultsPage from './FallbackResultsPage'
 
@@ -149,15 +150,33 @@ function closeTieSuffix(
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
-  if (id === 'dev-test' || !serverStorage.isAvailable()) {
-    return { title: 'Your Results — The Noble Quotient' }
+
+  const fallback: Metadata = {
+    title: 'The Noble Quotient — Know Your Selling Identity',
+    description: 'A behavioral assessment for B2B sales professionals. 25 questions, 12 dimensions, 64 archetypes.',
   }
+
+  if (id === 'dev-test' || !serverStorage.isAvailable()) return fallback
+
   const assessment = await serverStorage.loadAssessment(id)
   const primary = assessment?.archetypeResult?.primary
-  if (!primary) return { title: 'Your Results — The Noble Quotient' }
+  if (!primary) return fallback
+
+  const archetypeName = primary.name as string
+  const nameWithoutThe = archetypeName.startsWith('The ') ? archetypeName.slice(4) : archetypeName
+  const archetypeConfig = archetypes.find(
+    (a) => a.name.toLowerCase() === archetypeName.toLowerCase() ||
+           a.name.toLowerCase() === nameWithoutThe.toLowerCase()
+  )
+  const tagline = archetypeConfig?.tagline ?? (fallback.description as string)
+
+  const title = `The ${nameWithoutThe} — The Noble Quotient`
+  const description = tagline
+
   return {
-    title: `The ${primary.name} — The Noble Quotient`,
-    description: `${primary.matchPercentage}% match for The ${primary.name}. Discover your sales archetype and top strengths on The Noble Quotient.`,
+    title,
+    description,
+    openGraph: { title, description },
   }
 }
 
