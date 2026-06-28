@@ -47,10 +47,10 @@ export default async function CodexPage({ params, searchParams }: Props) {
         <div className="pt-16 pb-12 border-b border-[#E8E6DF]">
           <div className="max-w-[760px] mx-auto px-8 md:px-10">
             <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-6">
-              The Noble Codex
+              The Noble Compass
             </p>
             <h1 className="font-display text-5xl md:text-6xl font-bold text-[#0F0F0F] leading-[1.05] mb-4">
-              The {DEV_CODEX_PAYLOAD.archetypeName} Codex
+              The {DEV_CODEX_PAYLOAD.archetypeName} Compass
             </h1>
             <p className="font-display italic text-xl text-[#6B6B6B] mb-8">
               {DEV_SAMPLE_PAYLOAD.archetypeResult.primary.trait.tagline}
@@ -158,10 +158,10 @@ export default async function CodexPage({ params, searchParams }: Props) {
         <div className="border-t border-[#E8E6DF] mt-16">
           <div className="max-w-[760px] mx-auto px-8 md:px-10 py-10">
             <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-3">
-              About This Codex
+              About This Noble Compass
             </p>
             <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed max-w-[560px]">
-              Your scores were run through a generation pipeline that translated them into six sections of personalized coaching. The analysis is specific to your profile, not a category. It will not match anyone else's Codex.
+              Your scores were run through a generation pipeline that translated them into six sections of personalized coaching. The analysis is specific to your profile, not a category. It will not match anyone else's Noble Compass.
             </p>
             <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed max-w-[560px] mt-3">
               Some links in the Recommended Tools section are affiliate links. The Noble Seller may earn a commission if you make a purchase, at no additional cost to you. Recommendations are based on your scores, not on commission.
@@ -221,10 +221,10 @@ export default async function CodexPage({ params, searchParams }: Props) {
       <div className="pt-16 pb-12 border-b border-[#E8E6DF]">
         <div className="max-w-[760px] mx-auto px-8 md:px-10">
           <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-6">
-            The Noble Codex
+            The Noble Compass
           </p>
           <h1 className="font-display text-5xl md:text-6xl font-bold text-[#0F0F0F] leading-[1.05] mb-4">
-            The {primaryName} Codex
+            The {primaryName} Compass
           </h1>
           <p className="font-display italic text-xl text-[#6B6B6B] mb-8">
             {archetypeTagline}
@@ -349,10 +349,10 @@ export default async function CodexPage({ params, searchParams }: Props) {
       <div className="border-t border-[#E8E6DF] mt-16">
         <div className="max-w-[760px] mx-auto px-8 md:px-10 py-10">
           <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-3">
-            About This Codex
+            About This Noble Compass
           </p>
           <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed max-w-[560px]">
-            Your scores were run through a generation pipeline that translated them into six sections of personalized coaching. The analysis is specific to your profile, not a category. It will not match anyone else's Codex.
+            Your scores were run through a generation pipeline that translated them into six sections of personalized coaching. The analysis is specific to your profile, not a category. It will not match anyone else's Noble Compass.
           </p>
           <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed max-w-[560px] mt-3">
             Some links in the Recommended Tools section are affiliate links. The Noble Seller may earn a commission if you make a purchase, at no additional cost to you. Recommendations are based on your scores, not on commission.

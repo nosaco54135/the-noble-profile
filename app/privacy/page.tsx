@@ -6,19 +6,19 @@ export const metadata = {
 const SECTIONS = [
   {
     heading: 'What we collect',
-    body: 'When you take the Noble Quotient, we collect your email address and your assessment responses. When you purchase the Noble Codex, we collect payment information through Stripe — we never see or store your credit card details directly. If you subscribe to The Noble Seller newsletter, your email is stored with Beehiiv, our newsletter provider.',
+    body: 'When you take the Noble Quotient, we collect your email address and your assessment responses. When you purchase the Noble Compass, we collect payment information through Stripe — we never see or store your credit card details directly. If you subscribe to The Noble Seller newsletter, your email is stored with Beehiiv, our newsletter provider.',
   },
   {
     heading: 'How we use it',
-    body: 'Your email is used to deliver your assessment results, send your Noble Codex after purchase, and — if you opt in — send The Noble Seller newsletter. We do not sell your email address or share it with third parties for marketing purposes. Your assessment responses are used to calculate your Noble Quotient scores and generate your Noble Codex. Response data may be used in aggregate and anonymized form to improve the assessment model. No individual response data is shared or sold.',
+    body: 'Your email is used to deliver your assessment results, send your Noble Compass after purchase, and — if you opt in — send The Noble Seller newsletter. We do not sell your email address or share it with third parties for marketing purposes. Your assessment responses are used to calculate your Noble Quotient scores and generate your Noble Compass. Response data may be used in aggregate and anonymized form to improve the assessment model. No individual response data is shared or sold.',
   },
   {
     heading: 'Who we share it with',
-    body: 'We use the following third-party services to operate The Noble Seller: Stripe for payment processing, Beehiiv for newsletter delivery, Supabase for secure database storage, Resend for transactional email delivery, and Anthropic for AI generation of the Noble Codex. Assessment scores are passed to Anthropic\'s API to generate your coaching report. We do not share your personal information with any other third parties.',
+    body: 'We use the following third-party services to operate The Noble Seller: Stripe for payment processing, Beehiiv for newsletter delivery, Supabase for secure database storage, Resend for transactional email delivery, and Anthropic for AI generation of the Noble Compass. Assessment scores are passed to Anthropic\'s API to generate your coaching report. We do not share your personal information with any other third parties.',
   },
   {
     heading: 'Data retention',
-    body: 'Your assessment record and Codex are stored indefinitely so you can access them at any time via your results link. You may request deletion of your data at any time by emailing info@thenobleseller.com.',
+    body: 'Your assessment record and Noble Compass are stored indefinitely so you can access them at any time via your results link. You may request deletion of your data at any time by emailing info@thenobleseller.com.',
   },
   {
     heading: 'Cookies',

@@ -37,7 +37,7 @@ export default function AboutPage() {
               The Noble Quotient is built on a simple premise: you can&apos;t fix what you can&apos;t see. The assessment gives you a precise behavioral profile across 12 dimensions — not a personality type, not a vague label, but a specific map of how you actually operate in a sales environment. Where you&apos;re strong. Where you&apos;re leaving deals on the table. What to do about it.
             </p>
             <p>
-              The Noble Codex takes that map and turns it into a coaching guide. Six sections of personalized instruction built from your scores. Not generic advice dressed up with your name on it — actual coaching derived from your actual numbers.
+              The Noble Compass takes that map and turns it into a coaching guide. Six sections of personalized instruction built from your scores. Not generic advice dressed up with your name on it — actual coaching derived from your actual numbers.
             </p>
             <p>
               We built this because the best sellers we&apos;ve ever seen weren&apos;t the loudest or the most aggressive. They were the ones who understood themselves clearly enough to play to their strengths and work deliberately on their gaps. That&apos;s what The Noble Seller exists to develop.
@@ -75,7 +75,7 @@ export default function AboutPage() {
                   Coaching should be specific.
                 </p>
                 <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed">
-                  Generic advice is noise. The Noble Codex exists because every seller deserves coaching that&apos;s actually about them.
+                  Generic advice is noise. The Noble Compass exists because every seller deserves coaching that&apos;s actually about them.
                 </p>
               </div>
             </div>

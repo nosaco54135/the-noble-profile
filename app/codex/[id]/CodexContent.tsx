@@ -560,7 +560,7 @@ function parseCodex(markdown: string): Section[] {
   }
 
   if (sections.length === 0 && markdown.trim()) {
-    sections.push({ heading: 'Your Codex', content: markdown.trim() })
+    sections.push({ heading: 'Your Noble Compass', content: markdown.trim() })
   }
 
   return sections

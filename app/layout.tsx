@@ -21,6 +21,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://thenobleseller.com'),
   title: 'The Noble Seller',
   description:
     "A weekly newsletter for sellers who are tired of watered-down advice. Frameworks, tactics, and what actually works.",

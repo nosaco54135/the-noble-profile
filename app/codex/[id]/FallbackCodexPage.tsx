@@ -121,10 +121,10 @@ export default function FallbackCodexPage({ id }: Props) {
         {/* Header */}
         <div className="mb-12 print:mb-8">
           <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-2">
-            The Noble Seller · The Noble Codex
+            The Noble Seller · The Noble Compass
           </p>
           <h1 className="font-display text-5xl md:text-6xl font-semibold text-[#0F0F0F] leading-[1.05] mb-4">
-            The {primaryName} Codex
+            The {primaryName} Compass
           </h1>
           <p className="font-sans text-[#6B6B6B] text-base">
             Generated specifically for your Noble Quotient results.
@@ -157,10 +157,10 @@ export default function FallbackCodexPage({ id }: Props) {
               </svg>
             </div>
             <h3 className="text-xl font-bold text-[#0F0F0F] mb-2">
-              Generating your personal Codex…
+              Generating your personal Noble Compass…
             </h3>
             <p className="text-sm text-[#6B6B6B] mb-8 max-w-sm mx-auto">
-              Your scores are being translated into a personal Codex.
+              Your scores are being translated into a personal Noble Compass.
               This usually takes 20–40 seconds.
             </p>
             <div className="max-w-xs mx-auto space-y-2 text-left">

@@ -233,7 +233,7 @@ export default function FallbackResultsPage({ id }: Props) {
                       {DIMENSION_BLIND_SPOTS[dim]}
                     </p>
                     <p className="text-[15px] text-tns-accent leading-relaxed mt-tns-xs">
-                      <strong>In your Codex:</strong>{' '}{CODEX_TEASERS[DIMENSION_LABELS[dim]] ?? CODEX_TEASER_FALLBACK}
+                      <strong>In your Noble Compass:</strong>{' '}{CODEX_TEASERS[DIMENSION_LABELS[dim]] ?? CODEX_TEASER_FALLBACK}
                     </p>
                   </div>
                 </li>
@@ -354,7 +354,7 @@ export default function FallbackResultsPage({ id }: Props) {
             <div className="bg-tns-bgAlt rounded-2xl px-tns-xl py-tns-2xl text-center">
               {/* 1. Eyebrow */}
               <p className="text-xs font-semibold uppercase tracking-widest text-tns-muted mb-tns-md">
-                The {primary.name} Codex
+                The {primary.name} Compass
               </p>
 
               {/* 2. Headline */}
@@ -412,7 +412,7 @@ export default function FallbackResultsPage({ id }: Props) {
                   href={`/codex/${id}`}
                   className="inline-flex items-center justify-center w-full bg-tns-accent text-tns-bg font-medium px-6 py-3 rounded-lg hover:bg-tns-accentDark transition-colors duration-150"
                 >
-                  Unlock my Codex
+                  Unlock my Noble Compass
                 </Link>
               </div>
               <p className="text-[14px] text-tns-fg mb-tns-xs">One hour with a sales coach costs 4x that, and tells you less.</p>

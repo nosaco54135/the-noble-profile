@@ -108,7 +108,7 @@ export default function HomePage() {
               The Noble Quotient is a 25-question assessment that maps how you sell across 12 dimensions. You&apos;ll see your natural style, your blind spots, and what to fix first.
             </p>
             <p className="text-[17px] text-tns-fg leading-relaxed mb-tns-2xl">
-              Subscribers can unlock The Noble Codex, a custom playbook built from your exact scores. Prospecting tactics, closing strategies, and a 30/60/90 plan written for the way you sell.
+              Subscribers can unlock The Noble Compass, a custom playbook built from your exact scores. Prospecting tactics, closing strategies, and a 30/60/90 plan written for the way you sell.
             </p>
             <LinkButton href="/quotient" variant="primary">
               Take the assessment

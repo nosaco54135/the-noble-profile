@@ -41,7 +41,7 @@ export default function LandingPage() {
                 Take the Free Assessment →
               </Button>
               <p className="mt-tns-md font-sans text-xs text-center text-tns-muted leading-relaxed">
-                The Noble Quotient is 100% free. 25 questions, about 5 minutes, full results shown immediately. The Codex is an optional paid coaching guide based on your results.
+                The Noble Quotient is 100% free. 25 questions, about 5 minutes, full results shown immediately. The Noble Compass is an optional paid coaching guide based on your results.
               </p>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function LandingPage() {
               </div>
               <div>
                 <h3 className="font-display text-[20px] text-tns-fg mb-tns-sm leading-snug">
-                  The Noble Codex
+                  The Noble Compass
                 </h3>
                 <p className="font-sans text-[15px] text-tns-muted leading-relaxed">
                   Powered by AI and built from your scores. Six sections covering prospecting tactics, closing strategies, blind spots, and a 30/60/90 day plan specific to how you sell.
@@ -96,7 +96,7 @@ export default function LandingPage() {
               Built by The Noble Seller
             </p>
             <p className="font-sans text-[17px] text-tns-fg leading-relaxed max-w-[560px] mx-auto">
-              The Noble Quotient was designed to go beyond generic personality tests. Every score is mapped to real selling behaviors. Every Codex is written specifically for your profile, not a category.
+              The Noble Quotient was designed to go beyond generic personality tests. Every score is mapped to real selling behaviors. Every Noble Compass is written specifically for your profile, not a category.
             </p>
           </div>
         </Container>

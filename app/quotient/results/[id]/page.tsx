@@ -214,7 +214,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
         <Container maxWidth="prose">
           {canceled && (
             <div className="mb-tns-3xl border border-tns-border bg-tns-bgAlt px-tns-lg py-tns-md text-[14px] text-tns-fg">
-              Payment was canceled. Your results are still here whenever you&apos;re ready to unlock your Codex.
+              Payment was canceled. Your results are still here whenever you&apos;re ready to unlock your Noble Compass.
             </div>
           )}
 
@@ -347,7 +347,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                       {DIMENSION_BLIND_SPOTS[dim]}
                     </p>
                     <p className="text-[15px] text-tns-accent leading-relaxed mt-tns-xs">
-                      <strong>In your Codex:</strong>{' '}{CODEX_TEASERS[DIMENSION_LABELS[dim]] ?? CODEX_TEASER_FALLBACK}
+                      <strong>In your Noble Compass:</strong>{' '}{CODEX_TEASERS[DIMENSION_LABELS[dim]] ?? CODEX_TEASER_FALLBACK}
                     </p>
                   </div>
                 </li>
@@ -468,7 +468,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
             <div className="bg-tns-bgAlt rounded-2xl px-tns-xl py-tns-xl text-center">
               {/* 1. Eyebrow */}
               <p id="codex" className="text-xs font-semibold uppercase tracking-widest text-tns-muted mb-tns-md">
-                The {primary.name} Codex
+                The {primary.name} Compass
               </p>
 
               {/* 2. Headline */}
@@ -527,7 +527,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                     href={`/codex/${id}`}
                     className="inline-flex items-center justify-center bg-tns-accent text-tns-bg font-medium px-6 py-3 rounded-lg hover:bg-tns-accentDark transition-colors duration-150"
                   >
-                    Open my Codex
+                    Open my Noble Compass
                   </Link>
                   <p className="text-[13px] text-tns-muted mt-tns-md">Instant access. Read it in your browser, yours to keep.</p>
                 </>

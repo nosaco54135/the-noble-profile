@@ -106,8 +106,8 @@ export default function PaywallButton({ assessmentId, email, devMode = false }: 
       return <><Spinner />{label}</>
     }
     if (devMode) return <>Dev mode · bypass payment</>
-    if (subscribed) return <>Unlock my Codex · $37</>
-    return <>Unlock my Codex · $47</>
+    if (subscribed) return <>Unlock my Noble Compass · $37</>
+    return <>Unlock my Noble Compass · $47</>
   })()
 
   return (
@@ -130,9 +130,9 @@ export default function PaywallButton({ assessmentId, email, devMode = false }: 
 
       {phase === 'upsell' && (
         <div className="bg-[#F2F0EB] rounded-lg p-4 mt-3 text-left">
-          <p className="font-display text-lg text-[#0F0F0F] mb-1">Save $10 on your Codex</p>
+          <p className="font-display text-lg text-[#0F0F0F] mb-1">Save $10 on your Noble Compass</p>
           <p className="font-sans text-sm text-[#6B6B6B] mb-3">
-            Subscribe to The Noble Seller newsletter and get the Codex for $37.
+            Subscribe to The Noble Seller newsletter and get the Noble Compass for $37.
           </p>
           <button
             onClick={handleSubscribeAndSave}

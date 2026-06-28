@@ -79,7 +79,7 @@ export function buildAssessmentConfirmationHtml({
                 </p>
               </div>
               <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin: 0 0 28px;">
-                View your full dimension breakdown, all 8 archetype scores, and your personalized sales playbook, the Codex.
+                View your full dimension breakdown, all 8 archetype scores, and your personalized sales playbook, the Noble Compass.
               </p>
               <a href="${resultsUrl}"
                 style="display: inline-block; background: #722F37; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 28px; border-radius: 8px;">
@@ -99,14 +99,14 @@ export function buildAssessmentConfirmationHtml({
                 </p>
                 ${blindSpotBlock}
                 <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin: 20px 0 6px;">
-                  Your Codex is where the full diagnosis and the fixes live.
+                  Your Noble Compass is where the full diagnosis and the fixes live.
                 </p>
                 <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 24px;">
                   Six sections, built from all 12 of your scores, specific to your profile.
                 </p>
                 <a href="${resultsUrl}#codex"
                   style="display: block; width: 100%; box-sizing: border-box; text-align: center; background: #722F37; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 16px 28px; border-radius: 8px;">
-                  Unlock My Codex →
+                  Unlock My Noble Compass →
                 </a>
                 <p style="color: #334155; font-size: 14px; line-height: 1.5; text-align: center; margin: 14px 0 10px;">
                   $47, or <strong>$37</strong> when you subscribe to the newsletter.
@@ -173,7 +173,7 @@ export async function sendCodexDelivery({
   primaryArchetype: string
   codexUrl: string
 }): Promise<void> {
-  const subject = `Your Noble Codex is ready`
+  const subject = `Your Noble Compass is ready`
   const html = `
       <!DOCTYPE html>
       <html>
@@ -181,18 +181,18 @@ export async function sendCodexDelivery({
           <div style="max-width: 560px; margin: 40px auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
             <div style="background: #722F37; padding: 32px 40px;">
               <p style="color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px;">The Noble Seller</p>
-              <h1 style="color: white; font-size: 24px; font-weight: 700; margin: 0;">Your Codex is ready.</h1>
+              <h1 style="color: white; font-size: 24px; font-weight: 700; margin: 0;">Your Noble Compass is ready.</h1>
             </div>
             <div style="padding: 40px;">
               <p style="color: #334155; font-size: 16px; line-height: 1.6; margin: 0 0 16px;">
-                Your personalized <strong>${primaryArchetype}</strong> Codex has been generated. It includes 6 sections tailored specifically to your Noble Quotient scores.
+                Your personalized <strong>${primaryArchetype}</strong> Compass has been generated. It includes 6 sections tailored specifically to your Noble Quotient scores.
               </p>
               <a href="${codexUrl}"
                 style="display: inline-block; background: #722F37; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 28px; border-radius: 8px; margin: 8px 0 24px;">
-                Open My Codex →
+                Open My Noble Compass →
               </a>
               <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin: 0;">
-                Bookmark this link. You can return anytime to re-read or print your Codex.
+                Bookmark this link. You can return anytime to re-read or print your Noble Compass.
               </p>
             </div>
           </div>

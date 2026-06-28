@@ -15,7 +15,7 @@ export default function ContactPage() {
             Get in touch.
           </h1>
           <p className="font-sans text-base text-[#6B6B6B] leading-relaxed mb-8">
-            For questions about the Noble Quotient or Noble Codex, partnership inquiries, or anything else — reach out directly.
+            For questions about the Noble Quotient or Noble Compass, partnership inquiries, or anything else — reach out directly.
           </p>
           <a
             href="mailto:info@thenobleseller.com"
