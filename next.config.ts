@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
       './public/tns-seal.png',
     ],
   },
+  async redirects() {
+    return [
+      { source: '/codex/:id', destination: '/compass/:id', permanent: true },
+    ]
+  },
 }
 
 export default nextConfig

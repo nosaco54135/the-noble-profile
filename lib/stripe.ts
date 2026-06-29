@@ -58,7 +58,7 @@ export async function createCheckoutSession({
       assessment_id: assessmentId,
       archetype_name: archetypeName,
     },
-    success_url: `${appUrl}/codex/${assessmentId}?session_id={CHECKOUT_SESSION_ID}`,
+    success_url: `${appUrl}/compass/${assessmentId}?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${appUrl}/quotient/results/${assessmentId}?canceled=true`,
   })
 

@@ -409,7 +409,7 @@ export default function FallbackResultsPage({ id }: Props) {
               {/* 9–10. Button and reassurance (fallback bypasses payment) */}
               <div className="mb-tns-md">
                 <Link
-                  href={`/codex/${id}`}
+                  href={`/compass/${id}`}
                   className="inline-flex items-center justify-center w-full bg-tns-accent text-tns-bg font-medium px-6 py-3 rounded-lg hover:bg-tns-accentDark transition-colors duration-150"
                 >
                   Unlock my Noble Compass

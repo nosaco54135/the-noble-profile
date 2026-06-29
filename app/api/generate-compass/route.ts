@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
     sendCompassDelivery({
       email: assessment.email,
       primaryArchetype: assessment.archetypeResult.primary.name,
-      compassUrl: `${appUrl}/codex/${assessmentId}`,
+      compassUrl: `${appUrl}/compass/${assessmentId}`,
     }).catch((err) => console.error('Compass email failed:', err))
 
     return NextResponse.json({ codex: compass })

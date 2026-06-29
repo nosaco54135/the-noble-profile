@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { clientStorage, type StoredAssessment } from '@/lib/storage'
 import { DIMENSION_LABELS, DIMENSION_ORDER } from '@/types'
-import CompassContent from './CodexContent'
+import CompassContent from './CompassContent'
 
 interface Props {
   id: string
@@ -41,7 +41,7 @@ export default function FallbackCompassPage({ id }: Props) {
 
     async function generate() {
       try {
-        const res = await fetch('/api/generate-codex', {
+        const res = await fetch('/api/generate-compass', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

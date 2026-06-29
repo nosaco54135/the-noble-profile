@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import type { ScoringResult } from '@/types'
-import CompassContent from './CodexContent'
+import CompassContent from './CompassContent'
 import { track } from "@vercel/analytics"
 
 interface Props {
@@ -58,7 +58,7 @@ export default function CompassGenerator({ assessmentId, archetypeResult, dimens
     setStatus('generating')
     setError('')
     try {
-      const res = await fetch('/api/generate-codex', {
+      const res = await fetch('/api/generate-compass', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ assessmentId }),

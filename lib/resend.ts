@@ -104,7 +104,7 @@ export function buildAssessmentConfirmationHtml({
                 <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 24px;">
                   Six sections, built from all 12 of your scores, specific to your profile.
                 </p>
-                <a href="${resultsUrl}#codex"
+                <a href="${resultsUrl}#compass"
                   style="display: block; width: 100%; box-sizing: border-box; text-align: center; background: #722F37; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 16px 28px; border-radius: 8px;">
                   Unlock My Noble Compass →
                 </a>

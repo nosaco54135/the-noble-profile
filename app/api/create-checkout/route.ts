@@ -37,13 +37,13 @@ export async function POST(req: NextRequest) {
 
     // Already paid — short-circuit to the Codex page
     if (assessment.paymentStatus === 'paid') {
-      return NextResponse.json({ url: `${appUrl}/codex/${assessmentId}` })
+      return NextResponse.json({ url: `${appUrl}/compass/${assessmentId}` })
     }
 
     // Dev-mode bypass — no Stripe key, flip to paid and redirect
     if (!isStripeConfigured()) {
       await serverStorage.markPaid(assessmentId, 'dev-mode-bypass')
-      return NextResponse.json({ url: `${appUrl}/codex/${assessmentId}`, devBypass: true })
+      return NextResponse.json({ url: `${appUrl}/compass/${assessmentId}`, devBypass: true })
     }
 
     const url = await createCheckoutSession({

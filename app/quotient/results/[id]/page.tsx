@@ -467,7 +467,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
           <Container maxWidth="prose">
             <div className="bg-tns-bgAlt rounded-2xl px-tns-xl py-tns-xl text-center">
               {/* 1. Eyebrow */}
-              <p id="codex" className="text-xs font-semibold uppercase tracking-widest text-tns-muted mb-tns-md">
+              <p id="compass" className="text-xs font-semibold uppercase tracking-widest text-tns-muted mb-tns-md">
                 The {primary.name} Compass
               </p>
 
@@ -524,7 +524,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
               {paymentStatus === 'paid' ? (
                 <>
                   <Link
-                    href={`/codex/${id}`}
+                    href={`/compass/${id}`}
                     className="inline-flex items-center justify-center bg-tns-accent text-tns-bg font-medium px-6 py-3 rounded-lg hover:bg-tns-accentDark transition-colors duration-150"
                   >
                     Open my Noble Compass

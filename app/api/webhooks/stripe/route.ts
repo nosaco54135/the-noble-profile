@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
       const archetypeName = session.metadata?.archetype_name ?? ''
 
       if (customerEmail) {
-        const compassUrl = `${process.env.NEXT_PUBLIC_APP_URL}/codex/${assessmentId}`
+        const compassUrl = `${process.env.NEXT_PUBLIC_APP_URL}/compass/${assessmentId}`
         await sendCompassDelivery({ email: customerEmail, primaryArchetype: archetypeName, compassUrl }).catch(err =>
           console.error('[webhook] sendCompassDelivery failed:', err)
         )
