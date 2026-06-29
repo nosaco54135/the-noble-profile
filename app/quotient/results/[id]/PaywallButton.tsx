@@ -70,6 +70,11 @@ export default function PaywallButton({ assessmentId, email, devMode = false }: 
       await goToCheckout(false)
       return
     }
+    // Comp code present — skip the upsell entirely, go straight to free unlock
+    if (compCode) {
+      await goToCheckout(false)
+      return
+    }
     if (subscribed === true) {
       await goToCheckout(true)
     } else {
