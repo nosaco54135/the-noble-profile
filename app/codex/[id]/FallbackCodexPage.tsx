@@ -4,15 +4,15 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { clientStorage, type StoredAssessment } from '@/lib/storage'
 import { DIMENSION_LABELS, DIMENSION_ORDER } from '@/types'
-import CodexContent from './CodexContent'
+import CompassContent from './CodexContent'
 
 interface Props {
   id: string
 }
 
-export default function FallbackCodexPage({ id }: Props) {
+export default function FallbackCompassPage({ id }: Props) {
   const [data, setData] = useState<StoredAssessment | null>(null)
-  const [codex, setCodex] = useState<string | null>(null)
+  const [compass, setCompass] = useState<string | null>(null)
   const [status, setStatus] = useState<'loading' | 'generating' | 'done' | 'error'>('loading')
   const [error, setError] = useState('')
 
@@ -25,9 +25,9 @@ export default function FallbackCodexPage({ id }: Props) {
     }
     setData(result)
 
-    const cached = clientStorage.loadCodex(id)
+    const cached = clientStorage.loadCompass(id)
     if (cached) {
-      setCodex(cached)
+      setCompass(cached)
       setStatus('done')
       return
     }
@@ -57,8 +57,8 @@ export default function FallbackCodexPage({ id }: Props) {
 
         const { codex: text } = await res.json()
         if (!canceled) {
-          clientStorage.saveCodex(id, text)
-          setCodex(text)
+          clientStorage.saveCompass(id, text)
+          setCompass(text)
           setStatus('done')
         }
       } catch (err) {
@@ -199,7 +199,7 @@ export default function FallbackCodexPage({ id }: Props) {
           </nav>
         )}
 
-        {status === 'done' && codex && data && (() => {
+        {status === 'done' && compass && data && (() => {
           const dimensionScores = DIMENSION_ORDER.map(key => ({
             key,
             label: DIMENSION_LABELS[key],
@@ -209,8 +209,8 @@ export default function FallbackCodexPage({ id }: Props) {
           const topDimensions = dimensionScores.slice(0, 3)
           const gapDimensions = dimensionScores.slice(-4)
           return (
-            <CodexContent
-              markdown={codex}
+            <CompassContent
+              markdown={compass}
               dimensionScores={dimensionScores}
               topDimensions={topDimensions}
               gapDimensions={gapDimensions}

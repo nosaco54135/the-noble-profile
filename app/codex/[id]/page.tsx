@@ -1,9 +1,9 @@
 import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { serverStorage } from '@/lib/storage'
-import CodexContent from './CodexContent'
-import CodexGenerator from './CodexGenerator'
-import FallbackCodexPage from './FallbackCodexPage'
+import CompassContent from './CodexContent'
+import CompassGenerator from './CodexGenerator'
+import FallbackCompassPage from './FallbackCodexPage'
 import PrintButton from './PrintButton'
 import { DEV_CODEX_PAYLOAD, DEV_SAMPLE_PAYLOAD } from '@/lib/dev-sample'
 import { DIMENSION_LABELS, DIMENSION_ORDER } from '@/types'
@@ -13,7 +13,7 @@ interface Props {
   searchParams: Promise<{ fallback?: string; session_id?: string }>
 }
 
-export default async function CodexPage({ params, searchParams }: Props) {
+export default async function CompassPage({ params, searchParams }: Props) {
   const { id } = await params
   const { fallback, session_id } = await searchParams
 
@@ -142,7 +142,7 @@ export default async function CodexPage({ params, searchParams }: Props) {
         </nav>
 
         <main className="max-w-[760px] mx-auto px-8 md:px-10 py-12 print-page">
-          <CodexContent
+          <CompassContent
             markdown={devMarkdown}
             dimensionScores={devDimensionScores}
             archetypes={{
@@ -181,7 +181,7 @@ export default async function CodexPage({ params, searchParams }: Props) {
   }
 
   if (fallback === 'true' || !serverStorage.isAvailable()) {
-    return <FallbackCodexPage id={id} />
+    return <FallbackCompassPage id={id} />
   }
 
   const assessment = await serverStorage.loadAssessment(id)
@@ -199,7 +199,7 @@ export default async function CodexPage({ params, searchParams }: Props) {
   const tertiaryName = assessment.archetypeResult?.tertiary?.name ?? ''
   const secondaryMatchPercentage = assessment.archetypeResult?.secondary?.matchPercentage ?? 0
   const tertiaryMatchPercentage = assessment.archetypeResult?.tertiary?.matchPercentage ?? 0
-  const existingCodex = await serverStorage.loadCodex(id)
+  const existingCompass = await serverStorage.loadCompass(id)
 
   const dimensionScores: { key: string; label: string; score: number; max: number }[] =
     DIMENSION_ORDER.map(key => ({
@@ -316,9 +316,9 @@ export default async function CodexPage({ params, searchParams }: Props) {
       </nav>
 
       <main className="max-w-[760px] mx-auto px-8 md:px-10 py-12 print-page">
-        {existingCodex ? (
-          <CodexContent
-              markdown={existingCodex}
+        {existingCompass ? (
+          <CompassContent
+              markdown={existingCompass}
               dimensionScores={dimensionScores}
               archetypes={{
                 primary: { name: primaryName, matchPercentage: primaryMatchPercentage },
@@ -329,7 +329,7 @@ export default async function CodexPage({ params, searchParams }: Props) {
               gapDimensions={gapDimensions}
             />
         ) : (
-          <CodexGenerator
+          <CompassGenerator
             assessmentId={id}
             archetypeResult={assessment.archetypeResult}
             dimensionScores={dimensionScores}

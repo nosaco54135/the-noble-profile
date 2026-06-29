@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import type { ScoringResult } from '@/types'
-import CodexContent from './CodexContent'
+import CompassContent from './CodexContent'
 import { track } from "@vercel/analytics"
 
 interface Props {
@@ -39,9 +39,9 @@ const SALES_QUOTES = [
  * Client component that triggers on-demand Codex generation
  * when the user lands on the Codex page before it has been generated.
  */
-export default function CodexGenerator({ assessmentId, archetypeResult, dimensionScores, archetypes, topDimensions, gapDimensions, sessionId, archetype }: Props) {
+export default function CompassGenerator({ assessmentId, archetypeResult, dimensionScores, archetypes, topDimensions, gapDimensions, sessionId, archetype }: Props) {
   const [status, setStatus] = useState<'generating' | 'done' | 'error'>('generating')
-  const [codex, setCodex] = useState<string | null>(null)
+  const [compass, setCompass] = useState<string | null>(null)
   const [error, setError] = useState('')
   const [quoteIndex, setQuoteIndex] = useState(0)
   const [quoteVisible, setQuoteVisible] = useState(true)
@@ -70,7 +70,7 @@ export default function CodexGenerator({ assessmentId, archetypeResult, dimensio
       }
 
       const { codex: text } = await res.json()
-      setCodex(text)
+      setCompass(text)
       setStatus('done')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
@@ -110,10 +110,10 @@ export default function CodexGenerator({ assessmentId, archetypeResult, dimensio
     )
   }
 
-  if (status === 'done' && codex) {
+  if (status === 'done' && compass) {
     return (
-      <CodexContent
-        markdown={codex}
+      <CompassContent
+        markdown={compass}
         dimensionScores={dimensionScores}
         archetypes={archetypes}
         topDimensions={topDimensions}

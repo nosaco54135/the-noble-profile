@@ -2,7 +2,7 @@
 
 import { parseAffiliateSegments } from '@/lib/affiliate-config'
 
-interface CodexContentProps {
+interface CompassContentProps {
   markdown: string
   dimensionScores: { key: string; label: string; score: number; max: number }[]
   archetypes: {
@@ -224,13 +224,13 @@ function parsePhasePlan(rawContent: string): PhasePlan {
   return { phases, reflectionQuestions, pullQuotes }
 }
 
-export default function CodexContent({
+export default function CompassContent({
   markdown,
   dimensionScores,
   archetypes,
   topDimensions: _topDimensions,
   gapDimensions,
-}: CodexContentProps) {
+}: CompassContentProps) {
   if (!dimensionScores || dimensionScores.length === 0) {
     return <div className="text-[#6B6B6B] font-sans text-sm p-8">Loading...</div>
   }
@@ -242,7 +242,7 @@ export default function CodexContent({
     try {
       phasePlan = parsePhasePlan(sections[5].content)
     } catch (e) {
-      console.warn('[CodexContent] Section 6 parse failed, falling back to prose', e)
+      console.warn('[CompassContent] Section 6 parse failed, falling back to prose', e)
     }
   }
 

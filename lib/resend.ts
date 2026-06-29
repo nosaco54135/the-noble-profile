@@ -2,8 +2,8 @@ import { Resend } from 'resend'
 import {
   DIMENSION_ORDER,
   DIMENSION_LABELS,
-  CODEX_TEASERS,
-  CODEX_TEASER_FALLBACK,
+  COMPASS_TEASERS,
+  COMPASS_TEASER_FALLBACK,
   type DimensionKey,
 } from '@/types'
 
@@ -47,7 +47,7 @@ export function buildAssessmentConfirmationHtml({
       .map((dim) => {
         const label = DIMENSION_LABELS[dim]
         if (!label) return ''
-        const teaser = CODEX_TEASERS[label] ?? CODEX_TEASER_FALLBACK
+        const teaser = COMPASS_TEASERS[label] ?? COMPASS_TEASER_FALLBACK
         return `<p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 20px;"><strong style="color: #722F37;">${label}:</strong> ${teaser}</p>`
       })
       .filter(Boolean)
@@ -162,16 +162,16 @@ export async function sendAssessmentConfirmation({
 }
 
 /**
- * Sends a Codex delivery email after payment.
+ * Sends a Compass delivery email after payment.
  */
-export async function sendCodexDelivery({
+export async function sendCompassDelivery({
   email,
   primaryArchetype,
-  codexUrl,
+  compassUrl,
 }: {
   email: string
   primaryArchetype: string
-  codexUrl: string
+  compassUrl: string
 }): Promise<void> {
   const subject = `Your Noble Compass is ready`
   const html = `
@@ -187,7 +187,7 @@ export async function sendCodexDelivery({
               <p style="color: #334155; font-size: 16px; line-height: 1.6; margin: 0 0 16px;">
                 Your personalized <strong>${primaryArchetype}</strong> Compass has been generated. It includes 6 sections tailored specifically to your Noble Quotient scores.
               </p>
-              <a href="${codexUrl}"
+              <a href="${compassUrl}"
                 style="display: inline-block; background: #722F37; color: white; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 28px; border-radius: 8px; margin: 8px 0 24px;">
                 Open My Noble Compass →
               </a>

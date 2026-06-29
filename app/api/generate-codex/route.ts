@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { serverStorage } from '@/lib/storage'
 import { generateCodex } from '@/lib/claude'
-import { sendCodexDelivery } from '@/lib/resend'
+import { sendCompassDelivery } from '@/lib/resend'
 import type { ScoringResult } from '@/types'
 
 export const maxDuration = 300
@@ -17,7 +17,7 @@ export const maxDuration = 300
  *    to surface the retake message instead.
  *  - In fallback mode (no Supabase), the client ships the scoring result in the
  *    request body so we can still generate without a server-side record. Caching
- *    in that mode happens client-side via clientStorage.saveCodex.
+ *    in that mode happens client-side via clientStorage.saveCompass.
  */
 export async function POST(req: NextRequest) {
   try {
@@ -30,8 +30,8 @@ export async function POST(req: NextRequest) {
       if (result.lowVariance) {
         return NextResponse.json({ error: 'Low variance — retake required.' }, { status: 400 })
       }
-      const codex = await generateCodex(result)
-      return NextResponse.json({ codex })
+      const compass = await generateCodex(result)
+      return NextResponse.json({ codex: compass })
     }
 
     if (!assessmentId || typeof assessmentId !== 'string') {
@@ -54,31 +54,31 @@ export async function POST(req: NextRequest) {
     }
 
     // ── Return cached Codex if it already exists (Part 6) ─────────────────
-    const cached = await serverStorage.loadCodex(assessmentId)
+    const cached = await serverStorage.loadCompass(assessmentId)
     if (cached) {
       return NextResponse.json({ codex: cached })
     }
 
     // ── Generate via Claude (one shot with one retry on failure) ──────────
-    let codex: string
+    let compass: string
     try {
-      codex = await generateCodex(assessment.archetypeResult)
+      compass = await generateCodex(assessment.archetypeResult)
     } catch (err) {
-      console.warn('First Codex generation attempt failed, retrying once:', err)
-      codex = await generateCodex(assessment.archetypeResult)
+      console.warn('First Compass generation attempt failed, retrying once:', err)
+      compass = await generateCodex(assessment.archetypeResult)
     }
 
-    await serverStorage.saveCodex(assessmentId, codex)
+    await serverStorage.saveCompass(assessmentId, compass)
 
     // ── Send delivery email (fire-and-forget; has console fallback) ───────
     const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
-    sendCodexDelivery({
+    sendCompassDelivery({
       email: assessment.email,
       primaryArchetype: assessment.archetypeResult.primary.name,
-      codexUrl: `${appUrl}/codex/${assessmentId}`,
-    }).catch((err) => console.error('Codex email failed:', err))
+      compassUrl: `${appUrl}/codex/${assessmentId}`,
+    }).catch((err) => console.error('Compass email failed:', err))
 
-    return NextResponse.json({ codex })
+    return NextResponse.json({ codex: compass })
   } catch (err) {
     console.error('generate-codex error:', err)
     const message = err instanceof Error ? err.message : 'Internal server error.'

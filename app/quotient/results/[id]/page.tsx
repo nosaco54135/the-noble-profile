@@ -10,8 +10,8 @@ import {
   DIMENSION_ORDER,
   DIMENSION_STRENGTHS,
   DIMENSION_BLIND_SPOTS,
-  CODEX_TEASERS,
-  CODEX_TEASER_FALLBACK,
+  COMPASS_TEASERS,
+  COMPASS_TEASER_FALLBACK,
   type DimensionKey,
   type RankedTrait,
   type RankedStyle,
@@ -347,7 +347,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                       {DIMENSION_BLIND_SPOTS[dim]}
                     </p>
                     <p className="text-[15px] text-tns-accent leading-relaxed mt-tns-xs">
-                      <strong>In your Noble Compass:</strong>{' '}{CODEX_TEASERS[DIMENSION_LABELS[dim]] ?? CODEX_TEASER_FALLBACK}
+                      <strong>In your Noble Compass:</strong>{' '}{COMPASS_TEASERS[DIMENSION_LABELS[dim]] ?? COMPASS_TEASER_FALLBACK}
                     </p>
                   </div>
                 </li>

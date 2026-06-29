@@ -44,15 +44,15 @@ export async function updatePaymentStatus(
   if (error) throw new Error(`Failed to update payment status: ${error.message}`)
 }
 
-export async function saveCodex(
+export async function saveCompass(
   assessmentId: string,
-  codex: string,
+  compass: string,
 ): Promise<void> {
   const supabase = createAdminClient()
   const { error } = await supabase
     .from('assessments')
-    .update({ codex })
+    .update({ codex: compass })
     .eq('id', assessmentId)
 
-  if (error) throw new Error(`Failed to save Codex: ${error.message}`)
+  if (error) throw new Error(`Failed to save Compass: ${error.message}`)
 }

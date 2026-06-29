@@ -241,7 +241,7 @@ export const DIMENSION_BLIND_SPOTS: Record<DimensionKey, string> = {
   learning_style:      'You don\u2019t seek feedback unprompted. The reps who listen to their own calls and ask for specific critique grow twice as fast.',
 }
 
-export const CODEX_TEASERS: Record<string, string> = {
+export const COMPASS_TEASERS: Record<string, string> = {
   'Prospecting Comfort': 'how this score drains your pipeline without you noticing, and the eight-minute daily fix that stops it.',
   'Closing Confidence': 'why your asks keep landing soft, and the exact closing move that fits how you sell.',
   'Process-Oriented': "the deals slipping away while you think they're alive, and the fifteen-minute weekly system that catches them.",
@@ -256,4 +256,4 @@ export const CODEX_TEASERS: Record<string, string> = {
   'Self-Improvement': "the gap between what you've learned and what you've actually changed, and how to close it for good.",
 }
 
-export const CODEX_TEASER_FALLBACK = 'the exact pattern this score creates, and the fix built for how you sell.'
+export const COMPASS_TEASER_FALLBACK = 'the exact pattern this score creates, and the fix built for how you sell.'

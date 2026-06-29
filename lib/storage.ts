@@ -116,7 +116,7 @@ export const serverStorage = {
     }
   },
 
-  async loadCodex(id: string): Promise<string | null> {
+  async loadCompass(id: string): Promise<string | null> {
     if (!isSupabaseConfigured()) return null
     try {
       const { getAssessmentById } = await import('@/lib/supabase')
@@ -127,11 +127,11 @@ export const serverStorage = {
     }
   },
 
-  async saveCodex(id: string, codex: string): Promise<ServerWriteResult> {
+  async saveCompass(id: string, compass: string): Promise<ServerWriteResult> {
     if (!isSupabaseConfigured()) return { ok: false, reason: 'unavailable' }
     try {
-      const { saveCodex } = await import('@/lib/supabase')
-      await saveCodex(id, codex)
+      const { saveCompass } = await import('@/lib/supabase')
+      await saveCompass(id, compass)
       return { ok: true, id }
     } catch (error) {
       return { ok: false, reason: 'error', error }
@@ -188,11 +188,11 @@ export const clientStorage = {
     }
   },
 
-  saveCodex(id: string, codex: string): void {
-    safeSet(CODEX_KEY(id), codex)
+  saveCompass(id: string, compass: string): void {
+    safeSet(CODEX_KEY(id), compass)
   },
 
-  loadCodex(id: string): string | null {
+  loadCompass(id: string): string | null {
     return safeGet(CODEX_KEY(id))
   },
 }

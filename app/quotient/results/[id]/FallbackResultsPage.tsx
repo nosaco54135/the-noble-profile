@@ -15,7 +15,7 @@ import {
   type DimensionKey,
 } from '@/types'
 
-const CODEX_TEASERS: Record<string, string> = {
+const COMPASS_TEASERS: Record<string, string> = {
   'Prospecting Comfort': 'how this score drains your pipeline without you noticing, and the eight-minute daily fix that stops it.',
   'Closing Confidence': 'why your asks keep landing soft, and the exact closing move that fits how you sell.',
   'Process-Oriented': "the deals slipping away while you think they're alive, and the fifteen-minute weekly system that catches them.",
@@ -30,7 +30,7 @@ const CODEX_TEASERS: Record<string, string> = {
   'Self-Improvement': "the gap between what you've learned and what you've actually changed, and how to close it for good.",
 }
 
-const CODEX_TEASER_FALLBACK = 'the exact pattern this score creates, and the fix built for how you sell.'
+const COMPASS_TEASER_FALLBACK = 'the exact pattern this score creates, and the fix built for how you sell.'
 
 interface Props {
   id: string
@@ -233,7 +233,7 @@ export default function FallbackResultsPage({ id }: Props) {
                       {DIMENSION_BLIND_SPOTS[dim]}
                     </p>
                     <p className="text-[15px] text-tns-accent leading-relaxed mt-tns-xs">
-                      <strong>In your Noble Compass:</strong>{' '}{CODEX_TEASERS[DIMENSION_LABELS[dim]] ?? CODEX_TEASER_FALLBACK}
+                      <strong>In your Noble Compass:</strong>{' '}{COMPASS_TEASERS[DIMENSION_LABELS[dim]] ?? COMPASS_TEASER_FALLBACK}
                     </p>
                   </div>
                 </li>
