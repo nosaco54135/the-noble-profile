@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 interface Props {
   assessmentId: string
@@ -21,6 +22,8 @@ export default function PaywallButton({ assessmentId, email, devMode = false }: 
   const [subscribed, setSubscribed] = useState<boolean | null>(null) // null = verifying
   const [phase, setPhase] = useState<Phase>('idle')
   const [error, setError] = useState('')
+  const searchParams = useSearchParams()
+  const compCode = searchParams.get('comp') ?? undefined
 
   useEffect(() => {
     if (devMode) {
@@ -48,7 +51,7 @@ export default function PaywallButton({ assessmentId, email, devMode = false }: 
       const res = await fetch('/api/create-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ assessmentId, isSubscriber, justSubscribed }),
+        body: JSON.stringify({ assessmentId, isSubscriber, justSubscribed, ...(compCode ? { compCode } : {}) }),
       })
       if (!res.ok) {
         const data = await res.json()

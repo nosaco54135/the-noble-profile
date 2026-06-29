@@ -11,7 +11,7 @@ import { serverStorage } from '@/lib/storage'
  */
 export async function POST(req: NextRequest) {
   try {
-    let { assessmentId, isSubscriber, justSubscribed } = await req.json()
+    let { assessmentId, isSubscriber, justSubscribed, compCode } = await req.json()
 
     if (!assessmentId || typeof assessmentId !== 'string') {
       return NextResponse.json({ error: 'assessmentId is required.' }, { status: 400 })
@@ -38,6 +38,13 @@ export async function POST(req: NextRequest) {
     // Already paid — short-circuit to the Codex page
     if (assessment.paymentStatus === 'paid') {
       return NextResponse.json({ url: `${appUrl}/compass/${assessmentId}` })
+    }
+
+    // Comp-access bypass — secret code grants free access without Stripe
+    const compAccessCode = process.env.COMP_ACCESS_CODE
+    if (compAccessCode && compCode && compAccessCode === compCode) {
+      await serverStorage.markPaid(assessmentId, 'comp-access')
+      return NextResponse.json({ url: `${appUrl}/compass/${assessmentId}`, comp: true })
     }
 
     // Dev-mode bypass — no Stripe key, flip to paid and redirect
