@@ -64,6 +64,53 @@ export const guides: Guide[] = [
     ctaBody: '25 questions. 12 behavioral dimensions. Your natural selling identity, measured.',
     ctaButton: 'Take the free assessment',
   },
+  {
+    slug: 'hunter-vs-farmer',
+    title: 'Hunter vs farmer in sales: which one are you?',
+    metaDescription:
+      "Hunter or farmer? The old sales binary is too crude to be useful. What each one really does, why most reps are a blend, and how to measure your true mix.",
+    intro: [
+      "Every sales org sorts reps into two piles. Hunters go get new logos. Farmers grow the accounts you already have. The labels show up in the job description, the comp plan, and the story a rep tells after a bad quarter.",
+      "The split is useful shorthand for a hiring manager. It's a bad map for an actual career, because almost nobody is purely one or the other, and the reps who force themselves to be usually cap their own ceiling.",
+      "The two labels are worth taking apart. Each one describes real behavior. The question that pairs them, 'which am I,' is where people go wrong.",
+    ],
+    sections: [
+      {
+        heading: 'What a hunter actually does',
+        paragraphs: [
+          "Strip the mythology and a hunter is a seller who is comfortable starting from nothing. An empty pipeline doesn't rattle them the way it rattles most people. They'll work a cold list, send the note that probably gets ignored, and do it again tomorrow without needing a win to refuel.",
+          "The engine underneath it is tolerance for rejection. Hunting is mostly a rejection-management job. The seller who can hear no forty times and dial forty-one has an edge that has nothing to do with charm and everything to do with not taking the silence personally.",
+          "The failure mode is the hunter who can open but not hold. They love the chase, land the logo, then lose interest the moment the deal turns into a relationship. Great in quarter one, expensive by quarter three when the churn shows up.",
+        ],
+      },
+      {
+        heading: 'What a farmer actually does',
+        paragraphs: [
+          "A farmer is a seller who compounds. Give them an account and they'll learn the org chart, the renewal date, the quiet frustration nobody has escalated yet, and the second team that could use the product before anyone asks. Their number grows because the relationship grows.",
+          "The wiring underneath it is patience and a real interest in the customer's outcome. A farmer plays a longer game than the comp plan rewards in any single month, and trusts that depth pays out over a year. Buyers can feel the difference between a rep who is steering them toward a renewal and one who wants the thing to work.",
+          "The failure mode is the farmer who never plants. Comfortable in the accounts they know, allergic to the cold start, slowly starving the pipeline of anything new. Safe, right up until the biggest account leaves and there is nothing behind it.",
+        ],
+      },
+      {
+        heading: "Why 'which one am I' is the wrong question",
+        paragraphs: [
+          "The binary breaks down as soon as you look at what drives it. Hunting and farming describe behaviors, not people, and the traits behind them are separate dials, not a single slider with your name fixed at one end.",
+          "Prospecting comfort is one dial. The patience to grow an account over a year is a completely different one, and they do not trade off against each other. You can run hot on cold outreach and still be the rep who never lets a logo slip. Plenty of the strongest sellers are exactly that, which is the thing the two-bucket model cannot see.",
+          "So the honest answer to 'am I a hunter or a farmer' is usually 'both, in a specific mix the label cannot capture.' That mix is the useful thing to know, because it tells you which roles will fit you and which will quietly grind you down.",
+        ],
+      },
+    ],
+    bridgeHeading: "Which way you're wired",
+    bridgeParagraphs: [
+      "Whether you lean hunter, lean farmer, or run high on both is a measurable thing, not a hunch. The Noble Quotient scores the dimensions underneath the binary, from prospecting comfort to how you carry a long relationship, and shows you the mix instead of forcing you into a bucket.",
+      "The seller who runs high on prospecting comfort and stays steady through rejection tends to land on the archetype we call the Resilient Hunter. It is one of 64, and the point of measuring is to find yours, not to hand you another label to argue with.",
+    ],
+    relatedArchetypeSlug: 'resilient-hunter',
+    relatedArchetypeName: 'Resilient Hunter',
+    ctaHeadline: 'Stop guessing from a two-word label',
+    ctaBody: '25 questions. 12 behavioral dimensions. The mix under the label, measured in about five minutes.',
+    ctaButton: 'Take the free assessment',
+  },
 ]
 
 export function getGuide(slug: string): Guide | undefined {
