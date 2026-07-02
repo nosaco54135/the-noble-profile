@@ -7,3 +7,4 @@ node_modules/
 tsconfig.tsbuildinfo
 tsconfig.tsbuildinfo
 .env.local.save
+tsconfig.tsbuildinfo
