@@ -161,6 +161,57 @@ export const guides: Guide[] = [
     ctaBody: 'Twenty-five questions. Twelve behavioral dimensions. The two traits under consultative selling, measured in about five minutes.',
     ctaButton: 'Take the free assessment',
   },
+  {
+    slug: 'what-makes-a-great-salesperson',
+    title: 'What makes a great salesperson? The honest answer',
+    metaDescription:
+      "What makes a good salesperson, beyond the recycled list of qualities. What top sellers actually share, why there's no single profile, and how to find your version.",
+    intro: [
+      "Type the question into a search bar and the answers come back nearly identical. Empathy. Resilience. Product knowledge. Work ethic. Listening skills. The lists run ten qualities deep and every item on them sounds right.",
+      "Sounding right is the problem. If greatness were a checklist, every rep who read one would improve, and most don't. Meanwhile, walk any sales floor and the two best sellers in the building often have almost nothing in common. One is loud, fast, and closes on momentum. The other is quiet, methodical, and closes on preparation. Both beat their number every quarter.",
+      "An honest answer to the question has to account for that. It has to explain how two opposite people finish first and second on the same leaderboard.",
+    ],
+    sections: [
+      {
+        heading: 'The qualities everyone lists, and what they actually predict',
+        paragraphs: [
+          "Some of the standard list holds up. Curiosity shows up again and again in top performers, because the rep who keeps asking past the obvious question ends up understanding the deal better than anyone else in it. Discipline holds up too. The seller who runs their process on the bad weeks outsells the one who only runs it when motivated. And resilience is close to table stakes, since the job serves rejection daily and someone has to keep dialing.",
+          "The quality that predicts far less than everyone assumes is charisma. The extroverted natural, the born closer with the big handshake, is the oldest stereotype in the profession, and the research behind it is famously weak. Plenty of quiet sellers outperform the charming ones, mostly because buyers trust a person who listens more than a person who performs.",
+          "So the list isn't useless. It's just incomplete in a specific way. It names ingredients without saying anything about the dish, and the dish is different for every seller who makes it work.",
+        ],
+      },
+      {
+        heading: 'What top salespeople actually have in common',
+        paragraphs: [
+          "Watch enough top performers across enough teams and the shared trait isn't a personality. It's a relationship they have with their own wiring. The great ones know, with unusual precision, what they're naturally good at, and they've built their entire selling motion around it instead of around someone else's.",
+          "The quiet analyst doesn't force herself to work a room. She wins with the most prepared business case in the deal. The relationship seller doesn't pretend to love cold outreach. He builds a referral engine so he rarely needs it. Neither is following the standard playbook. Each built a personal one on top of what was already there.",
+          "The second thing they share is that they keep updating. Top sellers treat every lost deal as information and every won deal as a hypothesis to test again. The rep who sells today the way they sold three years ago has usually been passed by someone who didn't.",
+        ],
+      },
+      {
+        heading: "Why there's no single profile of a great salesperson",
+        paragraphs: [
+          "The other reason the checklist fails is that the job isn't one job. What makes someone great at closing transactional deals in an SMB motion has surprisingly little overlap with what makes someone great at running an eighteen-month enterprise cycle, and neither looks much like the person who grows a book of existing accounts year after year.",
+          "Greatness in sales is a matching problem. The same wiring that makes a rep unstoppable in one seat can make them mediocre in another, and most careers that stall haven't run out of talent. They're running the wrong motion for the person executing it.",
+          "Which is why the most expensive mistake a developing rep makes is imitation. Copying the top performer's routine only works if you share the top performer's wiring, and you usually don't. The better move is the one the great ones already made: figure out what you are, then build deliberately on that.",
+        ],
+      },
+    ],
+    bridgeHeading: 'The version of great you can actually become',
+    bridgeParagraphs: [
+      "Every path to the top of a leaderboard starts from an accurate read of your own wiring, and that read is a measurable thing, not a guess. The Noble Quotient scores twelve behavioral dimensions and shows you the raw material you're actually working with, which is the starting point the checklists skip.",
+      "The sellers who treat their own selling as a system to keep refining tend to land on the archetype we call the Adaptive Student. It's one of 64, and finding yours is the point.",
+    ],
+    relatedArchetypeSlug: 'adaptive-student',
+    relatedArchetypeName: 'Adaptive Student',
+    relatedGuides: [
+      { slug: 'consultative-selling', name: 'Consultative selling' },
+      { slug: 'hunter-vs-farmer', name: 'Hunter vs farmer' },
+    ],
+    ctaHeadline: 'Find out what you are first',
+    ctaBody: 'Twenty-five questions. Twelve behavioral dimensions. Your raw material, measured in about five minutes.',
+    ctaButton: 'Take the free assessment',
+  },
 ]
 
 export function getGuide(slug: string): Guide | undefined {
