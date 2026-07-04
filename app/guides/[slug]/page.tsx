@@ -120,6 +120,22 @@ export default async function GuidePage({
                 {guide.relatedArchetypeName} →
               </Link>
             </p>
+              {guide.relatedGuides && guide.relatedGuides.length > 0 && (
+                <p className="font-sans text-sm text-[#6B6B6B]">
+                  Related guide:{' '}
+                  {guide.relatedGuides.map((g, i) => (
+                    <span key={g.slug}>
+                      {i > 0 && ', '}
+                      <Link
+                        href={`/guides/${g.slug}`}
+                        className="text-[#722F37] underline underline-offset-4 decoration-[#722F37]/40 hover:decoration-[#722F37] transition-colors"
+                      >
+                        {g.name} →
+                      </Link>
+                    </span>
+                  ))}
+                </p>
+              )}
             <p className="font-sans text-sm text-[#6B6B6B]">
               <Link
                 href="/methodology"

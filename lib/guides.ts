@@ -8,6 +8,7 @@ export interface Guide {
   bridgeParagraphs: string[]
   relatedArchetypeSlug: string
   relatedArchetypeName: string
+  relatedGuides?: { slug: string; name: string }[]
   ctaHeadline: string
   ctaBody: string
   ctaButton: string
@@ -107,8 +108,57 @@ export const guides: Guide[] = [
     ],
     relatedArchetypeSlug: 'resilient-hunter',
     relatedArchetypeName: 'Resilient Hunter',
+    relatedGuides: [{ slug: 'consultative-selling', name: 'Consultative selling' }],
     ctaHeadline: 'Stop guessing from a two-word label',
     ctaBody: '25 questions. 12 behavioral dimensions. The mix under the label, measured in about five minutes.',
+    ctaButton: 'Take the free assessment',
+  },
+  {
+    slug: 'consultative-selling',
+    title: 'What consultative selling actually is (and why most training misses it)',
+    metaDescription:
+      "Consultative selling explained as behavior, not technique. What it looks like in a real deal, why most training doesn't stick, and the two traits underneath it.",
+    intro: [
+      "Consultative selling is the approach where a rep behaves less like someone pitching a product and more like someone helping a buyer think through a problem. You ask about the situation before you recommend anything, and the recommendation is shaped by what you heard. Almost every sales methodology of the last thirty years is a version of this idea.",
+      "The idea is sound, and hardly anyone argues with it. The trouble starts when it gets taught as a procedure. Run discovery, ask open questions, uncover the pain, present against it. Follow the steps and what you get is a rep performing consultation, which a buyer can feel by the second question.",
+      "The strongest consultative sellers aren't working through a procedure at all. They behave this way by default, in every conversation, and that default is the exact thing the training keeps trying and failing to install.",
+    ],
+    sections: [
+      {
+        heading: 'What is consultative selling, exactly?',
+        paragraphs: [
+          "The quickest way to see it is against the thing it replaced. Transactional selling leads with the product and moves toward the price. Consultative selling leads with the buyer's situation and treats the product as one possible answer to a problem you've both taken the time to understand.",
+          "In practice, the early conversations are mostly the buyer talking. The rep is diagnosing rather than presenting. By the time a recommendation arrives, it's specific to this buyer, and it lands with more weight because it was earned through understanding instead of read off a slide.",
+          "Buyers give their attention to the seller who seems to grasp their problem better than they've managed to explain it themselves. That response is the entire mechanism, and everything else in the method exists to produce it.",
+        ],
+      },
+      {
+        heading: 'What consultative selling looks like in a real deal',
+        paragraphs: [
+          "Watch a consultative seller in a discovery call and the first thing you notice is restraint. They don't hurry to tie every answer back to the product. They ask something, take in the whole answer, and follow up on what the answer actually raised instead of the next line in their head.",
+          "They're also willing to say the deal might not fit. When a prospect's problem is smaller than the solution, they name it, even when it costs them the quarter. Buyers read that as confidence, and it earns a kind of credibility that pushing for the close never does.",
+          "And they carry a working model of the buyer's world that updates every call. When the recommendation finally comes, it references something the buyer mentioned three conversations ago. That memory is what makes the advice feel built for the buyer rather than pulled off a shelf.",
+        ],
+      },
+      {
+        heading: 'Why consultative selling training usually fails',
+        paragraphs: [
+          "Companies spend real money teaching this, and the effect mostly fades. Reps come out of the workshop, run the new questions for a week or two, then slide back to pitching once the quota pressure returns. The training wasn't wrong. It was aimed at the behavior, when the thing driving the behavior sits a layer underneath.",
+          "Consultation grows out of two dispositions. The first is genuine curiosity, the pull to keep understanding a situation past the point where you already have enough to pitch. The second is customer focus, caring about the buyer's outcome enough to sometimes act against your own short-term number. A rep with both does consultative selling without ever needing the framework. A rep with neither can only perform it, and not for long.",
+          "That's why the technique is everywhere and still uncommon. The discovery questions are public, and anyone can copy the framework. What doesn't copy is the disposition underneath, the part that makes a buyer trust the questions are sincere rather than staged.",
+        ],
+      },
+    ],
+    bridgeHeading: "Whether it's already how you sell",
+    bridgeParagraphs: [
+      "Whether consultative selling is your natural wiring or a mode you're still reaching for is a measurable thing, not a matter of self-image. The two dimensions underneath it, curiosity and customer focus, are exactly what the Noble Quotient scores.",
+      "When both run high, the pattern shows up without anyone coaching it, and the seller tends to land on the archetype we call the Devoted Advisor.",
+    ],
+    relatedArchetypeSlug: 'devoted-advisor',
+    relatedArchetypeName: 'Devoted Advisor',
+    relatedGuides: [{ slug: 'trusted-advisor', name: 'The trusted advisor' }],
+    ctaHeadline: "See if it's already how you sell",
+    ctaBody: 'Twenty-five questions. Twelve behavioral dimensions. The two traits under consultative selling, measured in about five minutes.',
     ctaButton: 'Take the free assessment',
   },
 ]
