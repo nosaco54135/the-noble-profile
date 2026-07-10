@@ -145,7 +145,7 @@ const STYLES: AxisEntry[] = [
   {
     name: 'Student',
     tagline: 'Gets measurably better every quarter.',
-    dimensions: ['Self-Improvement', 'Mindset / Resilience'],
+    dimensions: ['Self-Improvement', 'Data-Driven'],
     definition: "The Student treats their career as a craft. They learn from every win, every loss, every call review. They don't plateau because they don't stop training. Their performance curve trends up over time, not up and down.",
     best: 'Long-term peak performance. Mentors the next generation.',
     limit: 'Improvement without urgency. Always learning, sometimes underperforming current quotas.',

@@ -117,7 +117,7 @@ The Connector wins by being someone buyers genuinely want to work with. They sho
 
 ### Student
 *Gets measurably better every quarter.*
-**Composed of:** Self-Improvement + Mindset / Resilience
+**Composed of:** Self-Improvement + Data-Driven
 The Student treats their career as a craft. They learn from every win, every loss, every call review. They don't plateau because they don't stop training. Their performance curve trends up over time, not up and down.
 **At its best:** Long-term peak performance. Mentors the next generation.
 **At its limit:** Improvement without urgency. Always learning, sometimes underperforming current quotas.
