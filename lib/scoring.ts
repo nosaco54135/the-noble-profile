@@ -61,7 +61,7 @@ const STYLES: AxisDef<StyleKey>[] = [
   { key: 'advisor',    label: 'Advisor',    tagline: "Earns the right to recommend what's best.",             dims: ['customer_centric', 'problem_solving'] },
   { key: 'challenger', label: 'Challenger', tagline: 'Reframes the problem so the decision is clear.',        dims: ['data_driven', 'closing_confidence'] },
   { key: 'connector',  label: 'Connector',  tagline: 'Builds relationships that outlast the deal.',           dims: ['authenticity', 'customer_centric'] },
-  { key: 'student',    label: 'Student',    tagline: 'Gets measurably better every quarter.',                 dims: ['learning_style', 'curiosity'] },
+  { key: 'student',    label: 'Student',    tagline: 'Gets measurably better every quarter.',                 dims: ['learning_style', 'data_driven'] },
 ]
 
 // ─── Rule 2 — weighted-normalized dimension score ─────────────────────────
