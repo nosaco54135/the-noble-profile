@@ -3,9 +3,9 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { track } from "@vercel/analytics"
-import { QUESTIONS, shuffleQuestions } from '@/lib/questions'
+import { QUESTIONS, shuffleQuestions, deriveSideFlips } from '@/lib/questions'
 import { clientStorage } from '@/lib/storage'
-import { LIKERT_LABELS, PRIMING_INSTRUCTION, type Question } from '@/types'
+import { PRIMING_INSTRUCTION, type Question } from '@/types'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
@@ -23,8 +23,13 @@ export default function AssessmentPage() {
   // Question state
   const [shuffled, setShuffled] = useState<Question[]>([])
   const [seed, setSeed] = useState<string>('')
+  // sideFlips[canonicalIndex] === true means optionB is displayed first for that question
+  const [sideFlips, setSideFlips] = useState<boolean[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [responses, setResponses] = useState<Record<string, number>>({}) // questionId → value
+  // Responses are stored CANONICAL (keyed by question id): 5 always means
+  // strongly-prefer-optionA, regardless of display order.
+  const [responses, setResponses] = useState<Record<string, number>>({}) // questionId → canonical value
+  // `selected` holds the DISPLAYED value (preference toward the first-shown option)
   const [selected, setSelected] = useState<number | null>(null)
   // Ref always holds the latest committed responses — reads in handleCaptureSubmit
   // bypass the async state closure and see the last answer immediately.
@@ -47,18 +52,26 @@ export default function AssessmentPage() {
     if (!existingSeed) sessionStorage.setItem('tnq_seed', activeSeed)
     setSeed(activeSeed)
     setShuffled(shuffleQuestions(QUESTIONS, activeSeed))
+    setSideFlips(deriveSideFlips(activeSeed))
   }, [])
 
   const currentQuestion = shuffled[currentIndex]
-  const totalQuestions = shuffled.length
+  const totalQuestions = QUESTIONS.length
   const progress = totalQuestions > 0 ? (currentIndex / totalQuestions) * 100 : 0
   const isLastQuestion = currentIndex === totalQuestions - 1
 
-  // When moving to a new question, restore any previously selected value
+  // When moving to a new question, restore any previously selected value —
+  // stored responses are canonical, so convert back to the displayed value.
   useEffect(() => {
     if (!currentQuestion) return
-    setSelected(responses[currentQuestion.id] ?? null)
-  }, [currentIndex, currentQuestion, responses])
+    const canonical = responses[currentQuestion.id]
+    if (canonical === undefined) {
+      setSelected(null)
+      return
+    }
+    const flipped = sideFlips[currentQuestion.canonicalIndex] ?? false
+    setSelected(flipped ? 6 - canonical : canonical)
+  }, [currentIndex, currentQuestion, responses, sideFlips])
 
   const handleCaptureSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault()
@@ -134,11 +147,16 @@ export default function AssessmentPage() {
   }, [])
 
   const handleSelect = useCallback(
-    (value: number) => {
+    // `uValue` is the DISPLAYED preference (toward the first-shown option).
+    // Convert to the canonical value before storing so 5 always means
+    // strongly-prefer-optionA downstream.
+    (uValue: number) => {
       if (!currentQuestion) return
       clearTimeout(advanceTimerRef.current ?? undefined)
-      setSelected(value)
-      const updated = { ...responsesRef.current, [currentQuestion.id]: value }
+      setSelected(uValue)
+      const flipped = sideFlips[currentQuestion.canonicalIndex] ?? false
+      const canonicalValue = flipped ? 6 - uValue : uValue
+      const updated = { ...responsesRef.current, [currentQuestion.id]: canonicalValue }
       responsesRef.current = updated
       setResponses(updated)
 
@@ -152,7 +170,7 @@ export default function AssessmentPage() {
         }
       }, 200)
     },
-    [currentQuestion, currentIndex, isLastQuestion, responses],
+    [currentQuestion, currentIndex, isLastQuestion, sideFlips],
   )
 
   const handleNext = useCallback(() => {
@@ -250,6 +268,12 @@ export default function AssessmentPage() {
     )
   }
 
+  // Display order for this question follows its seeded side flip; canonical
+  // dimension mapping (optionA/dimA, optionB/dimB) is unaffected either way.
+  const flipped = sideFlips[currentQuestion.canonicalIndex] ?? false
+  const firstOptionText = flipped ? currentQuestion.optionB : currentQuestion.optionA
+  const secondOptionText = flipped ? currentQuestion.optionA : currentQuestion.optionB
+
   return (
     <div className="min-h-screen bg-tns-bg flex flex-col">
       {/* Progress bar */}
@@ -275,23 +299,38 @@ export default function AssessmentPage() {
             </p>
           )}
 
-          {/* Question */}
-          <div className="mb-tns-2xl mt-tns-lg">
+          {/* Scenario */}
+          <div className="mb-tns-xl mt-tns-lg">
             <p className="font-sans text-tns-fg text-xl md:text-2xl leading-relaxed text-center tracking-tight">
-              &ldquo;{currentQuestion.text}&rdquo;
+              {currentQuestion.scenario}
             </p>
           </div>
 
-          {/* Frequency scale */}
-          <div className="grid grid-cols-5 gap-2 sm:gap-3 mb-tns-2xl">
-            {[1, 2, 3, 4, 5].map((value) => {
+          {/* Two options — display order follows this question's seeded side flip */}
+          <div className="space-y-tns-md mb-tns-xl">
+            <div className="border border-tns-border bg-tns-bgAlt px-4 py-4 sm:px-5">
+              <p className="font-sans text-tns-fg text-[15px] sm:text-base leading-relaxed">
+                {firstOptionText}
+              </p>
+            </div>
+            <div className="border border-tns-border bg-tns-bgAlt px-4 py-4 sm:px-5">
+              <p className="font-sans text-tns-fg text-[15px] sm:text-base leading-relaxed">
+                {secondOptionText}
+              </p>
+            </div>
+          </div>
+
+          {/* Preference scale — 5 = strongly prefer the option shown first, 1 = strongly prefer the second */}
+          <div className="grid grid-cols-5 gap-2 sm:gap-3 mb-tns-sm">
+            {[5, 4, 3, 2, 1].map((value) => {
               const isSelected = selected === value
               return (
                 <button
                   key={value}
                   onClick={() => handleSelect(value)}
+                  aria-label={`${value}`}
                   className={[
-                    'flex flex-col items-center justify-center gap-1.5 p-3 sm:p-4 border transition-colors duration-150 min-h-[96px]',
+                    'flex items-center justify-center p-3 sm:p-4 border transition-colors duration-150 min-h-[56px]',
                     'focus:outline-none focus-visible:ring-2 focus-visible:ring-tns-accent focus-visible:ring-offset-2 focus-visible:ring-offset-tns-bg',
                     isSelected
                       ? 'bg-tns-bgAlt border-tns-accent text-tns-fg'
@@ -299,12 +338,22 @@ export default function AssessmentPage() {
                   ].join(' ')}
                 >
                   <span className="font-display text-lg text-tns-fg">{value}</span>
-                  <span className="font-sans text-xs sm:text-sm leading-tight text-center text-tns-fg">
-                    {LIKERT_LABELS[value]}
-                  </span>
                 </button>
               )
             })}
+          </div>
+
+          {/* Compact anchor labels under the scale ends */}
+          <div className="flex items-start justify-between mb-tns-2xl px-1 gap-tns-sm">
+            <span className="font-sans text-[11px] sm:text-xs text-tns-muted leading-tight max-w-[30%]">
+              Strongly prefer the first
+            </span>
+            <span className="font-sans text-[11px] sm:text-xs text-tns-muted leading-tight text-center max-w-[30%]">
+              No preference / depends
+            </span>
+            <span className="font-sans text-[11px] sm:text-xs text-tns-muted leading-tight text-right max-w-[30%]">
+              Strongly prefer the second
+            </span>
           </div>
 
           {/* Navigation */}

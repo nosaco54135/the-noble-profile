@@ -1,204 +1,47 @@
 /**
- * The 25 Noble Quotient questions with signed dimension weights.
+ * The 30 Noble Quotient pairwise-preference questions.
  *
- * • Q1, Q3–Q21 are forward-scored (20 questions).
- * • Q2, Q22–Q25 are reverse-scored (5 questions).
- *
- * Reverse weights encode direction via sign — no response inversion is applied.
- * Raw 1–5 responses feed directly into the weighted sum for all questions.
- *
- * Question wording and weight vectors are taken verbatim from the approved
- * specification. Do not rewrite weights here — change the spec first.
+ * Each question presents a scenario with two options (optionA / optionB).
+ * Preferring an option contributes to that option's paired dimension
+ * (dimA / dimB) in the pairwise scoring engine.
  */
 
 import type { Question } from '@/types'
 
 export const QUESTIONS: Question[] = [
-  // ─── Q1 (forward) ──────────────────────────────────────────────────────
-  {
-    id: 'Q1',
-    canonicalIndex: 0,
-    text: 'I\'d rather follow an unexpected thread a prospect raises than stay on my planned agenda for the call.',
-    reverse: false,
-    weights: { curiosity: 0.9, active_listening: 0.6, eq_trust: 0.3, problem_solving: 0.3, process_oriented: -0.3 },
-  },
-
-  // ─── Q2 (REVERSE) ──────────────────────────────────────────────────────
-  {
-    id: 'Q2',
-    canonicalIndex: 1,
-    text: 'In long discovery conversations, I sometimes have to ask a prospect to repeat something they already told me.',
-    reverse: true,
-    weights: { active_listening: -0.9, eq_trust: -0.3, curiosity: -0.3 },
-  },
-
-  // ─── Q3–Q21 (forward) ──────────────────────────────────────────────────
-  {
-    id: 'Q3',
-    canonicalIndex: 2,
-    text: 'I\'d rather risk getting the detail wrong by referencing something a prospect mentioned weeks ago than let it go unmentioned.',
-    reverse: false,
-    weights: { active_listening: 0.9, eq_trust: 0.6, customer_centric: 0.3, authenticity: 0.3, curiosity: 0.3 },
-  },
-  {
-    id: 'Q4',
-    canonicalIndex: 3,
-    text: 'I\'d rather spend an extra hour digging into a prospect before a call than walk in knowing the basics and fill in the gaps through discovery.',
-    reverse: false,
-    weights: { curiosity: 0.9, data_driven: 0.6, process_oriented: 0.3, customer_centric: 0.3, problem_solving: 0.3 },
-  },
-  {
-    id: 'Q5',
-    canonicalIndex: 4,
-    text: 'I\'d rather veer off my planned pitch to follow a shift in the prospect\'s energy, at the expense of narrative momentum.',
-    reverse: false,
-    weights: { eq_trust: 0.9, active_listening: 0.6, curiosity: 0.3 },
-  },
-  {
-    id: 'Q6',
-    canonicalIndex: 5,
-    text: 'I\'d rather tell a prospect our product isn\'t the right fit for them than close the deal because they\'re keen to buy anyway.',
-    reverse: false,
-    weights: { authenticity: 0.9, customer_centric: 0.9, eq_trust: 0.6, closing_confidence: -0.6 },
-  },
-  {
-    id: 'Q7',
-    canonicalIndex: 6,
-    text: 'I\'d rather end a call by asking a prospect directly where they stand than leave with a polite next step that keeps things open.',
-    reverse: false,
-    weights: { closing_confidence: 0.9, mindset_resilience: 0.6, authenticity: 0.3, eq_trust: -0.3 },
-  },
-  {
-    id: 'Q8',
-    canonicalIndex: 7,
-    text: 'When a prospect says they need to think about it, I\'d rather press them on what\'s giving them pause than respect their need to step away.',
-    reverse: false,
-    weights: { closing_confidence: 0.9, curiosity: 0.6, problem_solving: 0.6, mindset_resilience: 0.3, eq_trust: -0.3 },
-  },
-  {
-    id: 'Q9',
-    canonicalIndex: 8,
-    text: 'On a deal that\'s gone cold, I\'d push for a direct yes or no rather than start a fresh, lighter conversation to warm things back up.',
-    reverse: false,
-    weights: { closing_confidence: 0.9, authenticity: 0.6, mindset_resilience: 0.6, eq_trust: -0.3 },
-  },
-  {
-    id: 'Q10',
-    canonicalIndex: 9,
-    text: 'I\'d rather track my own conversion rates and activity numbers in detail than trust my gut on whether I\'m having a good or bad month.',
-    reverse: false,
-    weights: { data_driven: 0.9, learning_style: 0.6, process_oriented: 0.6, mindset_resilience: 0.3 },
-  },
-  {
-    id: 'Q11',
-    canonicalIndex: 10,
-    text: 'When I\'m presenting to a prospect, I\'d rather lead with the business case in dollars and hours than start with the story of how the product solves their problem.',
-    reverse: false,
-    weights: { data_driven: 0.9, customer_centric: 0.6, closing_confidence: 0.6, problem_solving: 0.3, eq_trust: -0.3 },
-  },
-  {
-    id: 'Q12',
-    canonicalIndex: 11,
-    text: 'When a prospect is upset or frustrated, I\'d rather sit in the discomfort with them than move the conversation toward a solution.',
-    reverse: false,
-    weights: { eq_trust: 0.9, active_listening: 0.6, customer_centric: 0.3 },
-  },
-  {
-    id: 'Q13',
-    canonicalIndex: 12,
-    text: 'When I notice a product limitation that matters for a prospect\'s use case, I\'d rather flag it before they ask than wait for them to run into it.',
-    reverse: false,
-    weights: { authenticity: 0.9, customer_centric: 0.9, eq_trust: 0.6, closing_confidence: -0.6, prospecting_comfort: -0.3 },
-  },
-  {
-    id: 'Q14',
-    canonicalIndex: 13,
-    text: 'When I believe a smaller or phased engagement is the right starting point for a prospect, I\'d recommend it even when the bigger contract would be the deal that makes my quarter.',
-    reverse: false,
-    weights: { customer_centric: 0.9, authenticity: 0.6, eq_trust: 0.6, data_driven: 0.3, closing_confidence: -0.6 },
-  },
-  {
-    id: 'Q15',
-    canonicalIndex: 14,
-    text: 'I\'d rather have more questions for a prospect\'s objection than an answer.',
-    reverse: false,
-    weights: { curiosity: 0.9, active_listening: 0.6, problem_solving: 0.6, eq_trust: 0.3, closing_confidence: -0.3 },
-  },
-  {
-    id: 'Q16',
-    canonicalIndex: 15,
-    text: 'When the standard path to finalize a deal gets blocked, I\'d rather spend the time finding a creative workaround than redirect my energy to deals that are already moving.',
-    reverse: false,
-    weights: { problem_solving: 0.9, closing_confidence: 0.6, mindset_resilience: 0.6, curiosity: 0.3, process_oriented: -0.3 },
-  },
-  {
-    id: 'Q17',
-    canonicalIndex: 16,
-    text: 'After months of work on a deal, I\'d rather suggest a prospect look at competitors than push to close when I\'m having doubts about the fit.',
-    reverse: false,
-    weights: { authenticity: 0.9, customer_centric: 0.9, eq_trust: 0.6, closing_confidence: -0.9 },
-  },
-  {
-    id: 'Q18',
-    canonicalIndex: 17,
-    text: 'I find lessons from outside sales (reading, hobbies, other industries) apply to live client conversations as directly as formal sales training does.',
-    reverse: false,
-    weights: { learning_style: 0.9, curiosity: 0.6, problem_solving: 0.3 },
-  },
-  {
-    id: 'Q19',
-    canonicalIndex: 18,
-    text: 'I\'ve spent personal time in the last six months on a sales book, course, or training that wasn\'t required, even though I could have used that time for something else I\'d rather be doing.',
-    reverse: false,
-    weights: { learning_style: 0.9, curiosity: 0.6, mindset_resilience: 0.3, process_oriented: 0.3 },
-  },
-  {
-    id: 'Q20',
-    canonicalIndex: 19,
-    text: 'In the last six months, I\'ve gone to a colleague or manager for honest feedback on something I was working on (outside any formal review), even when I wasn\'t sure I\'d like what they said.',
-    reverse: false,
-    weights: { learning_style: 0.9, eq_trust: 0.3, curiosity: 0.3, mindset_resilience: 0.3, process_oriented: 0.3 },
-  },
-  {
-    id: 'Q21',
-    canonicalIndex: 20,
-    text: 'When my pipeline is full and I\'m pacing ahead of quota, I\'d rather still hit my daily prospecting numbers than use that time to advance the opportunities I already have.',
-    reverse: false,
-    weights: { prospecting_comfort: 0.9, mindset_resilience: 0.9, process_oriented: 0.6 },
-  },
-
-  // ─── Q22–Q25 (reverse) ─────────────────────────────────────────────────
-  {
-    id: 'Q22',
-    canonicalIndex: 21,
-    text: 'After a run of bad calls, I\'d rather take a deliberate break before my next one than try to reset on the fly between calls.',
-    reverse: true,
-    weights: { mindset_resilience: -0.9, prospecting_comfort: -0.6, eq_trust: 0.3, learning_style: 0.3 },
-  },
-  {
-    id: 'Q23',
-    canonicalIndex: 22,
-    text: 'When I find myself with unexpected free time in my day, I\'d rather work my existing opportunities than start new outreach.',
-    reverse: true,
-    weights: { prospecting_comfort: -0.9, customer_centric: 0.6, eq_trust: 0.3, closing_confidence: 0.3 },
-  },
-  {
-    id: 'Q24',
-    canonicalIndex: 23,
-    text: 'When a prospect goes quiet, I\'d rather give them room to think than risk pressuring them by asking what\'s wrong.',
-    reverse: true,
-    weights: { closing_confidence: -0.9, eq_trust: 0.6, authenticity: 0.3, mindset_resilience: -0.3 },
-  },
-  {
-    id: 'Q25',
-    canonicalIndex: 24,
-    text: 'Once a prospect has agreed to move forward, I\'d rather wrap up the call quickly than ask more questions and risk them changing their mind.',
-    reverse: true,
-    weights: { curiosity: -0.9, problem_solving: -0.6, authenticity: -0.3, closing_confidence: -0.3, process_oriented: 0.3 },
-  },
+  { id: 'P1', canonicalIndex: 0, scenario: 'You unexpectedly get one open hour in your day.', optionA: 'I would use it to send highly personalized outreach based on what a new prospect appears to care about.', optionB: 'I would use it to follow an interesting signal in an active deal and try to turn it into a clearer next step.', dimA: 'prospecting_comfort', dimB: 'closing_confidence' },
+  { id: 'P2', canonicalIndex: 1, scenario: 'A prospect raises an objection you have heard many times before.', optionA: 'I would ask a few more questions to understand what is different underneath this version of the objection.', optionB: 'I would organize the facts, constraints, and next steps so the objection has a clear path to resolution.', dimA: 'curiosity', dimB: 'process_oriented' },
+  { id: 'P3', canonicalIndex: 2, scenario: 'A deal has a lot of moving parts and the buyer is getting restless.', optionA: 'I would tighten the process, clean up ownership, and make the path forward easier to follow.', optionB: 'I would stay steady with the relationship and keep people engaged while the path gets clearer.', dimA: 'process_oriented', dimB: 'mindset_resilience' },
+  { id: 'P4', canonicalIndex: 3, scenario: 'You have had several frustrating prospecting conversations in a row.', optionA: 'I would keep showing up consistently and try to regain momentum through action.', optionB: 'I would shift attention to what the buyer experience is telling me and adjust around their needs.', dimA: 'mindset_resilience', dimB: 'customer_centric' },
+  { id: 'P5', canonicalIndex: 4, scenario: 'A prospect seems interested but has not clearly admitted the business pain.', optionA: 'I would spend more time understanding what outcome would actually help them succeed.', optionB: 'I would shape the conversation toward measurable impact and a sharper reason to act.', dimA: 'customer_centric', dimB: 'data_driven' },
+  { id: 'P6', canonicalIndex: 5, scenario: 'A buyer is comparing you against a competitor.', optionA: 'I would challenge the buyer to evaluate measurable tradeoffs, business risk, and strategic priority.', optionB: 'I would name fit realities candidly and build trust by being clear about where we are and are not strong.', dimA: 'data_driven', dimB: 'authenticity' },
+  { id: 'P7', canonicalIndex: 6, scenario: 'You realize the prospect may misunderstand what your product can do.', optionA: 'I would state the limitation clearly, even if it changes the tone of the deal.', optionB: 'I would learn from the misunderstanding and adjust the conversation so the buyer can make a better decision.', dimA: 'authenticity', dimB: 'learning_style' },
+  { id: 'P8', canonicalIndex: 7, scenario: 'You are entering a new account with limited information.', optionA: 'I would form a flexible hypothesis, test for signals, and revise quickly based on what I learn.', optionB: 'I would open with messaging that feels human, relevant, and emotionally specific to the buyer.', dimA: 'learning_style', dimB: 'eq_trust' },
+  { id: 'P9', canonicalIndex: 8, scenario: 'You are preparing for a high-stakes executive call.', optionA: 'I would anchor the conversation in what the executive likely cares about personally and organizationally.', optionB: 'I would create a clear sequence, clean handoff points, and a strong decision path.', dimA: 'eq_trust', dimB: 'process_oriented' },
+  { id: 'P10', canonicalIndex: 9, scenario: 'A prospect gives you an objection that sounds partly true but incomplete.', optionA: 'I would dig for the missing context before deciding how to respond.', optionB: 'I would stay steady and continue the conversation without letting the resistance throw me off.', dimA: 'curiosity', dimB: 'mindset_resilience' },
+  { id: 'P11', canonicalIndex: 10, scenario: 'You are trying to create consensus across stakeholders.', optionA: 'I would build a clear stakeholder map, next-step plan, and decision process.', optionB: 'I would focus on what each stakeholder needs to believe for the solution to be useful to them.', dimA: 'process_oriented', dimB: 'customer_centric' },
+  { id: 'P12', canonicalIndex: 11, scenario: 'A deal has gone quiet near the end of the month.', optionA: 'I would stay composed, avoid spiraling, and look for the next constructive move.', optionB: 'I would focus on the commercial levers and ask directly what would make action worthwhile now.', dimA: 'mindset_resilience', dimB: 'closing_confidence' },
+  { id: 'P13', canonicalIndex: 12, scenario: 'A prospect is excited but you are not sure the fit is strong enough.', optionA: 'I would stay anchored to what the buyer tells me they need and help them decide what level of fit is acceptable.', optionB: 'I would name the fit concern clearly rather than let enthusiasm carry the deal forward.', dimA: 'active_listening', dimB: 'authenticity' },
+  { id: 'P14', canonicalIndex: 13, scenario: 'You are behind target and need to create movement.', optionA: 'I would focus on measurable value, urgency, and the strongest reason for buyers to act now.', optionB: 'I would study what is not working, look for patterns, and change my approach before pushing harder.', dimA: 'closing_confidence', dimB: 'learning_style' },
+  { id: 'P15', canonicalIndex: 14, scenario: 'A prospect gives you vague feedback that could mean several things.', optionA: 'I would be transparent about the uncertainty and ask whether the opportunity is still real.', optionB: 'I would ask carefully what is happening on their side before assuming urgency or intent.', dimA: 'authenticity', dimB: 'active_listening' },
+  { id: 'P16', canonicalIndex: 15, scenario: 'A call is going well, but the prospect says something surprising.', optionA: 'I would adapt quickly and change direction if the new information seems important.', optionB: 'I would follow the unexpected thread to see what it reveals about the real buying situation.', dimA: 'learning_style', dimB: 'problem_solving' },
+  { id: 'P17', canonicalIndex: 16, scenario: 'You want to break into a promising new segment.', optionA: 'I would test outreach that shows I understand the buyer\'s world and emotional pressures.', optionB: 'I would keep a steady outreach rhythm even if the first set of attempts gets little response.', dimA: 'eq_trust', dimB: 'prospecting_comfort' },
+  { id: 'P18', canonicalIndex: 17, scenario: 'A prospect gives an answer that opens three possible paths.', optionA: 'I would explore the most interesting path before narrowing the conversation.', optionB: 'I would choose the path most likely to clarify what success would look like for the buyer.', dimA: 'curiosity', dimB: 'customer_centric' },
+  { id: 'P19', canonicalIndex: 18, scenario: 'You inherit a messy opportunity from another rep.', optionA: 'I would rebuild the operating plan and create a clearer path forward.', optionB: 'I would identify the strongest business case and challenge the buyer toward a more decisive evaluation.', dimA: 'process_oriented', dimB: 'closing_confidence' },
+  { id: 'P20', canonicalIndex: 19, scenario: 'A prospect is close to buying but you have a concern.', optionA: 'I would stay steady, keep the relationship warm, and make sure the concern is handled at the right moment.', optionB: 'I would proactively say what I am unsure about, even if it creates tension.', dimA: 'mindset_resilience', dimB: 'authenticity' },
+  { id: 'P21', canonicalIndex: 20, scenario: 'A customer becomes frustrated after a rough implementation conversation.', optionA: 'I would focus on what the customer needs next and help them get to a better outcome.', optionB: 'I would understand what changed, adjust my approach, and help the conversation recover.', dimA: 'customer_centric', dimB: 'eq_trust' },
+  { id: 'P22', canonicalIndex: 21, scenario: 'A new account shows weak surface-level fit but interesting signals.', optionA: 'I would start with a clear point of view on the business problem and why it matters now.', optionB: 'I would reach out with a message that reflects what I think they may be feeling or facing.', dimA: 'data_driven', dimB: 'eq_trust' },
+  { id: 'P23', canonicalIndex: 22, scenario: 'You sense a prospect may be hiding the real reason they are hesitating.', optionA: 'I would be direct about what I am sensing and invite them to tell me the truth.', optionB: 'I would keep asking thoughtful questions and let the conversation reveal what is really going on.', dimA: 'closing_confidence', dimB: 'active_listening' },
+  { id: 'P24', canonicalIndex: 23, scenario: 'A current opportunity suddenly becomes more complex.', optionA: 'I would keep learning from each shift and adjust my approach as new information comes in.', optionB: 'I would break the complexity down piece by piece until the path forward is manageable.', dimA: 'learning_style', dimB: 'problem_solving' },
+  { id: 'P25', canonicalIndex: 24, scenario: 'A deal you were counting on just died.', optionA: 'I would map out exactly where it broke down and what that means for my other open deals.', optionB: 'I would get straight back into outreach and start rebuilding the pipeline.', dimA: 'problem_solving', dimB: 'prospecting_comfort' },
+  { id: 'P26', canonicalIndex: 25, scenario: 'Your manager offers you focused coaching time.', optionA: 'I would use it to work through my most tangled active deal until we crack it.', optionB: 'I would use it to sharpen my outbound approach and open more doors.', dimA: 'problem_solving', dimB: 'prospecting_comfort' },
+  { id: 'P27', canonicalIndex: 26, scenario: 'A buyer describes a messy internal situation with no obvious owner.', optionA: 'I would help break the mess into pieces we can actually solve.', optionB: 'I would let them talk it through fully before offering any direction.', dimA: 'problem_solving', dimB: 'active_listening' },
+  { id: 'P28', canonicalIndex: 27, scenario: 'Mid-discovery, the prospect mentions an unrelated initiative in passing.', optionA: 'I would focus on what they are telling me and note it for later.', optionB: 'I would ask about it right away and see where it goes.', dimA: 'active_listening', dimB: 'curiosity' },
+  { id: 'P29', canonicalIndex: 28, scenario: 'You are researching a new account before first contact.', optionA: 'I would study the metrics and evidence that show whether a real opportunity exists.', optionB: 'I would follow whatever looks most interesting about the company and build my picture from there.', dimA: 'data_driven', dimB: 'curiosity' },
+  { id: 'P30', canonicalIndex: 29, scenario: 'It is Monday morning and the week is unplanned.', optionA: 'I would block time for net-new outreach before anything else claims the calendar.', optionB: 'I would start with the pipeline numbers and decide where my time pays off most.', dimA: 'prospecting_comfort', dimB: 'data_driven' },
 ]
 
-// Defensively re-number canonical indexes — the 25-item sequence is what matters.
+// Defensively re-number canonical indexes — the 30-item sequence is what matters.
 QUESTIONS.forEach((q, i) => {
   q.canonicalIndex = i
 })
@@ -241,10 +84,12 @@ export function shuffleQuestions(questions: Question[], seed: string): Question[
 }
 
 /**
- * Inverts a reverse-scored response per Rule 1.  5→1, 4→2, 3→3, 2→4, 1→5.
- * Retained for reference; the scoring engine does NOT call this — weight
- * signs encode direction directly.
+ * Deterministic per-question side flips for display randomization.
+ * flips[canonicalIndex] === true means the UI renders optionB first.
+ * Derived from the session seed so the presented order is fully
+ * reconstructable from the stored seed - no extra persistence needed.
  */
-export function invertResponse(value: number): number {
-  return 6 - value
+export function deriveSideFlips(seed: string): boolean[] {
+  const rng = seededRng(`${seed}:sides`)
+  return QUESTIONS.map(() => rng() < 0.5)
 }

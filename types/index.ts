@@ -46,14 +46,17 @@ export type PaymentStatus = 'pending' | 'paid'
 export type DimensionWeights = Partial<Record<DimensionKey, number>>
 
 export interface Question {
-  /** Stable external id, e.g. "Q1" or "R3" */
+  /** Stable external id, e.g. "P1" */
   id: string
   /** Order index in the canonical (un-shuffled) sequence, 0-based */
   canonicalIndex: number
-  text: string
-  /** Forward-scored uses raw response; reverse inverts first */
-  reverse: boolean
-  weights: DimensionWeights
+  scenario: string
+  optionA: string
+  optionB: string
+  /** Dimension that receives +n when the respondent prefers option A */
+  dimA: DimensionKey
+  /** Dimension that receives +n when the respondent prefers option B */
+  dimB: DimensionKey
 }
 
 // ─── Dimension scores ──────────────────────────────────────────────────────
@@ -136,6 +139,14 @@ export interface ScoringResult {
    * as not meaningful when this is true.
    */
   lowVariance: boolean
+  /** traits[0] axis score minus traits[1], on the display scale (2 decimals) */
+  traitMargin?: number
+  /** styles[0] axis score minus styles[1], on the display scale (2 decimals) */
+  styleMargin?: number
+  /** True if >= 50% of the 30 responses are exactly 3 (no preference) */
+  neutralHeavy?: boolean
+  /** True if >= 70% of the 30 responses are 1 or 5 (strong preference) */
+  extremeHeavy?: boolean
 }
 
 // ─── Assessment record (Supabase + fallback) ───────────────────────────────

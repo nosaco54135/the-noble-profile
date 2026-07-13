@@ -1,108 +1,126 @@
 /**
- * Runs the three validation scenarios against the scoring engine and
- * prints the full output for manual review.
+ * Pairwise scoring engine validation gate.
+ *
+ * Runs three checks against the pairwise QUESTIONS/scoreAssessment pipeline:
+ *   a. COVERAGE            — every dimension is touched by exactly 5 questions
+ *   b. FLAT PROFILE         — an all-neutral response set scores exactly 3.00
+ *                             on every dimension
+ *   c. REACHABILITY SMOKE   — 20,000 random response sets reach all 64
+ *                             possible primary archetypes (8 traits × 8 styles)
+ *
+ * Exits 0 with a PASS summary if every check holds, non-zero naming the
+ * failing check(s) otherwise.
  *
  * Usage:  npx tsx scripts/validate-scoring.ts
  */
 import { scoreAssessment } from '../lib/scoring'
 import { QUESTIONS } from '../lib/questions'
 import { DIMENSION_LABELS, DIMENSION_ORDER } from '../types'
+import type { DimensionKey } from '../types'
 
-interface Scenario {
-  name: string
-  expectedPrimary: string
-  expectedSecondary: string
-  expectedTertiary: string
-  responses: number[]
+const failures: string[] = []
+
+function fail(check: string, detail: string) {
+  failures.push(`${check}: ${detail}`)
 }
 
-const scenarios: Scenario[] = [
-  {
-    name: 'Scenario 1 — Empathic Connector profile',
-    expectedPrimary:   'The Authentic Connector',
-    expectedSecondary: 'The Empathic Advisor',
-    expectedTertiary:  'The Devoted Cultivator',
-    responses: [4, 5, 5, 3, 5, 5, 2, 2, 2, 2, 2, 2, 5, 5, 4, 3, 4, 2, 1, 4, 5, 5, 2, 4, 1],
-  },
-  {
-    name: 'Scenario 2 — Methodical Challenger profile',
-    expectedPrimary:   'The Strategic Challenger',
-    expectedSecondary: 'The Methodical Closer',
-    expectedTertiary:  'The Resilient Student',
-    responses: [2, 4, 3, 5, 3, 4, 5, 5, 4, 5, 5, 5, 4, 3, 4, 5, 3, 4, 4, 2, 3, 1, 2, 1, 3],
-  },
-  {
-    name: 'Scenario 3 — Resilient Hunter profile',
-    expectedPrimary:   'The Resilient Closer',
-    expectedSecondary: 'The Curious Challenger',
-    expectedTertiary:  'The Adaptive Student',
-    responses: [3, 3, 3, 3, 4, 3, 5, 5, 5, 3, 4, 3, 3, 2, 3, 5, 2, 3, 5, 1, 2, 1, 3, 3, 4],
-  },
-]
+// ─── a. COVERAGE ────────────────────────────────────────────────────────────
 
-function fmt(n: number) { return n.toFixed(2) }
-
-function runOne(s: Scenario) {
+function checkCoverage() {
   console.log('\n' + '═'.repeat(72))
-  console.log(s.name)
+  console.log('a. COVERAGE — dimA/dimB appearances per dimension')
   console.log('═'.repeat(72))
-  console.log(`Responses (len=${s.responses.length}, expected=${QUESTIONS.length}):`)
-  console.log('  ' + s.responses.join(', '))
 
-  if (s.responses.length !== QUESTIONS.length) {
-    console.log(`\n⚠️  Response length mismatch — skipping.`)
-    return
+  const counts = {} as Record<DimensionKey, number>
+  for (const dim of DIMENSION_ORDER) counts[dim] = 0
+  for (const q of QUESTIONS) {
+    counts[q.dimA] += 1
+    counts[q.dimB] += 1
   }
 
-  const r = scoreAssessment(s.responses)
-
-  // Dimensions
-  console.log('\n— 12 Dimension Scores (1–5) —')
+  let ok = true
   for (const dim of DIMENSION_ORDER) {
-    const d = r.diagnostics[dim]
-    const fwd = d.forwardDisplay === null ? '  –  ' : fmt(d.forwardDisplay)
-    const rev = d.reverseDisplay === null ? '  –  ' : fmt(d.reverseDisplay)
-    const flag = d.inconsistent ? '   ⚠ INCONSISTENT' : ''
-    console.log(
-      `  ${DIMENSION_LABELS[dim].padEnd(22)}  ${fmt(d.display)}   (fwd ${fwd} | rev ${rev})${flag}`,
-    )
+    const n = counts[dim]
+    if (n !== 5) ok = false
+    console.log(`  ${DIMENSION_LABELS[dim].padEnd(22)} ${n}   ${n === 5 ? 'OK' : 'FAIL (expected 5)'}`)
   }
 
-  // Traits
-  console.log('\n— Trait Axis (ranked) —')
-  r.traits.forEach((t, i) => {
-    const tie = t.closeRankTie ? ` ≈ [${t.tiedWith.join(', ')}]` : ''
-    console.log(`  ${i + 1}. ${t.label.padEnd(12)} ${fmt(t.score)}  (${t.matchPercentage}%)${tie}`)
-  })
-
-  // Styles
-  console.log('\n— Style Axis (ranked) —')
-  r.styles.forEach((st, i) => {
-    const tie = st.closeRankTie ? ` ≈ [${st.tiedWith.join(', ')}]` : ''
-    console.log(`  ${i + 1}. ${st.label.padEnd(12)} ${fmt(st.score)}  (${st.matchPercentage}%)${tie}`)
-  })
-
-  // Archetypes
-  console.log('\n— Archetypes —')
-  console.log(`  Primary:   The ${r.primary.name}   (${r.primary.matchPercentage}% combined)`)
-  console.log(`  Secondary: The ${r.secondary.name} (${r.secondary.matchPercentage}% combined)`)
-  console.log(`  Tertiary:  The ${r.tertiary.name}  (${r.tertiary.matchPercentage}% combined)`)
-
-  // Expectations
-  const actualPrim = `The ${r.primary.name}`
-  const actualSec  = `The ${r.secondary.name}`
-  const actualTer  = `The ${r.tertiary.name}`
-  console.log('\n— Match vs Expected —')
-  console.log(`  primary:   expected "${s.expectedPrimary}"    actual "${actualPrim}"    ${actualPrim === s.expectedPrimary ? '✓ MATCH' : '✗ MISMATCH'}`)
-  console.log(`  secondary: expected "${s.expectedSecondary}"  actual "${actualSec}"   ${actualSec === s.expectedSecondary ? '✓ MATCH' : '✗ MISMATCH'}`)
-  console.log(`  tertiary:  expected "${s.expectedTertiary}"   actual "${actualTer}"    ${actualTer === s.expectedTertiary ? '✓ MATCH' : '✗ MISMATCH'}`)
-
-  // Flags
-  console.log('\n— Flags —')
-  console.log(`  Inconsistencies (dim gap > 1.5): ${r.inconsistencies.length === 0 ? 'none' : r.inconsistencies.join(', ')}`)
-  console.log(`  Response std dev:                 ${fmt(r.responseStdDev)}`)
-  console.log(`  Low variance (< 0.5):             ${r.lowVariance ? 'YES' : 'no'}`)
+  if (!ok) fail('COVERAGE', 'not every dimension appears exactly 5 times across QUESTIONS')
 }
 
-console.log(`QUESTIONS length = ${QUESTIONS.length} (Q1/Q3–Q21 forward + Q2/Q22–Q25 reverse)`)
-for (const s of scenarios) runOne(s)
+// ─── b. FLAT PROFILE ────────────────────────────────────────────────────────
+
+function checkFlatProfile() {
+  console.log('\n' + '═'.repeat(72))
+  console.log('b. FLAT PROFILE — all-neutral (3) responses')
+  console.log('═'.repeat(72))
+
+  const flat = Array(QUESTIONS.length).fill(3)
+  const result = scoreAssessment(flat)
+
+  let ok = true
+  for (const dim of DIMENSION_ORDER) {
+    const score = result.dimensionScores[dim]
+    if (score !== 3) ok = false
+    console.log(`  ${DIMENSION_LABELS[dim].padEnd(22)} ${score.toFixed(2)}   ${score === 3 ? 'OK' : 'FAIL (expected 3)'}`)
+  }
+
+  if (!ok) fail('FLAT PROFILE', 'not every dimension display score is exactly 3 on an all-neutral response set')
+}
+
+// ─── c. REACHABILITY SMOKE ──────────────────────────────────────────────────
+
+const EXPECTED_ARCHETYPES = 64 // 8 traits × 8 styles
+
+function randomResponses(n: number): number[] {
+  const out: number[] = []
+  for (let i = 0; i < n; i++) out.push(1 + Math.floor(Math.random() * 5))
+  return out
+}
+
+function checkReachability() {
+  console.log('\n' + '═'.repeat(72))
+  console.log('c. REACHABILITY SMOKE — 20,000 random response sets')
+  console.log('═'.repeat(72))
+
+  const TRIALS = 20000
+  const counts = new Map<string, number>()
+
+  for (let i = 0; i < TRIALS; i++) {
+    const responses = randomResponses(QUESTIONS.length)
+    const result = scoreAssessment(responses)
+    const name = result.primary.name
+    counts.set(name, (counts.get(name) ?? 0) + 1)
+  }
+
+  const distinct = counts.size
+  const shares = [...counts.values()].map((c) => (c / TRIALS) * 100)
+  const minShare = Math.min(...shares)
+  const maxShare = Math.max(...shares)
+
+  console.log(`  Distinct primary archetypes: ${distinct} (expected ${EXPECTED_ARCHETYPES})`)
+  console.log(`  Min share: ${minShare.toFixed(3)}%`)
+  console.log(`  Max share: ${maxShare.toFixed(3)}%`)
+
+  if (distinct !== EXPECTED_ARCHETYPES) {
+    fail('REACHABILITY', `expected ${EXPECTED_ARCHETYPES} distinct primary archetypes, got ${distinct}`)
+  }
+}
+
+// ─── Run ────────────────────────────────────────────────────────────────────
+
+console.log(`QUESTIONS length = ${QUESTIONS.length} (pairwise model, P1…P${QUESTIONS.length})`)
+
+checkCoverage()
+checkFlatProfile()
+checkReachability()
+
+console.log('\n' + '═'.repeat(72))
+if (failures.length === 0) {
+  console.log('PASS — all checks passed.')
+  process.exit(0)
+} else {
+  console.log(`FAIL — ${failures.length} check(s) failed:`)
+  for (const f of failures) console.log(`  - ${f}`)
+  process.exit(1)
+}
