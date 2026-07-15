@@ -306,54 +306,56 @@ export default function AssessmentPage() {
             </p>
           </div>
 
-          {/* Two options — display order follows this question's seeded side flip */}
+          {/* Two options, styled as pills — "A"/"B" mark DISPLAY POSITION (first/second
+              shown), not the optionA/optionB field names. Display order follows this
+              question's seeded side flip, so the field behind "A" can vary by question. */}
           <div className="space-y-tns-md mb-tns-xl">
-            <div className="border border-tns-border bg-tns-bgAlt px-4 py-4 sm:px-5">
+            <div className="flex items-center gap-tns-md rounded-full border border-tns-accent/25 bg-tns-bgAlt px-5 py-4 sm:px-7 sm:py-5">
+              <span className="shrink-0 flex items-center justify-center size-7 rounded-full bg-tns-accent text-tns-bg font-display text-sm font-medium">
+                A
+              </span>
               <p className="font-sans text-tns-fg text-[15px] sm:text-base leading-relaxed">
                 {firstOptionText}
               </p>
             </div>
-            <div className="border border-tns-border bg-tns-bgAlt px-4 py-4 sm:px-5">
+            <div className="flex items-center gap-tns-md rounded-full border border-tns-accent/25 bg-tns-bgAlt px-5 py-4 sm:px-7 sm:py-5">
+              <span className="shrink-0 flex items-center justify-center size-7 rounded-full bg-tns-accent text-tns-bg font-display text-sm font-medium">
+                B
+              </span>
               <p className="font-sans text-tns-fg text-[15px] sm:text-base leading-relaxed">
                 {secondOptionText}
               </p>
             </div>
           </div>
 
-          {/* Preference scale — 5 = strongly prefer the option shown first, 1 = strongly prefer the second */}
-          <div className="grid grid-cols-5 gap-2 sm:gap-3 mb-tns-sm">
-            {[5, 4, 3, 2, 1].map((value) => {
+          {/* Preference scale — labels reference "A"/"B" the same way the pills above do
+              (display position). u=5 strongly prefers A (first-shown) … u=1 strongly
+              prefers B (second-shown); the canonical transform in handleSelect is unchanged. */}
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 sm:gap-3 mb-tns-2xl">
+            {[
+              { value: 5, label: 'Strongly prefer A' },
+              { value: 4, label: 'Somewhat prefer A' },
+              { value: 3, label: 'No preference / depends' },
+              { value: 2, label: 'Somewhat prefer B' },
+              { value: 1, label: 'Strongly prefer B' },
+            ].map(({ value, label }) => {
               const isSelected = selected === value
               return (
                 <button
                   key={value}
                   onClick={() => handleSelect(value)}
-                  aria-label={`${value}`}
                   className={[
-                    'flex items-center justify-center p-3 sm:p-4 border transition-colors duration-150 min-h-[56px]',
+                    'flex items-center justify-center text-center p-3 sm:p-4 border transition-colors duration-150 min-h-[56px]',
                     'focus:outline-none focus-visible:ring-2 focus-visible:ring-tns-accent focus-visible:ring-offset-2 focus-visible:ring-offset-tns-bg',
                     isSelected
                       ? 'bg-tns-bgAlt border-tns-accent text-tns-fg'
                       : 'bg-tns-bg border-tns-border text-tns-fg hover:bg-tns-bgAlt cursor-pointer',
                   ].join(' ')}
                 >
-                  <span className="font-display text-lg text-tns-fg">{value}</span>
+                  <span className="font-sans text-xs sm:text-sm leading-tight text-tns-fg">{label}</span>
                 </button>
               )
             })}
-          </div>
-
-          {/* Compact anchor labels under the scale ends */}
-          <div className="flex items-start justify-between mb-tns-2xl px-1 gap-tns-sm">
-            <span className="font-sans text-[11px] sm:text-xs text-tns-muted leading-tight max-w-[30%]">
-              Strongly prefer the first
-            </span>
-            <span className="font-sans text-[11px] sm:text-xs text-tns-muted leading-tight text-center max-w-[30%]">
-              No preference / depends
-            </span>
-            <span className="font-sans text-[11px] sm:text-xs text-tns-muted leading-tight text-right max-w-[30%]">
-              Strongly prefer the second
-            </span>
           </div>
 
           {/* Navigation */}
