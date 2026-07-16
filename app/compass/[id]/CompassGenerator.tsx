@@ -36,8 +36,8 @@ const SALES_QUOTES = [
 ]
 
 /**
- * Client component that triggers on-demand Codex generation
- * when the user lands on the Codex page before it has been generated.
+ * Client component that triggers on-demand Compass generation
+ * when the user lands on the Compass page before it has been generated.
  */
 export default function CompassGenerator({ assessmentId, archetypeResult, dimensionScores, archetypes, topDimensions, gapDimensions, sessionId, archetype }: Props) {
   const [status, setStatus] = useState<'generating' | 'done' | 'error'>('generating')
@@ -139,7 +139,7 @@ export default function CompassGenerator({ assessmentId, archetypeResult, dimens
       </div>
 
       <h3 className="text-xl font-bold text-[#0F0F0F] mb-2">
-        Generating your personal Codex…
+        Generating your personal Compass…
       </h3>
       <p className="text-sm text-[#6B6B6B] mb-8 max-w-sm mx-auto">
         This usually takes 1–2 minutes. Your full coaching report is being written.
