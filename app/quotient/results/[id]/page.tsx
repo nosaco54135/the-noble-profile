@@ -153,7 +153,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fallback: Metadata = {
     title: 'The Noble Quotient — Know Your Selling Identity',
-    description: 'A behavioral assessment for B2B sales professionals. 25 questions, 12 dimensions, 64 archetypes.',
+    description: 'A behavioral assessment for B2B sales professionals. 30 questions, 12 dimensions, 64 archetypes.',
   }
 
   if (id === 'dev-test' || !serverStorage.isAvailable()) return fallback

@@ -91,7 +91,7 @@ export default function AboutPage() {
               Start with the free assessment.
             </h2>
             <p className="font-sans text-base text-[#6B6B6B] mb-8">
-              The Noble Quotient is free. 25 questions, full results immediately.
+              The Noble Quotient is free. 30 questions, full results immediately.
             </p>
             <LinkButton href="/quotient" variant="primary">
               Take the Free Assessment →

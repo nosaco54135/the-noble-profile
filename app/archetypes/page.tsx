@@ -63,7 +63,7 @@ export default function ArchetypesPage() {
         <Container maxWidth="prose">
           <div className="text-center">
             <p className="font-sans text-base text-[#6B6B6B] leading-relaxed mb-5">
-              Find your archetype in about five minutes. It&apos;s free.
+              Find your archetype. It&apos;s free.
             </p>
             <LinkButton href="/quotient" variant="primary">
               Take the Free Assessment →
@@ -82,7 +82,7 @@ export default function ArchetypesPage() {
               Every seller runs on two layers. Underneath the tactics is your trait, the way you&apos;re wired before you say a word. On top of it is your style, the move you actually make when a deal is live. Some sellers hunt for new logos. Some advise until the buyer stops shopping. Some challenge how a prospect sees their own problem, and a few just quietly build the thing that closes. Your trait and your style together are your archetype.
             </p>
             <p className="font-sans text-base md:text-lg text-[#0F0F0F] leading-relaxed">
-              The Noble Quotient measures both. Eight traits and eight styles, scored from how you answer 25 questions about the way you actually sell. Cross the eight traits with the eight styles and you land on one of 64 archetypes.
+              The Noble Quotient measures both. Eight traits and eight styles, scored from how you answer 30 questions about the way you actually sell. Cross the eight traits with the eight styles and you land on one of 64 archetypes.
             </p>
             <p className="font-sans text-base md:text-lg text-[#0F0F0F] leading-relaxed">
               Read through them below, or skip ahead and find yours.
@@ -152,7 +152,7 @@ export default function ArchetypesPage() {
               Not sure where you land?
             </h2>
             <p className="font-sans text-base text-[#6B6B6B] leading-relaxed mb-6">
-              Take the free 25-question Noble Quotient assessment and find your archetype in minutes.
+              Take the free 30-question Noble Quotient assessment and find your archetype.
             </p>
             <LinkButton href="/quotient" variant="primary">
               Take the Free Assessment →

@@ -62,7 +62,7 @@ export const guides: Guide[] = [
     relatedArchetypeSlug: 'devoted-advisor',
     relatedArchetypeName: 'Devoted Advisor',
     ctaHeadline: 'See where you actually stand',
-    ctaBody: '25 questions. 12 behavioral dimensions. Your natural selling identity, measured.',
+    ctaBody: '30 questions. 12 behavioral dimensions. Your natural selling identity, measured.',
     ctaButton: 'Take the free assessment',
   },
   {
@@ -110,7 +110,7 @@ export const guides: Guide[] = [
     relatedArchetypeName: 'Resilient Hunter',
     relatedGuides: [{ slug: 'consultative-selling', name: 'Consultative selling' }],
     ctaHeadline: 'Stop guessing from a two-word label',
-    ctaBody: '25 questions. 12 behavioral dimensions. The mix under the label, measured in about five minutes.',
+    ctaBody: '30 questions. 12 behavioral dimensions. The mix under the label.',
     ctaButton: 'Take the free assessment',
   },
   {
@@ -158,7 +158,7 @@ export const guides: Guide[] = [
     relatedArchetypeName: 'Devoted Advisor',
     relatedGuides: [{ slug: 'trusted-advisor', name: 'The trusted advisor' }],
     ctaHeadline: "See if it's already how you sell",
-    ctaBody: 'Twenty-five questions. Twelve behavioral dimensions. The two traits under consultative selling, measured in about five minutes.',
+    ctaBody: 'Thirty questions. Twelve behavioral dimensions. The two traits under consultative selling.',
     ctaButton: 'Take the free assessment',
   },
   {
@@ -209,7 +209,7 @@ export const guides: Guide[] = [
       { slug: 'hunter-vs-farmer', name: 'Hunter vs farmer' },
     ],
     ctaHeadline: 'Find out what you are first',
-    ctaBody: 'Twenty-five questions. Twelve behavioral dimensions. Your raw material, measured in about five minutes.',
+    ctaBody: 'Thirty questions. Twelve behavioral dimensions. Your raw material.',
     ctaButton: 'Take the free assessment',
   },
 ]

@@ -218,7 +218,7 @@ export default async function ArchetypePage({
               Not sure this is you?
             </h2>
             <p className="font-sans text-base text-[#6B6B6B] leading-relaxed mb-6">
-              Take the free 25-question Noble Quotient assessment and find your archetype in minutes.
+              Take the free 30-question Noble Quotient assessment and find your archetype.
             </p>
             <LinkButton href="/quotient" variant="primary">
               Take the Free Assessment →

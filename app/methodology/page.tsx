@@ -308,7 +308,7 @@ export default function MethodologyPage() {
               Find out where you land.
             </h2>
             <p className="font-sans text-base text-[#6B6B6B] leading-relaxed mb-6">
-              The Noble Quotient is a free 25-question assessment. Full results shown immediately.
+              The Noble Quotient is a free 30-question assessment. Full results shown immediately.
             </p>
             <div className="mt-6">
               <LinkButton href="/quotient" variant="primary">

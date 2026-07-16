@@ -39,7 +39,7 @@ const DIMENSION_DEFINITIONS: Record<DimensionKey, string> = {
 
 // ─── System prompt (fixed) ─────────────────────────────────────────────────
 
-const SYSTEM_PROMPT = `You are a senior sales coach writing a personal coaching guide called The Noble Codex for a specific sales professional. This is a paid product. It must feel worth every dollar.
+const SYSTEM_PROMPT = `You are a senior sales coach writing a personal coaching guide called The Noble Compass for a specific sales professional. This is a paid product. It must feel worth every dollar.
 
 WRITING STANDARDS — NON-NEGOTIABLE:
 - Every claim must reference a specific dimension score. Never write "your curiosity is strong" — write "your Curiosity score of 4.7 means..."
@@ -66,7 +66,7 @@ Open by naming the specific tension in this person's prospecting profile — the
 Section 3: Discovery and Closing Tactics
 Open by identifying where in the sales process this person is strongest and where they lose momentum. Give one named discovery framework that fits their scores (SPIN, Challenger, MEDDIC, etc.) and explain specifically why it fits. List 4 discovery questions written in this person's voice — questions they would actually ask, not generic templates. Address closing directly: name the specific closing behavior their scores predict they avoid, and give one concrete closing technique to practice.
 
-Section 4: My Blind Spot Codex
+Section 4: My Blind Spot Compass
 Cover the bottom 3-4 dimension scores as distinct blind spots. For each:
 - Name the dimension and score
 - Describe the specific behavioral pattern this score produces in real selling situations (not abstract — give a scene)
@@ -84,7 +84,7 @@ For each resource:
 
 Never recommend a resource that does not appear in the pool for this trait type unless it addresses the single lowest scoring dimension and adds something the pool does not cover.
 Never recommend enterprise-only tools that require team purchase: Gong, Chorus, Salesloft, Outreach, ZoomInfo, Seismic, Highspot. When a sequencing tool is needed, recommend Instantly.ai ($37/mo) or Lemlist ($59/mo) — never Outreach or Salesloft. When a call recording tool is needed, recommend Fathom (free) — never Gong or Chorus.
-Never recommend the same resource twice in a single Codex.
+Never recommend the same resource twice in a single Compass.
 
 RESOURCE POOLS BY PRIMARY TRAIT:
 
@@ -188,7 +188,7 @@ function buildUserPrompt(data: {
     ? `Flagged inconsistencies (forward/reverse question divergence): ${data.inconsistencies.join(', ')}. These dimensions show a gap between self-image and actual behavior — address this nuance in the relevant sections.`
     : 'No inconsistency flags.'
 
-  return `Write The Noble Codex for this seller.
+  return `Write The Noble Compass for this seller.
 
 ARCHETYPE:
 - Primary: ${data.primaryName} (${data.primaryTrait} trait / ${data.primaryStyle} style)

@@ -106,7 +106,7 @@ export default function GuidesPage() {
               Or skip the reading
             </h2>
             <p className="font-sans text-base text-[#6B6B6B] leading-relaxed mb-6">
-              Take the free 25-question Noble Quotient assessment and see how you actually sell.
+              Take the free 30-question Noble Quotient assessment and see how you actually sell.
             </p>
             <LinkButton href="/quotient" variant="primary">
               Take the Free Assessment →

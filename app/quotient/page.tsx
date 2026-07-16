@@ -27,7 +27,7 @@ export default function LandingPage() {
               Discover your natural selling style. And what&apos;s holding you back.
             </h1>
             <p className="font-sans text-tns-muted text-[18px] leading-relaxed mb-tns-lg max-w-[560px] mx-auto">
-              The Noble Quotient is a 25-question assessment built for sales professionals. Find out how you sell, how you learn, and exactly where to focus to hit your next level.
+              The Noble Quotient is a 30-question assessment built for sales professionals. Find out how you sell, how you learn, and exactly where to focus to hit your next level.
             </p>
 
             {/* CTA card */}
@@ -41,7 +41,7 @@ export default function LandingPage() {
                 Take the Free Assessment →
               </Button>
               <p className="mt-tns-md font-sans text-xs text-center text-tns-muted leading-relaxed">
-                The Noble Quotient is 100% free. 25 questions, about 5 minutes, full results shown immediately. The Noble Compass is an optional paid coaching guide based on your results.
+                The Noble Quotient is 100% free. 30 questions, full results shown immediately. The Noble Compass is an optional paid coaching guide based on your results.
               </p>
             </div>
           </div>
