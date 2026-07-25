@@ -41,8 +41,11 @@ const DIMENSION_DEFINITIONS: Record<DimensionKey, string> = {
 
 const SYSTEM_PROMPT = `You are a senior sales coach writing a personal coaching guide called The Noble Compass for a specific sales professional. This is a paid product. It must feel worth every dollar.
 
+HOW TO READ THE SCORES — THIS GOVERNS EVERYTHING BELOW:
+These scores measure preference, not skill. A high score is a move this seller reaches for first and often. A low score is the move they turn to last — NOT a thing they are bad at. Never describe a low score as a weakness, a deficiency, or something they "struggle with" or "fail at." A great closer who simply prefers other moves will score low on prospecting; this report must never tell them they are bad at prospecting. The honest read of a low score: "this is what you turn to last, and here is the situation where reaching for it late costs you." Use preference language throughout: "leans toward," "reaches for first," "turns to last," "under-uses." Never "strong at" / "weak at."
+
 WRITING STANDARDS — NON-NEGOTIABLE:
-- Every claim must reference a specific dimension score. Never write "your curiosity is strong" — write "your Curiosity score of 4.7 means..."
+- Every claim must reference a specific dimension score. Never write "your curiosity is strong" — write "your Curiosity score of 4.7 means this is a move you reach for first..."
 - When referencing dimension scores in body copy, ALWAYS use the human-readable label (e.g. 'EQ / Trust', 'Active Listening', 'Self-Improvement') — NEVER the raw key (e.g. 'eq_trust', 'active_listening', 'learning_style'). The raw keys are for internal use only and must never appear in generated text.
 - Every section must contain at least one named framework, methodology, or book reference tied directly to the person's scores
 - Every recommendation must be behavioral and specific — not "improve your follow-up" but "send a Loom video follow-up within 2 hours of every discovery call where you heard an unresolved objection"
@@ -58,7 +61,8 @@ WRITING STANDARDS — NON-NEGOTIABLE:
 SECTION STRUCTURE — follow this exactly for all 6 sections:
 
 Section 1: Your Selling Identity
-Open with the single most important behavioral truth about this person's selling profile — the thing that explains most of what they do well and most of what they struggle with. Then explain how their primary archetype combination (trait + style) creates a specific competitive edge. Reference the secondary and tertiary archetypes and what they add or complicate. Close with 3 specific "signature moves" — concrete behaviors this person exhibits that better sellers recognize as advantages.
+Open with the single most important behavioral truth about this person's selling profile — the thing that explains most of what comes naturally to them and most of what they leave on the table by reaching for it last. Then explain how their primary archetype combination (trait + style) creates a specific competitive edge. Reference the secondary and tertiary archetypes and what they add or complicate. Close with 3 specific "signature moves" — concrete behaviors this person exhibits that better sellers recognize as advantages.
+If a CLOSE-LEAD flag is present in the data, name the runner-up explicitly: "you lead as a [primary], with a strong undercurrent of [runner-up]." If no flag is present, commit fully to the primary archetype without hedging.
 
 Section 2: Prospecting Approach for Your Style
 Open by naming the specific tension in this person's prospecting profile — the gap between their natural wiring and what most prospecting advice demands. Give 3 specific channel recommendations (e.g. LinkedIn, cold email, cold call, referral, video outreach) rated explicitly as Best Fit / Workable / Avoid for this profile with one sentence of reasoning each. Recommend a specific cadence structure (number of touches, timing). Frame the cadence as a baseline minimum. Note explicitly that complex or high-ticket sales warrant 15-20+ touches over 30-40 business days, and that the right length depends on deal type and ICP. If including a breakup message as a cadence touch, flag it as optional — not all selling contexts or seller styles call for it. Name one prospecting discipline this person must build that doesn't come naturally, and give a concrete weekly implementation.
@@ -67,11 +71,10 @@ Section 3: Discovery and Closing Tactics
 Open by identifying where in the sales process this person is strongest and where they lose momentum. Give one named discovery framework that fits their scores (SPIN, Challenger, MEDDIC, etc.) and explain specifically why it fits. List 4 discovery questions written in this person's voice — questions they would actually ask, not generic templates. Address closing directly: name the specific closing behavior their scores predict they avoid, and give one concrete closing technique to practice.
 
 Section 4: My Blind Spot Compass
-Cover the bottom 3-4 dimension scores as distinct blind spots. For each:
-- Name the dimension and score
-- Describe the specific behavioral pattern this score produces in real selling situations (not abstract — give a scene)
-- Give one concrete, implementable fix that takes less than 10 minutes per day
-Note any inconsistency flags and explain what behavioral inconsistency looks like in practice for this person.
+Open with one line defining what a blind spot means in this report: a blind spot is a move this seller turns to last — and because they rarely reach for it, they may not notice the moments that call for it. Cover the bottom 3-4 dimension scores this way. For each:
+- Name the dimension and score, and state plainly that a low score means "reaches for this last," not "bad at this"
+- Describe the specific situation where under-reaching for this move costs them — give a scene, not an abstraction
+- Give one concrete fix that takes less than 10 minutes per day, framed as building a move they can reach for on purpose, not repairing a defect
 
 Section 5: Recommended Tools and Resources
 Recommend exactly 5 resources drawn primarily from the RESOURCE POOL matching the seller's primary trait (listed below). You may draw 1 resource from outside the pool if it directly addresses the seller's single lowest scoring dimension and is not already covered by the pool.
@@ -80,7 +83,7 @@ For each resource:
 - Name it
 - Explain in 2-3 sentences exactly why it fits this specific profile and scores
 - Give one concrete action: how to use it this week, not someday
-- Flag whether it targets a gap dimension or amplifies a strength dimension
+- Flag whether it builds an under-reached move or reinforces a natural lean
 
 Never recommend a resource that does not appear in the pool for this trait type unless it addresses the single lowest scoring dimension and adds something the pool does not cover.
 Never recommend enterprise-only tools that require team purchase: Gong, Chorus, Salesloft, Outreach, ZoomInfo, Seismic, Highspot. When a sequencing tool is needed, recommend Instantly.ai ($37/mo) or Lemlist ($59/mo) — never Outreach or Salesloft. When a call recording tool is needed, recommend Fathom (free) — never Gong or Chorus.
@@ -147,7 +150,7 @@ Prospector trait:
 Section 6: My 30/60/90 Day Plan
 Structure as three distinct phases. Each phase must have:
 - A theme (3-4 words)
-- The primary dimension gap it targets
+- The primary under-reached move it targets
 - 4 specific weekly commitments written as action items (not goals — actions)
 - A milestone: what measurably changes by the end of this phase
 
@@ -168,9 +171,12 @@ function buildUserPrompt(data: {
   dimensionScores: Record<string, number>
   topDimensions: { key: string; label: string; score: number }[]
   gapDimensions: { key: string; label: string; score: number }[]
-  inconsistencies: string[]
   traitRankings: { name: string; score: number; tagline: string }[]
   styleRankings: { name: string; score: number; tagline: string }[]
+  traitMargin?: number
+  styleMargin?: number
+  neutralHeavy?: boolean
+  extremeHeavy?: boolean
 }): string {
   const scoreLines = Object.entries(data.dimensionScores)
     .map(([key, score]) => `  ${DIMENSION_LABELS[key as DimensionKey]}: ${score.toFixed(1)}/5.0`)
@@ -184,9 +190,15 @@ function buildUserPrompt(data: {
     .map(d => `  ${d.label}: ${d.score.toFixed(1)}/5.0`)
     .join('\n')
 
-  const inconsistencyNote = data.inconsistencies.length > 0
-    ? `Flagged inconsistencies (forward/reverse question divergence): ${data.inconsistencies.join(', ')}. These dimensions show a gap between self-image and actual behavior — address this nuance in the relevant sections.`
-    : 'No inconsistency flags.'
+  const closeLead: string[] = []
+  if (data.traitMargin !== undefined && data.traitMargin < 0.10) closeLead.push(`trait (lead over runner-up is only ${data.traitMargin.toFixed(2)})`)
+  if (data.styleMargin !== undefined && data.styleMargin < 0.10) closeLead.push(`style (lead over runner-up is only ${data.styleMargin.toFixed(2)})`)
+
+  const signalParts: string[] = []
+  if (closeLead.length > 0) signalParts.push(`CLOSE-LEAD: ${closeLead.join(' and ')}. Name the runner-up as a strong undercurrent rather than claiming a decisive primary.`)
+  if (data.neutralHeavy) signalParts.push(`This seller answered "no preference" on many questions, so the leans are gently drawn. Describe tendencies, not certainties.`)
+  if (data.extremeHeavy) signalParts.push(`This seller answered at the extremes on most questions, so the leans are sharply drawn and can be described with confidence.`)
+  const signalNote = signalParts.length > 0 ? signalParts.join('\n\n') : 'Answer pattern is balanced; read the leans at face value.'
 
   return `Write The Noble Compass for this seller.
 
@@ -199,13 +211,13 @@ ARCHETYPE:
 ALL 12 DIMENSION SCORES (1.0–5.0 scale):
 ${scoreLines}
 
-TOP 3 STRENGTHS:
+TOP 3 MOVES THIS SELLER REACHES FOR FIRST (highest preference):
 ${topLines}
 
-BOTTOM 3 GAP DIMENSIONS:
+BOTTOM 3 MOVES THIS SELLER REACHES FOR LAST (lowest preference — NOT weaknesses):
 ${gapLines}
 
-${inconsistencyNote}
+${signalNote}
 
 PRIMARY TRAIT (for resource pool selection): ${data.primaryTrait}
 
@@ -221,16 +233,16 @@ Write all 6 sections now. Each section 380-480 words minimum. Follow all instruc
 // ─── Entry point ───────────────────────────────────────────────────────────
 
 /**
- * Generates a personalized 6-section Codex via Claude Sonnet.
+ * Generates a personalized 6-section Compass via Claude Sonnet.
  * Uses streaming internally and returns the complete text.
  */
 export async function generateCodex(result: ScoringResult): Promise<string> {
-  // Derive top/gap dimensions by sorting dimension scores
+  // Derive top/least-reached dimensions by sorting dimension scores
   const sortedDims = (DIMENSION_ORDER as DimensionKey[])
     .map(key => ({ key, label: DIMENSION_LABELS[key], score: result.dimensionScores[key] }))
     .sort((a, b) => b.score - a.score)
   const topDimensions = sortedDims.slice(0, 3)
-  const gapDimensions = sortedDims.slice(-3)
+  const leastReachedDimensions = sortedDims.slice(-3)
 
   const stream = getClient().messages.stream({
     model: 'claude-sonnet-4-6',
@@ -247,10 +259,13 @@ export async function generateCodex(result: ScoringResult): Promise<string> {
         tertiaryName: result.tertiary.name,
         dimensionScores: result.dimensionScores,
         topDimensions,
-        gapDimensions,
-        inconsistencies: result.inconsistencies.map(k => DIMENSION_LABELS[k]),
+        gapDimensions: leastReachedDimensions,
         traitRankings: result.traits.map(t => ({ name: t.label, score: t.score, tagline: t.tagline })),
         styleRankings: result.styles.map(s => ({ name: s.label, score: s.score, tagline: s.tagline })),
+        traitMargin: result.traitMargin,
+        styleMargin: result.styleMargin,
+        neutralHeavy: result.neutralHeavy,
+        extremeHeavy: result.extremeHeavy,
       }),
     }],
   })
