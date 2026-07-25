@@ -238,18 +238,18 @@ export const DIMENSION_STRENGTHS: Record<DimensionKey, string> = {
  * render the user's bottom-3 scoring dimensions as areas to focus on.
  */
 export const DIMENSION_BLIND_SPOTS: Record<DimensionKey, string> = {
-  eq_trust:            'You may miss the moment a prospect\u2019s energy shifts. When you push past those signals, trust erodes without you noticing.',
-  active_listening:    'You remember the topic but not the specifics. That costs you in follow-ups where recall signals that you actually care.',
-  curiosity:           'You tend to counter objections before exploring them. The first question is usually the wrong one. Get curious before you respond.',
-  mindset_resilience:  'A run of no\u2019s takes you off the phone. The reps who grind through the same stretch are the ones who make quota.',
-  closing_confidence:  'You give prospects space when they hesitate instead of asking what\u2019s holding them back. Hesitation is information. Go find it.',
-  prospecting_comfort: 'You work existing deals instead of opening new ones. That feels safe but it starves your pipeline 60 days out.',
-  data_driven:         'You pitch features before business impact. Executives buy outcomes. Lead with cost saved, revenue gained, or time recovered.',
-  authenticity:        'You soften hard truths to protect the deal. Prospects feel it, and they trust the rep who tells them the thing they didn\u2019t want to hear.',
-  process_oriented:    'CRM notes go stale and follow-ups slip. Systemize what you already know works or you will keep losing deals to admin drift.',
-  problem_solving:     'You escalate or stall when the standard path is blocked. Build a habit of finding one creative alternative before asking for help.',
-  customer_centric:    'You stay aligned to the deal more than the customer. Revisit whether your recommendation is actually right for their situation.',
-  learning_style:      'You don\u2019t seek feedback unprompted. The reps who listen to their own calls and ask for specific critique grow twice as fast.',
+  eq_trust:            'Reading the room is a move you turn to last, so a shift in a prospect\u2019s energy can pass you by. When you keep to the plan through that shift, trust quietly slips.',
+  active_listening:    'You track the topic more than the exact words. Because recall isn\u2019t your first move, the specific detail that would have shown a prospect you were listening tends to go unused.',
+  curiosity:           'You reach for a response before you reach for another question. The extra question you skip is often the one that opens the deal. Sit in the question a beat longer.',
+  mindset_resilience:  'Grinding through a cold streak isn\u2019t your default, so a run of no\u2019s can pull you off the phones. The reps who stay on through the same stretch are usually the ones who hit quota.',
+  closing_confidence:  'Asking straight sits at the bottom of your stack, so when a prospect hesitates you give them room instead of asking what\u2019s holding them back. That hesitation is information you\u2019re leaving on the table.',
+  prospecting_comfort: 'Opening new conversations is what you turn to last, so working existing deals wins the day. It feels safe, and it\u2019s the reason a pipeline can thin out 60 days before you feel it.',
+  data_driven:         'Leading with numbers isn\u2019t your first move, so you tend to pitch features before business impact. Executives buy outcomes, so the case for cost saved or revenue gained often goes unmade.',
+  authenticity:        'Saying the hard thing is a move you under-use, so you soften it to protect the deal. Prospects feel the softening, and they trust the rep who says the thing they didn\u2019t want to hear.',
+  process_oriented:    'Running a repeatable system isn\u2019t what you reach for first, so CRM notes go stale and follow-ups slip. The deals that stall on admin drift are the cost of leaving that move unused.',
+  problem_solving:     'Finding a creative path is a move you turn to last, so a blocked standard path tends to become an escalation or a stall. A habit of trying one alternative first would recover most of them.',
+  customer_centric:    'Orienting to the customer\u2019s outcome over the deal isn\u2019t your default reach, so your recommendation can drift toward the sale. Worth a second look at whether it\u2019s actually right for their situation.',
+  learning_style:      'Seeking feedback unprompted is a move you under-use, so your own calls go unreviewed. The reps who listen back and ask for specific critique tend to grow about twice as fast.',
 }
 
 export const COMPASS_TEASERS: Record<string, string> = {
