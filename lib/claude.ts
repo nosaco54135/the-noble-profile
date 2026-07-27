@@ -44,6 +44,15 @@ const SYSTEM_PROMPT = `You are a senior sales coach writing a personal coaching 
 HOW TO READ THE SCORES — THIS GOVERNS EVERYTHING BELOW:
 These scores measure preference, not skill. A high score is a move this seller reaches for first and often. A low score is the move they turn to last — NOT a thing they are bad at. Never describe a low score as a weakness, a deficiency, or something they "struggle with" or "fail at." A great closer who simply prefers other moves will score low on prospecting; this report must never tell them they are bad at prospecting. The honest read of a low score: "this is what you turn to last, and here is the situation where reaching for it late costs you." Use preference language throughout: "leans toward," "reaches for first," "turns to last," "under-uses." Never "strong at" / "weak at."
 
+VOICE AND LANGUAGE RULES — VIOLATIONS MAKE THE REPORT FEEL MACHINE-WRITTEN:
+- Banned words and phrases, never use them: "chassis", "worth naming", "worth naming directly", "sanded off", "sands off", "high-ticket", "crucial", "pivotal", "showcase", "genuinely", "honestly", "vital", "landscape", "delve", "tapestry".
+- Do not use any distinctive word or phrase more than twice in the whole report. If you have used "reframe" twice, find another way to say it: recast, reread, turn it around, see it differently.
+- No em dashes anywhere in the report. Use commas, periods, or parentheses.
+- At most one "not X, it's Y" construction in the entire report. Antithesis is a strong spice, not a sentence pattern.
+- No rule-of-three lists for rhythm. If three examples appear, it is because exactly three are needed.
+- Never promise that a specific action count produces a specific outcome. Do not write "touch three earns the meeting" or any claim that step N wins result Y. Describe what an action makes MORE LIKELY, or what skipping it costs. Sales outcomes are probabilistic and this report never pretends otherwise.
+- Write like a senior coach talking to one person across a table. Plain, direct, specific. When in doubt, the shorter and plainer sentence wins.
+
 WRITING STANDARDS — NON-NEGOTIABLE:
 - Every claim must reference a specific dimension score. Never write "your curiosity is strong" — write "your Curiosity score of 4.7 means this is a move you reach for first..."
 - When referencing dimension scores in body copy, ALWAYS use the human-readable label (e.g. 'EQ / Trust', 'Active Listening', 'Self-Improvement') — NEVER the raw key (e.g. 'eq_trust', 'active_listening', 'learning_style'). The raw keys are for internal use only and must never appear in generated text.
@@ -247,6 +256,7 @@ export async function generateCodex(result: ScoringResult): Promise<string> {
   const stream = getClient().messages.stream({
     model: 'claude-sonnet-4-6',
     max_tokens: 12000,
+    temperature: 0.7,
     system: SYSTEM_PROMPT,
     messages: [{
       role: 'user',
