@@ -135,7 +135,7 @@ interface Props {
 }
 
 /**
- * Renders a "close with X, Y" suffix when an axis rank has close-tie neighbors.
+ * Deprecated: close-tie hedges now surface as a single page footnote. Returns '' (kept so callers don't break).
  * Spec Rule 8: within 0.1 of another axis, surface both rather than hide
  * the tie behind the alphabetical tiebreaker.
  */
@@ -143,9 +143,7 @@ function closeTieSuffix(
   ranked: RankedTrait | RankedStyle,
   lookup: Record<string, string>,
 ): string {
-  if (!ranked.closeRankTie || ranked.tiedWith.length === 0) return ''
-  const names = ranked.tiedWith.map((k) => lookup[k] ?? k).join(', ')
-  return ` · close with ${names}`
+  return ''
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -195,6 +193,8 @@ export default async function ResultsPage({ params, searchParams }: Props) {
   if (!result?.primary) notFound()
 
   const { primary, secondary, tertiary, traits, styles } = result
+
+  const hasCloseTie = [...traits, ...styles].some((r) => r.closeRankTie)
 
   const traitLabels: Record<string, string> = Object.fromEntries(traits.map((t) => [t.key, t.label]))
   const styleLabels: Record<string, string> = Object.fromEntries(styles.map((s) => [s.key, s.label]))
@@ -369,11 +369,6 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                   <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
                     <span className="text-[15px] font-medium text-tns-fg">
                       {trait.label}
-                      {trait.closeRankTie && (
-                        <span className="text-[12px] text-tns-muted font-normal ml-tns-sm">
-                          (near {trait.tiedWith.map((k) => traitLabels[k]).join(', ')})
-                        </span>
-                      )}
                     </span>
                     <span className="text-[13px] text-tns-muted shrink-0">
                       {trait.matchPercentage}%
@@ -404,11 +399,6 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                   <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
                     <span className="text-[15px] font-medium text-tns-fg">
                       {style.label}
-                      {style.closeRankTie && (
-                        <span className="text-[12px] text-tns-muted font-normal ml-tns-sm">
-                          (near {style.tiedWith.map((k) => styleLabels[k]).join(', ')})
-                        </span>
-                      )}
                     </span>
                     <span className="text-[13px] text-tns-muted shrink-0">
                       {style.matchPercentage}%
@@ -424,6 +414,12 @@ export default async function ResultsPage({ params, searchParams }: Props) {
               ))}
             </ul>
           </section>
+
+          {hasCloseTie && (
+            <p className="mt-tns-md text-xs text-tns-muted leading-relaxed">
+              Where two scores sit within 0.1 of each other, the one shown first led narrowly.
+            </p>
+          )}
 
           {/* ── 12 Dimension Scores ──────────────────────────────────── */}
           <section className="mb-tns-2xl">

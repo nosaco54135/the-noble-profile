@@ -83,6 +83,8 @@ export default function FallbackResultsPage({ id }: Props) {
   const { archetypeResult: result, dimensionScores: scores } = data
   const { primary, secondary, tertiary, traits, styles } = result
 
+  const hasCloseTie = [...traits, ...styles].some((r) => r.closeRankTie)
+
   const traitLabels: Record<string, string> = Object.fromEntries(traits.map((t) => [t.key, t.label]))
   const styleLabels: Record<string, string> = Object.fromEntries(styles.map((s) => [s.key, s.label]))
 
@@ -126,7 +128,6 @@ export default function FallbackResultsPage({ id }: Props) {
                 </p>
                 <p className="text-[12px] text-tns-bg/70 mt-tns-sm">
                   {primary.trait.score.toFixed(1)} / 5
-                  {primary.trait.closeRankTie && ` · close with ${primary.trait.tiedWith.map((k) => traitLabels[k]).join(', ')}`}
                 </p>
               </div>
               <div className="border-t border-tns-bg/20 pt-tns-md">
@@ -141,7 +142,6 @@ export default function FallbackResultsPage({ id }: Props) {
                 </p>
                 <p className="text-[12px] text-tns-bg/70 mt-tns-sm">
                   {primary.style.score.toFixed(1)} / 5
-                  {primary.style.closeRankTie && ` · close with ${primary.style.tiedWith.map((k) => styleLabels[k]).join(', ')}`}
                 </p>
               </div>
             </div>
@@ -255,11 +255,6 @@ export default function FallbackResultsPage({ id }: Props) {
                   <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
                     <span className="text-[15px] font-medium text-tns-fg">
                       {trait.label}
-                      {trait.closeRankTie && (
-                        <span className="text-[12px] text-tns-muted font-normal ml-tns-sm">
-                          (near {trait.tiedWith.map((k) => traitLabels[k]).join(', ')})
-                        </span>
-                      )}
                     </span>
                     <span className="text-[13px] text-tns-muted shrink-0">
                       {trait.matchPercentage}%
@@ -290,11 +285,6 @@ export default function FallbackResultsPage({ id }: Props) {
                   <div className="flex items-baseline justify-between gap-tns-md mb-tns-xs">
                     <span className="text-[15px] font-medium text-tns-fg">
                       {style.label}
-                      {style.closeRankTie && (
-                        <span className="text-[12px] text-tns-muted font-normal ml-tns-sm">
-                          (near {style.tiedWith.map((k) => styleLabels[k]).join(', ')})
-                        </span>
-                      )}
                     </span>
                     <span className="text-[13px] text-tns-muted shrink-0">
                       {style.matchPercentage}%
@@ -310,6 +300,12 @@ export default function FallbackResultsPage({ id }: Props) {
               ))}
             </ul>
           </section>
+
+          {hasCloseTie && (
+            <p className="mt-tns-md text-xs text-tns-muted leading-relaxed">
+              Where two scores sit within 0.1 of each other, the one shown first led narrowly.
+            </p>
+          )}
 
           {/* ── 12 Dimension Scores ──────────────────────────────────── */}
           <section className="mb-tns-2xl">
