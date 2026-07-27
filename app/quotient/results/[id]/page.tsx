@@ -371,7 +371,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                       {trait.label}
                     </span>
                     <span className="text-[13px] text-tns-muted shrink-0">
-                      {trait.matchPercentage}%
+                      {trait.matchPercentage}%{trait.closeRankTie ? '*' : ''}
                     </span>
                   </div>
                   <div className="h-1 bg-tns-border w-full">
@@ -386,7 +386,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
           </section>
 
           {/* ── Style Axis Rankings ──────────────────────────────────── */}
-          <section className="mb-tns-4xl">
+          <section className="mb-tns-md">
             <p className="text-sm font-semibold uppercase tracking-widest text-tns-fg mb-tns-sm">
               Style axis rankings
             </p>
@@ -401,7 +401,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                       {style.label}
                     </span>
                     <span className="text-[13px] text-tns-muted shrink-0">
-                      {style.matchPercentage}%
+                      {style.matchPercentage}%{style.closeRankTie ? '*' : ''}
                     </span>
                   </div>
                   <div className="h-1 bg-tns-border w-full">
@@ -416,8 +416,8 @@ export default async function ResultsPage({ params, searchParams }: Props) {
           </section>
 
           {hasCloseTie && (
-            <p className="mt-tns-md text-xs text-tns-muted leading-relaxed">
-              Where two scores sit within 0.1 of each other, the one shown first led narrowly.
+            <p className="mb-tns-4xl text-xs italic text-tns-muted leading-relaxed">
+              * Where two scores sit within 0.1 of each other, the one shown first led narrowly.
             </p>
           )}
 
