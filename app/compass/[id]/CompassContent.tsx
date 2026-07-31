@@ -56,7 +56,7 @@ function renderTextContent(text: string, withLinks: boolean) {
         rel="noopener noreferrer sponsored"
         className="text-[#722F37] underline underline-offset-2 decoration-[#722F37]/40 hover:decoration-[#722F37] transition-colors"
       >
-        {seg.displayName || seg.text}
+        {seg.text}
       </a>
     ) : (
       <span key={idx}>{seg.text}</span>

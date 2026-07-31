@@ -192,6 +192,7 @@ export function parseAffiliateSegments(
 ): { text: string; slug?: string; displayName?: string }[] {
   const segments: { text: string; slug?: string; displayName?: string }[] = []
   let remaining = text
+  const linkedSlugs = new Set<string>()
 
   while (remaining.length > 0) {
     let earliest: { index: number; entry: AffiliateEntry; matcher: string } | null = null
@@ -214,11 +215,17 @@ export function parseAffiliateSegments(
       segments.push({ text: remaining.slice(0, earliest.index) })
     }
 
-    segments.push({
-      text: remaining.slice(earliest.index, earliest.index + earliest.matcher.length),
-      slug: earliest.entry.slug,
-      displayName: earliest.entry.displayName,
-    })
+    const matchedText = remaining.slice(earliest.index, earliest.index + earliest.matcher.length)
+    if (linkedSlugs.has(earliest.entry.slug)) {
+      segments.push({ text: matchedText })
+    } else {
+      linkedSlugs.add(earliest.entry.slug)
+      segments.push({
+        text: matchedText,
+        slug: earliest.entry.slug,
+        displayName: earliest.entry.displayName,
+      })
+    }
 
     remaining = remaining.slice(earliest.index + earliest.matcher.length)
   }
