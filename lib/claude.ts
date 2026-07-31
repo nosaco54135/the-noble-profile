@@ -94,12 +94,6 @@ Recommend exactly 5 resources, chosen to fit this seller's actual dimension scor
 - Do NOT default to the most famous title in a pool. When two books fit, prefer the less-obvious one — variety across reports matters. Never recommend two books by the same author in one report.
 - You may substitute one book with a tool from the TOOL LIST when a tool more directly serves a target dimension (e.g. a call recorder for Active Listening or Self-Improvement, a sequencer for Prospecting Comfort).
 
-For each resource:
-- Name it
-- Explain in 2-3 sentences exactly why it fits this specific profile and these scores
-- Give one concrete action: how to use it this week, not someday
-- Flag whether it builds an under-reached move or reinforces a natural lean
-
 Never recommend the same resource twice in a single Compass.
 Never recommend enterprise-only tools that require team purchase: Gong, Chorus, Salesloft, Outreach, ZoomInfo, Seismic, Highspot. When a sequencing tool is needed, recommend Instantly.ai ($37/mo) or Lemlist ($59/mo) — never Outreach or Salesloft. When a call recording tool is needed, recommend Fathom (free) — never Gong or Chorus.
 
@@ -222,6 +216,20 @@ TOOL LIST (recommend individual-affordable tiers only; match to a target dimensi
 - Instantly.ai ($37/mo) — Prospecting Comfort, Process-Oriented: sequencing infrastructure
 - Loom (free tier) — EQ / Trust, Customer-Centric: personal connection in async follow-up
 - LinkedIn Sales Navigator ($99/mo individual) — Prospecting Comfort, Customer-Centric: scalable network system
+
+OUTPUT FORMAT FOR SECTION 5 — COPY THIS STRUCTURE EXACTLY FOR ALL FIVE RESOURCES:
+
+**1. The Lost Art of Closing by Anthony Iannarino (builds an under-reached move: Closing Confidence, 2.6)**
+
+Iannarino's argument is that closing is not one moment at the end of a deal, it is a series of commitments you earn along the way. For a seller who tends to delay the ask, that reframe is practically useful, and it gives you specific language for each stage. This week: read the first three chapters and write down the commitment you should have asked for in your last three deals.
+
+Rules for this format, no exceptions:
+- Every resource is a bold numbered header followed by exactly ONE prose paragraph.
+- Put the flag and the dimension and the score inside the header parentheses. Never put the flag on its own line.
+- Never write "Resource 1:" or use quotation marks around titles.
+- For tools, use the tool name and omit "by [Author]", e.g. **3. Fathom (builds an under-reached move: Active Listening, 3.0)**
+- The paragraph must contain one action beginning with "This week:".
+- No bullet points inside a resource. No extra headers or labels between resources.
 
 Section 6: My 30/60/90 Day Plan
 Structure as three distinct phases. Each phase must have:
