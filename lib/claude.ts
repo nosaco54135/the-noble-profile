@@ -86,75 +86,142 @@ Open with one line defining what a blind spot means in this report: a blind spot
 - Give one concrete fix that takes less than 10 minutes per day, framed as building a move they can reach for on purpose, not repairing a defect
 
 Section 5: Recommended Tools and Resources
-Recommend exactly 5 resources drawn primarily from the RESOURCE POOL matching the seller's primary trait (listed below). You may draw 1 resource from outside the pool if it directly addresses the seller's single lowest scoring dimension and is not already covered by the pool.
+Recommend exactly 5 resources, chosen to fit this seller's actual dimension scores — not their archetype label. Selection logic:
+
+- Choose 3 resources that help the seller build the moves they reach for LEAST (their bottom 3 dimensions). Frame these as building an under-reached move, never as fixing a weakness or a deficiency.
+- Choose 2 resources that reinforce the moves they reach for FIRST (their top 2 dimensions).
+- Draw from the RESOURCE POOL BY DIMENSION below, matching each pick to the dimension it serves.
+- Do NOT default to the most famous title in a pool. When two books fit, prefer the less-obvious one — variety across reports matters. Never recommend two books by the same author in one report.
+- You may substitute one book with a tool from the TOOL LIST when a tool more directly serves a target dimension (e.g. a call recorder for Active Listening or Self-Improvement, a sequencer for Prospecting Comfort).
 
 For each resource:
 - Name it
-- Explain in 2-3 sentences exactly why it fits this specific profile and scores
+- Explain in 2-3 sentences exactly why it fits this specific profile and these scores
 - Give one concrete action: how to use it this week, not someday
 - Flag whether it builds an under-reached move or reinforces a natural lean
 
-Never recommend a resource that does not appear in the pool for this trait type unless it addresses the single lowest scoring dimension and adds something the pool does not cover.
-Never recommend enterprise-only tools that require team purchase: Gong, Chorus, Salesloft, Outreach, ZoomInfo, Seismic, Highspot. When a sequencing tool is needed, recommend Instantly.ai ($37/mo) or Lemlist ($59/mo) — never Outreach or Salesloft. When a call recording tool is needed, recommend Fathom (free) — never Gong or Chorus.
 Never recommend the same resource twice in a single Compass.
+Never recommend enterprise-only tools that require team purchase: Gong, Chorus, Salesloft, Outreach, ZoomInfo, Seismic, Highspot. When a sequencing tool is needed, recommend Instantly.ai ($37/mo) or Lemlist ($59/mo) — never Outreach or Salesloft. When a call recording tool is needed, recommend Fathom (free) — never Gong or Chorus.
 
-RESOURCE POOLS BY PRIMARY TRAIT:
+RESOURCE POOL BY DIMENSION:
 
-Curious trait:
-- SPIN Selling by Neil Rackham (structures natural question instinct — strength amplifier)
-- The Challenger Sale by Dixon and Adamson (channels insight into commercial reframes — strength amplifier)
-- Fathom (free AI call recorder — turns curiosity into self-correction data, zero friction — gap: process)
-- Predictable Revenue by Ross and Tyler (adds systematic outreach to insight-led wiring — gap: prospecting)
-- Clay (research automation at $149/mo, flag as growth-stage investment — strength amplifier)
+EQ / Trust:
+- Emotional Intelligence by Daniel Goleman (names and trains the read-the-room skill)
+- Emotional Intelligence 2.0 by Bradberry and Greaves (exercise-driven, step-by-step EQ practice)
+- The Trusted Advisor by Maister, Green and Galford (trust as behavior, not charm)
+- Influence by Robert Cialdini (the six levers of persuasion and why they work)
+- What Every BODY Is Saying by Joe Navarro (ex-FBI on reading nonverbal signals live)
+- The Like Switch by Jack Schafer (FBI behavioral rapport-building, fast to apply)
+- Talking to Strangers by Malcolm Gladwell (why we misread people we don't know yet)
+- Nonviolent Communication by Marshall Rosenberg (hearing the need under the objection)
 
-Empathic trait:
-- Never Split the Difference by Chris Voss (gives tactical moves to an emotionally fluent seller — gap: closing)
-- The Trusted Advisor by Maister and Green (codifies the relationship-to-revenue path — strength amplifier)
-- Loom (free tier — amplifies personal connection in async follow-up — strength amplifier)
-- Fanatical Prospecting by Jeb Blount (volume discipline counterweight for a relationship-first seller — gap: prospecting)
-- LinkedIn Sales Navigator at $99/mo individual (turns relationship instinct into a scalable network system — strength amplifier)
+Active Listening:
+- Never Split the Difference by Chris Voss (mirroring, labeling, calibrated questions)
+- You're Not Listening by Kate Murphy (why attention fails and how to rebuild it)
+- Just Listen by Mark Goulston (getting through when someone is closed off)
+- Humble Inquiry by Edgar Schein (the discipline of asking over telling)
+- The Lost Art of Listening by Michael Nichols (recall as a signal of care)
 
-Authentic trait:
-- To Sell Is Human by Daniel Pink (validates and sharpens consultative instinct — strength amplifier)
-- The Sales Development Playbook by Trish Bertuzzi (builds structure without compromising voice — gap: process)
-- Lavender at $29/mo (keeps outreach authentic while improving response rates — gap: prospecting)
-- Extreme Ownership by Willink and Babin (accountability framework for sellers who over-serve at expense of pipeline — gap: mindset)
-- HubSpot Sales Hub (free CRM tier available — supports relationship tracking without feeling like a spreadsheet — gap: process)
+Curiosity:
+- SPIN Selling by Neil Rackham (the research-backed question sequence)
+- The Coaching Habit by Michael Bungay Stanier (staying curious one question longer)
+- A More Beautiful Question by Warren Berger (engineering better questions)
+- Questions Are the Answer by Hal Gregersen (question-storming to break stuck thinking)
+- Curious by Ian Leslie (the psychology of curiosity and why it fades)
+- Motivational Interviewing by Miller and Rollnick (clinical method for evoking change through questions)
+- A Curious Mind by Brian Grazer (curiosity conversations as a discipline)
+- Wait, What? by James Ryan (the essential questions worth asking)
 
-Strategic trait:
-- The Challenger Sale by Dixon and Adamson (field manual for analytical insight-led selling — strength amplifier)
-- Thinking Fast and Slow by Daniel Kahneman (sharpens analytical edge and adds behavioral read of buyers — strength amplifier)
-- Apollo.io (free tier plus $49/mo individual — data-driven prospecting infrastructure — gap: prospecting)
-- Fathom (free call recorder — quantifies what is working — strength amplifier)
-- Meddicc by Andy Walker (deal qualification framework that matches analytical wiring — gap: process)
+Mindset / Resilience:
+- Grit by Angela Duckworth (perseverance as the real predictor)
+- Mindset by Carol Dweck (growth vs fixed mindset)
+- Man's Search for Meaning by Viktor Frankl (resilience at its philosophical root)
+- The Obstacle Is the Way by Ryan Holiday (Stoicism applied to setbacks)
+- Rejection Proof by Jia Jiang (100 days of deliberate rejection; desensitizes the no)
+- Option B by Sandberg and Grant (recovering after a hard hit)
+- Antifragile by Nassim Taleb (getting stronger because of stress, not despite it)
+- Meditations by Marcus Aurelius (the original resilience text)
+- The Confident Mind by Nate Zinsser (West Point sport psychologist on confidence under pressure)
+- The Alter Ego Effect by Todd Herman (a performance persona to show up differently under pressure)
+- Extreme Ownership by Willink and Babin (accountability as the resilience engine)
+- The Inner Game of Tennis by Timothy Gallwey (quieting the self-talk that chokes performance)
 
-Mindful trait:
-- The Inner Game of Tennis by Timothy Gallwey (mental performance under pressure — strength amplifier)
-- Extreme Ownership by Willink and Babin (converts resilience into accountability — strength amplifier)
-- Atomic Habits by James Clear (behavior-change framework for building new disciplines — gap: process)
-- Lemlist at $59/mo (converts learning style into measurable outreach experiments — gap: prospecting)
-- The Sales Development Playbook by Trish Bertuzzi (systematic approach matching disciplined mindset — gap: process)
+Closing Confidence:
+- To Sell Is Human by Daniel Pink (reframes the ask on research, not hustle)
+- Pitch Anything by Oren Klaff (frame control at the moment of the ask)
+- The Lost Art of Closing by Anthony Iannarino (closing as staged commitments, not one big ask)
+- Pre-Suasion by Robert Cialdini (setting up the yes before you ask)
+- The Paradox of Choice by Barry Schwartz (why buyers freeze, and how to unfreeze them)
+- The Charisma Myth by Olivia Fox Cabane (presence and confidence as trainable)
+- The Psychology of Selling by Brian Tracy (the confidence mechanics of the ask)
+- Secrets of Closing the Sale by Zig Ziglar (the classic close, still cited)
 
-Challenger trait:
-- The Challenger Sale by Dixon and Adamson (primary text for this exact profile — strength amplifier)
-- Gap Selling by Keenan (commercial tension framework matching direct closing style — strength amplifier)
-- Meddicc by Andy Walker (deal qualification for sellers who close hard but need to qualify harder — gap: process)
-- Fathom (free call recorder — validates whether the challenge is landing or alienating — gap: EQ)
-- Never Split the Difference by Chris Voss (adds negotiation nuance to a pressure-forward closer — gap: EQ)
+Prospecting Comfort:
+- Fanatical Prospecting by Jeb Blount (the modern prospecting standard)
+- New Sales. Simplified. by Mike Weinberg (a clean framework for the cold start)
+- Smart Calling by Art Sobczak (reducing rejection on the actual call)
+- The Sales Development Playbook by Trish Bertuzzi (SDR-specific cadence architecture)
+- Feel the Fear and Do It Anyway by Susan Jeffers (the psychology of call reluctance)
+- The Confidence Gap by Russ Harris (acting through anxiety, ACT-based)
+- Exactly What to Say by Phil M. Jones (the words for the cold open)
+- Predictable Revenue by Aaron Ross (the outbound model that shaped SaaS)
 
-Process trait:
-- Predictable Revenue by Aaron Ross and Marylou Tyler (foundational text for systematic pipeline building — strength amplifier)
-- HubSpot Sales Hub (free CRM designed for process-oriented sellers — strength amplifier)
-- The Sales Development Playbook by Trish Bertuzzi (cadence architecture for structured sellers — strength amplifier)
-- Atomic Habits by James Clear (habit reinforcement for building new behaviors — strength amplifier)
-- Instantly.ai at $37/mo (sequence infrastructure matching process wiring — strength amplifier)
+Data-Driven:
+- The Challenger Sale by Dixon and Adamson (commercial insight, teaching the buyer)
+- Gap Selling by Keenan (problem-and-impact selling)
+- Thinking in Bets by Annie Duke (decisions under uncertainty, from poker)
+- How to Measure Anything by Douglas Hubbard (quantifying the supposedly unmeasurable)
+- Superforecasting by Tetlock and Gardner (the science of good prediction)
+- Predictably Irrational by Dan Ariely (why buyers don't act rationally)
+- The Signal and the Noise by Nate Silver (separating real signal from noise)
+- MEDDICC by Andy Walker (rigorous deal qualification)
 
-Prospector trait:
-- Fanatical Prospecting by Jeb Blount (core text — validates and extends natural outreach instinct — strength amplifier)
-- Gap Selling by Keenan (adds commercial framing to high-volume outreach — strength amplifier)
-- Apollo.io (free tier plus $49/mo — scales what the Prospector already does well — strength amplifier)
-- LinkedIn Sales Navigator at $99/mo individual (expands top of funnel systematically — strength amplifier)
-- The Psychology of Selling by Brian Tracy (mindset reinforcement for high-activity sellers — strength amplifier)
+Authenticity:
+- The Speed of Trust by Stephen M.R. Covey (trust as an economic force)
+- Daring Greatly by Brené Brown (vulnerability as strength)
+- Let's Get Real or Let's Not Play by Mahan Khalsa (radically honest selling)
+- Integrity by Henry Cloud (character as the driver of results)
+- Radical Candor by Kim Scott (caring directly, the hard truth delivered well)
+
+Process-Oriented:
+- Atomic Habits by James Clear (the habit-systems standard)
+- The Checklist Manifesto by Atul Gawande (systems over memory)
+- The Sales Acceleration Formula by Mark Roberge (process and data applied to a sales org)
+- Deep Work by Cal Newport (focus as a discipline)
+- Getting Things Done by David Allen (the personal-systems method)
+- The Effective Executive by Peter Drucker (managing your own time and priorities)
+
+Problem Solving:
+- Thinking, Fast and Slow by Daniel Kahneman (the cognition and bias foundation)
+- Range by David Epstein (why generalists solve better)
+- Upstream by Dan Heath (solving problems before they happen)
+- Decisive by Chip and Dan Heath (a process for better decisions under pressure)
+- The Art of Thinking Clearly by Rolf Dobelli (a field guide to reasoning errors)
+
+Customer-Centric:
+- Getting to Yes by Fisher and Ury (mutual-gain negotiation)
+- Insight Selling by Schultz and Doerr (connecting insight to the buyer's world)
+- The Effortless Experience by Dixon, Toman and DeLisi (reducing buyer effort)
+- Start With Why by Simon Sinek (orienting to purpose over pitch)
+- Give and Take by Adam Grant (givers win long-term)
+
+Self-Improvement:
+- Peak by Anders Ericsson and Robert Pool (the real deliberate-practice source)
+- Think Again by Adam Grant (the skill of rethinking and unlearning)
+- Ultralearning by Scott Young (aggressive self-directed skill acquisition)
+- Black Box Thinking by Matthew Syed (learning from failure)
+- Make It Stick by Brown, Roediger and McDaniel (the science of how learning sticks)
+
+TOOL LIST (recommend individual-affordable tiers only; match to a target dimension):
+- Fathom (free AI call recorder) — Active Listening, EQ / Trust, Self-Improvement: turns calls into review data
+- Apollo.io (free tier plus $49/mo) — Prospecting Comfort, Data-Driven: prospecting data infrastructure
+- Clay ($149/mo, flag as growth-stage) — Curiosity, Data-Driven, Prospecting: research automation
+- HubSpot Sales Hub (free CRM tier) — Process-Oriented: relationship tracking without a spreadsheet
+- Lavender ($29/mo) — Prospecting Comfort, Authenticity: keeps outreach authentic, improves response
+- Lemlist ($59/mo) — Prospecting Comfort: sequencing
+- Instantly.ai ($37/mo) — Prospecting Comfort, Process-Oriented: sequencing infrastructure
+- Loom (free tier) — EQ / Trust, Customer-Centric: personal connection in async follow-up
+- LinkedIn Sales Navigator ($99/mo individual) — Prospecting Comfort, Customer-Centric: scalable network system
 
 Section 6: My 30/60/90 Day Plan
 Structure as three distinct phases. Each phase must have:
