@@ -74,7 +74,7 @@ export const AFFILIATE_CONFIG: AffiliateEntry[] = [
   {
     slug: 'meddicc',
     displayName: 'Meddicc',
-    matcher: ['meddicc', 'meddic'],
+    matcher: ['meddicc'],
     affiliateUrl: 'https://www.amazon.com/dp/1838281118?tag=thenobleselle-20',
     fallbackUrl: 'https://www.amazon.com/dp/1838281118',
   },
@@ -109,14 +109,14 @@ export const AFFILIATE_CONFIG: AffiliateEntry[] = [
   {
     slug: 'trusted-advisor',
     displayName: 'The Trusted Advisor',
-    matcher: ['the trusted advisor', 'trusted advisor'],
+    matcher: ['the trusted advisor'],
     affiliateUrl: 'https://www.amazon.com/dp/0743212347?tag=thenobleselle-20',
     fallbackUrl: 'https://www.amazon.com/dp/0743212347',
   },
   {
     slug: 'emotional-intelligence',
     displayName: 'Emotional Intelligence',
-    matcher: ['emotional intelligence', 'daniel goleman'],
+    matcher: ['daniel goleman'],
     affiliateUrl: 'https://www.amazon.com/s?k=Emotional+Intelligence+Daniel+Goleman&tag=thenobleselle-20',
     fallbackUrl: 'https://www.amazon.com/s?k=Emotional+Intelligence+Daniel+Goleman',
   },
@@ -621,7 +621,7 @@ export const AFFILIATE_CONFIG: AffiliateEntry[] = [
   {
     slug: 'instantly',
     displayName: 'Instantly.ai',
-    matcher: ['instantly.ai', 'instantly'],
+    matcher: ['instantly.ai'],
     affiliateUrl: null,
     fallbackUrl: 'https://instantly.ai',
   },
@@ -635,14 +635,14 @@ export const AFFILIATE_CONFIG: AffiliateEntry[] = [
   {
     slug: 'fathom',
     displayName: 'Fathom',
-    matcher: ['fathom'],
+    matcher: [],
     affiliateUrl: null,
     fallbackUrl: 'https://fathom.video',
   },
   {
     slug: 'loom',
     displayName: 'Loom',
-    matcher: ['loom'],
+    matcher: [],
     affiliateUrl: null,
     fallbackUrl: 'https://www.loom.com',
   },
