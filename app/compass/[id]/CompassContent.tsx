@@ -99,7 +99,7 @@ function renderLine(line: string, key: number, withLinks: boolean) {
         {parts.map((part, k) =>
           part.startsWith('**') && part.endsWith('**') ? (
             <strong key={k} className="text-[#0F0F0F] font-semibold">
-              {part.slice(2, -2)}
+              {renderTextContent(part.slice(2, -2), withLinks)}
             </strong>
           ) : (
             <span key={k}>{renderTextContent(part, withLinks)}</span>
