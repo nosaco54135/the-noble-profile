@@ -168,7 +168,7 @@ Data-Driven:
 - Superforecasting by Tetlock and Gardner (the science of good prediction)
 - Predictably Irrational by Dan Ariely (why buyers don't act rationally)
 - The Signal and the Noise by Nate Silver (separating real signal from noise)
-- MEDDICC by Andy Walker (rigorous deal qualification)
+- MEDDICC by Andy Whyte (rigorous deal qualification)
 
 Authenticity:
 - The Speed of Trust by Stephen M.R. Covey (trust as an economic force)
