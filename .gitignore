@@ -8,3 +8,4 @@ tsconfig.tsbuildinfo
 tsconfig.tsbuildinfo
 .env.local.save
 tsconfig.tsbuildinfo
+nq-scoring-audit*.txt
