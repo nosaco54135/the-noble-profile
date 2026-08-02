@@ -635,14 +635,14 @@ export const AFFILIATE_CONFIG: AffiliateEntry[] = [
   {
     slug: 'fathom',
     displayName: 'Fathom',
-    matcher: [],
+    matcher: ['fathom'],
     affiliateUrl: null,
     fallbackUrl: 'https://fathom.video',
   },
   {
     slug: 'loom',
     displayName: 'Loom',
-    matcher: [],
+    matcher: ['loom'],
     affiliateUrl: null,
     fallbackUrl: 'https://www.loom.com',
   },
