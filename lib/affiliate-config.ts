@@ -675,9 +675,13 @@ export function parseAffiliateSegments(
 
     for (const entry of AFFILIATE_CONFIG) {
       for (const matcher of entry.matcher) {
-        const idx = remaining.toLowerCase().indexOf(matcher)
-        if (idx !== -1 && (!earliest || idx < earliest.index)) {
-          earliest = { index: idx, entry, matcher }
+        if (!matcher) continue
+        const escaped = matcher.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+        const leadingBoundary = /\w/.test(matcher[0]) ? '\\b' : ''
+        const trailingBoundary = /\w/.test(matcher[matcher.length - 1]) ? '\\b' : ''
+        const match = new RegExp(`${leadingBoundary}${escaped}${trailingBoundary}`, 'i').exec(remaining)
+        if (match && (!earliest || match.index < earliest.index)) {
+          earliest = { index: match.index, entry, matcher: match[0] }
         }
       }
     }
