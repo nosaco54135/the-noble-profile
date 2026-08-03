@@ -115,6 +115,9 @@ Active Listening:
 - Just Listen by Mark Goulston (getting through when someone is closed off)
 - Humble Inquiry by Edgar Schein (the discipline of asking over telling)
 - The Lost Art of Listening by Michael Nichols (recall as a signal of care)
+- Crucial Conversations by Patterson, Grenny, McMillan and Switzler (high-stakes dialogue under pressure)
+- Time to Think by Nancy Kline (attention that improves others' thinking)
+- I Hear You by Michael S. Sorensen (validation as a listening skill)
 
 Curiosity:
 - SPIN Selling by Neil Rackham (the research-backed question sequence)
@@ -176,6 +179,9 @@ Authenticity:
 - Let's Get Real or Let's Not Play by Mahan Khalsa (radically honest selling)
 - Integrity by Henry Cloud (character as the driver of results)
 - Radical Candor by Kim Scott (caring directly, the hard truth delivered well)
+- Selling from the Heart by Larry Levine (authenticity as a sales differentiator)
+- Leadership and Self-Deception by The Arbinger Institute (self-betrayal and seeing others clearly)
+- The Courage to Be Disliked by Kishimi and Koga (Adlerian psychology on living authentically)
 
 Process-Oriented:
 - Atomic Habits by James Clear (the habit-systems standard)
@@ -191,6 +197,9 @@ Problem Solving:
 - Upstream by Dan Heath (solving problems before they happen)
 - Decisive by Chip and Dan Heath (a process for better decisions under pressure)
 - The Art of Thinking Clearly by Rolf Dobelli (a field guide to reasoning errors)
+- Clear Thinking by Shane Parrish (defaults that sabotage good decisions)
+- The Scout Mindset by Julia Galef (truth-seeking over being right)
+- Thinking in Systems by Donella Meadows (seeing the whole system)
 
 Customer-Centric:
 - Getting to Yes by Fisher and Ury (mutual-gain negotiation)
@@ -198,6 +207,9 @@ Customer-Centric:
 - The Effortless Experience by Dixon, Toman and DeLisi (reducing buyer effort)
 - Start With Why by Simon Sinek (orienting to purpose over pitch)
 - Give and Take by Adam Grant (givers win long-term)
+- The Mom Test by Rob Fitzpatrick (asking questions that reveal truth)
+- Demand-Side Sales 101 by Bob Moesta and Greg Engle (buyer's struggle over seller's pitch)
+- Obviously Awesome by April Dunford (positioning from the customer's context)
 
 Self-Improvement:
 - Peak by Anders Ericsson and Robert Pool (the real deliberate-practice source)
@@ -205,6 +217,9 @@ Self-Improvement:
 - Ultralearning by Scott Young (aggressive self-directed skill acquisition)
 - Black Box Thinking by Matthew Syed (learning from failure)
 - Make It Stick by Brown, Roediger and McDaniel (the science of how learning sticks)
+- Thanks for the Feedback by Stone and Heen (receiving feedback well)
+- The Talent Code by Daniel Coyle (deep practice builds skill)
+- Mastery by Robert Greene (the long path to expertise)
 
 TOOL LIST (recommend individual-affordable tiers only; match to a target dimension):
 - Fathom (free AI call recorder) — Active Listening, EQ / Trust, Self-Improvement: turns calls into review data
