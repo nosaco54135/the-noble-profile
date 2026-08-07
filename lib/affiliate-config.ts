@@ -75,8 +75,8 @@ export const AFFILIATE_CONFIG: AffiliateEntry[] = [
     slug: 'meddicc',
     displayName: 'Meddicc',
     matcher: ['meddicc'],
-    affiliateUrl: 'https://www.amazon.com/dp/1838281118?tag=thenobleselle-20',
-    fallbackUrl: 'https://www.amazon.com/dp/1838281118',
+    affiliateUrl: 'https://www.amazon.com/dp/1838239707?tag=thenobleselle-20',
+    fallbackUrl: 'https://www.amazon.com/dp/1838239707',
   },
   {
     slug: 'atomic-habits',
