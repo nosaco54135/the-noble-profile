@@ -5,9 +5,23 @@ export interface Guide {
   intro: string[]
   downloadUrl?: string
   downloadLabel?: string
-  sections: { heading: string; paragraphs: string[]; bullets?: string[] }[]
+  sections: {
+    heading: string
+    paragraphs?: string[]
+    bullets?: string[]
+    subsections?: {
+      heading: string
+      blocks: {
+        label?: string
+        paragraphs?: string[]
+        bullets?: string[]
+        quote?: string
+      }[]
+    }[]
+  }[]
   bridgeHeading: string
   bridgeParagraphs: string[]
+  bridgeCta?: { label: string; href: string }
   relatedArchetypeSlug: string
   relatedArchetypeName: string
   relatedGuides?: { slug: string; name: string }[]
@@ -15,6 +29,7 @@ export interface Guide {
   ctaBody: string
   ctaButton: string
   ctaHref?: string
+  showToc?: boolean
 }
 
 export const guides: Guide[] = [
