@@ -74,6 +74,17 @@ export default async function GuidePage({
         </Container>
       </Section>
 
+      {/* Download */}
+      {guide.downloadUrl && (
+        <Section size="md">
+          <Container maxWidth="prose">
+            <LinkButton href={guide.downloadUrl} variant="primary">
+              {guide.downloadLabel || 'Download the PDF'}
+            </LinkButton>
+          </Container>
+        </Section>
+      )}
+
       {/* Sections */}
       {guide.sections.map((section, i) => (
         <div key={i}>
@@ -90,6 +101,15 @@ export default async function GuidePage({
                   </p>
                 ))}
               </div>
+              {section.bullets && section.bullets.length > 0 && (
+                <ul className="mt-5 space-y-2 list-disc pl-5">
+                  {section.bullets.map((bullet, j) => (
+                    <li key={j} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </Container>
           </Section>
         </div>
@@ -161,7 +181,7 @@ export default async function GuidePage({
             <p className="font-sans text-base text-[#6B6B6B] leading-relaxed mb-6">
               {guide.ctaBody}
             </p>
-            <LinkButton href="/quotient" variant="primary">
+            <LinkButton href={guide.ctaHref || '/quotient'} variant="primary">
               {guide.ctaButton} →
             </LinkButton>
           </div>

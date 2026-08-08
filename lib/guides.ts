@@ -3,7 +3,9 @@ export interface Guide {
   title: string
   metaDescription: string
   intro: string[]
-  sections: { heading: string; paragraphs: string[] }[]
+  downloadUrl?: string
+  downloadLabel?: string
+  sections: { heading: string; paragraphs: string[]; bullets?: string[] }[]
   bridgeHeading: string
   bridgeParagraphs: string[]
   relatedArchetypeSlug: string
@@ -12,6 +14,7 @@ export interface Guide {
   ctaHeadline: string
   ctaBody: string
   ctaButton: string
+  ctaHref?: string
 }
 
 export const guides: Guide[] = [
