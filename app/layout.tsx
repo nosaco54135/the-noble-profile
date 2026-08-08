@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="max-w-[1080px] mx-auto px-8 md:px-10 py-12">
 
             {/* Top row — three columns */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
               {/* Column 1 — Brand */}
               <div>
@@ -77,6 +77,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 >
                   Subscribe →
                 </a>
+              </div>
+
+              {/* Column 4 — Resources */}
+              <div>
+                <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-4">Resources</p>
+                <div className="space-y-3">
+                  <a href="/archetypes" className="block font-sans text-sm text-[#0F0F0F] hover:text-[#722F37] transition-colors">Sales Archetypes</a>
+                  <a href="/guides" className="block font-sans text-sm text-[#0F0F0F] hover:text-[#722F37] transition-colors">Guides</a>
+                  <a href="/downloads/sales-interview-guide.pdf" className="block font-sans text-sm text-[#0F0F0F] hover:text-[#722F37] transition-colors">Sales Interview Guide (PDF)</a>
+                </div>
               </div>
 
             </div>
