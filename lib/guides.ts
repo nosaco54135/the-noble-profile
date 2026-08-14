@@ -22,8 +22,8 @@ export interface Guide {
   bridgeHeading: string
   bridgeParagraphs: string[]
   bridgeCta?: { label: string; href: string }
-  relatedArchetypeSlug: string
-  relatedArchetypeName: string
+  relatedArchetypeSlug?: string
+  relatedArchetypeName?: string
   relatedGuides?: { slug: string; name: string }[]
   ctaHeadline: string
   ctaBody: string

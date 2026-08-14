@@ -85,9 +85,14 @@ export default async function GuidePage({
       {guide.downloadUrl && (
         <Section size="md">
           <Container maxWidth="prose">
-            <LinkButton href={guide.downloadUrl} variant="primary">
+            <a
+              href={guide.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center font-medium transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-tns-accent focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-tns-accent text-tns-bg px-6 py-3 rounded-lg hover:bg-tns-accentDark"
+            >
               {guide.downloadLabel || 'Download the PDF'}
-            </LinkButton>
+            </a>
           </Container>
         </Section>
       )}
@@ -216,15 +221,17 @@ export default async function GuidePage({
             </div>
           )}
           <div className="space-y-3">
-            <p className="font-sans text-sm text-[#6B6B6B]">
-              Related archetype:{' '}
-              <Link
-                href={`/archetypes/${guide.relatedArchetypeSlug}`}
-                className="text-[#722F37] underline underline-offset-4 decoration-[#722F37]/40 hover:decoration-[#722F37] transition-colors"
-              >
-                {guide.relatedArchetypeName} →
-              </Link>
-            </p>
+            {guide.relatedArchetypeSlug && guide.relatedArchetypeName && (
+              <p className="font-sans text-sm text-[#6B6B6B]">
+                Related archetype:{' '}
+                <Link
+                  href={`/archetypes/${guide.relatedArchetypeSlug}`}
+                  className="text-[#722F37] underline underline-offset-4 decoration-[#722F37]/40 hover:decoration-[#722F37] transition-colors"
+                >
+                  {guide.relatedArchetypeName} →
+                </Link>
+              </p>
+            )}
               {guide.relatedGuides && guide.relatedGuides.length > 0 && (
                 <p className="font-sans text-sm text-[#6B6B6B]">
                   Related guide:{' '}
