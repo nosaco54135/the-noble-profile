@@ -78,8 +78,49 @@ export default async function GuidePage({
               </p>
             ))}
           </div>
+          {guide.introBullets && guide.introBullets.length > 0 && (
+            <ul className="mt-5 space-y-2 list-disc pl-5">
+              {guide.introBullets.map((bullet, i) => (
+                <li key={i} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          )}
+          {guide.introOutro && guide.introOutro.length > 0 && (
+            <div className="space-y-5 mt-5">
+              {guide.introOutro.map((paragraph, i) => (
+                <p key={i} className="font-sans text-base md:text-lg text-[#0F0F0F] leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          )}
         </Container>
       </Section>
+
+      {/* Table of contents */}
+      {guide.showToc && (
+        <Section size="md">
+          <Container maxWidth="prose">
+            <div className="my-8">
+              <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-4">In this guide</p>
+              <ul className="space-y-2">
+                {guide.sections.map((section, i) => (
+                  <li key={i}>
+                    <a
+                      href={`#${slugify(section.heading)}`}
+                      className="font-sans text-sm text-[#722F37] hover:underline underline-offset-4 decoration-[#722F37]/40 transition-colors"
+                    >
+                      {section.heading}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Container>
+        </Section>
+      )}
 
       {/* Download */}
       {guide.downloadUrl && (
@@ -93,27 +134,6 @@ export default async function GuidePage({
             >
               {guide.downloadLabel || 'Download the PDF'}
             </a>
-          </Container>
-        </Section>
-      )}
-
-      {/* Table of contents */}
-      {guide.showToc && (
-        <Section size="md">
-          <Container maxWidth="prose">
-            <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-4">In this guide</p>
-            <ul className="space-y-2">
-              {guide.sections.map((section, i) => (
-                <li key={i}>
-                  <a
-                    href={`#${slugify(section.heading)}`}
-                    className="font-sans text-sm text-[#722F37] underline underline-offset-4 decoration-[#722F37]/40 hover:decoration-[#722F37] transition-colors"
-                  >
-                    {section.heading}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </Container>
         </Section>
       )}
@@ -159,11 +179,11 @@ export default async function GuidePage({
                         {subsection.blocks.map((block, bi) => (
                           <div key={bi}>
                             {block.label && (
-                              <h4 className="font-display font-semibold text-base md:text-lg text-[#0F0F0F] tracking-tight mb-2">
+                              <h4 className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-2">
                                 {block.label}
                               </h4>
                             )}
-                            {block.paragraphs && block.paragraphs.length > 0 && (
+                            {block.paragraphs && block.paragraphs.length > 0 && !block.cta && (
                               <div className="space-y-5">
                                 {block.paragraphs.map((paragraph, pi) => (
                                   <p key={pi} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
@@ -185,6 +205,22 @@ export default async function GuidePage({
                               <blockquote className="mt-5 pl-5 border-l-2 border-[#722F37]/30 font-sans text-base text-[#0F0F0F] leading-relaxed">
                                 {block.quote}
                               </blockquote>
+                            )}
+                            {block.cta && (
+                              <div className="my-10 rounded-lg bg-tns-bgAlt p-7">
+                                {block.paragraphs && block.paragraphs.length > 0 && (
+                                  <div className="space-y-5 mb-5">
+                                    {block.paragraphs.map((paragraph, pi) => (
+                                      <p key={pi} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
+                                        {paragraph}
+                                      </p>
+                                    ))}
+                                  </div>
+                                )}
+                                <LinkButton href={block.cta.href} variant="primary">
+                                  {block.cta.label}
+                                </LinkButton>
+                              </div>
                             )}
                           </div>
                         ))}

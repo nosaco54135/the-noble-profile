@@ -3,6 +3,8 @@ export interface Guide {
   title: string
   metaDescription: string
   intro: string[]
+  introBullets?: string[]
+  introOutro?: string[]
   downloadUrl?: string
   downloadLabel?: string
   sections: {
@@ -16,6 +18,7 @@ export interface Guide {
         paragraphs?: string[]
         bullets?: string[]
         quote?: string
+        cta?: { label: string; href: string }
       }[]
     }[]
   }[]
@@ -229,6 +232,616 @@ export const guides: Guide[] = [
     ctaHeadline: 'Find out what you are first',
     ctaBody: 'Thirty questions. Twelve behavioral dimensions. Your raw material.',
     ctaButton: 'Take the free assessment',
+  },
+  {
+    slug: 'sales-interview-questions',
+    title: "Sales interview questions: what they're really asking",
+    metaDescription:
+      "The sales interview questions that decide hiring, what managers are evaluating when they ask, and how strong candidates answer at every level.",
+    intro: [
+      'Most interview guides are organized around questions.',
+      "That's useful until you're sitting in the interview and somebody asks a version you haven't prepared for.",
+      'Good interviewers are usually trying to figure out four things.',
+    ],
+    introBullets: [
+      'Can you back up your claims?',
+      'Do you understand your own results?',
+      'Can you take ownership when something goes wrong?',
+      'Will you still want this job once the novelty wears off?',
+    ],
+    introOutro: [
+      "The wording changes. The evaluation usually doesn't.",
+      'Once you understand what interviewers are trying to learn, most interview questions start to sound the same.',
+      'The rest of this guide breaks down the questions that come up at each level, what interviewers are listening for, and how strong candidates answer them.',
+    ],
+    downloadUrl: '/downloads/sales-interview-guide.pdf',
+    downloadLabel: 'Download the full field guide (PDF)',
+    showToc: true,
+    sections: [
+      {
+        heading: 'The rule underneath every answer',
+        paragraphs: [
+          "Interviewers hear the same claims all day.",
+          "Hard worker. Coachable. Strong closer. Team player.",
+          "Most of those words barely register because everyone uses them.",
+          "What stands out is proof.",
+          "Adopt one rule for every interview: never make a claim you can't immediately support with a specific example, a specific number, or a specific person.",
+          "\"I'm resilient\" is a claim.",
+          "\"In March I went nineteen conversations without booking a meeting, changed my opener twice, and finished the month at 110% of quota\" is evidence.",
+          "The second answer survives the hiring debrief because another person can repeat it when you're not in the room.",
+          "Every framework below exists for one reason: turning what you know about yourself into evidence someone else can believe.",
+        ],
+      },
+      {
+        heading: 'Build six stories before you need them',
+        paragraphs: [
+          "Most candidates know the STAR framework.",
+          "Most candidates spend too much time on the setup and not enough time on the part that matters.",
+          "A better structure looks like this.",
+        ],
+        subsections: [
+          {
+            heading: 'Step 1: Start with context',
+            blocks: [
+              {
+                paragraphs: [
+                  "One line is enough.",
+                  "\"Q4. New territory. Quota up 30% from the rep before me.\"",
+                  "That's all the setup most stories need.",
+                ],
+              },
+            ],
+          },
+          {
+            heading: 'Step 2: Explain your move',
+            blocks: [
+              {
+                paragraphs: [
+                  "Use the first person.",
+                  "Interviewers are hiring you, not your team.",
+                ],
+              },
+            ],
+          },
+          {
+            heading: 'Step 3: Give the number',
+            blocks: [
+              {
+                paragraphs: ["Sales stories should end with evidence."],
+                bullets: [
+                  'Attainment',
+                  'Meetings booked',
+                  'Deal size',
+                  'Conversion rates',
+                  'Sales cycle length',
+                  'Team ranking',
+                ],
+              },
+              {
+                paragraphs: ["Without a number, most sales stories are hard to evaluate."],
+              },
+            ],
+          },
+          {
+            heading: 'Step 4: Explain what changed afterward',
+            blocks: [
+              {
+                paragraphs: [
+                  "This is where experience shows.",
+                  "Results matter.",
+                  "Learning from them matters more.",
+                ],
+              },
+            ],
+          },
+          {
+            heading: 'The six stories to prepare',
+            blocks: [
+              {
+                paragraphs: [
+                  "Before interviewing, prepare six stories you can deliver in roughly ninety seconds.",
+                ],
+                bullets: [
+                  'A hard win',
+                  'An instructive loss',
+                  'A time you received coaching and changed',
+                  'A time you built something from scratch',
+                  'A conflict you handled well',
+                  "A number you're proud of",
+                ],
+              },
+              {
+                paragraphs: [
+                  "Those six stories will answer most behavioral sales interview questions you'll ever face.",
+                ],
+              },
+              {
+                paragraphs: [
+                  'A free behavioral assessment that maps how you sell across twelve dimensions, so you know which patterns are worth building stories around.',
+                ],
+                cta: { label: 'Take the Noble Quotient', href: '/quotient' },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'SDR sales interview questions and what hiring managers want to hear',
+        paragraphs: [
+          "For an SDR role, hiring managers care less about polish and more about durability.",
+          "They've seen candidates interview brilliantly, start strong, and leave a few months later when the rejection starts piling up.",
+          "Most SDR interviews revolve around four questions.",
+        ],
+        bullets: [
+          'Can this person handle rejection?',
+          'Can this person be coached?',
+          'Is their curiosity genuine?',
+          'Do they understand what sales is actually like?',
+        ],
+        subsections: [
+          {
+            heading: '"Why sales?"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["Do you understand what the job actually requires?"],
+              },
+              {
+                label: 'Weak answer',
+                paragraphs: [
+                  "\"I'm a people person.\"",
+                  "\"I enjoy helping people.\"",
+                  "\"I've always been good with people.\"",
+                  "Those answers don't tell anyone much.",
+                ],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: [
+                  "Point to behavior you've already demonstrated.",
+                  "Maybe you've worked in customer service.",
+                  "Maybe you've done fundraising.",
+                  "Maybe you've competed in a sport where losing happened more often than winning.",
+                  "The strongest answers connect past behavior to future motivation. They show that sales isn't a random career choice. It's a continuation of something you've already enjoyed doing.",
+                ],
+              },
+            ],
+          },
+          {
+            heading: '"How do you handle rejection?"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["Can you maintain output when results aren't immediate?"],
+              },
+              {
+                label: 'Weak answer',
+                paragraphs: [
+                  "\"I don't take things personally.\"",
+                  "Everyone says some version of this.",
+                ],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: [
+                  "Describe a system.",
+                  "What do you do after a rough call?",
+                  "How do you reset between conversations?",
+                  "What do you review after a bad week?",
+                  "Then connect that routine to a measurable outcome.",
+                  "Hiring managers are usually interested in the process behind your resilience, not the claim itself.",
+                ],
+              },
+            ],
+          },
+          {
+            heading: '"Sell me this pen"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["Can you stay curious before you start pitching?"],
+              },
+              {
+                label: 'Weak answer',
+                paragraphs: ["Jumping straight into features."],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: [
+                  "Start with questions.",
+                  "What do they use the pen for?",
+                  "What matters to them?",
+                  "What are they using today?",
+                  "Only then connect features to something they've told you.",
+                  "The same principle applies to mock cold calls. Interviewers are watching for curiosity, listening skills, and composure under pressure.",
+                  "A perfect pitch isn't required. Thoughtful discovery usually is.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'Account executive interview questions and winning answers',
+        paragraphs: [
+          "By the time you're interviewing for an AE role, most hiring managers already assume you can work hard.",
+          "Now they're evaluating whether you can execute a deal from first conversation to signature.",
+        ],
+        subsections: [
+          {
+            heading: '"Walk me through your last few quarters"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["Are you comfortable being measured?"],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: [
+                  "Lead with the numbers.",
+                  "\"Q1: 92%. Q2: 118%. Q3: 104%.\"",
+                  "Then explain why each quarter ended where it did.",
+                  "Candidates who discuss their numbers directly tend to come across as trustworthy, even when those numbers aren't perfect.",
+                ],
+              },
+            ],
+          },
+          {
+            heading: '"Tell me about a deal you lost"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["How do you explain failure?"],
+              },
+              {
+                label: 'Weak answer',
+                paragraphs: [
+                  "Everything was somebody else's fault.",
+                  "Pricing. Marketing. Territory. Product.",
+                ],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: [
+                  "Identify a decision that belonged to you.",
+                  "Maybe you stayed single-threaded for too long.",
+                  "Maybe you brought in finance too late.",
+                  "Maybe you confused enthusiasm with commitment.",
+                  "Then explain what changed afterward.",
+                  "A lost deal becomes useful when it creates a better process.",
+                ],
+              },
+            ],
+          },
+          {
+            heading: '"How do you source your own pipeline?"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["Do you have a repeatable prospecting motion?"],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: ["Walk through your actual motion."],
+                bullets: [
+                  'Trigger events',
+                  'Account selection',
+                  'Outreach sequence',
+                  'Conversion metrics',
+                ],
+              },
+              {
+                paragraphs: ["Specifics create confidence. General statements don't."],
+              },
+            ],
+          },
+          {
+            heading: 'The mock discovery call',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["Can you run a sales conversation?"],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: ["Most evaluators care about three things."],
+                bullets: [
+                  'Can you structure a conversation?',
+                  'Can you uncover business impact?',
+                  'Can you define a next step?',
+                ],
+              },
+              {
+                paragraphs: [
+                  "Go deeper on fewer questions.",
+                  "Quantify pain whenever possible.",
+                  "Finish with a clear summary and a recommended next action.",
+                  "Process transfers. Product knowledge can be learned.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'SDR-to-AE promotion interview questions',
+        paragraphs: [
+          "Internal promotion interviews feel different because the panel already knows you.",
+          "Your reputation arrives first.",
+          "The biggest question is whether you're ready to own outcomes that take months instead of days.",
+        ],
+        subsections: [
+          {
+            heading: '"Why should we give you this seat over an experienced AE?"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["Why are you the better investment?"],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: [
+                  "Don't argue that you're already equal to a veteran AE.",
+                  "Explain what you already know.",
+                ],
+                bullets: [
+                  'The product',
+                  'The buyer',
+                  'The objections',
+                  'The internal process',
+                ],
+              },
+              {
+                paragraphs: ["An external hire still has to learn all of that. You don't."],
+              },
+            ],
+          },
+          {
+            heading: '"You\'ve never closed anything. Why do you believe you can?"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: [
+                  "Can you close the gap between where you are and where you want to be?",
+                ],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: ["Use the closest available evidence."],
+                bullets: [
+                  'Deals you influenced',
+                  'Discovery calls you helped lead',
+                  'Expansion opportunities you supported',
+                  "Mock sales cycles you've completed",
+                ],
+              },
+              {
+                paragraphs: [
+                  "Then describe how you'll continue developing.",
+                  "Self-awareness usually lands better than overconfidence.",
+                ],
+              },
+            ],
+          },
+          {
+            heading: 'What actually decides the promotion',
+            blocks: [
+              {
+                paragraphs: [
+                  "Successful candidates usually do the work long before the interview exists.",
+                ],
+                bullets: [
+                  'Track sourced opportunities through revenue',
+                  'Sit in on late-stage calls',
+                  'Read closed-won and closed-lost notes',
+                  'Run mock cycles with your manager',
+                  'Tell your manager your goal well in advance',
+                  'Continue performing in your current role',
+                ],
+              },
+              {
+                paragraphs: [
+                  "Most promotion cases are built months before they're presented.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'Enterprise sales interview questions',
+        paragraphs: [
+          "Enterprise interviews introduce a different challenge.",
+          "Fewer deals. Larger stakes. Longer timelines. More stakeholders.",
+        ],
+        subsections: [
+          {
+            heading: '"Walk me through your most complex deal"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["Can you manage complexity?"],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: ["Structure the answer like a map."],
+                bullets: [
+                  'Economic buyer',
+                  'Champion',
+                  'Major stakeholders',
+                  'Key blockers',
+                  'The moment the deal nearly died',
+                ],
+              },
+              {
+                paragraphs: [
+                  "Enterprise leaders listen for how candidates navigate complexity, not how many buzzwords they know.",
+                ],
+              },
+            ],
+          },
+          {
+            heading: '"How do you get executive access?"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["Can you create value before the meeting happens?"],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: [
+                  "Strong enterprise sellers create reasons for executives to engage.",
+                ],
+                bullets: [
+                  'Building a business case',
+                  'Quantifying impact',
+                  'Creating executive-to-executive conversations',
+                  'Making the meeting relevant before it happens',
+                ],
+              },
+              {
+                paragraphs: [
+                  "The discussion should revolve around the customer's business, not your product.",
+                ],
+              },
+            ],
+          },
+          {
+            heading: '"Tell me about a deal that took nine months or longer"',
+            blocks: [
+              {
+                label: "What they're really asking",
+                paragraphs: ["What do you do when momentum disappears?"],
+              },
+              {
+                label: 'Strong answer',
+                paragraphs: ["Talk about how you manufactured movement."],
+                bullets: [
+                  'Mutual action plans',
+                  'Value delivered between meetings',
+                  'New stakeholders engaged during the cycle',
+                  'Forecast discipline',
+                ],
+              },
+              {
+                paragraphs: [
+                  "Long deals require deliberate momentum. The best enterprise sellers know how to create it.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'Questions to ask your interviewer',
+        paragraphs: [
+          "\"Do you have any questions for us?\"",
+          "Many candidates treat this like a formality.",
+          "Sales leaders usually don't.",
+          "Asking good questions demonstrates preparation, curiosity, and commercial thinking.",
+          "Five worth bringing:",
+        ],
+        subsections: [
+          {
+            heading: 'What separates your top rep from the middle of the pack?',
+            blocks: [{ paragraphs: ["You'll learn how success is measured."] }],
+          },
+          {
+            heading: 'Where do new hires usually struggle during ramp?',
+            blocks: [{ paragraphs: ["You'll learn where the job gets difficult."] }],
+          },
+          {
+            heading: 'How much pipeline is self-generated?',
+            blocks: [
+              { paragraphs: ["You'll understand the actual prospecting expectations."] },
+            ],
+          },
+          {
+            heading: 'Why is this position open?',
+            blocks: [
+              {
+                paragraphs: [
+                  'Growth, backfill, or turnover all create very different situations.',
+                ],
+              },
+            ],
+          },
+          {
+            heading: 'One year from now, what would make hiring me feel like a great decision?',
+            blocks: [
+              {
+                paragraphs: [
+                  "You're asking for success criteria.",
+                  'Good salespeople do that early.',
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'Close the interview like a salesperson',
+        paragraphs: [
+          "You wouldn't finish a discovery call and hope the next step magically appears.",
+          'Interviews work the same way.',
+        ],
+        subsections: [
+          {
+            heading: 'Surface concerns',
+            blocks: [
+              {
+                quote:
+                  "Based on our conversation, is there anything in my background that gives you hesitation about moving me forward? I'd rather address it now.",
+              },
+            ],
+          },
+          {
+            heading: 'Clarify process',
+            blocks: [
+              {
+                quote:
+                  "I'm interested in the opportunity. What does the rest of the process look like, and what would be most helpful from me between now and the next step?",
+              },
+              {
+                paragraphs: [
+                  'Neither question is aggressive.',
+                  'Both create clarity.',
+                  'And both leave you with a better understanding of where things stand.',
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'The question underneath all of them',
+        paragraphs: [
+          'Every sales interview question eventually leads back to the same topic: how do you actually sell?',
+          'Not the methodology on your résumé.',
+          'Not the training program you completed.',
+          'Your real behavior under pressure.',
+          'The candidates who stand out can explain that clearly. They understand what they do well, where deals tend to break down, and what they do when things stop going according to plan.',
+          "That's useful in an interview.",
+          "It's even more useful once they're hired.",
+        ],
+      },
+    ],
+    bridgeHeading: 'Learn how you actually sell',
+    bridgeParagraphs: [
+      'Most sellers describe themselves using whatever language their last sales trainer used.',
+      "That's why interview answers often sound interchangeable.",
+      'The sellers who stand out can describe their own patterns with precision, including the parts that are not flattering. A manager can coach that. A candidate can improve it. An interviewer can trust it.',
+      'The Noble Quotient measures twelve sales behaviors and identifies the sales archetype those behaviors create. It is free, and it gives you language for the question underneath every sales interview question: how you sell when the pressure is real.',
+    ],
+    relatedGuides: [
+      { slug: 'what-makes-a-great-salesperson', name: 'What makes a great salesperson' },
+      { slug: 'consultative-selling', name: 'Consultative selling' },
+      { slug: 'hunter-vs-farmer', name: 'Hunter vs farmer' },
+    ],
+    ctaHeadline: 'Get the next one before you need it',
+    ctaBody: 'Sales thinking for people who take the craft seriously. One essay a week, free.',
+    ctaButton: 'Subscribe to the newsletter',
+    ctaHref: 'https://thenobleseller.beehiiv.com/subscribe',
   },
 ]
 
