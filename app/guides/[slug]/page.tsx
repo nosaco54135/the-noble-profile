@@ -175,11 +175,11 @@ export default async function GuidePage({
                       <h3 className="font-display font-semibold text-xl md:text-2xl text-[#0F0F0F] tracking-tight leading-[1.15] mb-4">
                         {subsection.heading}
                       </h3>
-                      <div className="space-y-5">
+                      <div className="mt-1 space-y-5">
                         {subsection.blocks.map((block, bi) => (
                           <div key={bi}>
                             {block.label && (
-                              <h4 className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] mb-2">
+                              <h4 className="font-sans font-semibold text-sm text-[#0F0F0F] mb-2">
                                 {block.label}
                               </h4>
                             )}
