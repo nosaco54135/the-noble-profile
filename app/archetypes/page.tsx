@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { LinkButton } from '@/components/ui/Button'
+import { ArchetypeGrid } from '@/components/ArchetypeGrid'
 import { archetypes } from '@/lib/archetypes'
-
-const STYLE_ORDER = ['Closer', 'Hunter', 'Challenger', 'Advisor', 'Connector', 'Architect', 'Cultivator', 'Student']
 
 export const metadata: Metadata = {
   title: 'Sales Personality Types: What Kind of Salesperson Are You? — The Noble Seller',
@@ -111,34 +109,11 @@ export default function ArchetypesPage() {
 
       {/* Browse */}
       <Section size="lg" id="browse">
-        <Container maxWidth="prose">
+        <Container maxWidth="wide">
           <h2 className="font-display font-semibold text-2xl md:text-3xl text-[#0F0F0F] tracking-tight leading-[1.1] mb-8">
             Browse the Archetypes
           </h2>
-          <div className="space-y-10">
-            {STYLE_ORDER.map((style) => {
-              const group = archetypes.filter((a) => a.style === style)
-              if (group.length === 0) return null
-              return (
-                <div key={style}>
-                  <p className="font-sans text-[11px] uppercase tracking-[0.12em] text-[#6B6B6B] font-semibold mb-3">
-                    {style}
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {group.map((a) => (
-                      <Link
-                        key={a.slug}
-                        href={`/archetypes/${a.slug}`}
-                        className="font-sans text-sm text-[#722F37] border border-[#722F37]/30 bg-[#722F37]/5 px-4 py-2 rounded-full hover:bg-[#722F37]/10 transition-colors"
-                      >
-                        {a.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <ArchetypeGrid />
         </Container>
       </Section>
 

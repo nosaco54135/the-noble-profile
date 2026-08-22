@@ -40,7 +40,7 @@ interface AxisDef<K extends string> {
   dims: [DimensionKey, DimensionKey]
 }
 
-const TRAITS: AxisDef<TraitKey>[] = [
+export const TRAITS: AxisDef<TraitKey>[] = [
   { key: 'empathic',   label: 'Empathic',   tagline: 'Reads the room — and makes the other person feel it.',  dims: ['eq_trust', 'curiosity'] },
   { key: 'curious',    label: 'Curious',    tagline: 'Asks one more question than most people ask.',           dims: ['curiosity', 'problem_solving'] },
   { key: 'methodical', label: 'Methodical', tagline: 'Runs a predictable, repeatable process.',               dims: ['process_oriented', 'data_driven'] },
@@ -51,7 +51,7 @@ const TRAITS: AxisDef<TraitKey>[] = [
   { key: 'adaptive',   label: 'Adaptive',   tagline: 'Learns faster than the market moves.',                  dims: ['learning_style', 'mindset_resilience'] },
 ]
 
-const STYLES: AxisDef<StyleKey>[] = [
+export const STYLES: AxisDef<StyleKey>[] = [
   { key: 'hunter',     label: 'Hunter',     tagline: 'Opens conversations other people avoid.',               dims: ['prospecting_comfort', 'curiosity'] },
   { key: 'closer',     label: 'Closer',     tagline: 'Asks for the decision without flinching.',              dims: ['closing_confidence', 'problem_solving'] },
   { key: 'architect',  label: 'Architect',  tagline: 'Builds systems that compound over time.',               dims: ['process_oriented', 'learning_style'] },
