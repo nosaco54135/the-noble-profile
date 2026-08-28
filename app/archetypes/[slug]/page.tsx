@@ -184,6 +184,46 @@ export default async function ArchetypePage({
 
       <div className="border-t border-[#E8E6DF]" />
 
+      {/* The Tension — only rendered when present */}
+      {archetype.tension && (
+        <>
+          <Section size="lg">
+            <Container maxWidth="prose">
+              <h2 className="font-display font-semibold text-2xl md:text-3xl text-[#0F0F0F] tracking-tight leading-[1.1] mb-4">
+                The Tension
+              </h2>
+              <p className="font-sans text-base text-[#0F0F0F] leading-relaxed">{archetype.tension}</p>
+            </Container>
+          </Section>
+
+          <div className="border-t border-[#E8E6DF]" />
+        </>
+      )}
+
+      {/* Often Mistaken For — only rendered when present */}
+      {archetype.mistakenFor && (
+        <>
+          <Section size="lg">
+            <Container maxWidth="prose">
+              <h2 className="font-display font-semibold text-2xl md:text-3xl text-[#0F0F0F] tracking-tight leading-[1.1] mb-4">
+                Often Mistaken For
+              </h2>
+              <p className="font-sans text-base text-[#0F0F0F] leading-relaxed">
+                <Link
+                  href={`/archetypes/${archetype.mistakenFor.slug}`}
+                  className="text-[#722F37] font-medium hover:text-[#5A2128] transition-colors"
+                >
+                  {archetype.mistakenFor.name}
+                </Link>{' '}
+                {archetype.mistakenFor.tell}
+              </p>
+            </Container>
+          </Section>
+
+          <div className="border-t border-[#E8E6DF]" />
+        </>
+      )}
+
       {/* Adjacent Archetypes — only rendered when at least one slug resolves to a built archetype */}
       {resolvedAdjacents.length > 0 && (
         <>

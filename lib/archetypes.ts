@@ -11,6 +11,10 @@ export interface Archetype {
   inTheDeal: string
   sellsBestTo: string
   growthEdge: string
+  /** The internal friction specific to this trait/style pairing. */
+  tension?: string
+  /** The archetype readers commonly self-select instead, with the distinguishing tell. */
+  mistakenFor?: { slug: string; name: string; tell: string }
   adjacent: string[]
 }
 
