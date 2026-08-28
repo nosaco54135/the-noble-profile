@@ -48,16 +48,43 @@ export default async function GuidePage({
     url: `https://thenobleseller.com/guides/${guide.slug}`,
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://thenobleseller.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Sales Guides', item: 'https://thenobleseller.com/guides' },
+      { '@type': 'ListItem', position: 3, name: guide.title, item: `https://thenobleseller.com/guides/${guide.slug}` },
+    ],
+  }
+
   return (
     <main className="bg-[#FAFAF7] min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
 
       {/* Hero */}
       <section className="pt-tns-3xl pb-tns-lg">
         <Container maxWidth="prose">
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <ol className="flex flex-wrap items-center gap-2 font-sans text-xs text-[#6B6B6B]">
+              <li>
+                <Link href="/" className="hover:text-[#722F37] transition-colors">Home</Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/guides" className="hover:text-[#722F37] transition-colors">Sales Guides</Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li className="text-[#0F0F0F]" aria-current="page">{guide.title}</li>
+            </ol>
+          </nav>
           <p className="font-sans text-[10px] uppercase tracking-[0.12em] text-[#722F37] font-semibold mb-4">
             Sales Guide
           </p>
