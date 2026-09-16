@@ -44,7 +44,7 @@ export const archetypes: Archetype[] = [
       'You may lean on the room and under-use the numbers that would back you up.',
     ],
     inTheDeal:
-      "In a live deal, the Empathic Closer notices the CFO go quiet on the pricing slide and circles back before it becomes a silent no. You don't bulldoze. You name the tension and let the buyer feel understood, then you ask for the decision while the trust is still warm. Your risk is the deal that feels good but never closes, the relationship that stays a relationship. Your edge is knowing the difference and pushing anyway.",
+      "In a live deal, the Empathic Closer notices the CFO go quiet on the pricing slide and circles back before it becomes a silent no. You don't bulldoze. You name the tension and let the buyer feel understood, then you ask for the decision while the trust is still warm. Your risk is the deal that feels good but never closes, the relationship that stays a relationship. Other sellers either feel the hesitation or push past it. You do both in the same breath, and the deals you lose are the ones where you only did the first.",
     sellsBestTo:
       'Risk-averse, relationship-driven buyers, or anyone burned by a previous vendor. People who need to feel safe before they commit. You struggle more with purely transactional, spreadsheet-driven buyers who read warmth as a stall.',
     growthEdge:
@@ -83,7 +83,7 @@ export const archetypes: Archetype[] = [
       'Your loyalty can keep you in an account long after the smart move is to walk and reallocate the time.',
     ],
     inTheDeal:
-      "In a live deal, the Devoted Advisor is the one who tells a buyer the cheaper package is the right fit this year, then watches that honesty turn into a three-year relationship and a stack of referrals. The risk is the mirror image: you under-ask, you under-expand, and you pour devotion into accounts that will never pay it back. Your edge is that buyers trust you by default. Your work is making sure that trust serves the deal, not just the relationship.",
+      "In a live deal, the Devoted Advisor is the one who tells a buyer the cheaper package is the right fit this year, then watches that honesty turn into a three-year relationship and a stack of referrals. The risk is the mirror image: you under-ask, you under-expand, and you pour devotion into accounts that will never pay it back. Trust arrives before you've done anything to earn it, which is a head start almost nobody gets. What you do with a head start is spend it, not protect it.",
     sellsBestTo:
       "High-consideration, long-cycle buyers who are choosing a partner, not a product. Anyone burned by a vendor who oversold them. People whose decision rides on whether they believe you. You struggle more with fast, transactional buyers who just want a price and read your care as friction.",
     growthEdge:
@@ -122,7 +122,7 @@ export const archetypes: Archetype[] = [
       'Your insight is only as good as your prep, and a thin reframe lands worse than no reframe at all.',
     ],
     inTheDeal:
-      "In a live deal, the Strategic Challenger tells the VP that the initiative they're proud of is aimed at the wrong bottleneck, then shows the data that proves it. When the prep is real, the room goes quiet and the buyer starts taking notes. The risk is the reframe that's clever but wrong, or right but delivered to someone who hears it as an insult. Your edge is conviction backed by work. Your discipline is knowing the difference between a buyer who needs to be challenged and one who needs to be heard.",
+      "In a live deal, the Strategic Challenger tells the VP that the initiative they're proud of is aimed at the wrong bottleneck, then shows the data that proves it. When the prep is real, the room goes quiet and the buyer starts taking notes. The risk is the reframe that's clever but wrong, or right but delivered to someone who hears it as an insult. You show up having done work the buyer's own team hasn't done. That's why the reframe works when it works — and why it costs you so much when you aim it at someone who only wanted to be heard.",
     sellsBestTo:
       "Senior, experienced buyers who respect a strong point of view and are tired of being sold to. Complex deals where the real problem is buried and reframing it is the actual value. You struggle more with buyers who already know exactly what they want and read a challenge as friction.",
     growthEdge:
@@ -161,7 +161,7 @@ export const archetypes: Archetype[] = [
       'You can under-invest in the late-stage nuance that actually closes the deals your activity created.',
     ],
     inTheDeal:
-      "In a live deal, the Resilient Hunter has three new conversations going before lunch while everyone else is still rewriting one email. The pipeline is always full because the activity never stops. The risk is the deal that needed a slower, more tailored touch and got a template instead, or the burnout that comes from treating every week like a sprint. Your edge is volume nobody can match. Your discipline is knowing which deals to slow down for.",
+      "In a live deal, the Resilient Hunter has three new conversations going before lunch while everyone else is still rewriting one email. The pipeline is always full because the activity never stops. The risk is the deal that needed a slower, more tailored touch and got a template instead, or the burnout that comes from treating every week like a sprint. Nobody in your org generates conversations at your rate. The cost of that rate is that every deal gets the same eight minutes, including the ones that were worth an afternoon.",
     sellsBestTo:
       "Transactional and mid-market buyers where speed and responsiveness win, and high-velocity sales motions that reward activity. You struggle more with complex, multi-stakeholder enterprise deals that punish a fast pitch and demand patience you'd rather spend dialing.",
     growthEdge:
@@ -200,7 +200,7 @@ export const archetypes: Archetype[] = [
       "You can struggle when a buyer breaks your sequence and the deal demands improvisation you'd rather avoid.",
     ],
     inTheDeal:
-      "In a live deal, the Methodical Architect is the one with the mutual action plan the buyer's own team starts relying on to stay organized. Nothing slips, nothing surprises them, and the buyer trusts the process because they can see it working. The risk is the deal that didn't need all that machinery, or the curveball that no plan accounted for and you were slow to adapt to. Your edge is control in complexity. Your growth is flexibility when the plan meets a buyer who won't follow it.",
+      "In a live deal, the Methodical Architect is the one with the mutual action plan the buyer's own team starts relying on to stay organized. Nothing slips, nothing surprises them, and the buyer trusts the process because they can see it working. The risk is the deal that didn't need all that machinery, or the curveball that no plan accounted for and you were slow to adapt to. In a deal with nine stakeholders and a twelve-month cycle, you're the only person holding the whole plan. The plan is usually finished before you stop working on it, and the hours after that come out of the deal.",
     sellsBestTo:
       'Enterprise and complex B2B buyers with multiple stakeholders and long cycles, and any deal where organization and reliability are the deciding factors. You struggle more with fast, simple, transactional sales where your process is friction the buyer didn\'t ask for.',
     growthEdge:
@@ -239,7 +239,7 @@ export const archetypes: Archetype[] = [
       'You can let discovery become the comfort zone, hiding from the ask inside another good question.',
     ],
     inTheDeal:
-      "In a live deal, the Curious Cultivator asks the question that makes the buyer pause and say nobody's ever asked them that. The discovery runs so deep the buyer treats them like an advisor before buying anything. The risk is the deal that dies in discovery, endlessly explored and never closed, or the patient account that never actually grows. Your edge is understanding the buyer better than the competition ever will. Your discipline is turning that understanding into a decision.",
+      "In a live deal, the Curious Cultivator asks the question that makes the buyer pause and say nobody's ever asked them that. The discovery runs so deep the buyer treats them like an advisor before buying anything. The risk is the deal that dies in discovery, endlessly explored and never closed, or the patient account that never actually grows. By month three you know things about this account the incumbent vendor doesn't. The hard part isn't learning the answer. It's deciding you have enough of one.",
     sellsBestTo:
       "Complex accounts with room to grow, and buyers who reward a seller who truly understands their business. Land-and-expand motions where the first deal is a beachhead, not the goal. You struggle more with one-and-done transactional buyers who want a fast quote and read your questions as a delay.",
     growthEdge:
@@ -278,7 +278,7 @@ export const archetypes: Archetype[] = [
       'You can spread yourself thin maintaining relationships that feel good but never convert.',
     ],
     inTheDeal:
-      "In a live deal, the Authentic Connector is the one the buyer actually wants to grab coffee with, the seller who got the real story because they gave one first. Walls come down because nothing about them feels like a tactic. The risk is the warm relationship that never becomes a deal, the buyer who likes you enough to take your call but not enough to choose you, because you never made the case past the rapport. Your edge is trust that's real. Your discipline is converting it.",
+      "In a live deal, the Authentic Connector is the one the buyer actually wants to grab coffee with, the seller who got the real story because they gave one first. Walls come down because nothing about them feels like a tactic. The risk is the warm relationship that never becomes a deal, the buyer who likes you enough to take your call but not enough to choose you, because you never made the case past the rapport. Buyers tell you what's actually happening because you were never performing at them. What you've built is real. It still has to be pointed at something.",
     sellsBestTo:
       "Relationship-driven buyers and long-term partnerships where who you are matters as much as what you sell. Markets that run on referrals and reputation. You struggle more with purely rational, procurement-led buyers who don't care whether they like you and just want the lowest number on a spreadsheet.",
     growthEdge:
@@ -317,7 +317,7 @@ export const archetypes: Archetype[] = [
       'You can mistake learning for doing, studying the craft when you should be in the field practicing it.',
     ],
     inTheDeal:
-      "In a live deal, the Adaptive Student tried something on Tuesday's call that bombed, figured out why by Wednesday, and ran the fixed version on Thursday to a yes. They get better inside a single quarter in ways that take other reps years. The risk is the seller who's always adjusting and never anchored, who knows ten methods at the surface and none in the bones. Your edge is a learning curve nobody can match. Your discipline is committing long enough to get good, not just informed.",
+      "In a live deal, the Adaptive Student tried something on Tuesday's call that bombed, figured out why by Wednesday, and ran the fixed version on Thursday to a yes. They get better inside a single quarter in ways that take other reps years. The risk is the seller who's always adjusting and never anchored, who knows ten methods at the surface and none in the bones. You'll be a materially better seller in ninety days than you are today, which is not true of most of your peers. The trap is that ninety days of one thing beats ninety days of nine.",
     sellsBestTo:
       "Evolving markets, new product categories, and fast-changing sales motions where yesterday's playbook is already stale. You struggle more in moments that reward deep, settled expertise, where your instinct to adjust can read as uncertainty to a buyer who wanted a steady hand.",
     growthEdge:
