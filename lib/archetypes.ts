@@ -49,6 +49,13 @@ export const archetypes: Archetype[] = [
       'Risk-averse, relationship-driven buyers, or anyone burned by a previous vendor. People who need to feel safe before they commit. You struggle more with purely transactional, spreadsheet-driven buyers who read warmth as a stall.',
     growthEdge:
       'Trust the close as much as you trust the connection. Your instinct to read the room is already elite. The instinct to act on it is the one to drill. When you sense readiness, ask. The empathy already earned you the right.',
+    tension:
+      "Empathy and closing want opposite things from the same moment. Empathy says wait, the buyer needs another beat. Closing says ask, the window is open right now. Both instincts fire at once. Which one wins is usually decided by how tired you are rather than by what the deal actually needs.",
+    mistakenFor: {
+      slug: 'empathic-advisor',
+      name: 'Empathic Advisor',
+      tell: "Both read people well and both earn real trust. The Advisor holds it and waits to be asked. You use it to ask. If you leave most meetings having recommended something rather than requested a decision, the Advisor is probably the better fit.",
+    },
     adjacent: ['devoted-advisor', 'authentic-connector', 'curious-cultivator'],
   },
   {
@@ -81,6 +88,13 @@ export const archetypes: Archetype[] = [
       "High-consideration, long-cycle buyers who are choosing a partner, not a product. Anyone burned by a vendor who oversold them. People whose decision rides on whether they believe you. You struggle more with fast, transactional buyers who just want a price and read your care as friction.",
     growthEdge:
       'Let yourself close as hard as you serve. The trust is already built, which means you have earned the right to ask plainly and to push for the bigger outcome when it is genuinely right for the buyer. Devotion without the ask leaves deals, and buyer outcomes, on the table.',
+    tension:
+      "Devotion and advising both reward staying. Neither one has an expiration date built in. A seller wired to hunt gets restless when an account stops moving, and that restlessness is a useful signal even though it feels like impatience. You never feel it. So the account that stopped growing two quarters ago still gets your Thursday afternoons, and the thing that finally ends it is a territory change, not a decision.",
+    mistakenFor: {
+      slug: 'devoted-connector',
+      name: 'Devoted Connector',
+      tell: "Both stay close to buyers and both get told the real story. Yours turns into recommendations the buyer acts on. The Connector's stays a relationship, good on its own terms. If your buyers call you when something breaks but rarely when they're deciding, the Connector is closer to how you actually operate.",
+    },
     adjacent: ['empathic-closer', 'authentic-connector', 'curious-cultivator'],
   },
   {
@@ -113,6 +127,13 @@ export const archetypes: Archetype[] = [
       "Senior, experienced buyers who respect a strong point of view and are tired of being sold to. Complex deals where the real problem is buried and reframing it is the actual value. You struggle more with buyers who already know exactly what they want and read a challenge as friction.",
     growthEdge:
       'Earn the right before you reframe. Your insight is real, but it only lands once the buyer trusts that you understand their world. Lead with enough listening that the challenge feels like it came from inside their business, not from your slide deck. The reframe is your weapon. Timing is what keeps it from backfiring.',
+    tension:
+      "Strategic sees the non-obvious answer. Challenger says it out loud. Neither half checks whether the room is ready for it. A seller with a softer style would stall on the delivery long enough to check, and that stall does real work even though it feels like cowardice. You skip it. The reframe arrives fully formed and correct, and you find out whether the buyer could take it only after it's already on the table.",
+    mistakenFor: {
+      slug: 'strategic-architect',
+      name: 'Strategic Architect',
+      tell: "Both work from a thesis about the buyer's business. You put yours in front of the buyer and let it land. The Architect builds a path around it and never says it out loud. If you tend to route past a bad assumption rather than name it, the Architect is likely the better read.",
+    },
     adjacent: ['resilient-hunter', 'methodical-architect', 'adaptive-student'],
   },
   {
@@ -145,6 +166,13 @@ export const archetypes: Archetype[] = [
       "Transactional and mid-market buyers where speed and responsiveness win, and high-velocity sales motions that reward activity. You struggle more with complex, multi-stakeholder enterprise deals that punish a fast pitch and demand patience you'd rather spend dialing.",
     growthEdge:
       "Aim the engine, don't just run it. Your output is already your superpower, which means the leverage isn't more activity, it's better-targeted activity. Pick the deals worth slowing down for and give them the tailored touch your volume habit skips. Same energy, pointed at the right accounts, closes far more than the same energy sprayed wide.",
+    tension:
+      "Resilient absorbs the no. Hunter goes back out. Together they produce a seller who can run indefinitely, which means nothing ever tells you the approach is wrong. A rep who feels the rejection has to ask why it happened, and that question is worth something even though it comes wrapped in a bad week. You don't get the bad week. The same approach can fail forty times and still feel like a volume problem.",
+    mistakenFor: {
+      slug: 'resilient-closer',
+      name: 'Resilient Closer',
+      tell: "Both keep going when the deal gets uncomfortable. You spend it on new conversations. The Closer spends it inside one, staying in a hard room until the answer comes. If your durability shows up most in the late-stage grind rather than the top of funnel, look at the Closer.",
+    },
     adjacent: ['strategic-challenger', 'adaptive-student', 'empathic-closer'],
   },
   {
@@ -177,6 +205,13 @@ export const archetypes: Archetype[] = [
       'Enterprise and complex B2B buyers with multiple stakeholders and long cycles, and any deal where organization and reliability are the deciding factors. You struggle more with fast, simple, transactional sales where your process is friction the buyer didn\'t ask for.',
     growthEdge:
       "Hold the plan loosely. Your system is a genuine advantage in complex deals, but the best architects know when to set the blueprint down and just talk to the human in front of them. Build the machine, then stay willing to step outside it when a deal does something your process didn't predict. Structure wins complexity. Adaptability wins the exceptions.",
+    tension:
+      "Methodical and Architect pull the same direction, which is the problem. Both instincts reward adding another piece. A seller whose wiring argues with itself gets an internal interruption. You don't get one. The system keeps improving. The deal keeps not closing. Nothing in your instincts flags the gap. The interruption has to arrive from outside, usually a calendar date or a manager.",
+    mistakenFor: {
+      slug: 'strategic-architect',
+      name: 'Strategic Architect',
+      tell: "Both build structure. Yours is meant to run again, a process that works on this deal and the next one. The Strategic Architect's is built for one org and wouldn't transfer anywhere. If your best system is one you'd hand to a new rep, you're in the right place.",
+    },
     adjacent: ['strategic-challenger', 'curious-cultivator', 'adaptive-student'],
   },
   {
@@ -209,6 +244,13 @@ export const archetypes: Archetype[] = [
       "Complex accounts with room to grow, and buyers who reward a seller who truly understands their business. Land-and-expand motions where the first deal is a beachhead, not the goal. You struggle more with one-and-done transactional buyers who want a fast quote and read your questions as a delay.",
     growthEdge:
       "Let the questions lead somewhere. Your curiosity uncovers what other sellers walk right past, but discovery is the setup, not the win. Once you understand the buyer's world, use what you found to make the case and ask for the decision. The best cultivators harvest. They don't just tend.",
+    tension:
+      "Curiosity wants the next question. Cultivating wants more time in the account. Both are satisfied by continuing, so you never hit the moment where the conversation feels finished. A seller who gets bored would leave the conversation there. You find another thread. The buyer eventually decides, or doesn't, and either way the decision comes from them rather than from you.",
+    mistakenFor: {
+      slug: 'curious-advisor',
+      name: 'Curious Advisor',
+      tell: "Both go deeper than the competition. At the end of discovery you keep learning. The Advisor stops and tells the buyer what to do about it. If people usually leave your calls with a recommendation, the Advisor is probably where you sit.",
+    },
     adjacent: ['devoted-advisor', 'authentic-connector', 'methodical-architect'],
   },
   {
@@ -241,6 +283,13 @@ export const archetypes: Archetype[] = [
       "Relationship-driven buyers and long-term partnerships where who you are matters as much as what you sell. Markets that run on referrals and reputation. You struggle more with purely rational, procurement-led buyers who don't care whether they like you and just want the lowest number on a spreadsheet.",
     growthEdge:
       "Turn the connection into a commitment. Your authenticity earns you something most sellers never get, a buyer who genuinely trusts you. Don't stop at the friendship. The same realness that built the relationship lets you ask plainly for the business; a real friend can be direct. Make the case, then make the ask. The trust is already yours.",
+    tension:
+      "Authenticity refuses the move that feels like a move. Connecting rewards the relationship for its own sake. Neither half will license a direct ask, because a direct ask feels like exactly the thing you built this on not being. A more transactional seller would just ask the question. You've spent two years earning a warmth that now works against you the one time you need to interrupt it.",
+    mistakenFor: {
+      slug: 'authentic-advisor',
+      name: 'Authentic Advisor',
+      tell: "Both are trusted because nothing about them reads as performance. You protect the relationship. The Advisor spends it telling buyers things they don't want to hear. If you've told a buyer not to buy, or pushed back hard on their plan, the Advisor fits better.",
+    },
     adjacent: ['empathic-closer', 'devoted-advisor', 'curious-cultivator'],
   },
   {
@@ -273,6 +322,13 @@ export const archetypes: Archetype[] = [
       "Evolving markets, new product categories, and fast-changing sales motions where yesterday's playbook is already stale. You struggle more in moments that reward deep, settled expertise, where your instinct to adjust can read as uncertainty to a buyer who wanted a steady hand.",
     growthEdge:
       'Commit long enough to master, not just learn. Your appetite for getting better will carry you past sellers who stopped growing years ago, but improvement compounds only when you practice one thing into instinct before chasing the next. Drill the fundamentals that matter until they\'re automatic, then keep learning on top of a foundation that holds. Range is your gift. Depth is the work.',
+    tension:
+      "Adaptive changes the approach. Student looks for the better one. Both instincts point toward the next method, so there's nothing in you that argues for staying put. A more rigid seller would resist the change, and that resistance would accidentally produce the repetition that turns a method into instinct. By the time other sellers have built an instinct, you've already moved on to the next idea.",
+    mistakenFor: {
+      slug: 'adaptive-cultivator',
+      name: 'Adaptive Cultivator',
+      tell: "Both improve steadily. You improve the method. The Cultivator improves the account, running the same approach longer and getting better at one relationship than at technique. If your growth shows up as deeper accounts rather than sharper skills, that's the Cultivator.",
+    },
     adjacent: ['strategic-challenger', 'resilient-hunter', 'methodical-architect'],
   },
 ]
