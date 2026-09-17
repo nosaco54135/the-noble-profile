@@ -331,6 +331,123 @@ export const archetypes: Archetype[] = [
     },
     adjacent: ['strategic-challenger', 'resilient-hunter', 'methodical-architect'],
   },
+  {
+    slug: 'empathic-advisor',
+    name: 'Empathic Advisor',
+    trait: 'Empathic',
+    style: 'Advisor',
+    tagline: "You tell buyers the truth they didn't ask for.",
+    metaDescription:
+      'The Empathic Advisor reads the room and says the hard thing anyway. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Empathic Advisor knows what a buyer can hear and says the hard thing anyway. You read the room the same way every empathic seller does. The difference is what you do with the read — you use it to time the truth, not to avoid it.",
+      "Warmth becomes the product for a lot of sellers. You went the other direction. You figured out that a buyer who trusts you can survive being told they're wrong, and that being the one willing to say it is worth more than being the one they enjoy.",
+    ],
+    strengths: [
+      'You deliver bad news early, when the buyer can still do something about it.',
+      'You know which buyers can take a direct challenge and which need it wrapped, and you adjust without softening the substance.',
+      'Buyers call before they decide, because they want your read first.',
+      'You can tell a buyer not to buy and keep the relationship, which almost no seller can do.',
+    ],
+    blindSpots: [
+      'You can advise when the buyer had already decided and just needed you to process the order.',
+      "You can position yourself as the counsel and forget you're also the vendor, waiting to be asked instead of asking.",
+      'Your honesty can arrive before the trust that makes it land, and a true thing said too early reads as an attack.',
+      'Some buyers are happy to borrow your judgment for free.',
+    ],
+    inTheDeal:
+      "In a live deal, the Empathic Advisor is the one who tells a buyer the timeline they've committed to internally won't hold, three weeks before anyone else would have raised it. The buyer reshapes the plan and stops getting surprised. The risk is the deal where you counseled your way through six months of good conversations and never once asked for the business, or the moment you told the truth before you'd earned the right to. Nobody else in the cycle is going to tell this buyer something they don't want to hear. That standing is worth protecting, which means using it before the deal ends rather than after.",
+    sellsBestTo:
+      'Buyers in over their heads on something consequential — new role, first time buying this category, a decision with career risk attached. People who want counsel more than they want a product. You struggle with buyers who already know what they want and read advice as friction.',
+    growthEdge:
+      "Ask as directly as you advise. You've already done the hard part, which is earning the standing to tell a buyer something they didn't want to hear. Asking for the business is a smaller thing than that. Buyers aren't shocked when you ask. They're usually wondering why you haven't.",
+    tension:
+      "Empathy tells you exactly how much the buyer can take. Advising tells you to say the thing regardless. The conflict shows up on the ask. Empathy reads a request for business as self-interested, and advising has no opinion about it at all. Neither half of you ever says close. So the counsel keeps coming and the ask never does.",
+    mistakenFor: {
+      slug: 'empathic-closer',
+      name: 'Empathic Closer',
+      tell: "Both read the room and both earn the right to say hard things. You use that right to advise. The Closer uses it to ask. If you leave the meeting having asked for something, you're probably closer to the Closer.",
+    },
+    adjacent: ['empathic-closer', 'devoted-advisor', 'curious-advisor'],
+  },
+  {
+    slug: 'empathic-challenger',
+    name: 'Empathic Challenger',
+    trait: 'Empathic',
+    style: 'Challenger',
+    tagline: 'You push hardest on the people you like most.',
+    metaDescription:
+      'The Empathic Challenger reads a buyer accurately and tells them they are wrong anyway. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Empathic Challenger reads a buyer accurately and then tells them they're wrong. Those two things sit badly together, and you do them anyway. You know exactly how the reframe is going to land before you say it, which is different from not caring how it lands.",
+      "Challengers who can't read a room deliver the same challenge to everyone and lose half of them. You lose fewer, because you know when to hold it. The problem is that knowing when to hold it means you also know exactly what it costs when you don't.",
+    ],
+    strengths: [
+      "You challenge people who'd shut down on anyone else, because they can tell you're not enjoying it.",
+      'You know within a minute whether the reframe is landing, and you adjust before the buyer goes cold.',
+      "You take the buyer's side while disagreeing with them, which most challengers can't do at the same time.",
+      "You surface the objection the buyer hasn't said out loud and argue with that one instead of the stated one.",
+    ],
+    blindSpots: [
+      'You can hold the challenge back from the buyer you like most, which is usually the one who needed it.',
+      "You can soften the reframe until the buyer agrees with a version of it that doesn't change anything.",
+      "You read resistance as damage when it's often just the buyer thinking.",
+      'You can spend the whole call earning the right to challenge and run out of call.',
+    ],
+    inTheDeal:
+      "In a live deal, the Empathic Challenger watches a buyer describe a plan they're proud of, sees the flaw in it, and waits four minutes for the right opening rather than jumping in. When it lands, the buyer doesn't get defensive, because the timing told them it wasn't an attack. You get more chances than most challengers do, because you can tell when the buyer has recovered enough to hear the next one — and the cost of reading them that closely is that you feel every one you land.",
+    sellsBestTo:
+      "Buyers who are wrong and half-know it. People who've been sold to by someone aggressive and are braced for it. You struggle with buyers who want a pure vendor relationship and read any challenge, however well-timed, as overstepping.",
+    growthEdge:
+      "The buyer you've connected with most is not the buyer to go easiest on. That instinct runs backwards. Rapport is what makes a hard reframe survivable, so the warmest relationship in your pipeline is the one that can absorb the most. You're currently spending your best challenges on strangers and your patience on friends.",
+    tension:
+      "Empathy wants the buyer to feel understood. Challenging requires a moment where they don't. Both halves are live in the same sentence, so you spend every reframe monitoring damage while delivering it. Sellers with one instinct or the other get to be fully committed to what they're doing. You never are. The reframes you regret aren't the harsh ones — they're the ones you diluted while watching the buyer's face.",
+    mistakenFor: {
+      slug: 'empathic-advisor',
+      name: 'Empathic Advisor',
+      tell: "Both read people well and both say hard things. The Advisor tells the buyer what they'd do. You tell the buyer their thinking is wrong. If you tend to offer a better option rather than dismantle the current one, the Advisor is closer.",
+    },
+    adjacent: ['empathic-closer', 'strategic-challenger', 'empathic-advisor'],
+  },
+  {
+    slug: 'strategic-architect',
+    name: 'Strategic Architect',
+    trait: 'Strategic',
+    style: 'Architect',
+    tagline: 'You build the path before you walk it.',
+    metaDescription:
+      'The Strategic Architect maps the org before working the deal. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Strategic Architect maps the deal before working it. You know who signs, who blocks, who has to be brought in early and who can't be told yet. That map is built before the second call, and most of what happens afterward is executing it.",
+      "Most sellers leave discovery with notes. You leave with a draft org chart. Where other sellers manage the conversation in front of them, you're working a structure — which is why you're often three moves ahead, and why a buyer who behaves unpredictably costs you more than it costs anyone else.",
+    ],
+    strengths: [
+      'You find the real decision-maker early, usually before the buyer tells you who it is.',
+      'You sequence stakeholders deliberately, bringing people in when they will help rather than when they ask.',
+      'You can see which objection is going to surface in legal review two months out and defuse it in month one.',
+      'You build a path that survives a champion leaving, because you never depended on one person.',
+    ],
+    blindSpots: [
+      'You can commit to a map built on a first-call read and keep executing it after the org has changed underneath you.',
+      'You can spend the discovery call gathering structure and miss what the buyer actually cares about.',
+      'You can route around a difficult stakeholder instead of engaging them, and they surface later with more power than they had.',
+      'Your plan can be right and slow, losing to a competitor who just called the CEO.',
+    ],
+    inTheDeal:
+      "In a live deal, the Strategic Architect knows in week two that the VP everyone is courting doesn't control the budget, and quietly starts building the case for someone three doors down. Six weeks later that's the person who signs. By the time most sellers know who they're talking to, you've started worrying about who they're not talking to — and you'll have the map finished before you've met enough people to know whether it's right.",
+    sellsBestTo:
+      "Complex organizations with unclear authority — matrixed companies, committee purchases, anything where the org chart lies. Buyers who don't know their own process. You struggle in flat orgs and quick transactional deals, where there's no structure to work and the map is just one person.",
+    growthEdge:
+      "Everything you build the map from is early evidence, and early evidence is thin by definition. The org knows itself better in month six than it did in month one. The architects who lose deals aren't the ones who read the org wrong. They're the ones who read it wrong in week one and had no mechanism for finding out.",
+    tension:
+      "Strategic sees the structure. Architect commits to a design. Both instincts reward deciding early, and neither one contains a reason to revisit. What you build in week one is usually good enough to work with, which is the problem — a bad map reveals itself immediately, and a decent one carries you far enough to stop checking.",
+    mistakenFor: {
+      slug: 'strategic-challenger',
+      name: 'Strategic Challenger',
+      tell: "Both work from a thesis about the buyer's business. You build a path around what you see. The Challenger says it to the buyer's face. If you find yourself naming the flawed assumption rather than navigating past it, the Challenger fits better.",
+    },
+    adjacent: ['methodical-architect', 'strategic-challenger', 'devoted-advisor'],
+  },
 ]
 
 export function getArchetype(slug: string): Archetype | undefined {
