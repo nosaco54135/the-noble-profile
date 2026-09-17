@@ -448,6 +448,201 @@ export const archetypes: Archetype[] = [
     },
     adjacent: ['methodical-architect', 'strategic-challenger', 'devoted-advisor'],
   },
+  {
+    slug: 'devoted-connector',
+    name: 'Devoted Connector',
+    trait: 'Devoted',
+    style: 'Connector',
+    tagline: "Your buyers call you about things that aren't your job.",
+    metaDescription:
+      'The Devoted Connector ends up inside the account rather than selling to it. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Devoted Connector ends up inside the account rather than selling to it. Buyers forward you internal threads. They ask what you'd do about a hire. Somewhere in the second year you stopped being a vendor and nobody announced it.",
+      "Most sellers work an account for as long as it pays. You work it because you're in it now. The loyalty came first and the revenue followed, which is backwards from how anyone would design it and is exactly why buyers can tell it's real.",
+    ],
+    strengths: [
+      "Buyers tell you about org changes before they're announced, because you're not on the announcement list.",
+      'You keep an account through a champion leaving, because you knew four other people there.',
+      'You find the expansion nobody asked for, since you hear the problem before it reaches procurement.',
+      "You'll take the call that has nothing to do with your product, and that's the call they remember.",
+    ],
+    blindSpots: [
+      'You can hear a real problem, help with it, and never connect it to something you sell.',
+      'You can protect the relationship by not raising price, and the account underpays for years.',
+      "You can stay close to people who've lost influence, because you liked them before they lost it.",
+      "You can be the most trusted person in an account you're not growing.",
+    ],
+    inTheDeal:
+      "In a live deal, the Devoted Connector gets a text from a director on a Sunday about something that hasn't become a problem yet. You help. Nine months later that director is the one arguing for renewal in a meeting you're not in. Access like that takes two years to build and can't be manufactured on a quarterly timeline — and the way you protect it is by never asking it for anything, which is the same as not having it.",
+    sellsBestTo:
+      "Long-cycle accounts with high switching costs and real continuity — the same people in the same seats for years. Buyers who've had a vendor churn through four reps. You struggle in fast transactional cycles where there's no time to become anything, and with buyers who'd rather keep it professional.",
+    growthEdge:
+      "Ask them for something. Not because you've earned it, though you have, but because a relationship that's never tested stays theoretical. The buyers closest to you are the ones who'd move something internally on your behalf, and almost none of them have ever been asked to.",
+    tension:
+      "Devotion and connecting both deepen with time, and neither one has any interest in a transaction. A seller who wanted something would create a moment where they asked for it. You never create that moment, so the relationship keeps getting better at being a relationship. Years in, you know more about this account than anyone at your company and have less to show for it than a rep who called cold last month.",
+    mistakenFor: {
+      slug: 'devoted-advisor',
+      name: 'Devoted Advisor',
+      tell: "Both stay long and both get trusted. You get the whole picture, including things that have nothing to do with buying. The Advisor gets brought in on decisions specifically. If buyers call you when they're deciding rather than when something breaks, look at the Advisor.",
+    },
+    adjacent: ['devoted-advisor', 'authentic-connector', 'empathic-closer'],
+  },
+  {
+    slug: 'resilient-closer',
+    name: 'Resilient Closer',
+    trait: 'Resilient',
+    style: 'Closer',
+    tagline: 'You stay in the room after it gets uncomfortable.',
+    metaDescription:
+      'The Resilient Closer asks, hears something that is not yes, and asks again. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Resilient Closer asks, hears something that isn't yes, and asks again. Not louder. The second ask is usually better than the first, because you spent the silence listening instead of recovering.",
+      "Most deals die from the seller's discomfort rather than the buyer's. Someone asks, the room tightens, and they fill the gap with a discount or a follow-up date. You can sit in a tight room. That turns out to be most of the skill.",
+    ],
+    strengths: [
+      'You hold silence after the ask, which is the single hardest thing in a sales conversation.',
+      'You get told no and keep the relationship, because you never treated the no as personal.',
+      "You'll ask a third time in the same meeting when the objection has actually changed.",
+      "You're the person put on a deal that's already gone sideways, because you won't flinch at what's in there.",
+    ],
+    blindSpots: [
+      'You can push through resistance that was information, closing a deal that should have been requalified.',
+      "You can mistake your own tolerance for the buyer's, staying comfortable in a room they want out of.",
+      "You can keep asking a buyer who can't say yes, because they never quite say no either.",
+      'You can win the hard deal and spend a quarter on something a better-qualified rep closed in a week.',
+    ],
+    inTheDeal:
+      "In a live deal, the Resilient Closer asks for the business, hears the timing objection, and doesn't move on. You ask what changes in Q3. Then what would have to be true. By the fourth question the buyer is describing the actual blocker, which was never timing. Almost nobody can stay in that conversation long enough to get there — and staying means you sometimes get there with a deal that was dead two questions ago.",
+    sellsBestTo:
+      "Buyers who stall rather than decline, and organizations where the real objection surfaces late. Anyone who's been given an easy out by every previous vendor. You struggle with buyers who need space to arrive on their own and read persistence as pressure.",
+    growthEdge:
+      "Learn the difference between a buyer who's uncomfortable and one who's disqualified. You can handle both, which is the problem — the discomfort you tolerate so well is also the signal other sellers use to walk away. They leave too early. You leave too late. The cost is the same.",
+    tension:
+      "Resilience absorbs the setback. Closing wants the decision now. Both instincts point at staying, so nothing in you ever votes to leave. A seller who felt the rejection would quit on some deals too early and get a useful false positive out of it. You get no signal at all. The deal you should have killed in March feels exactly like the deal you saved in April.",
+    mistakenFor: {
+      slug: 'resilient-hunter',
+      name: 'Resilient Hunter',
+      tell: "Both keep going when it's unpleasant. You spend it inside one deal. The Hunter spends it starting new ones. If your bad weeks show up as an empty pipeline rather than a stuck one, the Hunter is closer.",
+    },
+    adjacent: ['resilient-hunter', 'empathic-closer', 'strategic-challenger'],
+  },
+  {
+    slug: 'curious-advisor',
+    name: 'Curious Advisor',
+    trait: 'Curious',
+    style: 'Advisor',
+    tagline: 'You ask until you actually know, then you say what you think.',
+    metaDescription:
+      'The Curious Advisor asks past the point where the answer was good enough, then makes a recommendation. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Curious Advisor asks past the point where the answer was good enough. Then, unlike most people who ask that many questions, you stop and tell the buyer what to do.",
+      "Discovery is where a lot of sellers hide. It feels productive and it's never wrong. You go further than they do and then do the thing they're avoiding, which is putting a recommendation on the table with your name on it.",
+    ],
+    strengths: [
+      'You ask the question that changes what the buyer thought the problem was.',
+      "You'll say \"I don't think you need this yet,\" which buys more credibility than any pitch.",
+      'Your recommendations are specific, because they are built on things the buyer told you rather than a category assumption.',
+      'You can advise against your own product and still be in the deal six months later.',
+    ],
+    blindSpots: [
+      'You can keep asking after you have enough, because one more answer always seems like it might matter.',
+      "You can recommend something so tailored the buyer can't get it approved internally.",
+      'You can treat a simple purchase as a problem to understand, and the buyer just wanted a quote.',
+      'You can be so committed to the honest recommendation that you talk yourself out of winnable deals.',
+    ],
+    inTheDeal:
+      "In a live deal, the Curious Advisor spends forty minutes on discovery everyone else would have wrapped in fifteen, then says the thing the buyer has been circling for a month out loud. They go quiet. Then they start telling you what's really going on. The buyer will act on a recommendation built that way — and every recommendation costs you the forty minutes first, on deals that don't all justify it.",
+    sellsBestTo:
+      "Buyers with a badly defined problem and real budget. People who've been pitched at and never asked. You struggle with buyers who already know their spec and treat discovery as a delay tactic.",
+    growthEdge:
+      "You already know when you have enough. The question you ask next isn't for information, it's for confidence. There's a moment in most of your calls where the recommendation is fully formed and you ask three more things anyway. The buyer was ready at that moment. You weren't.",
+    tension:
+      "Curiosity wants more input. Advising wants a conclusion. Those look opposed and aren't — advising is happy to wait for better information, and curiosity is happy to keep supplying it. So they agree to continue. Nothing in you names the point where you know enough, and the recommendation arrives when the meeting ends rather than when you were ready.",
+    mistakenFor: {
+      slug: 'curious-cultivator',
+      name: 'Curious Cultivator',
+      tell: "Both go deep and both take time. You end with a recommendation. The Cultivator ends with a better relationship and comes back. If your accounts grow without you ever having made a specific call, the Cultivator fits better.",
+    },
+    adjacent: ['curious-cultivator', 'empathic-advisor', 'devoted-advisor'],
+  },
+  {
+    slug: 'authentic-advisor',
+    name: 'Authentic Advisor',
+    trait: 'Authentic',
+    style: 'Advisor',
+    tagline: "You'd rather lose the deal than manage the message.",
+    metaDescription:
+      'The Authentic Advisor says the thing without deciding how to say it first. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Authentic Advisor says the thing without deciding how to say it first. Buyers notice the absence of a beat before you answer. That gap is where most sellers do their calculating, and you skipped it.",
+      "Advice is only worth something if the person giving it would tell you something you don't want to hear. You clear that bar constantly, sometimes carelessly. The trust you get isn't a technique and can't be copied by a rep who read about it.",
+    ],
+    strengths: [
+      "You answer the hard question directly, including the one about your own product's weakness.",
+      "Buyers believe your good news because they've heard you deliver bad news.",
+      "You don't have a version of yourself for the executive meeting, so nothing slips when you're tired.",
+      "You'll tell a buyer their internal plan is the real problem, not the vendor they're evaluating.",
+    ],
+    blindSpots: [
+      'You can say the true thing in a room that needed it said differently, and lose the point to the delivery.',
+      'You can undersell something good because overstating it feels like lying.',
+      'You can volunteer a weakness the buyer never asked about and hand the competitor a line.',
+      "You can mistake bluntness for honesty on a day when you're just tired.",
+    ],
+    inTheDeal:
+      "In a live deal, the Authentic Advisor tells a buyer their own timeline is the risk, not the implementation, in a meeting where four people had agreed not to say that. Buyers who've been handled for a decade don't have a category for it, and some of them never get past the surprise. What you have is a buyer who believes you, which is rare enough to be worth real money — and it costs you the deals where the truth arrived before the relationship could hold it.",
+    sellsBestTo:
+      "Buyers who've been burned by overpromising, and technical evaluators who can detect a hedge. Senior people who are rarely told the truth. You struggle with buyers who need reassurance, and in competitive processes where your honesty gets read as weakness against a confident competitor.",
+    growthEdge:
+      "Honesty and timing aren't opposites. You can hold a true thing for twenty minutes without it becoming a lie, and twenty minutes is often the difference between a buyer hearing it and a buyer defending against it. You're not being asked to say less. You're being asked to wait, which you experience as the same thing.",
+    tension:
+      "Authenticity refuses to manage the message. Advising requires judgment about what to say. Both instincts are about being useful, so they never argue — which means nothing in you ever votes for delay. The true thing goes on the table at the moment you think it, and the buyers who couldn't take it yet are simply gone.",
+    mistakenFor: {
+      slug: 'authentic-connector',
+      name: 'Authentic Connector',
+      tell: "Both are trusted because nothing reads as performance. You spend it on advice buyers don't enjoy. The Connector keeps the relationship comfortable. If you'd rather stay close than be right, the Connector fits better.",
+    },
+    adjacent: ['authentic-connector', 'empathic-advisor', 'strategic-challenger'],
+  },
+  {
+    slug: 'adaptive-cultivator',
+    name: 'Adaptive Cultivator',
+    trait: 'Adaptive',
+    style: 'Cultivator',
+    tagline: 'The account grows because you kept changing how you worked it.',
+    metaDescription:
+      'The Adaptive Cultivator stays in one account and keeps adjusting inside it. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Adaptive Cultivator stays in one account and keeps adjusting inside it. The relationship in year three doesn't look like year one, not because the buyer changed but because you kept revising your read of them.",
+      "Most people who stay in accounts settle into a rhythm. The QBR has a shape, the check-in has a cadence, and it works until it quietly doesn't. You don't settle. Something about the account always feels slightly unsolved, which is why yours keep growing when other reps' plateau.",
+    ],
+    strengths: [
+      "You notice when an account's priorities have shifted and change your approach before the renewal conversation.",
+      "You survive a new stakeholder arriving, because you'll rebuild the relationship rather than defend the old one.",
+      'You run a different play in year two than year one, on the same account.',
+      "You spot expansion in a direction nobody predicted, because you weren't working from last year's plan.",
+    ],
+    blindSpots: [
+      "You can change an approach that was working, because working isn't the same as interesting.",
+      'You can confuse the buyer by showing up differently than you did last quarter.',
+      "You can keep optimizing an account that's already at its ceiling.",
+      'You can spread attention across accounts that all seem worth another look.',
+    ],
+    inTheDeal:
+      "In a live deal, the Adaptive Cultivator notices the buyer's questions have shifted from cost to risk and quietly changes the entire frame before anyone names it. The expansion that follows looks like luck to everyone watching. Nobody else is going to catch that shift, because catching it requires still paying close attention in year three — and the reps who don't pay that kind of attention also don't rework an account that was already growing.",
+    sellsBestTo:
+      "Accounts in genuine flux — reorgs, new leadership, changing priorities, anything where last year's approach has actually expired. You struggle with stable accounts that want consistency, where your adjusting reads as instability.",
+    growthEdge:
+      "Some accounts want last year's version of you. That's not stagnation, it's the thing they're paying for. The signal to watch isn't whether the relationship feels fresh to you. It's whether anything in the account actually changed. You're currently using your own restlessness as the trigger, and it fires on a schedule that has nothing to do with them.",
+    tension:
+      "Adaptive wants the new approach. Cultivating wants more time in the account. Both are satisfied by staying and adjusting, so the account never reaches a state you'd call finished. A seller running a fixed play would eventually notice it stopped working. You change before it fails, so you never find out which version was the one the buyer responded to. Five years in this account and you still can't say what works here.",
+    mistakenFor: {
+      slug: 'adaptive-student',
+      name: 'Adaptive Student',
+      tell: "Both keep changing and both improve fast. You change to fit one account. The Student changes to get better at selling. If what improves is your technique rather than your accounts, the Student is closer.",
+    },
+    adjacent: ['curious-cultivator', 'adaptive-student', 'devoted-connector'],
+  },
 ]
 
 export function getArchetype(slug: string): Archetype | undefined {
