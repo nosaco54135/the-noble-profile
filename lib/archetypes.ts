@@ -1345,6 +1345,240 @@ export const archetypes: Archetype[] = [
     },
     adjacent: ['methodical-closer', 'devoted-cultivator', 'methodical-architect'],
   },
+  {
+    slug: 'strategic-cultivator',
+    name: 'Strategic Cultivator',
+    trait: 'Strategic',
+    style: 'Cultivator',
+    tagline: "You know which account will be your biggest in three years, and you're already working it.",
+    metaDescription:
+      "The Strategic Cultivator grows accounts toward a plan, working the next expansion before the customer sees it coming. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Strategic Cultivator runs an account like a map. You know which division has budget next year, which VP is about to be promoted, and which product line the customer will need once the current rollout lands. The small deal you closed last spring was chosen because of where it leads.",
+      "Most account managers grow what's in front of them. You grow toward something. That's why your accounts compound. It's also why a customer occasionally senses they're a step in a plan rather than the point of it.",
+    ],
+    strengths: [
+      "You can name the next three expansions in your biggest account and the person who'll sign each one.",
+      "You spot the reorg in a customer's press release and meet the new owner before your competitor knows there is one.",
+      "Your land deals are small on purpose, placed where the second deal will be easy.",
+      "You know the customer's fiscal calendar better than some of their own managers do.",
+    ],
+    blindSpots: [
+      "The champion who helped you land the account gets less of your time once the map says the budget is elsewhere.",
+      "Accounts that won't grow get serviced, not cultivated, and they can tell.",
+      "You invest a year in the department that's supposed to buy and miss the one that was ready.",
+      "Your plan assumes the customer's strategy holds, and customer strategies rarely hold for three years.",
+    ],
+    inTheDeal:
+      "In a live deal, the Strategic Cultivator uses a routine renewal call to ask about the acquisition the customer announced in March, and leaves with an introduction to the acquired company's head of sales. The renewal becomes the entry point to a second business. Few account managers think three moves ahead inside a customer. The same foresight rations your attention, and the contacts who don't feature in the next move feel the drop.",
+    sellsBestTo:
+      "Large, complex customers with several business units and a history of buying across them. Companies in growth or acquisition mode, where the org chart changes faster than the vendor list. A single-product customer with one buyer and no room to expand gives your planning nothing to work on, and those accounts get your least interesting quarters.",
+    growthEdge:
+      "Somewhere in your book is the person who championed you in year one. They still take your calls. They've also noticed the calls got shorter around the time their department stopped being where the budget was.",
+    tension:
+      "Strategy decides where your time goes. Cultivating assumes you'll stay with the people already there. The map tells you to move toward next year's budget, but the relationship was built with this year's champion, who is still sitting there. You move, because the plan is usually right, and the relationship you left behind is the part of the account nobody measures.",
+    mistakenFor: {
+      slug: 'strategic-hunter',
+      name: 'Strategic Hunter',
+      tell: "The Strategic Hunter's account map is covered in logos. Yours is covered in departments of a customer you already have. If most of your best deals were first deals, the Hunter page is the one to read.",
+    },
+    adjacent: ['strategic-architect', 'methodical-cultivator', 'curious-cultivator'],
+  },
+  {
+    slug: 'curious-challenger',
+    name: 'Curious Challenger',
+    trait: 'Curious',
+    style: 'Challenger',
+    tagline: "Your questions lead somewhere, and the buyer arrives there thinking it was their idea.",
+    metaDescription:
+      "The Curious Challenger builds the reframe out of the buyer's own answers, so the insight feels like theirs. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Curious Challenger builds the reframe out of the buyer's own answers. You ask how they measure the problem, what it cost last year, and who else feels it. By the fourth question the buyer is describing a different problem than the one they called you about.",
+      "Most challengers bring the insight with them. You collect it in the room. Buyers trust a conclusion they reached out loud more than one they were shown, which is the whole advantage. The same patience means the challenge sometimes arrives after the meeting has run out of time.",
+    ],
+    strengths: [
+      "Buyers defend your reframe to their own team, because they remember saying it first.",
+      "You find the problem behind the stated problem without ever telling the buyer they got it wrong.",
+      "Skeptical executives stay in the conversation longer, since every question is about their business.",
+      "When a buyer pushes back, you answer with a question, and the objection usually weakens on its own.",
+    ],
+    blindSpots: [
+      "Sharp buyers spot the destination three questions early and start answering defensively.",
+      "You run out of meeting before you make the point the questions were building toward.",
+      "Some buyers wanted your opinion and got a quiz.",
+      "A reframe you collected can't be reused, so you rebuild it from scratch every deal.",
+    ],
+    inTheDeal:
+      "In a live deal, the Curious Challenger asks a head of operations how many of last quarter's escalations traced back to one handoff, waits while they count, and watches them realize it was most of them. The buyer now owns the insight. No slide lands like that. The method is slow, though, and in a thirty-minute slot the counting sometimes uses the time the decision needed.",
+    sellsBestTo:
+      "Analytical buyers who distrust conclusions they didn't reach themselves. Operations and finance leaders who know their numbers and enjoy being made to use them. Executives who want the answer in the first five minutes get impatient with your method before it pays off.",
+    growthEdge:
+      "At least once a quarter you walk out of a meeting where the buyer was one question away from the reframe. You had the question ready. The meeting ended, the follow-up got pushed, and by the next call the buyer had moved on to a different problem.",
+    tension:
+      "Curiosity wants to hear what the buyer thinks. Challenging means telling them they're wrong about it. You manage the conflict by asking questions that lead where you'd have argued, which works until a buyer realizes you've been leading them to the same conclusion for fifteen minutes. At that point you either say the thing plainly or keep asking, and your instinct is to keep asking.",
+    mistakenFor: {
+      slug: 'curious-advisor',
+      name: 'Curious Advisor',
+      tell: "The Curious Advisor's questions end in a recommendation the buyer can take or leave. Yours end in an argument you intend to win. If you're comfortable when a buyer ignores your advice, the Curious Advisor is the better match.",
+    },
+    adjacent: ['strategic-challenger', 'curious-closer', 'curious-hunter'],
+  },
+  {
+    slug: 'methodical-challenger',
+    name: 'Methodical Challenger',
+    trait: 'Methodical',
+    style: 'Challenger',
+    tagline: "You bring the buyer's own numbers, and they can't argue with them.",
+    metaDescription:
+      "The Methodical Challenger reframes the buyer's problem with their own numbers, benchmarked and sourced. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Methodical Challenger reframes with evidence. Before the meeting you've benchmarked the buyer against their peers, rebuilt their funnel from public data, and found the stage where they lose the most. The challenge isn't an opinion. It's a spreadsheet with their name at the top.",
+      "Buyers can dismiss a point of view. They have a harder time dismissing their own metrics laid out in order. That makes your reframes unusually durable. It also makes some meetings feel less like a conversation than an audit.",
+    ],
+    strengths: [
+      "Your business cases survive the CFO, because every number in them has a source.",
+      "You find the gap between the buyer's stated priority and where their money actually goes.",
+      "The buyer's analyst asks for your spreadsheet after the meeting so they can check it against their own.",
+      "Your reframe holds up weeks later, when the enthusiasm from the meeting has worn off and only the numbers are left.",
+    ],
+    blindSpots: [
+      "You present forty slides of proof to a buyer who agreed on slide six.",
+      "A buyer who feels audited defends their numbers instead of fixing them.",
+      "When the data is incomplete, you wait for better data instead of making the argument.",
+      "Your analysis answers the question you prepared for, not the one the executive walked in with.",
+    ],
+    inTheDeal:
+      "In a live deal, the Methodical Challenger shows a sales VP that their win rate drops by half once a deal passes sixty days, using their own CRM export. The VP forwards the slide to the CEO before the meeting ends. Evidence that specific is hard to ignore and harder to forget. It takes weeks to build, though, and a competitor with a looser argument sometimes gets there first.",
+    sellsBestTo:
+      "Data-literate buyers in finance, operations, and revenue leadership. Companies that run on metrics and have enough history to analyze. Early-stage companies with thin data give you little to build with, and buyers who decide on instinct find the preparation slow.",
+    growthEdge:
+      "Most Methodical Challengers can recall a meeting where the buyer said yes and they kept presenting. The remaining slides were good. Two of them raised a question the buyer hadn't thought of, and the deal went back to legal for a month.",
+    tension:
+      "Method and challenge both run on proof. One wants the process documented, the other wants the argument airtight, and neither ever tells you the case is finished. There's always another benchmark, another cut of the data. The buyer was convinced two exhibits ago. Nothing in you registers that moment, so you keep building a case that's already won.",
+    mistakenFor: {
+      slug: 'methodical-architect',
+      name: 'Methodical Architect',
+      tell: "The Methodical Architect's analysis stays inside your company and becomes the playbook. Yours goes on the buyer's screen with their name on it. If your best spreadsheets were built for your own team, that's the Architect.",
+    },
+    adjacent: ['strategic-challenger', 'methodical-closer', 'methodical-hunter'],
+  },
+  {
+    slug: 'resilient-challenger',
+    name: 'Resilient Challenger',
+    trait: 'Resilient',
+    style: 'Challenger',
+    tagline: "The buyer pushes back, and you make the argument again, better.",
+    metaDescription:
+      "The Resilient Challenger holds a reframe through senior pushback and brings it back with a sharper case. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Resilient Challenger doesn't lose the thread when a senior buyer says no. You come back to the second meeting with the same reframe and a sharper case, and to a third if you need it. Pushback reads to you as the start of the conversation.",
+      "Most sellers drop a challenge the first time an executive frowns at it. You're still standing behind yours a month later. Some buyers respect that more than anything else in the process. Others were right the first time, and you took a month to find out.",
+    ],
+    strengths: [
+      "You hold your position when a C-level buyer leans back and crosses their arms.",
+      "A rejected reframe comes back with better evidence instead of disappearing.",
+      "You'll challenge the incumbent vendor's champion in the room they control.",
+      "Your manager sends you into the accounts where the last rep got shouted out of the room.",
+    ],
+    blindSpots: [
+      "A buyer's considered no sounds to you like a first objection.",
+      "You win the argument in the third meeting and lose the relationship in the second.",
+      "You keep pressing the same reframe after the buyer's circumstances have made it wrong.",
+      "Colleagues stop warning you about hostile stakeholders, because the warning never changes what you do.",
+    ],
+    inTheDeal:
+      "In a live deal, the Resilient Challenger hears a CFO call the business case 'optimistic' in front of the committee and asks for twenty minutes the following week to walk through the assumptions line by line. The CFO agrees, mostly out of surprise. Most sellers never get that second hearing because they never ask for it. The same persistence spends goodwill, and on the deals where the buyer's no was final, you spend it with nothing to show.",
+    sellsBestTo:
+      "Senior buyers who test vendors with early pushback and respect the ones who hold. Committees with a skeptic who has to be won over rather than routed around. Buyers who say no once and mean it, and read a second attempt as not listening, are where your persistence costs the most.",
+    growthEdge:
+      "Every Resilient Challenger has a deal they re-pitched three times to a buyer who had already made up their mind. The argument got better each time. The answer never changed, and the account you could have been prospecting that month sat untouched.",
+    tension:
+      "Resilience makes a no hurt less. Challenging invites no's on purpose. Together they remove the signal most sellers rely on to back off, which is the sting of rejection. Pushback doesn't cost you anything, so it doesn't tell you anything either. You can't easily separate the buyer testing your conviction from the buyer telling you the answer.",
+    mistakenFor: {
+      slug: 'resilient-closer',
+      name: 'Resilient Closer',
+      tell: "The Resilient Closer stays in the uncomfortable room to get a signature. You stay to win the point, and sometimes the point is all you walk out with. If the discomfort you push through is usually about price and timing rather than ideas, read the Closer.",
+    },
+    adjacent: ['resilient-hunter', 'strategic-challenger', 'empathic-challenger'],
+  },
+  {
+    slug: 'authentic-challenger',
+    name: 'Authentic Challenger',
+    trait: 'Authentic',
+    style: 'Challenger',
+    tagline: "You tell the buyer what you'd tell your own company, and you don't dress it up.",
+    metaDescription:
+      "The Authentic Challenger delivers the uncomfortable truth in plain words, with no staging and no insight deck. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Authentic Challenger says the uncomfortable thing in the words you'd use over a beer. No insight deck, no teaching sequence, no carefully staged moment. When you see that the buyer's plan won't work, you say so and explain why in plain language.",
+      "Nothing about your challenge is choreographed, and that's why buyers believe it. The trade is that an unstaged challenge has no setup, so it sometimes arrives before the buyer has any reason to take it seriously.",
+    ],
+    strengths: [
+      "Buyers take your challenge as a straight opinion rather than a sales move, because it has no packaging.",
+      "You'll say the uncomfortable thing about the buyer's own team when nobody else in the process will.",
+      "Executives call you before other vendors when they want an honest read on a decision.",
+      "Your reframes don't collapse under a follow-up question, since nothing in them was performed.",
+    ],
+    blindSpots: [
+      "You skip the groundwork and deliver the conclusion to a buyer who hasn't seen any of the evidence.",
+      "Plain language lands as bluntness with a VP who needed the point made more carefully.",
+      "You refuse to build the deck, and the champion has nothing to take to their boss.",
+      "The truth you told the champion in private travels up the org without the context you gave it.",
+    ],
+    inTheDeal:
+      "In a live deal, the Authentic Challenger tells a buyer that the vendor they're about to replace is fine and their real problem is the process around it, knowing the answer shrinks the deal. The buyer rescopes, buys less, and trusts you with the next decision entirely. Few sellers are believed that completely. What you give up is the staging that makes a reframe travel, and a truth with no deck behind it rarely reaches the people who sign.",
+    sellsBestTo:
+      "Executives surrounded by people who tell them what they want to hear. Founders and owners who make the decision themselves and value a straight answer. Large committees are harder, since your challenge has to be repeated by people who didn't hear how you said it.",
+    growthEdge:
+      "You've probably watched another challenger win a deal with an argument you made first. Theirs had a deck, a benchmark, and a story. Yours was a sentence in a hallway. The buyer remembered both, and could only forward one of them.",
+    tension:
+      "Challenging, done professionally, is staged. There's a setup, a teaching moment, a reveal. You deliver the reveal without the setup, the way you'd tell a friend. That makes the challenge believable and hard to carry, because the buyer has to reconstruct your reasoning to repeat it to anyone else.",
+    mistakenFor: {
+      slug: 'authentic-advisor',
+      name: 'Authentic Advisor',
+      tell: "The Advisor says the hard thing and leaves the buyer to decide what to do with it. You say it and then ask them to act. If your honest opinions usually end without a next step, start with the Advisor.",
+    },
+    adjacent: ['authentic-closer', 'authentic-hunter', 'strategic-challenger'],
+  },
+  {
+    slug: 'adaptive-challenger',
+    name: 'Adaptive Challenger',
+    trait: 'Adaptive',
+    style: 'Challenger',
+    tagline: "You drop a wrong thesis faster than anyone, including in the middle of the meeting.",
+    metaDescription:
+      "The Adaptive Challenger rebuilds the reframe mid-meeting when the buyer's facts break it. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Adaptive Challenger walks in with a point of view and holds it only as long as it survives the room. When the CFO produces a number that breaks your reframe, you acknowledge it, rebuild the argument on the new fact, and keep going. Your thesis at the end of the meeting is rarely the one you brought.",
+      "Most challengers defend their insight past the point it's useful. You update, which keeps your reframes current and rarely leaves you embarrassed. Buyers also notice that your position moved once, and some of them start pushing to see if it moves again.",
+    ],
+    strengths: [
+      "Your reframes reflect this quarter's market, not last year's pitch deck.",
+      "A fact that breaks your argument makes it better instead of ending the meeting.",
+      "You're the first on your team to notice a talk track has stopped landing, and the first to replace it.",
+      "Buyers trust your challenge more after watching you concede a point you were wrong about.",
+    ],
+    blindSpots: [
+      "You concede to a confident buyer who was wrong, because conceding comes easier to you than holding.",
+      "Your position shifts often enough that the champion can't repeat it to their boss.",
+      "The buyer who pushed once learns to push again.",
+      "You keep refining the reframe after the committee needed one version to vote on.",
+    ],
+    inTheDeal:
+      "In a live deal, the Adaptive Challenger opens with a thesis about the buyer's churn, hears the head of customer success explain that churn is fine and expansion is the real problem, and rebuilds the pitch around expansion before the hour is up. The buyer feels heard and challenged in the same meeting. That combination is rare. It also teaches the room that your conviction has give in it, and in a negotiation that's exactly what procurement goes looking for.",
+    sellsBestTo:
+      "Fast-changing markets where last year's insight is already stale. Buyers who respect a seller who can say they were wrong. Committees that need one fixed argument to rally around are harder, since the version you pitched in the first meeting is rarely the one you'd defend in the fourth.",
+    growthEdge:
+      "Every Adaptive Challenger has conceded a point in a meeting and found out a week later that their original read was correct. The buyer had sounded certain. The data, when someone finally pulled it, was on your side.",
+    tension:
+      "Challenging needs conviction. Adapting treats every conviction as provisional. You hold a thesis firmly enough to say it out loud and loosely enough to trade it for a better one, and buyers can't always tell which grip they're seeing. Neither can you, in the moment, which is why some concessions age well and some don't.",
+    mistakenFor: {
+      slug: 'strategic-challenger',
+      name: 'Strategic Challenger',
+      tell: "The Strategic Challenger's reframe usually leaves the meeting in the shape it arrived. Yours rarely does. If your thesis usually leaves the meeting intact even after it's taken damage, the Strategic Challenger is your page.",
+    },
+    adjacent: ['adaptive-closer', 'adaptive-student', 'empathic-challenger'],
+  },
 ]
 
 export function getArchetype(slug: string): Archetype | undefined {
