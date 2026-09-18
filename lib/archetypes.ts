@@ -643,6 +643,474 @@ export const archetypes: Archetype[] = [
     },
     adjacent: ['curious-cultivator', 'adaptive-student', 'devoted-connector'],
   },
+  {
+    slug: 'methodical-hunter',
+    name: 'Methodical Hunter',
+    trait: 'Methodical',
+    style: 'Hunter',
+    tagline: "You prospect like it's a process, because it is one.",
+    metaDescription:
+      'The Methodical Hunter runs outbound as a system rather than on energy. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Methodical Hunter runs outbound as a system. The list is built before the week starts, the sequence has a reason for each touch, and the tracking is good enough that you know which of the four steps is actually producing the meetings.",
+      "Most hunters run on energy and can tell you their dial count. You can tell your conversion rate by segment. The volume matters less than knowing why the volume is working, which is why your numbers hold in a bad quarter when everyone else is trying harder.",
+    ],
+    strengths: [
+      'You can tell which part of your outreach is producing meetings, which almost no rep can.',
+      "Your pipeline doesn't collapse when motivation does, because it was never running on motivation.",
+      'You test one variable at a time, so what you learn in March still applies in June.',
+      'You build lists that hold up, since you qualified before you dialed rather than after.',
+    ],
+    blindSpots: [
+      "You can spend Monday building the system and Thursday realizing you haven't talked to anyone.",
+      "The sequence still books meetings, just not enough of them, and you don't notice until the quarter is halfway gone.",
+      "You can over-qualify a list until it's too small to hit the number.",
+      "You can miss the buyer who needed a call right now because they weren't in this week's segment.",
+    ],
+    inTheDeal:
+      "In a live deal, the Methodical Hunter knows the prospect opened the case study twice and called on the second one, not the first. The timing looks like instinct and it's a rule you wrote down in February. Nobody else in your org can tell you why their outbound works, which means nobody else can fix theirs when it stops — and you'll spend a full day rebuilding a system on a week you needed to be dialing.",
+    sellsBestTo:
+      'Segments big enough to pattern-match — repeatable buyer profiles, defined verticals, anywhere the same problem shows up at forty companies. You struggle with one-off opportunities that do not fit a segment, and in markets too small for the system to have anything to learn from.',
+    growthEdge:
+      "Every outbound system eventually consumes the time it was built to save. The dangerous week is the one where the CRM looks beautiful and nobody remembers hearing your voice. What you know about what works came from calls, and a week of building produces nothing to build from next week.",
+    tension:
+      "Methodical wants the process right before running it. Hunting wants to be in the market now. That conflict is live every Monday morning, and the process usually wins, because it's the half of you with a visible deliverable at the end of the day. A finished list feels like work. An unreturned call doesn't.",
+    mistakenFor: {
+      slug: 'methodical-architect',
+      name: 'Methodical Architect',
+      tell: "Both build systems and both trust process over instinct. Yours is aimed at getting into conversations. The Architect's is aimed at getting a deal through an org. If your best work happens after the first meeting rather than before it, the Architect is closer.",
+    },
+    adjacent: ['methodical-architect', 'resilient-hunter', 'strategic-hunter'],
+  },
+  {
+    slug: 'curious-hunter',
+    name: 'Curious Hunter',
+    trait: 'Curious',
+    style: 'Hunter',
+    tagline: "You research until the cold call isn't cold.",
+    metaDescription:
+      'The Curious Hunter shows up to the first conversation already knowing something real. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Curious Hunter shows up to the first conversation already knowing something. Not the company boilerplate — the thing they said on a podcast in April, the role they've been trying to fill since January, the competitor they lost last year.",
+      "Prospecting rewards volume, and you've never been able to do it that way. Something about a name on a list makes you want to know what's actually going on there, and by the time you call you've talked yourself into caring. Buyers hear that in the first ten seconds.",
+    ],
+    strengths: [
+      'Your opener references something real, so you get past the first fifteen seconds far more than most.',
+      'You find the trigger event other reps miss, because you read past the funding announcement.',
+      'You can hold a conversation with a technical buyer on their own terms, having done the reading.',
+      "You know which accounts aren't worth calling, and you knew before you dialed.",
+    ],
+    blindSpots: [
+      'You can research four accounts in the time a decent hunter calls forty.',
+      "By the time you call, you're rooting for the account.",
+      'You can lead with the insight and lose the buyer before you ever get to a reason for the call.',
+      'You can treat a research session as a productive morning when nothing was produced.',
+    ],
+    inTheDeal:
+      "In a live deal, the Curious Hunter opens with a question about something the buyer thought nobody outside the company knew, and the call stops being a cold call by the second exchange. That access is worth more than fifty dials — and the research that produced it is time you can't spend twice, on an account that might not have budget until next year.",
+    sellsBestTo:
+      'Complex products, technical buyers, and markets where the buyer expects you to understand their world before you open your mouth. Senior people who screen out anyone generic. You struggle in high-velocity transactional segments where the winner is whoever called first.',
+    growthEdge:
+      "The research always feels productive because it leaves evidence behind. The calls disappear at the end of the day. One of those can fill a morning without risking rejection, and it's the one you reach for when the week starts badly.",
+    tension:
+      "Curiosity wants to understand the account. Hunting wants to be in the next conversation. They compete for the same hour, and curiosity wins most days because it's the one with something to show for itself. You end most weeks knowing more about your territory than anyone and having spoken to fewer people in it.",
+    mistakenFor: {
+      slug: 'curious-cultivator',
+      name: 'Curious Cultivator',
+      tell: "Both go deep and both take time. You use it to open new doors. The Cultivator uses it to go further into ones already open. If your best work is in year two of an account rather than week one, the Cultivator fits.",
+    },
+    adjacent: ['curious-cultivator', 'resilient-hunter', 'methodical-hunter'],
+  },
+  {
+    slug: 'authentic-hunter',
+    name: 'Authentic Hunter',
+    trait: 'Authentic',
+    style: 'Hunter',
+    tagline: 'You cold call like a person, which is why it works.',
+    metaDescription:
+      'The Authentic Hunter opens without a script voice and gets a beat of real attention. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Authentic Hunter opens without a script voice. No manufactured energy, no borrowed urgency. You say why you're calling in the words you'd use to a colleague, and enough buyers stay on the line that you've never needed the script.",
+      "Most prospecting fails because the buyer can hear a performance in the first three words. Yours doesn't sound like that, so you get a beat of genuine attention before they decide. What you do with that beat is the whole job.",
+    ],
+    strengths: [
+      'You get more second sentences than rehearsed reps, because nothing in your first one triggers the reflex.',
+      "You'll say \"you probably don't need this\" and mean it, which keeps people talking.",
+      "You handle the hostile pickup without matching it, since you weren't performing to begin with.",
+      'You leave voicemails people actually return.',
+    ],
+    blindSpots: [
+      'You can be so unwilling to sound salesy that you never make the reason for the call clear.',
+      'You can have a good human conversation that produces nothing and count it as a win.',
+      "You've abandoned follow-up sequences that were working because you couldn't recognize yourself in them anymore.",
+      'You can go quiet on a buyer rather than follow up a fourth time, reading persistence as performance.',
+    ],
+    inTheDeal:
+      "In a live deal, the Authentic Hunter gets a prospect to admit on a first call that they've been putting off a decision for eight months, because nothing about the call made admitting it costly. That kind of first conversation is rare enough that it separates you from everyone else in the queue — and it costs you the buyers who needed a clear ask and got a nice chat instead.",
+    sellsBestTo:
+      "Skeptical buyers, technical evaluators, and anyone who screens out anything that smells like a pitch. Senior people who've heard every opener. You struggle in transactional segments where the fastest clearest offer wins and your conversational approach reads as unfocused.",
+    growthEdge:
+      "Some buyers aren't waiting for authenticity. They're waiting for clarity. The thing you're avoiding is manufactured urgency, and a direct ask isn't that — it's the most honest sentence available, since it's exactly what you want. The hesitation costs you buyers who were ready.",
+    tension:
+      "Authenticity refuses the tactic. Hunting is a numbers game built on tactics. Both halves are genuinely present, so every sequence, every follow-up cadence, every \"just circling back\" gets evaluated against whether it's really you. Most of them don't survive that test. The reps below you on the leaderboard are running plays you've already decided you're not willing to run.",
+    mistakenFor: {
+      slug: 'authentic-connector',
+      name: 'Authentic Connector',
+      tell: "Both are trusted because nothing reads as performance. You use it to start conversations. The Connector uses it to deepen ones that exist. If your strongest relationships are years old rather than days, the Connector fits better.",
+    },
+    adjacent: ['authentic-connector', 'resilient-hunter', 'empathic-closer'],
+  },
+  {
+    slug: 'strategic-hunter',
+    name: 'Strategic Hunter',
+    trait: 'Strategic',
+    style: 'Hunter',
+    tagline: 'You pick the account before you pick up the phone.',
+    metaDescription:
+      'The Strategic Hunter treats target selection as the real work. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Strategic Hunter treats target selection as the real work. Which forty accounts, which person inside each, which reason now rather than in six months. By the time you're dialing, most of the thinking is already done.",
+      "Other hunters get handed a territory and start at the top. You look at the same territory and see maybe twelve accounts that make sense this quarter, and you'd rather work those twelve properly than touch all four hundred.",
+    ],
+    strengths: [
+      'You identify the accounts most likely to buy before making a single call.',
+      'You enter at the right level, having figured out who owns the problem rather than who owns the budget line.',
+      'You time outreach to something real — a hire, a filing, a competitor move — rather than to your own calendar.',
+      "You know why an account isn't ready, which means you know what would make it ready.",
+    ],
+    blindSpots: [
+      'You can narrow a territory to twelve accounts and miss the number when three of them stall.',
+      'You can build a thesis about an account and hear the disconfirming evidence as an objection.',
+      'You can spend the week deciding who to call and call almost nobody.',
+      "You can pass on the account that didn't fit the thesis and would have closed in three weeks.",
+    ],
+    inTheDeal:
+      "In a live deal, the Strategic Hunter calls a company two weeks after a VP hire everyone else saw and nobody connected to a buying window. The prospect asks how you knew to call now. Your hit rate per conversation is higher than anyone's on the floor — and you have fewer conversations than anyone on the floor, which means one bad read costs you a month.",
+    sellsBestTo:
+      'Considered purchases in defined markets where account selection genuinely predicts outcome. Complex orgs where entering at the wrong level kills the deal. You struggle in large undifferentiated markets where volume beats selection, and in territories too small to be selective in.',
+    growthEdge:
+      "Every Strategic Hunter has a list of accounts they never called because the timing looked wrong. Nobody ever finds out which of those would have closed. The thesis gets tested against more research, which can't disconfirm it — every new fact arrives already interpreted.",
+    tension:
+      "Strategic wants certainty about the target. Hunting wants activity now. They fight over the same morning and strategy usually wins, because selecting feels like the responsible version of prospecting. It's not obviously wrong — the accounts you pick really are better. It's just that a good list nobody called converts identically to a bad one.",
+    mistakenFor: {
+      slug: 'strategic-architect',
+      name: 'Strategic Architect',
+      tell: "Both work from a read of the org before engaging. You use it to choose who to approach. The Architect uses it to navigate once inside. If your real work starts after the first meeting, the Architect fits better.",
+    },
+    adjacent: ['strategic-architect', 'methodical-hunter', 'strategic-challenger'],
+  },
+  {
+    slug: 'devoted-closer',
+    name: 'Devoted Closer',
+    trait: 'Devoted',
+    style: 'Closer',
+    tagline: "You close because you're not going anywhere afterward.",
+    metaDescription:
+      'The Devoted Closer asks for the business with the next three years in view. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Devoted Closer asks for the business with the next three years in view. The ask isn't aggressive because it doesn't have to be — you're not extracting a signature, you're proposing something you intend to be present for.",
+      "Closing gets taught as a moment of pressure. Yours doesn't work that way. Buyers sign because it's obvious you'll still be around when something breaks, and that's a different kind of confidence than urgency.",
+    ],
+    strengths: [
+      "You close without pressure, because the buyer can tell the relationship doesn't end at signature.",
+      "You get the honest objection, since buyers don't feel they need to protect themselves from you.",
+      'Your closed deals stay closed, and they expand.',
+      "You'll walk away from a bad fit at the close, which makes every other deal you push more credible.",
+    ],
+    blindSpots: [
+      'You can delay the ask to protect a relationship that would have survived it.',
+      "You can close the deal that's good for the relationship rather than the one that's right for the quarter.",
+      'You can under-price, because raising it feels like taking from someone you are committed to.',
+      'You can stay in a stalled deal long past the point of a decision, since leaving feels like abandonment.',
+    ],
+    inTheDeal:
+      "In a live deal, the Devoted Closer asks for the signature and then tells the buyer which part of implementation is going to be painful, before they've signed. They sign anyway, usually faster. The implementation warning earns trust. The six extra meetings after the deal died earn nothing.",
+    sellsBestTo:
+      'Buyers making a long-term commitment with real switching costs, and anyone burned by a vendor that disappeared after signature. Risk-averse committees. You struggle with transactional buyers who just want a price and read your investment as overhead.',
+    growthEdge:
+      "The relationship usually survives the ask. The delay usually doesn't. Buyers sit in decisions for weeks that one meeting would have resolved, and the commitment you're protecting is the same thing that would have made the ask land.",
+    tension:
+      "Devotion plays the long game. Closing wants the decision today. They don't argue often, because you've mostly resolved it by choosing the long game — which means the close happens when the relationship is ready rather than when the deal is. Your forecast is accurate about everything except dates.",
+    mistakenFor: {
+      slug: 'devoted-advisor',
+      name: 'Devoted Advisor',
+      tell: "Both stay long and both put the buyer first. You still ask. The Advisor waits to be asked. If your deals tend to close because the buyer eventually got there, the Advisor is closer.",
+    },
+    adjacent: ['devoted-advisor', 'empathic-closer', 'devoted-connector'],
+  },
+  {
+    slug: 'curious-closer',
+    name: 'Curious Closer',
+    trait: 'Curious',
+    style: 'Closer',
+    tagline: 'You ask one more question, then you ask for the deal.',
+    metaDescription:
+      'The Curious Closer keeps digging right up to the ask, then builds the close around what they found. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Curious Closer keeps digging right up to the ask. The last question before you close is usually the one that makes the close work, because you found the thing they hadn't said yet and built the ask around it.",
+      "Most curious sellers never get to the ask. Most closers stopped asking questions two calls ago. Doing both in the same conversation is unusual, and it's why your close rate holds on deals that looked complicated.",
+    ],
+    strengths: [
+      "Your close is built on something the buyer told you, so it rarely sounds like a pitch.",
+      "You uncover the real objection before you ask, which means you're not closing into a surprise.",
+      'You can shift the ask mid-conversation when the answer changes what you are selling.',
+      "You ask the uncomfortable qualifying question, because you'd rather know now.",
+    ],
+    blindSpots: [
+      'You can ask a question that reopens a decision the buyer had already made.',
+      'You can find one more thing to understand and let a closable meeting end without an ask.',
+      'You can qualify a good deal to death looking for the flaw.',
+      "You can get so interested in the buyer's problem that you forget you're there to sell something.",
+    ],
+    inTheDeal:
+      "In a live deal, the Curious Closer asks what happens if they do nothing, hears an answer nobody had said out loud, and closes on that instead of the original pitch. The deal moves because you were still listening when everyone else had started presenting — and the same instinct will reopen a closed deal with a question you didn't need to ask.",
+    sellsBestTo:
+      "Complex deals where the stated requirement isn't the real one, and buyers who haven't fully diagnosed their own problem. You struggle with buyers who know exactly what they want and experience further questions as a stall.",
+    growthEdge:
+      "There's a moment in most of your calls where the ask is available and you ask one more thing instead. It doesn't produce information. It produces delay. The question feels like diligence and arrives at exactly the moment closing got uncomfortable.",
+    tension:
+      "Curiosity wants the next answer. Closing wants the decision. This one actually fights, and the fight happens in the last five minutes of every call. What curiosity really wants is for nothing to be left unresolved, and a signature always leaves something unresolved — there's a version of this buyer's problem you never got to. So the question that delays the close isn't procrastination. It's the more comfortable of two open loops.",
+    mistakenFor: {
+      slug: 'curious-advisor',
+      name: 'Curious Advisor',
+      tell: "Both dig deep and both arrive somewhere. You arrive at an ask. The Advisor arrives at a recommendation. If you're more likely to tell a buyer what you'd do than to ask them to decide, the Advisor is closer.",
+    },
+    adjacent: ['curious-advisor', 'curious-cultivator', 'empathic-closer'],
+  },
+  {
+    slug: 'empathic-cultivator',
+    name: 'Empathic Cultivator',
+    trait: 'Empathic',
+    style: 'Cultivator',
+    tagline: 'You can feel an account cooling before anything shows up in the data.',
+    metaDescription:
+      'The Empathic Cultivator reads account health through people rather than usage data. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Empathic Cultivator notices the temperature change. A champion's replies get shorter. Someone stops being copied. The QBR has one fewer person in it than last quarter, and you knew what that meant before the renewal flag went up.",
+      "Account management rewards attention, and most of it goes to the numbers. Yours goes to the people, which is why you see a problem two months before it becomes a number.",
+    ],
+    strengths: [
+      "You know an account is at risk while there's still time to do something about it.",
+      'You can tell which stakeholder actually likes you and which one is being polite, and you plan around the difference.',
+      'You sense when a champion has lost internal standing, which the usage data will never show.',
+      "You're the first call when something goes wrong, because people would rather tell you than the support queue.",
+    ],
+    blindSpots: [
+      "You can absorb an account's anxiety and carry it into your own week.",
+      'You can read a slow reply as a signal when the person was just on vacation.',
+      'You can protect a relationship with someone who no longer has any influence over the renewal.',
+      'You can spend your attention where the feelings are hardest, not where the revenue is.',
+    ],
+    inTheDeal:
+      "In a live deal, the Empathic Cultivator hears something off in a check-in call and raises it internally before the account has filed a single complaint. Six weeks later the save looks like luck. Nobody else in your company gets that warning — and the same sensitivity means you'll escalate three accounts that were fine, and spend the political capital you needed for the fourth.",
+    sellsBestTo:
+      "Accounts where relationships determine renewal more than features do, and organizations going through change that people feel before they announce. You struggle in accounts run purely on procurement metrics, where nobody's feelings enter the decision.",
+    growthEdge:
+      "Every Empathic Cultivator has an account they knew was fine and worried about anyway. The signal you read is real and it's also noisy, and there's no way to tell a real cooling from a bad month without checking. The accounts that worry you most are rarely the biggest ones. They're the ones you care about.",
+    tension:
+      "Empathy reads the account. Cultivating keeps you in it long enough to read it well. Neither instinct includes a threshold — nothing tells you which reading is worth acting on. A seller with less range would only notice the obvious signals, which is a crude filter but a filter. By Friday you've got six things you're keeping an eye on and no idea which one deserves Monday.",
+    mistakenFor: {
+      slug: 'empathic-advisor',
+      name: 'Empathic Advisor',
+      tell: "Both read people well and both stay close. You use it to protect the account. The Advisor uses it to tell buyers things. If people come to you for your take rather than because you noticed something, the Advisor is closer.",
+    },
+    adjacent: ['empathic-closer', 'curious-cultivator', 'devoted-connector'],
+  },
+  {
+    slug: 'devoted-cultivator',
+    name: 'Devoted Cultivator',
+    trait: 'Devoted',
+    style: 'Cultivator',
+    tagline: "You've been in this account longer than most of the people in it.",
+    metaDescription:
+      'The Devoted Cultivator outlasts everyone and becomes the institutional memory of the account. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Devoted Cultivator outlasts everyone. The champion who signed the original deal left two years ago. The exec sponsor changed twice. You're still there, and at this point you're the institutional memory for a company you don't work at.",
+      "Most reps rotate. You didn't, and the compounding is real — you know what was tried in 2022 and why it failed, which nobody currently in the building does.",
+    ],
+    strengths: [
+      "You know the account's history, including the failures that shape what they'll consider now.",
+      'You survive leadership changes, because you were never dependent on one relationship.',
+      'New stakeholders inherit you as a fixture rather than evaluating you as a vendor.',
+      'You can predict what this account will say no to, which saves months on every expansion.',
+    ],
+    blindSpots: [
+      'You can know an account so well you stop asking what changed.',
+      'You can be the reason a bad fit renews for the fourth year.',
+      "You can hold onto the account after it's clear the growth is gone, because leaving feels wrong.",
+      'You can protect a relationship instead of a number, and mean it as a virtue.',
+    ],
+    inTheDeal:
+      "In a live deal, the Devoted Cultivator tells a new VP why the thing they're about to propose failed here in 2022, and saves them a quarter. That's worth more than anything in the product, and it only exists because you stayed — which also means you've now spent four years in a territory where a rep who moved on would have opened three new accounts.",
+    sellsBestTo:
+      'Large stable accounts with long horizons and high switching costs. Organizations that churn people but not vendors. You struggle where growth requires new logos rather than deeper penetration, and in fast markets where history stops being relevant.',
+    growthEdge:
+      "Every Devoted Cultivator has an account that stopped growing and never got dropped. The knowledge is real and it's also sunk — what you know about 2022 has no value anywhere else. The accounts that reward loyalty and the accounts that just receive it look identical from the inside.",
+    tension:
+      "Devotion stays. Cultivating deepens. Both get better with time and neither has a stopping rule, so the account never reaches a point where you'd reconsider it. A rep who felt restless would leave some accounts too early and learn something from the ones that turned out fine without them. You never run that experiment.",
+    mistakenFor: {
+      slug: 'devoted-connector',
+      name: 'Devoted Connector',
+      tell: "Both stay for years and both go deep. Yours is about the account. The Connector's is about the people, including things that have nothing to do with the business. If you'd help a buyer with a problem that isn't yours, the Connector is closer.",
+    },
+    adjacent: ['devoted-connector', 'devoted-advisor', 'adaptive-cultivator'],
+  },
+  {
+    slug: 'resilient-cultivator',
+    name: 'Resilient Cultivator',
+    trait: 'Resilient',
+    style: 'Cultivator',
+    tagline: 'You stayed after the account went badly.',
+    metaDescription:
+      'The Resilient Cultivator survives the bad year and rebuilds the account from the other side. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Resilient Cultivator survives the bad year. A failed implementation, a missed SLA, an exec who blames you personally — most reps quietly rotate off after that, and the account churns eighteen months later. You stayed, and the relationship that came out the other side is stronger than it ever was before it broke.",
+      "Nothing in account management is harder than showing up to a meeting where you're unwelcome. You do it, and buyers remember who was there during the bad quarter.",
+    ],
+    strengths: [
+      'You stay present through a failure, which is the single rarest behavior in account management.',
+      'You take the angry call without going defensive, so the anger has somewhere to go.',
+      "You can rebuild a relationship that's already been damaged, which most reps won't attempt.",
+      'You keep accounts other reps would have written off as unrecoverable.',
+    ],
+    blindSpots: [
+      'You can rebuild an account that was never going to renew regardless.',
+      'You can absorb blame that belonged to product or support, and quietly carry it.',
+      'You can get used to conditions a new rep would flag immediately.',
+      'You can stay through a second failure that should have ended it.',
+    ],
+    inTheDeal:
+      "In a live deal, the Resilient Cultivator shows up to the post-mortem nobody wanted them at, takes the hit, and is still the vendor eighteen months later when the same company expands. Almost nobody stays through that — and staying means you're the last one to notice when an account has genuinely become unwinnable, because you've been absorbing the evidence for a year.",
+    sellsBestTo:
+      "Accounts recovering from a real failure, and buyers who've been abandoned by a vendor mid-crisis. Long implementations where something always goes wrong. You struggle in clean fast-moving accounts where your tolerance never gets tested and offers no advantage.",
+    growthEdge:
+      "Every Resilient Cultivator has an account they saved and one they should have let go. The account that needs one more quarter and the account that's already gone feel exactly the same while you're sitting in them.",
+    tension:
+      "Resilience absorbs the damage. Cultivating keeps you in place. Both instincts point at staying, and the thing that would normally end a bad account — the rep's own unwillingness to keep showing up — never arrives. Other people's patience runs out and that's information. Yours doesn't, so you get none.",
+    mistakenFor: {
+      slug: 'resilient-closer',
+      name: 'Resilient Closer',
+      tell: "Both stay in uncomfortable rooms. You stay for years, in an account. The Closer stays for the length of a conversation, to get a decision. If your endurance shows up in a single meeting rather than across quarters, the Closer is closer.",
+    },
+    adjacent: ['resilient-hunter', 'devoted-cultivator', 'empathic-cultivator'],
+  },
+  {
+    slug: 'authentic-cultivator',
+    name: 'Authentic Cultivator',
+    trait: 'Authentic',
+    style: 'Cultivator',
+    tagline: 'Your accounts know exactly where they stand with you.',
+    metaDescription:
+      'The Authentic Cultivator refuses to run the QBR as theater. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Authentic Cultivator won't run the QBR as theater. When the quarter was bad, you say it was bad. When the roadmap slipped, the customer hears it from you rather than from a release note, and the meeting is shorter and more useful than anyone expected.",
+      "Account management is full of managed optimism. Yours isn't, which costs you the comfortable meeting and buys you a customer who believes what you tell them.",
+    ],
+    strengths: [
+      "You deliver bad news yourself, before the customer finds it, which is why they trust the good news.",
+      "Your QBRs are short, because there's no performance in them.",
+      "You'll tell a customer they're not using the product well, which nobody else in the relationship will.",
+      "You say no to a request you can't deliver instead of taking it back to a roadmap that won't include it.",
+    ],
+    blindSpots: [
+      'You can deliver bad news to a room that needed it framed, and lose the point to the delivery.',
+      'You can be so allergic to spin that you undersell a genuine win.',
+      "You can volunteer a product weakness the customer wasn't thinking about.",
+      'You can skip the relationship-building meeting because it feels like theater, and lose access.',
+    ],
+    inTheDeal:
+      "In a live deal, the Authentic Cultivator opens a renewal conversation by naming the two things that went wrong this year before the customer does. The renewal usually gets easier, not harder. Very few vendors will do that. The renewal gets signed. The executive stops taking your calls.",
+    sellsBestTo:
+      "Technical customers and operators who can detect spin and resent it. Accounts that have been managed by someone polished and got burned. You struggle with executive stakeholders who want the relationship to feel good, and in political organizations where candor gets repeated in rooms you're not in.",
+    growthEdge:
+      "Being right and being heard have never been the same thing. A true thing held for two weeks is still true, and two weeks is often the difference between a customer hearing it and a customer defending against it. Waiting feels like the beginning of the thing you refuse to do.",
+    tension:
+      "Authenticity says it now. Cultivating wants the account healthy long-term. Those almost never conflict, which is why you've never had to develop a sense of timing. Most of the time the blunt answer works. That's why the one time it doesn't is easy to miss.",
+    mistakenFor: {
+      slug: 'authentic-advisor',
+      name: 'Authentic Advisor',
+      tell: "Both refuse to manage the message. You apply it to an account over time. The Advisor applies it to a decision in front of them. If your honesty shows up most when a buyer is choosing something, the Advisor is closer.",
+    },
+    adjacent: ['authentic-connector', 'authentic-advisor', 'devoted-cultivator'],
+  },
+  {
+    slug: 'strategic-closer',
+    name: 'Strategic Closer',
+    trait: 'Strategic',
+    style: 'Closer',
+    tagline: 'You close the person who decides, not the person in the room.',
+    metaDescription:
+      'The Strategic Closer designs the path to signature in week two. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Strategic Closer knows who has to say yes before asking anyone. The close isn't a moment at the end — it's the last step in a sequence you designed in week two, and by the time you ask, everyone who could block it has already been handled.",
+      "Most closers work the person in front of them. You work the path to the signature, which is why your deals rarely die in legal and occasionally die because you were managing a process while a competitor was building a relationship.",
+    ],
+    strengths: [
+      'You ask the person who can actually say yes, because you found them early.',
+      "Your deals don't die in procurement, since you engaged procurement before you needed them.",
+      'You know which stakeholder is a real blocker and which one just talks a lot.',
+      'You close on the buyer timeline rather than your quarter, and get better terms for it.',
+    ],
+    blindSpots: [
+      "You can run a perfect process past a buyer who'd have signed in week two.",
+      'You can treat a stakeholder as an obstacle to route around and create a real one.',
+      'You can be so committed to the sequence that you miss the moment the deal was closable.',
+      "You can win on process against a competitor who won on relationship, right up until you don't.",
+    ],
+    inTheDeal:
+      "In a live deal, the Strategic Closer spends six weeks getting a CFO comfortable before the CFO knows there's a deal, so the ask takes four minutes. Your win rate on complex deals is higher than anyone's — and the same approach means you're still sequencing stakeholders on a deal a transactional rep would have closed and moved on from.",
+    sellsBestTo:
+      "Committee purchases, enterprise cycles, anything where the person in the room isn't the person deciding. Regulated buyers with real procurement. You struggle with founder-led companies and fast deals where one person decides and wants to decide today.",
+    growthEdge:
+      "Every Strategic Closer has a deal they sequenced carefully and lost to someone who just asked. The process is why the hard deals close, and it runs the same way whether this deal needs it or not. There's no step in the sequence for noticing the buyer is already ready.",
+    tension:
+      "Strategic wants the path complete. Closing wants the decision. They agree on the destination and disagree about when, and strategy usually wins because a premature ask has a visible cost and a delayed one doesn't. The deals you lose this way never announce themselves — the buyer just gets quieter and signs with someone else.",
+    mistakenFor: {
+      slug: 'strategic-architect',
+      name: 'Strategic Architect',
+      tell: "Both map the org and both sequence carefully. You're building toward an ask. The Architect is building a structure that survives without one. If you'd rather the deal be inevitable than ask for it, the Architect is closer.",
+    },
+    adjacent: ['strategic-architect', 'strategic-hunter', 'methodical-architect'],
+  },
+  {
+    slug: 'methodical-closer',
+    name: 'Methodical Closer',
+    trait: 'Methodical',
+    style: 'Closer',
+    tagline: 'Nothing surprises you at the end, because you checked.',
+    metaDescription:
+      'The Methodical Closer runs a close like a checklist and never gets surprised. Strengths, blind spots, and how this selling style wins. Take the free assessment.',
+    intro: [
+      "The Methodical Closer runs a close like a checklist. Legal has seen it, security is cleared, the signer's name is confirmed, and the mutual action plan has dates attached that both sides agreed to out loud. When you ask, there's nothing left to discover.",
+      "Deals die in the last two weeks more than anywhere else, almost always from something nobody checked. Yours don't, and the tradeoff is that you're still checking on deals that were closable a month ago.",
+    ],
+    strengths: [
+      'Your forecast is accurate, because you verified rather than assumed.',
+      'You find the unsigned dependency in week four instead of week twelve.',
+      "You confirm the signer before building the close around someone who can't sign.",
+      'Your deals close on the date you said, which is rare enough that management notices.',
+    ],
+    blindSpots: [
+      'You can run a full process on a deal that needed one conversation.',
+      'You can confirm a detail the buyer had already confirmed, which reads as distrust.',
+      'You can hold an ask until the checklist is clean and lose the moment the buyer was ready.',
+      'You can build a plan the buyer agreed to in principle and never actually adopted.',
+    ],
+    inTheDeal:
+      "In a live deal, the Methodical Closer asks in week three who signs and what their review process looks like, and the answer changes the entire timeline. Everyone else finds that out in week eleven. Nobody on your team gets surprised at the end of a quarter — and the deal that was ready in week four waited until week nine for a checklist that had nothing left to find.",
+    sellsBestTo:
+      "Enterprise and regulated buyers where the process is genuinely complicated and someone has to hold it. Buyers who don't know their own procurement. You struggle with SMB and transactional deals where the process is one email and your rigor reads as friction.",
+    growthEdge:
+      "Every Methodical Closer has a deal that was ready before the checklist was. The process is why your quarter is predictable, and it's also a set of steps with no exit condition — there's always one more thing that could be confirmed. The buyer decided three weeks ago. The checklist didn't.",
+    tension:
+      "Methodical wants everything verified. Closing wants the ask now. The conflict is real but it's uneven — an unverified risk has a name and a story attached, and a delayed ask has neither. So the ask waits. You've never lost a deal to a surprise and you can't say how many you've lost to the wait.",
+    mistakenFor: {
+      slug: 'methodical-architect',
+      name: 'Methodical Architect',
+      tell: "Both build process and both hate surprises. Yours is aimed at a signature. The Architect's is aimed at a deal structure that holds. If your best work is the mutual action plan rather than the close itself, the Architect is closer.",
+    },
+    adjacent: ['methodical-architect', 'methodical-hunter', 'strategic-closer'],
+  },
 ]
 
 export function getArchetype(slug: string): Archetype | undefined {
