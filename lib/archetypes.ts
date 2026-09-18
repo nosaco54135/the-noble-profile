@@ -124,7 +124,7 @@ export const archetypes: Archetype[] = [
     inTheDeal:
       "In a live deal, the Strategic Challenger tells the VP that the initiative they're proud of is aimed at the wrong bottleneck, then shows the data that proves it. When the prep is real, the room goes quiet and the buyer starts taking notes. The risk is the reframe that's clever but wrong, or right but delivered to someone who hears it as an insult. You show up having done work the buyer's own team hasn't done. That's why the reframe works when it works — and why it costs you so much when you aim it at someone who only wanted to be heard.",
     sellsBestTo:
-      "Senior, experienced buyers who respect a strong point of view and are tired of being sold to. Complex deals where the real problem is buried and reframing it is the actual value. You struggle more with buyers who already know exactly what they want and read a challenge as friction.",
+      "Senior, experienced buyers who respect a strong point of view and are tired of being sold to. Complex deals where the real problem is buried and reframing it is the actual value. You struggle more with buyers who've already sold this decision internally and can't afford to reopen it.",
     growthEdge:
       'Earn the right before you reframe. Your insight is real, but it only lands once the buyer trusts that you understand their world. Lead with enough listening that the challenge feels like it came from inside their business, not from your slide deck. The reframe is your weapon. Timing is what keeps it from backfiring.',
     tension:
@@ -132,7 +132,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'strategic-architect',
       name: 'Strategic Architect',
-      tell: "Both work from a thesis about the buyer's business. You put yours in front of the buyer and let it land. The Architect builds a path around it and never says it out loud. If you tend to route past a bad assumption rather than name it, the Architect is likely the better read.",
+      tell: "You say the thing. The Architect works around it. Both of you saw the same flaw in the buyer's plan, and only one of you told them. If you tend to route past a bad assumption rather than name it, the Architect is likely the better read.",
     },
     adjacent: ['resilient-hunter', 'methodical-architect', 'adaptive-student'],
   },
@@ -288,7 +288,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'authentic-advisor',
       name: 'Authentic Advisor',
-      tell: "Both are trusted because nothing about them reads as performance. You protect the relationship. The Advisor spends it telling buyers things they don't want to hear. If you've told a buyer not to buy, or pushed back hard on their plan, the Advisor fits better.",
+      tell: "You protect the relationship. The Advisor spends it. If you've told a buyer not to buy, or pushed back hard on their plan, the Advisor fits better.",
     },
     adjacent: ['empathic-closer', 'devoted-advisor', 'curious-cultivator'],
   },
@@ -358,7 +358,7 @@ export const archetypes: Archetype[] = [
     inTheDeal:
       "In a live deal, the Empathic Advisor is the one who tells a buyer the timeline they've committed to internally won't hold, three weeks before anyone else would have raised it. The buyer reshapes the plan and stops getting surprised. The risk is the deal where you counseled your way through six months of good conversations and never once asked for the business, or the moment you told the truth before you'd earned the right to. Nobody else in the cycle is going to tell this buyer something they don't want to hear. That standing is worth protecting, which means using it before the deal ends rather than after.",
     sellsBestTo:
-      'Buyers in over their heads on something consequential — new role, first time buying this category, a decision with career risk attached. People who want counsel more than they want a product. You struggle with buyers who already know what they want and read advice as friction.',
+      'Buyers in over their heads on something consequential — new role, first time buying this category, a decision with career risk attached. People who want counsel more than they want a product. You struggle with buyers who arrive with a spec and want it quoted.',
     growthEdge:
       "Ask as directly as you advise. You've already done the hard part, which is earning the standing to tell a buyer something they didn't want to hear. Asking for the business is a smaller thing than that. Buyers aren't shocked when you ask. They're usually wondering why you haven't.",
     tension:
@@ -444,7 +444,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'strategic-challenger',
       name: 'Strategic Challenger',
-      tell: "Both work from a thesis about the buyer's business. You build a path around what you see. The Challenger says it to the buyer's face. If you find yourself naming the flawed assumption rather than navigating past it, the Challenger fits better.",
+      tell: "You navigate the org. The Challenger argues with it. The same read that tells you which stakeholder to avoid tells them which assumption to attack. If you find yourself naming the flawed assumption rather than working around it, the Challenger fits better.",
     },
     adjacent: ['methodical-architect', 'strategic-challenger', 'devoted-advisor'],
   },
@@ -561,7 +561,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'curious-cultivator',
       name: 'Curious Cultivator',
-      tell: "Both go deep and both take time. You end with a recommendation. The Cultivator ends with a better relationship and comes back. If your accounts grow without you ever having made a specific call, the Cultivator fits better.",
+      tell: "You're building toward a recommendation. The Cultivator is building toward next quarter. If your accounts grow without you ever having made a specific call, the Cultivator fits better.",
     },
     adjacent: ['curious-cultivator', 'empathic-advisor', 'devoted-advisor'],
   },
@@ -600,7 +600,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'authentic-connector',
       name: 'Authentic Connector',
-      tell: "Both are trusted because nothing reads as performance. You spend it on advice buyers don't enjoy. The Connector keeps the relationship comfortable. If you'd rather stay close than be right, the Connector fits better.",
+      tell: "You'll make the relationship uncomfortable to be useful. The Connector won't. Same absence of performance, opposite tolerance for a difficult meeting. If you'd rather stay close than be right, the Connector fits better.",
     },
     adjacent: ['authentic-connector', 'empathic-advisor', 'strategic-challenger'],
   },
@@ -717,7 +717,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'curious-cultivator',
       name: 'Curious Cultivator',
-      tell: "Both go deep and both take time. You use it to open new doors. The Cultivator uses it to go further into ones already open. If your best work is in year two of an account rather than week one, the Cultivator fits.",
+      tell: "Your research gets you into the room. The Cultivator's keeps them there for three years. If your best work is in year two of an account rather than week one, the Cultivator fits.",
     },
     adjacent: ['curious-cultivator', 'resilient-hunter', 'methodical-hunter'],
   },
@@ -756,7 +756,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'authentic-connector',
       name: 'Authentic Connector',
-      tell: "Both are trusted because nothing reads as performance. You use it to start conversations. The Connector uses it to deepen ones that exist. If your strongest relationships are years old rather than days, the Connector fits better.",
+      tell: "Your realness works on strangers. The Connector's works over years. If your strongest relationships are old rather than new, the Connector fits better.",
     },
     adjacent: ['authentic-connector', 'resilient-hunter', 'empathic-closer'],
   },
