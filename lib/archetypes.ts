@@ -2281,6 +2281,240 @@ export const archetypes: Archetype[] = [
     },
     adjacent: ['curious-architect', 'adaptive-student', 'curious-advisor'],
   },
+  {
+    slug: 'empathic-student',
+    name: 'Empathic Student',
+    trait: 'Empathic',
+    style: 'Student',
+    tagline: "You study the tape of your own calls, and it's uncomfortable every time.",
+    metaDescription:
+      "The Empathic Student reviews their own recordings to find what they missed about the buyer. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Empathic Student learns from recordings. Not the calls that went well, the ones where the buyer went quiet in minute nine and you didn't notice. You go back, find the moment, and hear what you missed. Most sellers can't stand to do that. You do it weekly.",
+      "What that builds is a read on people that improves instead of plateauing. It also means the thing you're best at is the thing you most doubt, because you've seen yourself get it wrong in high definition, dozens of times.",
+    ],
+    strengths: [
+      "You can point to the exact second a call turned, on a recording from two months ago.",
+      "Feedback about how you came across gets acted on, not defended.",
+      "You notice a pattern in your own behavior across a dozen calls, not just in the bad one.",
+      "Reps bring you their difficult recordings, because you'll watch properly.",
+    ],
+    blindSpots: [
+      "You rewatch a call that went fine looking for the thing you got wrong.",
+      "A read you'd have trusted a year ago gets second-guessed now, mid-call.",
+      "You apologize for a tone the buyer never registered.",
+      "You take a buyer's offhand tone as feedback and change something that was working.",
+    ],
+    inTheDeal:
+      "In a live deal, the Empathic Student rewatches a stalled discovery call, catches the CFO's hesitation at the pricing slide, and opens the next meeting by addressing it directly. The buyer is surprised anyone noticed. That habit makes you better at reading rooms every quarter. It also puts you in front of buyers carrying a running tally of your own misreads, and the hesitation that costs you is your own.",
+    sellsBestTo:
+      "Relationship-driven sales with long cycles, where getting a person wrong in month one costs you in month six. Committees with hard-to-read stakeholders. Fast transactional sales give you nothing worth reviewing, and the review would cost more than the deal.",
+    growthEdge:
+      "You've studied more of your own bad calls than anyone on your team. Ask your manager what you're best at. They'll say reading people. That's the part you go back and check.",
+    tension:
+      "Empathy reads the room in real time. Studying means reviewing what you read after. Every review turns up something you missed, and you carry that into the next call, where you're now reading the buyer and monitoring the read at once.",
+    mistakenFor: {
+      slug: 'empathic-advisor',
+      name: 'Empathic Advisor',
+      tell: "The Empathic Advisor uses what they read to tell the buyer something true. You use it to get better at reading. If your best moments are honest conversations with buyers rather than quiet review afterward, the Advisor is your page.",
+    },
+    adjacent: ['empathic-advisor', 'adaptive-student', 'empathic-closer'],
+  },
+  {
+    slug: 'methodical-student',
+    name: 'Methodical Student',
+    trait: 'Methodical',
+    style: 'Student',
+    tagline: "You practice the boring parts until they stop being hard.",
+    metaDescription:
+      "The Methodical Student drills sales fundamentals on a schedule, so the floor never drops. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Methodical Student treats selling like a craft with fundamentals. You drill objection handling, rehearse the pricing conversation, and run the discovery framework until you don't have to think about it. Skills you learned three years ago are still sharp, because you never stopped maintaining them.",
+      "Most sellers learn something once and let it decay. You don't, which is why your floor is high and your worst month is better than most people's average. The curriculum is fixed, though, and the market doesn't check what's on it.",
+    ],
+    strengths: [
+      "You've run the same objection drill enough times that your voice doesn't change when a buyer raises it.",
+      "You run the pricing conversation the same way every time, so you know what changes the outcome.",
+      "You can teach anything you've learned, because you learned it in pieces.",
+      "Skills you don't use often stay sharp, since they're still on the schedule.",
+    ],
+    blindSpots: [
+      "You rehearse the objection you've heard fifty times and skip the one that's new this quarter.",
+      "Your fundamentals are excellent and your read on where the market went is a year old.",
+      "Practice time goes to the skill on the plan, not the skill this quarter's deals exposed.",
+      "You'd rather run the framework properly than abandon it mid-call when it's clearly not working.",
+    ],
+    inTheDeal:
+      "In a live deal, the Methodical Student handles a pricing challenge from a procurement lead without a flicker, because you've rehearsed that exact exchange more times than they've run it. The discount holds. Practice like that is why your floor never drops. The same schedule means the new objection, the one about the AI features every buyer started asking about this year, gets whatever time is left over.",
+    sellsBestTo:
+      "Categories with stable buying patterns, where mastery of the fundamentals compounds. Teams that run a consistent motion and reward execution over improvisation. Emerging categories where the questions change every quarter outpace a fixed curriculum.",
+    growthEdge:
+      "Your development plan for this year looks a lot like last year's. Both are good plans. Neither was written after a deal you lost.",
+    tension:
+      "Method wants a curriculum. Learning is supposed to follow the gaps. Your plan was written before this quarter's gaps existed, so you get better at the things you decided to get better at, and the market's new question waits for the next planning cycle.",
+    mistakenFor: {
+      slug: 'methodical-architect',
+      name: 'Methodical Architect',
+      tell: "The Methodical Architect builds a system for the team to run. You build a practice regimen for yourself. If what you're improving is everyone's process rather than your own skill, the Architect page fits.",
+    },
+    adjacent: ['methodical-architect', 'adaptive-student', 'methodical-closer'],
+  },
+  {
+    slug: 'resilient-student',
+    name: 'Resilient Student',
+    trait: 'Resilient',
+    style: 'Student',
+    tagline: "Every deal you lose becomes something you know.",
+    metaDescription:
+      "The Resilient Student debriefs every loss honestly and turns it into something usable. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Resilient Student debriefs their losses. Not the polite version for the forecast call, the real one, where you work out what you missed and what you'd do differently. The loss stings for an hour, then turns into something you can use.",
+      "Most sellers protect themselves from that analysis, which is why they lose the same deal repeatedly. You don't, so your third year is genuinely better than your first. The same tolerance means you can absorb a long run of losses without anything in you calling it a pattern.",
+    ],
+    strengths: [
+      "You run a real loss debrief, including your own part in it, the week the deal dies.",
+      "A piece of hard feedback changes your behavior by the next call.",
+      "You'll try the thing you're bad at in a live deal, because failing at it doesn't cost you much.",
+      "Losses from two years ago still inform how you qualify.",
+    ],
+    blindSpots: [
+      "You learn something from every lost deal and don't notice you've lost six in a row the same way.",
+      "You take the blame for losses that were about budget, and learn a lesson from a deal that had none.",
+      "You're on month four of trying a new approach in live deals, and the first month already told you.",
+      "A run of losses gets analyzed rather than escalated, so nobody senior finds out in time.",
+    ],
+    inTheDeal:
+      "In a live deal, the Resilient Student loses a competitive evaluation, calls the buyer a week later to ask what actually decided it, and hears something nobody on the team knew. The next three evaluations go differently. Almost nobody makes that call. The same steadiness means a quarter of losses feels like a quarter of material, and you'll be several months into the pattern before anyone, including you, treats it as one.",
+    sellsBestTo:
+      "Competitive categories with frequent head-to-head losses, which is where the learning is. Companies with enough deal volume that the lessons arrive fast. Low-volume enterprise sales where you might lose four deals in a year give your method almost nothing to work on.",
+    growthEdge:
+      "Pull up your last ten closed-lost deals and the notes you wrote on each. The notes are honest and specific. Read them in order and see how many name the same cause.",
+    tension:
+      "Studying works because failure teaches. Resilience makes failure cost nothing. So you get the lesson and none of the alarm, and the sixth loss arrives with the same weight as the first. The seller who takes losses badly reaches a point where they stop and ask for help. You're still learning.",
+    mistakenFor: {
+      slug: 'resilient-closer',
+      name: 'Resilient Closer',
+      tell: "The Resilient Closer stays in the uncomfortable room until it closes. You stay with the uncomfortable deal after it's lost. If your persistence shows up in live deals rather than in post-mortems, the Closer page fits better.",
+    },
+    adjacent: ['resilient-closer', 'adaptive-student', 'resilient-advisor'],
+  },
+  {
+    slug: 'devoted-student',
+    name: 'Devoted Student',
+    trait: 'Devoted',
+    style: 'Student',
+    tagline: "You learned their business, and it took a year.",
+    metaDescription:
+      "The Devoted Student studies the customer's industry until they can speak it natively. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Devoted Student studies the customer's world. Their industry's regulations, the metrics their CFO is judged on, the workflow your product sits inside. You read their trade press. You know what a bad quarter looks like in their sector, and why.",
+      "That depth is why buyers treat you as one of them rather than as a vendor. Every hour of it went into their world, which is a large number of hours that didn't go into getting better at selling.",
+    ],
+    strengths: [
+      "You use the buyer's industry vocabulary correctly, including the terms outsiders get subtly wrong.",
+      "You know which regulation is about to change their budget, before their vendor list does.",
+      "Buyers explain less to you, so meetings start further along.",
+      "A customer's internal problem makes sense to you without a translation.",
+    ],
+    blindSpots: [
+      "You know the customer's industry better than your own product roadmap.",
+      "Your selling skills are the same as they were three years ago, and nobody has mentioned it.",
+      "You'll spend a weekend on an industry report and skip the call review.",
+      "Knowledge of one vertical doesn't transfer, and a territory change costs you most of it.",
+    ],
+    inTheDeal:
+      "In a live deal, the Devoted Student knows that the buyer's compliance deadline moved and that half their sector is quietly behind, and frames the entire business case around the new date. The buyer stops treating you as a vendor. Very few sellers in the category can have that conversation. What it cost is the other kind of study: the way you handle a pricing objection is the way you handled it in year one.",
+    sellsBestTo:
+      "Regulated and specialized industries where outsiders can't fake fluency. Verticalized territories you'll hold for years. Horizontal products sold across twelve industries make the depth impossible, and you'll be shallow everywhere while trying.",
+    growthEdge:
+      "Count the hours you spent last year learning your customers' industry. Then count the hours you spent learning to sell. You know which number is larger.",
+    tension:
+      "Devotion studies the customer. Studying rewards whatever you put the hours into. Both point at the same place, and nothing in you ever argues for the hour spent on your own craft. You get deeper into their world every year and stay exactly where you were in yours.",
+    mistakenFor: {
+      slug: 'devoted-advisor',
+      name: 'Devoted Advisor',
+      tell: "The Devoted Advisor uses what they know to tell the buyer what to do. You use it to understand them. If your knowledge usually arrives as a recommendation, the Advisor is the better read.",
+    },
+    adjacent: ['devoted-advisor', 'adaptive-student', 'devoted-cultivator'],
+  },
+  {
+    slug: 'strategic-student',
+    name: 'Strategic Student',
+    trait: 'Strategic',
+    style: 'Student',
+    tagline: "You're studying for the job you'll have in two years.",
+    metaDescription:
+      "The Strategic Student learns with a destination in mind, arriving at each level already fluent. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Strategic Student learns with a destination in mind. You picked up pricing strategy because you intend to sell to CFOs, read about the category's consolidation because you plan to be the one who understands it, and learned the enterprise motion while you were still working mid-market. Nothing you study is accidental.",
+      "That pays off in a way random learning doesn't: you arrive at each new level already fluent in it. Some of what you learned has been waiting two years for a deal that would use it.",
+    ],
+    strengths: [
+      "You're fluent in the next segment up before you're promoted into it.",
+      "Your learning has a thesis, so the pieces connect rather than sitting in isolation.",
+      "You can hold a conversation with a buyer three levels above your usual contact.",
+      "You were reading about multi-year contracts a year before you had a deal big enough to need one.",
+    ],
+    blindSpots: [
+      "The skill your current deals need gets less time than the one your future ones will.",
+      "You learn the enterprise motion while losing mid-market deals to someone who mastered mid-market.",
+      "Your plan assumes a market that may not arrive, and the study time is spent either way.",
+      "Knowledge with no deal to use it in decays, and you find out when you finally need it.",
+    ],
+    inTheDeal:
+      "In a live deal, the Strategic Student handles a CFO's question about payback period without help, because you studied unit economics a year before you had any deals that reached a CFO. The deal clears a stage most reps at your level stall in. That's what the preparation was for. It also means the hours came out of quarters where your actual deals were mid-market and needed something else.",
+    sellsBestTo:
+      "Categories with a clear ladder, where the skills of the next segment are knowable in advance. Companies that promote from within and reward readiness. Volatile markets where the required skills change faster than you can prepare for them turn your preparation into a bet you lose quietly.",
+    growthEdge:
+      "There's something you studied two years ago for a role you expected to be in by now. You were right that it mattered. The timeline was the part you got wrong, and the knowledge has been sitting unused since.",
+    tension:
+      "Strategy studies for where you're going. Learning compounds where you apply it. You apply almost none of what you learn in the quarter you learn it, so the compounding is deferred and the current quarter runs on last year's skills. The bet is usually right. It's still a bet, placed with hours you only get once.",
+    mistakenFor: {
+      slug: 'strategic-architect',
+      name: 'Strategic Architect',
+      tell: "The Strategic Architect builds the path through a deal. You build the path through a career. If your planning shows up in account strategy rather than in what you study on a Sunday, the Architect page is yours.",
+    },
+    adjacent: ['strategic-architect', 'adaptive-student', 'strategic-advisor'],
+  },
+  {
+    slug: 'authentic-student',
+    name: 'Authentic Student',
+    trait: 'Authentic',
+    style: 'Student',
+    tagline: "You'll admit in a team meeting that you don't know how to do something.",
+    metaDescription:
+      "The Authentic Student learns out loud, naming their own gaps in front of everyone. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Authentic Student learns out loud. You'll say in a pipeline review that you handled an objection badly, ask a junior rep to explain something everyone assumes you know, and tell a buyer plainly when a question is outside what you understand. None of it is performed humility. You just don't see the point of pretending.",
+      "That honesty accelerates you. Nobody has to guess where your gaps are. The visibility is permanent, though, and people remember the gaps longer than they remember the fix.",
+    ],
+    strengths: [
+      "You ask the question everyone else in the room was also unsure about.",
+      "Your manager coaches you on real problems, because you told them what the problems were.",
+      "A buyer's hard technical question gets an honest \"I don't know, I'll find out,\" and the trust survives.",
+      "Junior reps teach you things, since you asked them directly.",
+    ],
+    blindSpots: [
+      "You name a weakness in front of people who make decisions about your territory.",
+      "Your development gets discussed openly while a quieter peer's stays invisible.",
+      "You admit uncertainty to a buyer who needed confidence in that moment.",
+      "The gap you named in three consecutive pipeline reviews is the same gap.",
+    ],
+    inTheDeal:
+      "In a live deal, the Authentic Student tells a technical buyer they don't know whether the integration handles their edge case, comes back the next day with the real answer, and the buyer's trust goes up rather than down. Almost no seller risks that. In the same week, a director who sat in on the call carries a note about your product gaps that no correction ever quite erases.",
+    sellsBestTo:
+      "Technical buyers who punish bluffing and reward accuracy. Teams with a real coaching culture, where admitted gaps get closed rather than filed. Political organizations, internal or external, where visible weakness is used, take more from you than the honesty returns.",
+    growthEdge:
+      "Something you admitted not knowing eighteen months ago, you now do well. The person you admitted it to still brings it up. The learning finished a long time before the reputation did.",
+    tension:
+      "Learning needs the gap named. Authenticity names it without editing. Both want the same thing, so nothing in you weighs the room before it comes out. You say it to your manager, to the buyer, to the new rep, in the same words, and the ones who use it against you got it from the same sentence that got you the help.",
+    mistakenFor: {
+      slug: 'authentic-advisor',
+      name: 'Authentic Advisor',
+      tell: "The Authentic Advisor's honesty is pointed at the buyer's decision. Yours is pointed at yourself. If the uncomfortable thing you say is usually about their plan rather than your own gaps, the Advisor is closer.",
+    },
+    adjacent: ['authentic-advisor', 'adaptive-student', 'authentic-closer'],
+  },
 ]
 
 export function getArchetype(slug: string): Archetype | undefined {
