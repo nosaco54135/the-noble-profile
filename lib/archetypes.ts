@@ -2047,6 +2047,240 @@ export const archetypes: Archetype[] = [
     },
     adjacent: ['methodical-architect', 'curious-challenger', 'strategic-architect'],
   },
+  {
+    slug: 'empathic-architect',
+    name: 'Empathic Architect',
+    trait: 'Empathic',
+    style: 'Architect',
+    tagline: "You build the process around how it feels to be on the other end of it.",
+    metaDescription:
+      "The Empathic Architect designs sales process from the buyer's side of the table, removing friction nobody measures. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Empathic Architect designs sales process from the buyer's side of the table. You've sat through your own company's onboarding, read the renewal email a customer actually receives, and noticed which handoff leaves someone explaining their situation for the third time. Then you rebuild it.",
+      "Most process design optimizes for the seller's efficiency and the CRM's reporting. Yours optimizes for the experience of being sold to, which almost nobody measures and every buyer notices. The trouble is that the things you improve don't show up in any dashboard your leadership reads.",
+    ],
+    strengths: [
+      "You find the handoff where the customer has to repeat themselves, and remove it.",
+      "Your templates sound like a person wrote them, because you read them aloud before shipping.",
+      "You can predict which step in a process will make a buyer feel managed rather than helped.",
+      "A rep tells you the new sequence is the first one they haven't felt weird sending.",
+    ],
+    blindSpots: [
+      "You redesign a step that annoyed three buyers and cost the team nothing.",
+      "Your improvements can't be defended with numbers, so they get cut in the next reorg.",
+      "You resist a process change that works because of how it would land on customers.",
+      "Every buyer gets the smooth version, including the one who wanted speed over care.",
+    ],
+    inTheDeal:
+      "In a live deal, the Empathic Architect notices that the security questionnaire arrives the same week the buyer's team is closing their quarter, and moves it earlier in the sequence for everyone. Deals stop stalling in week six, and nobody can say exactly why. Your process improvements are felt rather than reported, so when someone asks what you contributed last quarter, the honest answer is hard to put in a slide.",
+    sellsBestTo:
+      "Companies where customer experience genuinely drives renewal, and long cycles with many touchpoints where friction accumulates. Buying groups with junior stakeholders who have no patience for a clumsy process. Metric-driven sales orgs where every change has to be justified by pipeline math give your best work nothing to stand on.",
+    growthEdge:
+      "You rebuilt something last year that made the process better for every customer who touched it. Your manager still thinks of you as the rep who has good quarters. The improvement has no owner and no number attached.",
+    tension:
+      "Empathy responds to the person in front of you. A system responds to everyone the same way. You build for the buyer you can picture, then watch it run for a thousand you can't, and some of them needed something else entirely. The system is kind and it is also fixed, and those two things pull against each other every time you ship a version.",
+    mistakenFor: {
+      slug: 'empathic-cultivator',
+      name: 'Empathic Cultivator',
+      tell: "The Empathic Cultivator reads one account and adjusts to it. You read a pattern and change the process for everyone. If your best work happens in a specific relationship rather than in a template, the Cultivator page is yours.",
+    },
+    adjacent: ['empathic-cultivator', 'methodical-architect', 'empathic-connector'],
+  },
+  {
+    slug: 'resilient-architect',
+    name: 'Resilient Architect',
+    trait: 'Resilient',
+    style: 'Architect',
+    tagline: "Your system has been through three bad quarters and it's still running.",
+    metaDescription:
+      "The Resilient Architect builds sales systems that survive bad quarters, reorgs, and turnover. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Resilient Architect builds processes that survive contact with a bad year. Territory cuts, a broken product release, half the team leaving: the system bends and you rebuild the broken part rather than abandoning it. Five years in, the process still traces back to something you started.",
+      "Most sales systems die the first quarter they underperform. Yours doesn't, because you don't read a bad result as a verdict. That durability is genuinely rare. So is the case where the thing you keep rebuilding stopped being right two years ago.",
+    ],
+    strengths: [
+      "Your process survives the reorg, because you rebuild the broken pieces instead of starting over.",
+      "A quarter where the system underperforms makes you fix it rather than doubt it.",
+      "New reps inherit something stable while everything around them changes.",
+      "You maintain the parts of the process nobody wants to own, for years.",
+    ],
+    blindSpots: [
+      "You repair a stage four times instead of asking whether it should exist.",
+      "A system's bad quarter and a system's death look the same to you from the inside.",
+      "You defend a process the team stopped believing in, and they work around it rather than argue.",
+      "You've rebuilt the same stage three times and never once proposed removing it.",
+    ],
+    inTheDeal:
+      "In a live deal, the Resilient Architect's qualification framework flags a deal as weak, the team pushes ahead anyway and loses, and you go back and tighten the framework rather than dropping it. The next version catches two more. Very few people keep investing in a system that has publicly failed. The same instinct means some of your process is scar tissue from problems that stopped existing a while ago.",
+    sellsBestTo:
+      "Volatile companies where the strategy changes faster than the process can, and teams that need one stable thing. Long-tenure territories where the investment has time to return. Fast-pivoting startups that genuinely should throw out the old system every year find your maintenance instinct slows them down.",
+    growthEdge:
+      "Some part of your process exists because of a problem from three years ago. You've maintained it through two reorgs. The problem it solves hasn't come up since, and nothing in the last three years has prompted you to check.",
+    tension:
+      "Resilience keeps going. A system is meant to keep going. Both halves want the same thing, so nothing in your wiring ever proposes abandonment. A rep who hated a broken process would rip it out. You rebuild the broken part, which is usually right and is also the only move you reach for.",
+    mistakenFor: {
+      slug: 'methodical-architect',
+      name: 'Methodical Architect',
+      tell: "The Methodical Architect runs the machine because it works. You run yours because it hasn't beaten you yet. A system whose numbers stopped supporting it would be dropped by the Methodical Architect and rebuilt by you.",
+    },
+    adjacent: ['methodical-architect', 'resilient-cultivator', 'resilient-challenger'],
+  },
+  {
+    slug: 'devoted-architect',
+    name: 'Devoted Architect',
+    trait: 'Devoted',
+    style: 'Architect',
+    tagline: "You built the handoff nobody asked you to build.",
+    metaDescription:
+      "The Devoted Architect builds the parts of the customer experience that fall between job descriptions. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Devoted Architect builds the parts of the customer's experience that fall between job descriptions. The handoff document from sales to implementation, the onboarding checklist, the thing that stops a new customer landing on a support queue that knows nothing about them. None of it is your job.",
+      "You build it because you've watched what happens to customers when it doesn't exist. The work is real and the customers feel it. It's also work nobody assigned, nobody measures, and nobody will do if you stop.",
+    ],
+    strengths: [
+      "Your customers arrive at implementation with context, because you wrote it down before the handoff.",
+      "You build the thing the customer needs even when it belongs to another department.",
+      "A rep from another team asks for your handoff doc six months after you shared it once.",
+      "Your accounts have fewer early escalations, because the first thirty days were designed.",
+    ],
+    blindSpots: [
+      "You spend a selling week building an onboarding process that isn't yours to own.",
+      "Your systems only exist while you maintain them, and nobody else has been asked to.",
+      "You fix the symptom for your customers instead of raising the gap with the team that owns it.",
+      "Leadership sees a functioning handoff and concludes the process is fine.",
+    ],
+    inTheDeal:
+      "In a live deal, the Devoted Architect writes a two-page context document for implementation, covering the customer's history, their actual concerns, and the promise made in week three. The customer's first call after signature sounds like a continuation rather than a restart. Almost nobody does this. It also means every account you close carries hours of work that appear nowhere in your comp plan, and the day you move teams, the document stops existing.",
+    sellsBestTo:
+      "Complex products where implementation makes or breaks the customer, and companies whose internal handoffs are genuinely broken. Long-term accounts where the first ninety days determine the next three years. Simple transactional products don't give your building instinct anywhere useful to go.",
+    growthEdge:
+      "Something you built is used weekly by people who don't know you built it. It has no owner and no maintainer. When you take a two-week holiday, someone notices it's out of date, and by the time you're back they've stopped mentioning it.",
+    tension:
+      "Devotion serves the customer in front of you. A system serves every customer at once, including the ones you'll never meet. You build the system anyway, for people who aren't yours, on time nobody allocated. Each thing you build makes the case for a real owner and quietly removes the pain that would have created one.",
+    mistakenFor: {
+      slug: 'devoted-cultivator',
+      name: 'Devoted Cultivator',
+      tell: "The Devoted Cultivator stays inside the account and gives it everything. You build the thing that serves the account whether or not you're in the room. If your care shows up as hours with a specific customer rather than as something you made, the Cultivator is closer.",
+    },
+    adjacent: ['devoted-cultivator', 'methodical-architect', 'devoted-challenger'],
+  },
+  {
+    slug: 'authentic-architect',
+    name: 'Authentic Architect',
+    trait: 'Authentic',
+    style: 'Architect',
+    tagline: "You only build a process you'd be willing to run yourself.",
+    metaDescription:
+      "The Authentic Architect refuses to build a sales process they wouldn't personally run. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Authentic Architect refuses to build anything they wouldn't do. No sequence you'd be embarrassed to send, no qualification question designed to manufacture urgency, no template that pretends a mass email is personal.",
+      "That makes your process unusually honest and unusually credible to the reps who run it. It also makes it yours in a way that resists becoming anyone else's, because the reason each part exists is that you believe in it.",
+    ],
+    strengths: [
+      "Reps trust your process because you run it yourself, in front of them.",
+      "You strip the manipulative step out of an inherited playbook, and the numbers usually hold.",
+      "Nothing you build requires someone to say something they don't mean.",
+      "You can defend every stage of your process to a skeptical buyer, out loud.",
+    ],
+    blindSpots: [
+      "You refuse to build the thing the team needs, because you wouldn't personally run it.",
+      "Your process reflects how you sell, so a rep with different strengths struggles inside it.",
+      "A tactic you find distasteful gets dismissed before you test whether it works.",
+      "You'd rather have no process than a process with a compromise in it.",
+    ],
+    inTheDeal:
+      "In a live deal, the Authentic Architect rewrites the team's discovery script to remove three questions designed to create false urgency, and the meeting-to-opportunity rate holds. Reps stop dreading the call. Few people will delete a working tactic on principle. The cost is that your process is built to your own conscience, and the rep who needed more structure than you do gets a framework built by someone who never needed it.",
+    sellsBestTo:
+      "Teams selling to sophisticated buyers who can hear a manufactured line. Companies where rep turnover comes from discomfort with the playbook. High-velocity orgs that run on proven aggressive tactics find your standards expensive, and they may be right about the tradeoff.",
+    growthEdge:
+      "There's a tactic you removed from your team's process on principle. Someone at a competitor still runs it. Their number is better than yours in that stage.",
+    tension:
+      "A system's whole value is that it works without you. Authenticity means every part of it has to be something you'd personally stand behind. So you build something honest and non-transferable, and the reps who'd benefit most are the ones least able to run it in your voice.",
+    mistakenFor: {
+      slug: 'authentic-advisor',
+      name: 'Authentic Advisor',
+      tell: "The Authentic Advisor spends their honesty on buyers. You spend yours on your own company's process. If the uncomfortable truths you tell are mostly aimed at customers rather than at your own playbook, read the Advisor.",
+    },
+    adjacent: ['authentic-advisor', 'methodical-architect', 'authentic-challenger'],
+  },
+  {
+    slug: 'adaptive-architect',
+    name: 'Adaptive Architect',
+    trait: 'Adaptive',
+    style: 'Architect',
+    tagline: "You build systems meant to be replaced, which is why they never disappoint you.",
+    metaDescription:
+      "The Adaptive Architect builds sales systems with a deliberate shelf life, rewritten as the market moves. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Adaptive Architect builds for a market that won't hold still. Your process has a shelf life, and you know it when you ship it: this qualification framework fits the current buying committee, this sequence fits the current channel, and both get rewritten when the ground moves.",
+      "Teams that run a five-year-old playbook get beaten by the market. Yours never does. What yours also never does is compound, because a system that gets replaced every few quarters never gets old enough to be the thing everyone just knows how to run.",
+    ],
+    strengths: [
+      "Your playbook reflects how buyers are actually buying this quarter.",
+      "You notice when a stage stopped predicting anything and rebuild it within weeks.",
+      "A new market doesn't strand you, since your systems were built to be rewritten.",
+      "You'll delete your own framework the moment the evidence turns against it.",
+    ],
+    blindSpots: [
+      "The team is learning version four while you're designing version five.",
+      "Nothing runs long enough to produce a clean read on whether it worked.",
+      "Your documentation is always slightly out of date, because the system is always slightly new.",
+      "Reps hedge on adopting a process they suspect will change next quarter.",
+    ],
+    inTheDeal:
+      "In a live deal, the Adaptive Architect notices that deals now die at legal rather than at procurement, and rebuilds the team's late-stage sequence around contract review inside a month. The team stops losing deals in week ten. Almost nobody adjusts that fast. What the team doesn't have is a single stage they've run the same way long enough to be genuinely excellent at.",
+    sellsBestTo:
+      "Fast-moving categories where the buying process itself changes yearly, and new markets with no established motion. Companies in a pivot who need a process built from scratch. Mature, stable enterprise sales reward the team that has run the same disciplined play for a decade, and that team is not yours.",
+    growthEdge:
+      "Your team has never run one version of your process for four consecutive quarters. Each version was better than the last, which you know from judgment rather than from data. The clean comparison would have needed a year of one thing.",
+    tension:
+      "A system earns its value by staying still long enough for everyone to learn it. Adapting will not let anything stay still. You're right that the old version is stale, and the team is right that they never got fluent in any of them, and both of those stay true at the same time.",
+    mistakenFor: {
+      slug: 'adaptive-student',
+      name: 'Adaptive Student',
+      tell: "The Adaptive Student rebuilds their own skills. You rebuild the system everyone else runs. If what keeps changing is how you personally sell rather than how the team does, the Student page fits better.",
+    },
+    adjacent: ['adaptive-student', 'curious-architect', 'adaptive-challenger'],
+  },
+  {
+    slug: 'curious-student',
+    name: 'Curious Student',
+    trait: 'Curious',
+    style: 'Student',
+    tagline: "You learn things nobody asked you to learn, and some of them turn out to matter.",
+    metaDescription:
+      "The Curious Student builds range by learning what interests them, assigned or not. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Curious Student reads the competitor's documentation, sits in on the engineering standup, and asks the implementation team what actually goes wrong. None of it was assigned. Ask you a question about the product, the market, or the buyer's industry, and you usually have an answer that came from somewhere unusual.",
+      "Over a few years this compounds into range that most sellers never build. It also means your learning has no curriculum. What you know is a function of what you found interesting, which is not the same as what your deals needed.",
+    ],
+    strengths: [
+      "You answer a technical question in a meeting that the sales engineer was booked for.",
+      "You know the buyer's industry well enough to catch what they left out.",
+      "You learn from people nobody else on the team talks to, like support, implementation, and the product team.",
+      "You've already read the release notes for the feature the team gets trained on next month.",
+    ],
+    blindSpots: [
+      "You spend a week understanding something that would never have come up in a deal.",
+      "Your knowledge is wide and uneven, so a gap sits next to real depth.",
+      "You research the buyer's market instead of calling the buyer.",
+      "You know more about why deals are lost than about how yours specifically are closing.",
+    ],
+    inTheDeal:
+      "In a live deal, the Curious Student knows from an implementation engineer that a competitor's integration breaks under a specific configuration, mentions it as a question rather than a claim, and the buyer's technical lead confirms it on the spot. That credibility was built months before the deal existed. The hours that built it were unbudgeted, and most of what you learned that year still hasn't come up.",
+    sellsBestTo:
+      "Technical buyers who respect a seller who actually understands the thing, and complex categories where product knowledge is a real moat. Industries deep enough to reward years of study. Simple products in fast transactional cycles give you almost nothing worth learning, and the learning wouldn't pay before the deal closed.",
+    growthEdge:
+      "Think about what you learned last quarter. Some of it was fascinating. Then work out which part of it showed up in a deal.",
+    tension:
+      "Curiosity wants to know. Studying is how you find out. Both halves are satisfied by the next thing you didn't know, so nothing in you asks whether it's worth knowing. A seller who found learning tedious would only study what a deal demanded. You never have to make that decision, which means you never do.",
+    mistakenFor: {
+      slug: 'curious-architect',
+      name: 'Curious Architect',
+      tell: "The Curious Architect investigates the system and then rebuilds it. You investigate and keep the understanding. If what you learn usually turns into something the team runs, the Architect is your page.",
+    },
+    adjacent: ['curious-architect', 'adaptive-student', 'curious-advisor'],
+  },
 ]
 
 export function getArchetype(slug: string): Archetype | undefined {
