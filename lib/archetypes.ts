@@ -1579,6 +1579,240 @@ export const archetypes: Archetype[] = [
     },
     adjacent: ['adaptive-closer', 'adaptive-student', 'empathic-challenger'],
   },
+  {
+    slug: 'devoted-challenger',
+    name: 'Devoted Challenger',
+    trait: 'Devoted',
+    style: 'Challenger',
+    tagline: "You argue with the buyer's plan because you'll be there when it fails.",
+    metaDescription:
+      "The Devoted Challenger pushes back on a buyer's plan out of loyalty to what happens after signature. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Devoted Challenger argues with a buyer about the rollout, the scope, or the timeline, and the argument is never about winning the deal. You've watched what happens to customers who implement the plan they walked in with, and you'd rather have the fight now than the support tickets later.",
+      "Buyers can tell the difference between a seller challenging them to close and a seller challenging them because they care how it goes. With you it's the second, which is why they listen. When they don't listen, you implement their version anyway and work to make it succeed.",
+    ],
+    strengths: [
+      "You push back on a scope that will fail at implementation, even when the bigger scope is the bigger deal.",
+      "Customers hear your challenge as advocacy, because it's always about what happens to them after signature.",
+      "Your reframes come with a plan for getting through the first ninety days.",
+      "Champions bring you into their internal arguments, since you'll say to their boss what they can't.",
+    ],
+    blindSpots: [
+      "You lose the argument about the rollout plan, then spend weekends making the plan you opposed work.",
+      "When the buyer's version succeeds with your help, nobody remembers you argued against it.",
+      "You challenge the buyer's timeline and let your own deal slip a quarter to prove the point.",
+      "A customer who rejects your advice gets the same effort as one who took it.",
+    ],
+    inTheDeal:
+      "In a live deal, the Devoted Challenger tells a buyer that rolling out to all six regions at once will bury their support team, and proposes starting with two. The buyer's VP wants the big launch. You lose the argument, then build the six-region rollout plan yourself so it has a chance. That loyalty keeps customers for years. It also teaches some of them that your objections are optional, because you'll make their plan work either way.",
+    sellsBestTo:
+      "Buyers making a consequential purchase for the first time, who need someone to tell them what goes wrong in month three. Long-term customers who have seen you be right before. Buyers shopping for a vendor to execute a decision they've already made rarely want the argument, and you rarely win them.",
+    growthEdge:
+      "There's usually one customer where you argued against the plan, lost, and made it work anyway. It went well. At the renewal the buyer credited their own decision, and the next time you pushed back on something, they remembered you'd come around last time.",
+    tension:
+      "Devotion serves the customer's plan. Challenging tells them the plan is wrong. You do both, in sequence: argue hard, lose, then serve the plan you argued against as if it were yours. Buyers get your best objection and your best effort, which is generous. It also means the objection never costs them anything to ignore.",
+    mistakenFor: {
+      slug: 'empathic-challenger',
+      name: 'Empathic Challenger',
+      tell: "The Empathic Challenger pushes because they can tell the buyer can take it. You push because you've seen what happens to buyers who don't hear it. If your challenges come from reading the person rather than the rollout, start with the Empathic Challenger.",
+    },
+    adjacent: ['devoted-advisor', 'empathic-challenger', 'devoted-closer'],
+  },
+  {
+    slug: 'methodical-advisor',
+    name: 'Methodical Advisor',
+    trait: 'Methodical',
+    style: 'Advisor',
+    tagline: "You give the buyer a way to decide, not just an answer.",
+    metaDescription:
+      "The Methodical Advisor turns a complex purchase into a decision the buyer can make, with criteria, scoring, and a sequence. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Methodical Advisor turns a messy purchase into a decision the buyer can actually make. By the second meeting you've given them evaluation criteria, a scoring sheet, and a sequence for getting sign-off. The buyer stops feeling lost in the category, because you've handed them a way out of it.",
+      "Buyers facing a complex decision are usually short on structure, not information. You supply the structure, and they trust you for it. The structure also has edges, and a buyer whose situation doesn't fit it sometimes gets a clean recommendation for the wrong problem.",
+    ],
+    strengths: [
+      "Buyers send you the criteria doc they wrote from your framework and ask whether they got it right.",
+      "Buyers stuck between three vendors leave your meeting knowing how they'll choose.",
+      "Your recommendations come with an implementation sequence, so nobody has to invent the next step.",
+      "Committees move faster with you, since every member is working from the same criteria.",
+    ],
+    blindSpots: [
+      "The buyer's unusual constraint has no row in your scorecard, so it doesn't get weighed.",
+      "You start the framework before you've heard what's different about this buyer.",
+      "A buyer who decides on gut feel reads your process as homework.",
+      "Your advice for a hospital and your advice for a software company look suspiciously alike.",
+    ],
+    inTheDeal:
+      "In a live deal, the Methodical Advisor walks a buying committee through a weighted scoring model in the second meeting, and by the third the committee has adopted it as their own evaluation. The deal now runs on your structure. That is enormous influence, quietly held. It also means that when the buyer's real concern is something the model doesn't measure, like whether their team will actually use the thing, nobody in the room is looking for it.",
+    sellsBestTo:
+      "Committees that have never bought in this category and don't know how to compare vendors. Regulated buyers who need to document why they chose what they chose. Buyers who already know what they want and need a partner rather than a process tend to find your structure slows them down.",
+    growthEdge:
+      "At least one scorecard you built produced a clear winner that the customer churned from within a year. Every criterion was met. The one that mattered, whether the team actually liked using it, never had a row.",
+    tension:
+      "Method wants a process that works for every buyer. Advising means working out what this buyer needs. The framework makes you fast and consistent, and it arrives before you've finished listening. Each buyer gets a good version of the standard recommendation, and the ones whose situation isn't standard rarely notice what the process left out.",
+    mistakenFor: {
+      slug: 'methodical-cultivator',
+      name: 'Methodical Cultivator',
+      tell: "The Methodical Cultivator runs a plan for the account. You run a plan for the decision, and once it's made, your part is mostly done. If your calendar is full of scheduled reviews with existing customers, the Cultivator page is yours.",
+    },
+    adjacent: ['methodical-challenger', 'curious-advisor', 'methodical-closer'],
+  },
+  {
+    slug: 'resilient-advisor',
+    name: 'Resilient Advisor',
+    trait: 'Resilient',
+    style: 'Advisor',
+    tagline: "Your advice gets ignored, and you're still there when they need it.",
+    metaDescription:
+      "The Resilient Advisor keeps advising buyers who ignore the advice, and is the first call when it goes wrong. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Resilient Advisor gives a buyer advice, watches them ignore it, and keeps showing up. When the plan you warned against goes sideways six months later, you're the first call, and you arrive without a word about having said so.",
+      "Most advisors take an ignored recommendation personally and drift away from the account. You don't. That makes you the vendor buyers trust after a failure, which is when trust is worth the most. It also means you spend a lot of time advising people who aren't going to listen.",
+    ],
+    strengths: [
+      "Buyers who ignored your advice come back to you first when it goes wrong.",
+      "You never say I told you so, and buyers notice you had every right to.",
+      "A lost deal stays a live relationship, and some of them turn into the next deal.",
+      "You give the same honest recommendation in the third meeting that you gave in the first, even after it was waved off twice.",
+    ],
+    blindSpots: [
+      "You keep advising accounts that stopped taking your advice a year ago.",
+      "Your best counsel gets used for cleanup more often than for planning.",
+      "Free advice to a buyer who never buys feels productive, since nothing in it stings.",
+      "The buyer is about to make a serious mistake and gets the same calm recommendation they ignored twice already.",
+    ],
+    inTheDeal:
+      "In a live deal, the Resilient Advisor recommends a buyer delay their migration by a quarter, gets overruled, and loses the deal to a vendor who promised the faster date. Five months later the migration has stalled, and the buyer calls you. You take the call as if the earlier conversation never went badly. That steadiness wins deals other sellers would have written off. The price is time: you give real hours to accounts that only listen once something has broken.",
+    sellsBestTo:
+      "Buyers in high-stakes decisions who tend to learn the hard way, and remember who stayed. Categories where failed implementations are common and replacement vendors get their chance. Buyers who move fast and never look back don't give your patience anything to pay off on.",
+    growthEdge:
+      "Every Resilient Advisor has an account they've been advising for years without a purchase. Each piece of advice was good. Each one was ignored politely. The account is still on your list because nothing about being ignored has ever told you to take it off.",
+    tension:
+      "Advising only works when the buyer listens. Resilience makes it painless when they don't. Other advisors pull back after being ignored twice, and the sting is what tells them to. You don't feel it, so your advice keeps arriving at accounts where it has become background. Buyers value you in hindsight. They rarely act on you in advance.",
+    mistakenFor: {
+      slug: 'resilient-cultivator',
+      name: 'Resilient Cultivator',
+      tell: "The Resilient Cultivator stayed after the account went badly to repair the relationship. You stayed to repair the plan. If the thing you rebuild after a failure is usually trust rather than the implementation, the Cultivator page is the one to check.",
+    },
+    adjacent: ['resilient-cultivator', 'empathic-advisor', 'resilient-challenger'],
+  },
+  {
+    slug: 'strategic-advisor',
+    name: 'Strategic Advisor',
+    trait: 'Strategic',
+    style: 'Advisor',
+    tagline: "The buyer asks a small question, and you answer the one they'll have next year.",
+    metaDescription:
+      "The Strategic Advisor answers the question behind the question, showing buyers where today's decision leads. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Strategic Advisor hears the question behind the question. A buyer asks for pricing on fifty seats, and you come back with a view on how their team will be structured in eighteen months and what that structure will need. Your recommendations are about where the decision leads, not just the decision.",
+      "Buyers rarely get that kind of thinking from a vendor. Some of them build their plans around it. Others only wanted the fifty seats, and leave with a project they didn't ask for.",
+    ],
+    strengths: [
+      "You spot the second-order problem a purchase will create before the buyer signs.",
+      "You can explain how this purchase affects a department the buyer hasn't mentioned.",
+      "Your recommendation holds up when the buyer's CEO asks what happens in year two.",
+      "You talk buyers out of solving a symptom and into the purchase that addresses the cause.",
+    ],
+    blindSpots: [
+      "A buyer who wanted a quote gets a strategy session.",
+      "Your recommendation depends on a future the buyer isn't sure they believe in.",
+      "You scope past what the buyer can get approved this year.",
+      "The simple question gets answered last, after the interesting one.",
+    ],
+    inTheDeal:
+      "In a live deal, the Strategic Advisor listens to a buyer describe a reporting problem and points out that it comes from their two acquired teams still running separate systems. The purchase becomes a consolidation plan, and the buyer's CFO starts attending the meetings. That's how your deals get bigger and stickier. It's also how some of them stall, because a problem big enough for the CFO is a problem big enough for a steering committee.",
+    sellsBestTo:
+      "Senior buyers who own outcomes rather than line items. Companies at an inflection point, like after an acquisition or a reorg, where today's purchase shapes next year's structure. Buyers with a narrow brief and a fixed budget find the bigger picture uncomfortable, since they have no authority to act on it.",
+    growthEdge:
+      "Your closed-lost list has a deal that died in a steering committee. It started as a simple purchase. You showed the buyer why it was really a bigger decision, and you were right, and bigger decisions take longer than a buyer's budget cycle.",
+    tension:
+      "Strategy looks for the bigger problem. Advising looks for the real one. They usually agree, which is the trouble: nothing in you ever argues for the small answer. The buyer's question keeps growing because both halves find the larger version more interesting, and the version the buyer can buy this quarter gets less of your attention than it deserves.",
+    mistakenFor: {
+      slug: 'strategic-challenger',
+      name: 'Strategic Challenger',
+      tell: "The Strategic Challenger tells the buyer their thinking is wrong. You tell them where their thinking leads. If your meetings usually involve disagreement rather than extension, the Challenger is the one to read.",
+    },
+    adjacent: ['strategic-cultivator', 'curious-advisor', 'strategic-closer'],
+  },
+  {
+    slug: 'adaptive-advisor',
+    name: 'Adaptive Advisor',
+    trait: 'Adaptive',
+    style: 'Advisor',
+    tagline: "Your recommendation is current, even when that means reversing it.",
+    metaDescription:
+      "The Adaptive Advisor updates a recommendation the moment the facts change, including their own earlier advice. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Adaptive Advisor treats a recommendation as the best answer available today. When a new release, a pricing change, or a competitor's stumble changes the picture, you call the buyer and tell them your advice has changed, including when the old advice was yours.",
+      "Buyers in fast-moving categories need exactly that. The trouble is that buyers act on advice. By the time you've updated yours, someone has built a budget, a timeline, or an internal pitch on the previous version.",
+    ],
+    strengths: [
+      "Your recommendations account for things that changed last month.",
+      "You're the first to call when a market shift affects a decision the buyer already made.",
+      "You can explain what would change your recommendation, which makes it easier to trust now.",
+      "You've read the competitor's release notes before the buyer has heard the release happened.",
+    ],
+    blindSpots: [
+      "A champion who sold your March recommendation internally has to explain your June one.",
+      "Buyers learn to wait for your next update before acting on this one.",
+      "You revise advice the buyer had already acted on, and turn a settled decision into a doubtful one.",
+      "Your recommendation history is a list of positions, each one correct at the time.",
+    ],
+    inTheDeal:
+      "In a live deal, the Adaptive Advisor tells a buyer in the spring to wait for a product release, then calls in the summer to say the release is late and they should buy the current version now. The buyer appreciates the honesty and signs. Being current makes your advice worth having. Your champion pays for it, having told their boss in April that waiting was the plan.",
+    sellsBestTo:
+      "Buyers in categories that change every quarter, where last year's best practice is already wrong. Technical buyers who expect a recommendation to update when the facts do. Large organizations with long approval chains feel every revision twice, once when you make it and again when someone has to re-approve.",
+    growthEdge:
+      "Every Adaptive Advisor has a customer who stopped acting on their advice without ever disagreeing with it. The advice kept improving. The customer just started waiting a month to see whether it would change again.",
+    tension:
+      "Adapting says the answer changes when the facts do. Advising says the buyer needs an answer they can build on. You're right to update, the buyer is right to need stability, and you're the one deciding which matters more on a given Tuesday. Most of the time you update, and the buyer's plan absorbs the change.",
+    mistakenFor: {
+      slug: 'adaptive-cultivator',
+      name: 'Adaptive Cultivator',
+      tell: "The Adaptive Cultivator changes how they work an account. You change what you recommend to it. If the thing that keeps moving is your process rather than your advice, read the Cultivator.",
+    },
+    adjacent: ['adaptive-student', 'adaptive-closer', 'methodical-advisor'],
+  },
+  {
+    slug: 'empathic-connector',
+    name: 'Empathic Connector',
+    trait: 'Empathic',
+    style: 'Connector',
+    tagline: "You know who's unhappy in the buyer's org before the buyer does.",
+    metaDescription:
+      "The Empathic Connector builds a network inside the buyer's organization by noticing the people nobody else does. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Empathic Connector notices people. The analyst who seemed off on the last call, the director who got passed over, the assistant who runs the executive's calendar. You check in on them, and they tell you things. Within a few months you know more about how the buyer's organization actually feels than most of the people who work there.",
+      "That network is a real asset. Relationships built on being noticed last longer than ones built on being sold to. They also pile up, because nothing about the way you build them asks whether each one will ever lead anywhere.",
+    ],
+    strengths: [
+      "You hear about the reorg from someone three levels below the buyer, a week before the buyer does.",
+      "People who change jobs keep calling you, and some of them bring their new company.",
+      "You know which of the buyer's team is about to quit, usually because they told you before they told their manager.",
+      "Relationships survive lost deals, because they were never really about the deal.",
+    ],
+    blindSpots: [
+      "Your network is full of people you like and few who can sign.",
+      "You carry the stress of people in accounts you'll never close.",
+      "You know about the layoffs before your champion does, and there's nothing useful you can do with it.",
+      "A warm relationship with the wrong person takes the hours a colder one with the right person needed.",
+    ],
+    inTheDeal:
+      "In a live deal, the Empathic Connector hears from a regional manager that the buyer's CFO has been quietly asking about cost cuts, and brings a smaller phased option to the next meeting before anyone asks for it. The buyer is surprised you saw it coming. Nobody else in the cycle had that source. The same network takes real upkeep, and most of the people in it will never matter to a deal.",
+    sellsBestTo:
+      "Large organizations where decisions are shaped by people who never appear on the buying committee. Industries where careers move between the same companies and relationships follow the people. Fast transactional sales give your network no time to matter, and the deals close before anyone in it could help.",
+    growthEdge:
+      "Your phone holds dozens of people who would take your call tomorrow. A handful have bought anything or ever will. The rest are years of attention, every hour of which felt worthwhile at the time.",
+    tension:
+      "Empathy notices who needs attention. Connecting gives it. Both halves agree, so nothing in you asks whether the person you're checking in on has anything to do with a deal. The relationships are real and the time is real, and the commercial filter every other seller applies without thinking never switches on.",
+    mistakenFor: {
+      slug: 'empathic-cultivator',
+      name: 'Empathic Cultivator',
+      tell: "The Empathic Cultivator reads one account and keeps it growing. You read people, and they follow you from company to company. When a champion leaves, the Cultivator loses a contact and you often gain an account. If your relationships stay inside accounts you already own, the Cultivator is the closer match.",
+    },
+    adjacent: ['empathic-cultivator', 'devoted-connector', 'empathic-hunter'],
+  },
 ]
 
 export function getArchetype(slug: string): Archetype | undefined {
