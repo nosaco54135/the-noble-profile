@@ -56,7 +56,7 @@ export const archetypes: Archetype[] = [
       name: 'Empathic Advisor',
       tell: "You spend the trust on a question. The Advisor banks it and waits for the buyer to come to them. If you leave most meetings having recommended something rather than requested a decision, the Advisor is probably the better fit.",
     },
-    adjacent: ['devoted-advisor', 'authentic-connector', 'empathic-hunter'],
+    adjacent: ['empathic-architect', 'authentic-connector', 'empathic-hunter'],
   },
   {
     slug: 'devoted-advisor',
@@ -95,7 +95,7 @@ export const archetypes: Archetype[] = [
       name: 'Devoted Connector',
       tell: "Both stay close to buyers and both get told the real story. Yours turns into recommendations the buyer acts on. The Connector's stays a relationship, good on its own terms. If your buyers call you when something breaks but rarely when they're deciding, the Connector is closer to how you actually operate.",
     },
-    adjacent: ['empathic-closer', 'authentic-connector', 'curious-cultivator'],
+    adjacent: ['empathic-closer', 'authentic-connector', 'devoted-architect'],
   },
   {
     slug: 'strategic-challenger',
@@ -173,7 +173,7 @@ export const archetypes: Archetype[] = [
       name: 'Resilient Closer',
       tell: "Both keep going when the deal gets uncomfortable. You spend it on new conversations. The Closer spends it inside one, staying in a hard room until the answer comes. If your durability shows up most in the late-stage grind rather than the top of funnel, look at the Closer.",
     },
-    adjacent: ['resilient-challenger', 'adaptive-student', 'empathic-hunter'],
+    adjacent: ['resilient-challenger', 'resilient-architect', 'empathic-hunter'],
   },
   {
     slug: 'methodical-architect',
@@ -212,7 +212,7 @@ export const archetypes: Archetype[] = [
       name: 'Strategic Architect',
       tell: "Both build structure. Yours is meant to run again, a process that works on this deal and the next one. The Strategic Architect's is built for one org and wouldn't transfer anywhere. If your best system is one you'd hand to a new rep, you're in the right place.",
     },
-    adjacent: ['methodical-challenger', 'curious-cultivator', 'adaptive-student'],
+    adjacent: ['methodical-challenger', 'curious-cultivator', 'methodical-student'],
   },
   {
     slug: 'curious-cultivator',
@@ -290,7 +290,7 @@ export const archetypes: Archetype[] = [
       name: 'Authentic Advisor',
       tell: "You protect the relationship. The Advisor spends it. If you've told a buyer not to buy, or pushed back hard on their plan, the Advisor fits better.",
     },
-    adjacent: ['empathic-closer', 'devoted-advisor', 'authentic-cultivator'],
+    adjacent: ['empathic-closer', 'authentic-student', 'authentic-cultivator'],
   },
   {
     slug: 'adaptive-student',
@@ -329,7 +329,7 @@ export const archetypes: Archetype[] = [
       name: 'Adaptive Cultivator',
       tell: "Both improve steadily. You improve the method. The Cultivator improves the account, running the same approach longer and getting better at one relationship than at technique. If your growth shows up as deeper accounts rather than sharper skills, that's the Cultivator.",
     },
-    adjacent: ['adaptive-challenger', 'adaptive-hunter', 'methodical-architect'],
+    adjacent: ['adaptive-challenger', 'adaptive-hunter', 'adaptive-architect'],
   },
   {
     slug: 'empathic-advisor',
@@ -368,7 +368,7 @@ export const archetypes: Archetype[] = [
       name: 'Empathic Closer',
       tell: "Both read the room and both earn the right to say hard things. You use that right to advise. The Closer uses it to ask. If you leave the meeting having asked for something, you're probably closer to the Closer.",
     },
-    adjacent: ['empathic-closer', 'devoted-advisor', 'curious-advisor'],
+    adjacent: ['empathic-closer', 'empathic-student', 'curious-advisor'],
   },
   {
     slug: 'empathic-challenger',
@@ -407,7 +407,7 @@ export const archetypes: Archetype[] = [
       name: 'Empathic Advisor',
       tell: "Both read people well and both say hard things. The Advisor tells the buyer what they'd do. You tell the buyer their thinking is wrong. If you tend to offer a better option rather than dismantle the current one, the Advisor is closer.",
     },
-    adjacent: ['empathic-closer', 'strategic-challenger', 'empathic-advisor'],
+    adjacent: ['empathic-closer', 'empathic-connector', 'empathic-advisor'],
   },
   {
     slug: 'strategic-architect',
@@ -446,7 +446,7 @@ export const archetypes: Archetype[] = [
       name: 'Strategic Challenger',
       tell: "You navigate the org. The Challenger argues with it. The same read that tells you which stakeholder to avoid tells them which assumption to attack. If you find yourself naming the flawed assumption rather than working around it, the Challenger fits better.",
     },
-    adjacent: ['methodical-architect', 'strategic-closer', 'strategic-cultivator'],
+    adjacent: ['strategic-student', 'strategic-closer', 'strategic-cultivator'],
   },
   {
     slug: 'devoted-connector',
@@ -485,7 +485,7 @@ export const archetypes: Archetype[] = [
       name: 'Devoted Advisor',
       tell: "Both stay long and both get trusted. You get the whole picture, including things that have nothing to do with buying. The Advisor gets brought in on decisions specifically. If buyers call you when they're deciding rather than when something breaks, look at the Advisor.",
     },
-    adjacent: ['devoted-advisor', 'authentic-connector', 'devoted-hunter'],
+    adjacent: ['devoted-advisor', 'devoted-challenger', 'devoted-hunter'],
   },
   {
     slug: 'resilient-closer',
@@ -602,7 +602,7 @@ export const archetypes: Archetype[] = [
       name: 'Authentic Connector',
       tell: "You'll make the relationship uncomfortable to be useful. The Connector won't. Same absence of performance, opposite tolerance for a difficult meeting. If you'd rather stay close than be right, the Connector fits better.",
     },
-    adjacent: ['authentic-challenger', 'empathic-advisor', 'authentic-cultivator'],
+    adjacent: ['authentic-challenger', 'authentic-architect', 'authentic-cultivator'],
   },
   {
     slug: 'adaptive-cultivator',
@@ -641,7 +641,7 @@ export const archetypes: Archetype[] = [
       name: 'Adaptive Student',
       tell: "Both keep changing and both improve fast. You change to fit one account. The Student changes to get better at selling. If what improves is your technique rather than your accounts, the Student is closer.",
     },
-    adjacent: ['adaptive-closer', 'adaptive-student', 'devoted-connector'],
+    adjacent: ['adaptive-closer', 'adaptive-student', 'adaptive-architect'],
   },
   {
     slug: 'methodical-hunter',
@@ -953,7 +953,7 @@ export const archetypes: Archetype[] = [
       name: 'Devoted Connector',
       tell: "Both stay for years and both go deep. Yours is about the account. The Connector's is about the people, including things that have nothing to do with the business. If you'd help a buyer with a problem that isn't yours, the Connector is closer.",
     },
-    adjacent: ['devoted-connector', 'resilient-cultivator', 'adaptive-cultivator'],
+    adjacent: ['devoted-connector', 'resilient-cultivator', 'devoted-student'],
   },
   {
     slug: 'resilient-cultivator',
@@ -992,7 +992,7 @@ export const archetypes: Archetype[] = [
       name: 'Resilient Closer',
       tell: "Both stay in uncomfortable rooms. You stay for years, in an account. The Closer stays for the length of a conversation, to get a decision. If your endurance shows up in a single meeting rather than across quarters, the Closer is closer.",
     },
-    adjacent: ['resilient-hunter', 'devoted-cultivator', 'empathic-cultivator'],
+    adjacent: ['resilient-hunter', 'devoted-cultivator', 'resilient-student'],
   },
   {
     slug: 'authentic-cultivator',
@@ -1070,7 +1070,7 @@ export const archetypes: Archetype[] = [
       name: 'Strategic Architect',
       tell: "Both map the org and both sequence carefully. You're building toward an ask. The Architect is building a structure that survives without one. If you'd rather the deal be inevitable than ask for it, the Architect is closer.",
     },
-    adjacent: ['strategic-architect', 'strategic-hunter', 'methodical-architect'],
+    adjacent: ['strategic-architect', 'strategic-hunter', 'strategic-connector'],
   },
   {
     slug: 'methodical-closer',
@@ -1304,7 +1304,7 @@ export const archetypes: Archetype[] = [
       name: 'Curious Closer',
       tell: "The Curious Closer asks one more question and then asks for the deal as planned. You ask one more question and then change the deal. If your final proposal usually matches the one you walked in with, the Curious Closer is closer to you.",
     },
-    adjacent: ['adaptive-student', 'resilient-closer', 'methodical-closer'],
+    adjacent: ['adaptive-advisor', 'resilient-closer', 'methodical-closer'],
   },
   {
     slug: 'methodical-cultivator',
@@ -1382,7 +1382,7 @@ export const archetypes: Archetype[] = [
       name: 'Strategic Hunter',
       tell: "The Strategic Hunter's account map is covered in logos. Yours is covered in departments of a customer you already have. If most of your best deals were first deals, the Hunter page is the one to read.",
     },
-    adjacent: ['strategic-architect', 'methodical-cultivator', 'curious-cultivator'],
+    adjacent: ['strategic-architect', 'methodical-cultivator', 'strategic-student'],
   },
   {
     slug: 'curious-challenger',
@@ -1889,7 +1889,7 @@ export const archetypes: Archetype[] = [
       name: 'Methodical Cultivator',
       tell: "The Methodical Cultivator's plan runs on accounts. Yours runs on people, most of whom aren't customers. If your schedule is organized by company rather than by person, read the Cultivator.",
     },
-    adjacent: ['methodical-cultivator', 'devoted-connector', 'methodical-advisor'],
+    adjacent: ['methodical-cultivator', 'curious-connector', 'methodical-advisor'],
   },
   {
     slug: 'resilient-connector',
@@ -1928,7 +1928,7 @@ export const archetypes: Archetype[] = [
       name: 'Resilient Cultivator',
       tell: "The Resilient Cultivator stayed inside the account and repaired it. You stayed with the person, often after they left the account entirely. If your repair work happens with the company rather than the individual, the Cultivator fits better.",
     },
-    adjacent: ['resilient-cultivator', 'devoted-connector', 'resilient-advisor'],
+    adjacent: ['resilient-cultivator', 'methodical-connector', 'resilient-advisor'],
   },
   {
     slug: 'strategic-connector',
@@ -1967,7 +1967,7 @@ export const archetypes: Archetype[] = [
       name: 'Strategic Cultivator',
       tell: "The Strategic Cultivator maps a customer's org and grows inside it. You map an industry and grow across it. If your plan is drawn around one account's departments, that's the Cultivator.",
     },
-    adjacent: ['strategic-cultivator', 'authentic-connector', 'strategic-advisor'],
+    adjacent: ['strategic-cultivator', 'adaptive-connector', 'strategic-advisor'],
   },
   {
     slug: 'adaptive-connector',
@@ -2006,7 +2006,7 @@ export const archetypes: Archetype[] = [
       name: 'Adaptive Cultivator',
       tell: "The Adaptive Cultivator changes how they work the same account for years. You change who you're working with. If the constant in your week is a customer list rather than a market, the Cultivator is closer.",
     },
-    adjacent: ['adaptive-cultivator', 'empathic-connector', 'adaptive-advisor'],
+    adjacent: ['adaptive-cultivator', 'resilient-connector', 'adaptive-advisor'],
   },
   {
     slug: 'curious-architect',
@@ -2045,7 +2045,7 @@ export const archetypes: Archetype[] = [
       name: 'Methodical Architect',
       tell: "The Methodical Architect builds the machine and runs it. You build it, then take it apart to see whether it was right. If you'd rather maintain a system that works than investigate one that already does, the Methodical Architect is your page.",
     },
-    adjacent: ['methodical-architect', 'curious-challenger', 'strategic-architect'],
+    adjacent: ['curious-student', 'curious-challenger', 'strategic-architect'],
   },
   {
     slug: 'empathic-architect',
@@ -2084,7 +2084,7 @@ export const archetypes: Archetype[] = [
       name: 'Empathic Cultivator',
       tell: "The Empathic Cultivator reads one account and adjusts to it. You read a pattern and change the process for everyone. If your best work happens in a specific relationship rather than in a template, the Cultivator page is yours.",
     },
-    adjacent: ['empathic-cultivator', 'methodical-architect', 'empathic-connector'],
+    adjacent: ['empathic-cultivator', 'empathic-student', 'empathic-connector'],
   },
   {
     slug: 'resilient-architect',
@@ -2123,7 +2123,7 @@ export const archetypes: Archetype[] = [
       name: 'Methodical Architect',
       tell: "The Methodical Architect runs the machine because it works. You run yours because it hasn't beaten you yet. A system whose numbers stopped supporting it would be dropped by the Methodical Architect and rebuilt by you.",
     },
-    adjacent: ['methodical-architect', 'resilient-cultivator', 'resilient-challenger'],
+    adjacent: ['resilient-connector', 'resilient-student', 'resilient-challenger'],
   },
   {
     slug: 'devoted-architect',
@@ -2162,7 +2162,7 @@ export const archetypes: Archetype[] = [
       name: 'Devoted Cultivator',
       tell: "The Devoted Cultivator stays inside the account and gives it everything. You build the thing that serves the account whether or not you're in the room. If your care shows up as hours with a specific customer rather than as something you made, the Cultivator is closer.",
     },
-    adjacent: ['devoted-cultivator', 'methodical-architect', 'devoted-challenger'],
+    adjacent: ['devoted-cultivator', 'devoted-student', 'devoted-challenger'],
   },
   {
     slug: 'authentic-architect',
@@ -2201,7 +2201,7 @@ export const archetypes: Archetype[] = [
       name: 'Authentic Advisor',
       tell: "The Authentic Advisor spends their honesty on buyers. You spend yours on your own company's process. If the uncomfortable truths you tell are mostly aimed at customers rather than at your own playbook, read the Advisor.",
     },
-    adjacent: ['authentic-advisor', 'methodical-architect', 'authentic-challenger'],
+    adjacent: ['authentic-advisor', 'authentic-student', 'authentic-challenger'],
   },
   {
     slug: 'adaptive-architect',
@@ -2240,7 +2240,7 @@ export const archetypes: Archetype[] = [
       name: 'Adaptive Student',
       tell: "The Adaptive Student rebuilds their own skills. You rebuild the system everyone else runs. If what keeps changing is how you personally sell rather than how the team does, the Student page fits better.",
     },
-    adjacent: ['adaptive-student', 'curious-architect', 'adaptive-challenger'],
+    adjacent: ['adaptive-connector', 'curious-architect', 'adaptive-challenger'],
   },
   {
     slug: 'curious-student',
@@ -2279,7 +2279,7 @@ export const archetypes: Archetype[] = [
       name: 'Curious Architect',
       tell: "The Curious Architect investigates the system and then rebuilds it. You investigate and keep the understanding. If what you learn usually turns into something the team runs, the Architect is your page.",
     },
-    adjacent: ['curious-architect', 'adaptive-student', 'curious-advisor'],
+    adjacent: ['curious-architect', 'curious-connector', 'curious-advisor'],
   },
   {
     slug: 'empathic-student',
@@ -2318,7 +2318,7 @@ export const archetypes: Archetype[] = [
       name: 'Empathic Advisor',
       tell: "The Empathic Advisor uses what they read to tell the buyer something true. You use it to get better at reading. If your best moments are honest conversations with buyers rather than quiet review afterward, the Advisor is your page.",
     },
-    adjacent: ['empathic-advisor', 'adaptive-student', 'empathic-closer'],
+    adjacent: ['empathic-advisor', 'empathic-architect', 'empathic-closer'],
   },
   {
     slug: 'methodical-student',
@@ -2357,7 +2357,7 @@ export const archetypes: Archetype[] = [
       name: 'Methodical Architect',
       tell: "The Methodical Architect builds a system for the team to run. You build a practice regimen for yourself. If what you're improving is everyone's process rather than your own skill, the Architect page fits.",
     },
-    adjacent: ['methodical-architect', 'adaptive-student', 'methodical-closer'],
+    adjacent: ['methodical-connector', 'curious-student', 'methodical-closer'],
   },
   {
     slug: 'resilient-student',
@@ -2396,7 +2396,7 @@ export const archetypes: Archetype[] = [
       name: 'Resilient Closer',
       tell: "The Resilient Closer stays in the uncomfortable room until it closes. You stay with the uncomfortable deal after it's lost. If your persistence shows up in live deals rather than in post-mortems, the Closer page fits better.",
     },
-    adjacent: ['resilient-closer', 'adaptive-student', 'resilient-advisor'],
+    adjacent: ['resilient-closer', 'resilient-architect', 'resilient-advisor'],
   },
   {
     slug: 'devoted-student',
@@ -2435,7 +2435,7 @@ export const archetypes: Archetype[] = [
       name: 'Devoted Advisor',
       tell: "The Devoted Advisor uses what they know to tell the buyer what to do. You use it to understand them. If your knowledge usually arrives as a recommendation, the Advisor is the better read.",
     },
-    adjacent: ['devoted-advisor', 'adaptive-student', 'devoted-cultivator'],
+    adjacent: ['devoted-advisor', 'devoted-architect', 'devoted-cultivator'],
   },
   {
     slug: 'strategic-student',
@@ -2474,7 +2474,7 @@ export const archetypes: Archetype[] = [
       name: 'Strategic Architect',
       tell: "The Strategic Architect builds the path through a deal. You build the path through a career. If your planning shows up in account strategy rather than in what you study on a Sunday, the Architect page is yours.",
     },
-    adjacent: ['strategic-architect', 'adaptive-student', 'strategic-advisor'],
+    adjacent: ['strategic-connector', 'methodical-student', 'strategic-advisor'],
   },
   {
     slug: 'authentic-student',
@@ -2513,7 +2513,7 @@ export const archetypes: Archetype[] = [
       name: 'Authentic Advisor',
       tell: "The Authentic Advisor's honesty is pointed at the buyer's decision. Yours is pointed at yourself. If the uncomfortable thing you say is usually about their plan rather than your own gaps, the Advisor is closer.",
     },
-    adjacent: ['authentic-advisor', 'adaptive-student', 'authentic-closer'],
+    adjacent: ['authentic-advisor', 'authentic-architect', 'authentic-closer'],
   },
 ]
 
