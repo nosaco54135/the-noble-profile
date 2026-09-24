@@ -1813,6 +1813,240 @@ export const archetypes: Archetype[] = [
     },
     adjacent: ['empathic-cultivator', 'devoted-connector', 'empathic-hunter'],
   },
+  {
+    slug: 'curious-connector',
+    name: 'Curious Connector',
+    trait: 'Curious',
+    style: 'Connector',
+    tagline: "You stay interested in people after there's nothing left to ask them about.",
+    metaDescription:
+      "The Curious Connector builds a network out of conversations that were never about a deal. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Curious Connector keeps talking to people because they're interesting, not because they're in a deal. You want to know how someone got into the industry, what their old company did differently, why they think the market is heading where it is. Four years later, half the people you talk to regularly have nothing to do with your territory.",
+      "Those conversations pay off in ways a pipeline can't show. You hear about vendor switches early, you get honest reads on competitors, and you're rarely more than one introduction from any room you need. The bill is time, and it's charged monthly.",
+    ],
+    strengths: [
+      "You know why the buyer's last vendor was replaced, from the person who managed them.",
+      "Introductions come easily to you, because you can tell each person why they'd find the other interesting.",
+      "You spot a market shift in conversations months before it shows up in a report.",
+      "People tell you things off the record, since nothing you ask them is ever about your quota.",
+    ],
+    blindSpots: [
+      "Your best relationship at an account is with someone who has no role in the purchase.",
+      "A thirty-minute catch-up regularly runs an hour, and you book the next one before hanging up.",
+      "You gather context nobody asked for and no deal needed.",
+      "A good conversation counts as a good day, even when your pipeline didn't move.",
+    ],
+    inTheDeal:
+      "In a live deal, the Curious Connector already knows the buyer's head of engineering from a conference two years ago, and hears from them that the stated requirement was written around a competitor's feature. You reposition before the RFP closes. That kind of intelligence can't be bought. It's the residue of hundreds of conversations, most of which were about nothing in particular, and all of which took real hours out of a selling week.",
+    sellsBestTo:
+      "Industries where the same people cycle between a handful of companies, so every relationship keeps mattering. Complex accounts where the real story lives with people outside the committee. Short cycles and cold territories give your network no chance to exist, and you'll feel like you're starting from nothing, because you are.",
+    growthEdge:
+      "Look at the ten people you've spoken with most this year. Count how many sat in a deal.",
+    tension:
+      "Curiosity wants the next question. Connecting wants the next conversation. Both are satisfied by staying in touch, so nothing in you ever decides a relationship has served its purpose. Nobody has ever left the rotation, so it holds everyone useful in 2022 and everyone you've met since, on the same footing.",
+    mistakenFor: {
+      slug: 'curious-cultivator',
+      name: 'Curious Cultivator',
+      tell: "The Curious Cultivator's questions grow an account. Yours grow a network that spans companies. If the people you talk to most are inside accounts you're responsible for, the Cultivator is your page.",
+    },
+    adjacent: ['curious-cultivator', 'authentic-connector', 'curious-advisor'],
+  },
+  {
+    slug: 'methodical-connector',
+    name: 'Methodical Connector',
+    trait: 'Methodical',
+    style: 'Connector',
+    tagline: "Nobody falls off your list, because your list doesn't let them.",
+    metaDescription:
+      "The Methodical Connector keeps a network alive by system, so no relationship decays by accident. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Methodical Connector keeps relationships alive by system. Everyone you've worked with sits in a list with a date next to it. When someone changes jobs, you know within the week, and the note you send is genuinely about them, because you wrote down what mattered to them the last time you spoke.",
+      "Most sellers lose their network to attrition. Yours compounds, because nobody drops out of it. What it can't do is tell you which of those people actually wants to hear from you this quarter.",
+    ],
+    strengths: [
+      "You reach a former champion in their new role before your competitor knows they moved.",
+      "Your notes let you open a call with the detail that matters, a year after the last conversation.",
+      "A champion you last spoke to in 2021 answers the email, because it didn't read as a mass send.",
+      "Nobody in your network goes dark by accident.",
+    ],
+    blindSpots: [
+      "A quarterly touch arrives whether or not you have anything to say.",
+      "Your contact record for a person is more detailed than your sense of them.",
+      "Someone who should be a weekly conversation gets the same cadence as everyone else.",
+      "When the system says you touched base last month, you don't reach out again, even though the last month is when everything changed for them.",
+    ],
+    inTheDeal:
+      "In a live deal, the Methodical Connector gets a warm introduction into a new account because a champion from three companies ago is now the VP there, and you'd stayed in touch the whole time. The competitor arrives cold. A network that never decays is a rare and durable advantage. The upkeep is constant and invisible, and some of the people in the rotation are getting your messages on schedule rather than because you thought of them.",
+    sellsBestTo:
+      "Industries with high job mobility, where this year's contact is next year's buyer. Territories you'll hold long enough for the compounding to show. Fast-moving startup markets where companies disappear and reappear make the record harder to keep useful, and it ages faster than you can maintain it.",
+    growthEdge:
+      "Open your list and find the person you've contacted most reliably for the last three years. Ask yourself when they last replied with more than a line. The cadence held perfectly. The relationship quietly became a broadcast.",
+    tension:
+      "Method keeps the schedule. Connecting needs the moment. Your system guarantees the contact happens and guarantees nothing about whether it lands, so the message goes out in a quiet week and again in the week their company got acquired, in the same voice. The person who most needed to hear from you was in the rotation, at their turn.",
+    mistakenFor: {
+      slug: 'methodical-cultivator',
+      name: 'Methodical Cultivator',
+      tell: "The Methodical Cultivator's plan runs on accounts. Yours runs on people, most of whom aren't customers. If your schedule is organized by company rather than by person, read the Cultivator.",
+    },
+    adjacent: ['methodical-cultivator', 'devoted-connector', 'methodical-advisor'],
+  },
+  {
+    slug: 'resilient-connector',
+    name: 'Resilient Connector',
+    trait: 'Resilient',
+    style: 'Connector',
+    tagline: "The relationship survives the deal that went wrong.",
+    metaDescription:
+      "The Resilient Connector stays in touch after the failure, the cancellation, or the blame. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Resilient Connector stays in touch after the implementation failed, the contract was cancelled, or the champion got blamed for choosing you. Most sellers go quiet when a relationship gets uncomfortable. You send the message anyway, and you send the next one too.",
+      "What comes back is unusual: people who have seen you at your worst and still take your call. A relationship that has survived something is stronger than one that never got tested. Getting there means absorbing a lot of silence, and some of it never ends.",
+    ],
+    strengths: [
+      "You call the customer whose project failed, in the same month it failed.",
+      "A champion who was burned by your product still gives you an honest hearing at their next company.",
+      "You keep reaching out through a year of no replies, and are still there when the situation changes.",
+      "Buyers who have watched you take responsibility for something bad trust you with the next decision.",
+    ],
+    blindSpots: [
+      "You maintain relationships with people who quietly decided years ago they'd never buy from you again.",
+      "Silence carries no information for you, so a polite freeze-out and a busy stretch look identical.",
+      "You spend the goodwill of your own team asking them to re-engage an account they wrote off.",
+      "You stay close to a former champion whose new company is nothing like your market.",
+    ],
+    inTheDeal:
+      "In a live deal, the Resilient Connector reconnects with a buyer whose last implementation with your company went badly, and gets a meeting because you never disappeared after it did. You start that conversation somewhere no competitor can reach. The same persistence keeps dozens of dead relationships technically alive, and the hours are real even when the outcomes never arrive.",
+    sellsBestTo:
+      "Accounts with a difficult history where a competitor thinks the door is shut. Industries where failure is common and forgiven, and endurance reads as integrity. Clean greenfield territories don't test anything, and your best quality goes unused.",
+    growthEdge:
+      "There's a name you've reached out to twice a year since the deal collapsed. The replies were polite and got shorter. You haven't stopped, because stopping would feel like admitting something, and the calendar reminder keeps firing.",
+    tension:
+      "Connecting reads the other person's signals. Resilience mutes the one signal that matters, which is the cost of being ignored. Other sellers feel a relationship go cold and back off. You feel almost nothing and keep sending, so the relationships that ended stay on your list beside the ones that are just dormant, and they look the same from where you're standing.",
+    mistakenFor: {
+      slug: 'resilient-cultivator',
+      name: 'Resilient Cultivator',
+      tell: "The Resilient Cultivator stayed inside the account and repaired it. You stayed with the person, often after they left the account entirely. If your repair work happens with the company rather than the individual, the Cultivator fits better.",
+    },
+    adjacent: ['resilient-cultivator', 'devoted-connector', 'resilient-advisor'],
+  },
+  {
+    slug: 'strategic-connector',
+    name: 'Strategic Connector',
+    trait: 'Strategic',
+    style: 'Connector',
+    tagline: "You knew that VP when they were a manager, and you knew they wouldn't stay one.",
+    metaDescription:
+      "The Strategic Connector invests in people years before they have the authority to buy. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Strategic Connector invests in people early. The analyst nobody is courting, the manager on the way up, the director at a company that's about to get acquired. You build those relationships years before they matter, and often before the person themselves knows where they're going.",
+      "That patience creates a network that outperforms any prospecting list. It also means a good portion of your week goes to people who can't buy anything today, chosen on your read of where they'll be in three years.",
+    ],
+    strengths: [
+      "You get a first meeting at a new logo because someone you've known for six years now runs the team.",
+      "You can name who in the industry is about to move, and roughly where.",
+      "Your relationships are weighted toward people whose authority is rising, not people who had it a decade ago.",
+      "A competitor's champion talks to you anyway, because you knew them before they worked there.",
+    ],
+    blindSpots: [
+      "You invest three years in someone who plateaus, and the calls get shorter once it's clear.",
+      "People occasionally sense they're being invested in.",
+      "Your network skews toward the ambitious, who are also the least loyal.",
+      "You have almost nobody in the roles that don't lead anywhere, which is where a lot of the buying still happens.",
+    ],
+    inTheDeal:
+      "In a live deal, the Strategic Connector gets a meeting inside a competitor's flagship account because the new head of operations there was a manager you kept in touch with for four years. You skip a procurement process everyone else is stuck in. That's the compounding return on relationships nobody else thought worth starting. The cost is spread across every quarter where your best hours went to people who couldn't buy anything.",
+    sellsBestTo:
+      "Industries with clear career ladders and predictable movement between a known set of companies. Long-horizon enterprise territories where a relationship has room to mature. High-churn markets where people leave the industry entirely make your reads worthless, since the person you backed isn't in the sector by the time it would have paid.",
+    growthEdge:
+      "There's someone you invested in for years who is still in the same role. Your contact with them thinned out around the time it became clear they weren't moving. They noticed before you did.",
+    tension:
+      "Strategy plays for the long return. Connecting plays for the long relationship. They want the same thing, so nothing in you ever asks what this quarter needs. The relationship you're building today is for a role the person doesn't have yet, and the deal on your forecast has a date on it.",
+    mistakenFor: {
+      slug: 'strategic-cultivator',
+      name: 'Strategic Cultivator',
+      tell: "The Strategic Cultivator maps a customer's org and grows inside it. You map an industry and grow across it. If your plan is drawn around one account's departments, that's the Cultivator.",
+    },
+    adjacent: ['strategic-cultivator', 'authentic-connector', 'strategic-advisor'],
+  },
+  {
+    slug: 'adaptive-connector',
+    name: 'Adaptive Connector',
+    trait: 'Adaptive',
+    style: 'Connector',
+    tagline: "Your network looks nothing like it did three years ago, and that's why it still works.",
+    metaDescription:
+      "The Adaptive Connector rebuilds their network as the buying center moves between functions. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Adaptive Connector rebuilds their network as the market moves. When your category shifts and the decision moves from IT to revenue operations, you're already talking to revenue operations. The relationships you built for the old buying process get thinner while you're building the new ones.",
+      "Most sellers' networks age with them. Yours stays aligned to who actually decides. The people you moved on from usually notice, and a few of them remember when your industry cycles back.",
+    ],
+    strengths: [
+      "Your strongest relationships are with the function that decides now, not the one that decided in 2021.",
+      "A new market or segment doesn't leave you starting from zero, because you rebuild fast.",
+      "You meet the people around a new buying center before your competitor has updated their org chart.",
+      "When a buying center moves, the people you already know there mean you're introduced rather than announced.",
+    ],
+    blindSpots: [
+      "Relationships you spent years on go quiet once their function stops deciding.",
+      "You have wide coverage of this year's buying center and thin history anywhere.",
+      "People who are still in the same role notice how much less they hear from you.",
+      "Nobody in your network has known you long enough to vouch for you in a room you're not in.",
+    ],
+    inTheDeal:
+      "In a live deal, the Adaptive Connector already has relationships in the security team because you noticed six months ago that security had started vetoing purchases in your category. The buyer's process has a new gate, and you're through it. Seeing that shift early is genuinely rare. The trade is depth, and the ten-year relationship that gets a competitor an introduction is the one you don't have.",
+    sellsBestTo:
+      "Categories where the buying center keeps moving between functions. New markets where nobody has an established network and speed of rebuilding wins. Stable industries where the same people have bought the same way for twenty years reward the seller who stayed put, and that seller isn't you.",
+    growthEdge:
+      "Someone in your network was central to your business three years ago and now hears from you twice a year. Nothing went wrong. Their function stopped being the one that decides, and your attention followed the decision.",
+    tension:
+      "Connecting builds relationships that outlast the deal. Adapting keeps moving toward whoever decides next. The relationships are real while they're current, and your attention follows the market rather than the person. You end every year with a network that fits the market and almost nobody in it who has known you through more than one version of it.",
+    mistakenFor: {
+      slug: 'adaptive-cultivator',
+      name: 'Adaptive Cultivator',
+      tell: "The Adaptive Cultivator changes how they work the same account for years. You change who you're working with. If the constant in your week is a customer list rather than a market, the Cultivator is closer.",
+    },
+    adjacent: ['adaptive-cultivator', 'empathic-connector', 'adaptive-advisor'],
+  },
+  {
+    slug: 'curious-architect',
+    name: 'Curious Architect',
+    trait: 'Curious',
+    style: 'Architect',
+    tagline: "You take your own sales process apart to see how it works.",
+    metaDescription:
+      "The Curious Architect investigates why a sales process works before rebuilding it. Strengths, blind spots, and how this selling style wins. Take the free assessment.",
+    intro: [
+      "The Curious Architect wants to know why the process works, not just that it does. You pull apart the stages, test whether the qualification criteria actually predict anything, and rebuild the sequence around what you find.",
+      "Most system-builders optimize what exists. You investigate it first, which is why your systems fit the business instead of some generic template. Investigation takes time, and the question is always interesting whether or not the answer changes anything.",
+    ],
+    strengths: [
+      "You find out which stage the team's deals actually die in, rather than where the CRM says they do.",
+      "Your process changes are grounded in something you tested, not in a framework you read.",
+      "You'll kill a stage that adds nothing, even one you built.",
+      "You can explain why your system works, so other people can use it without you.",
+    ],
+    blindSpots: [
+      "You analyze last quarter's funnel through the first three weeks of this one.",
+      "A question that would take a day to answer and change nothing still gets the day.",
+      "Your system gets rebuilt before the last version had run long enough to judge.",
+      "Teammates get a diagnosis of a problem they'd rather just have fixed.",
+    ],
+    inTheDeal:
+      "In a live deal, the Curious Architect notices that deals with a security review in the first thirty days close at twice the rate of the ones where it comes late, pulls the last two years of data to check, and rebuilds the team's sequence around an early security conversation. Nobody else on the team would have gone looking. The investigation took two weeks, and it happened during a quarter where your own pipeline needed the hours.",
+    sellsBestTo:
+      "Teams and companies that will act on what you find, and territories where your own deals can survive the weeks you spend on the system. Sales leaders who want a documented reason for a process change. Pure transactional roles where the process is fixed by someone else give your curiosity nothing to work on.",
+    growthEdge:
+      "You've built something that explains why your team wins, and the team is using version four of it. Versions two and three never ran long enough to produce a clean read. You were already curious about the next question.",
+    tension:
+      "Curiosity wants to understand the system. Architecting wants to ship it. Understanding has no natural end, so the build starts when the question runs out rather than when the answer is good enough. The version your team is using is always one revision behind the one you're interested in, and the difference is usually invisible to everyone but you.",
+    mistakenFor: {
+      slug: 'methodical-architect',
+      name: 'Methodical Architect',
+      tell: "The Methodical Architect builds the machine and runs it. You build it, then take it apart to see whether it was right. If you'd rather maintain a system that works than investigate one that already does, the Methodical Architect is your page.",
+    },
+    adjacent: ['methodical-architect', 'curious-challenger', 'strategic-architect'],
+  },
 ]
 
 export function getArchetype(slug: string): Archetype | undefined {
