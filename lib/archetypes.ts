@@ -600,7 +600,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'authentic-connector',
       name: 'Authentic Connector',
-      tell: "You'll make the relationship uncomfortable to be useful. The Connector won't. Same absence of performance, opposite tolerance for a difficult meeting. If you'd rather stay close than be right, the Connector fits better.",
+      tell: "You'll make the relationship uncomfortable to be useful. The Connector won't. Same absence of performance, opposite tolerance for a difficult meeting. When staying close matters more to you than being right, the Connector fits better.",
     },
     adjacent: ['authentic-challenger', 'authentic-architect', 'authentic-cultivator'],
   },
@@ -1068,7 +1068,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'strategic-architect',
       name: 'Strategic Architect',
-      tell: "Both map the org and both sequence carefully. You're building toward an ask. The Architect is building a structure that survives without one. If you'd rather the deal be inevitable than ask for it, the Architect is closer.",
+      tell: "Both map the org and both sequence carefully. You're building toward an ask. The Architect is building a structure that survives without one. When the deal being inevitable matters more to you than asking for it, the Architect is closer.",
     },
     adjacent: ['strategic-architect', 'strategic-hunter', 'strategic-connector'],
   },
@@ -2004,7 +2004,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'adaptive-cultivator',
       name: 'Adaptive Cultivator',
-      tell: "The Adaptive Cultivator changes how they work the same account for years. You change who you're working with. If the constant in your week is a customer list rather than a market, the Cultivator is closer.",
+      tell: "The Adaptive Cultivator keeps the same customer list and reinvents how they serve it. You keep changing who's on the list. If the constant in your week is a customer list rather than a market, the Cultivator is closer.",
     },
     adjacent: ['adaptive-cultivator', 'resilient-connector', 'adaptive-advisor'],
   },
@@ -2043,7 +2043,7 @@ export const archetypes: Archetype[] = [
     mistakenFor: {
       slug: 'methodical-architect',
       name: 'Methodical Architect',
-      tell: "The Methodical Architect builds the machine and runs it. You build it, then take it apart to see whether it was right. If you'd rather maintain a system that works than investigate one that already does, the Methodical Architect is your page.",
+      tell: "The Methodical Architect builds the machine and runs it. You build it, then take it apart to see whether it was right. A system that already works is one the Methodical Architect maintains and you take apart anyway.",
     },
     adjacent: ['curious-student', 'curious-challenger', 'strategic-architect'],
   },
