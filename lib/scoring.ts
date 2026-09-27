@@ -41,24 +41,24 @@ interface AxisDef<K extends string> {
 }
 
 export const TRAITS: AxisDef<TraitKey>[] = [
-  { key: 'empathic',   label: 'Empathic',   tagline: 'Reads the room — and makes the other person feel it.',  dims: ['eq_trust', 'curiosity'] },
+  { key: 'adaptive',   label: 'Adaptive',   tagline: 'Learns faster than the market moves.',                  dims: ['learning_style', 'mindset_resilience'] },
+  { key: 'authentic',  label: 'Authentic',  tagline: 'Tells the truth even when it costs the deal.',          dims: ['authenticity', 'eq_trust'] },
   { key: 'curious',    label: 'Curious',    tagline: 'Asks one more question than most people ask.',           dims: ['curiosity', 'problem_solving'] },
+  { key: 'devoted',    label: 'Devoted',    tagline: 'Earns loyalty by putting the customer first.',           dims: ['customer_centric', 'active_listening'] },
+  { key: 'empathic',   label: 'Empathic',   tagline: 'Reads the room — and makes the other person feel it.',  dims: ['eq_trust', 'curiosity'] },
   { key: 'methodical', label: 'Methodical', tagline: 'Runs a predictable, repeatable process.',               dims: ['process_oriented', 'data_driven'] },
   { key: 'resilient',  label: 'Resilient',  tagline: "Keeps dialing through the no's.",                       dims: ['mindset_resilience', 'prospecting_comfort'] },
-  { key: 'devoted',    label: 'Devoted',    tagline: 'Earns loyalty by putting the customer first.',           dims: ['customer_centric', 'active_listening'] },
   { key: 'strategic',  label: 'Strategic',  tagline: 'Sees the non-obvious path to the outcome.',             dims: ['data_driven', 'problem_solving'] },
-  { key: 'authentic',  label: 'Authentic',  tagline: 'Tells the truth even when it costs the deal.',          dims: ['authenticity', 'eq_trust'] },
-  { key: 'adaptive',   label: 'Adaptive',   tagline: 'Learns faster than the market moves.',                  dims: ['learning_style', 'mindset_resilience'] },
 ]
 
 export const STYLES: AxisDef<StyleKey>[] = [
-  { key: 'hunter',     label: 'Hunter',     tagline: 'Opens conversations other people avoid.',               dims: ['prospecting_comfort', 'curiosity'] },
-  { key: 'closer',     label: 'Closer',     tagline: 'Asks for the decision without flinching.',              dims: ['closing_confidence', 'problem_solving'] },
-  { key: 'architect',  label: 'Architect',  tagline: 'Builds systems that compound over time.',               dims: ['process_oriented', 'learning_style'] },
-  { key: 'cultivator', label: 'Cultivator', tagline: 'Grows relationships that keep coming back.',            dims: ['prospecting_comfort', 'active_listening'] },
   { key: 'advisor',    label: 'Advisor',    tagline: "Earns the right to recommend what's best.",             dims: ['customer_centric', 'problem_solving'] },
+  { key: 'architect',  label: 'Architect',  tagline: 'Builds systems that compound over time.',               dims: ['process_oriented', 'learning_style'] },
   { key: 'challenger', label: 'Challenger', tagline: 'Reframes the problem so the decision is clear.',        dims: ['data_driven', 'closing_confidence'] },
+  { key: 'closer',     label: 'Closer',     tagline: 'Asks for the decision without flinching.',              dims: ['closing_confidence', 'problem_solving'] },
   { key: 'connector',  label: 'Connector',  tagline: 'Builds relationships that outlast the deal.',           dims: ['authenticity', 'customer_centric'] },
+  { key: 'cultivator', label: 'Cultivator', tagline: 'Grows relationships that keep coming back.',            dims: ['prospecting_comfort', 'active_listening'] },
+  { key: 'hunter',     label: 'Hunter',     tagline: 'Opens conversations other people avoid.',               dims: ['prospecting_comfort', 'curiosity'] },
   { key: 'student',    label: 'Student',    tagline: 'Gets measurably better every quarter.',                 dims: ['learning_style', 'data_driven'] },
 ]
 

@@ -4,6 +4,7 @@ import { Section } from '@/components/ui/Section'
 import { LinkButton } from '@/components/ui/Button'
 import { ArchetypeGrid } from '@/components/ArchetypeGrid'
 import { archetypes } from '@/lib/archetypes'
+import { TRAITS, STYLES } from '@/lib/scoring'
 
 export const metadata: Metadata = {
   title: 'Sales Personality Types: What Kind of Salesperson Are You? — The Noble Seller',
@@ -96,10 +97,10 @@ export default function ArchetypesPage() {
         <Container maxWidth="prose">
           <div className="space-y-2">
             <p className="font-sans text-sm text-[#0F0F0F] leading-relaxed">
-              <span className="font-medium">The eight traits:</span> Empathic, Curious, Methodical, Resilient, Devoted, Strategic, Authentic, Adaptive.
+              <span className="font-medium">The eight traits:</span> {TRAITS.map((trait) => trait.label).join(', ')}.
             </p>
             <p className="font-sans text-sm text-[#0F0F0F] leading-relaxed">
-              <span className="font-medium">The eight styles:</span> Closer, Hunter, Challenger, Advisor, Connector, Architect, Cultivator, Student.
+              <span className="font-medium">The eight styles:</span> {STYLES.map((style) => style.label).join(', ')}.
             </p>
           </div>
         </Container>
