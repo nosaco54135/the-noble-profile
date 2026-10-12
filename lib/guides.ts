@@ -60,7 +60,7 @@ export const guides: Guide[] = [
       {
         heading: 'The two things underneath it',
         paragraphs: [
-          "In our framework, trusted-advisor behavior isn't a personality type. It's the meeting point of two measurable dimensions.",
+          "In our framework, trusted-advisor behavior isn't [a personality type](/guides/sales-personality-types). It's the meeting point of two [measurable dimensions](/methodology).",
           'Authenticity is the refusal to perform. The advisor says the true thing even when the polished thing would sell better. Buyers have a finely tuned detector for sellers who are managing them, and authenticity is what keeps that detector quiet.',
           "Customer-centricity is whose problem you're actually solving. The advisor optimizes for the buyer's result and trusts that the commission follows. Reverse the order and the buyer feels it inside one call.",
           'Score high on both and the trusted-advisor pattern shows up on its own, without anyone coaching you into it. Score high on one and low on the other and you get a familiar failure mode: the blunt seller nobody trusts to care, or the warm seller nobody trusts to be straight.',
@@ -77,11 +77,14 @@ export const guides: Guide[] = [
     ],
     bridgeHeading: 'Where you actually stand',
     bridgeParagraphs: [
-      'Whether this is your natural wiring or a skill you\'re still reaching for is a measurable thing, not a feeling. The seller whose authenticity and customer focus both run high earns the archetype we call the Devoted Advisor: trusted by default, not by effort.',
+      'Whether this is your natural wiring or a skill you\'re still reaching for is a measurable thing, not a feeling. The seller whose authenticity and customer focus both run high earns the archetype we call the [Devoted Advisor](/archetypes/devoted-advisor): trusted by default, not by effort.',
       'The Noble Quotient measures both dimensions and shows you where you actually stand, not where you\'d like to.',
     ],
     relatedArchetypeSlug: 'devoted-advisor',
     relatedArchetypeName: 'Devoted Advisor',
+    relatedGuides: [
+      { slug: 'consultative-selling', name: 'What consultative selling actually is (and why most training misses it)' },
+    ],
     ctaHeadline: 'See where you actually stand',
     ctaBody: '30 questions. 12 behavioral dimensions. Your natural selling identity, measured.',
     ctaButton: 'Take the free assessment',
@@ -116,7 +119,7 @@ export const guides: Guide[] = [
       {
         heading: "Why 'which one am I' is the wrong question",
         paragraphs: [
-          "The binary breaks down as soon as you look at what drives it. Hunting and farming describe behaviors, not people, and the traits behind them are separate dials, not a single slider with your name fixed at one end.",
+          "The binary breaks down as soon as you look at what drives it. Hunting and farming describe behaviors, not people, and the traits behind them are separate dials, not a single slider with your name fixed at one end. The same problem runs through most [sales personality types](/guides/sales-personality-types).",
           "Prospecting comfort is one dial. The patience to grow an account over a year is a completely different one, and they do not trade off against each other. You can run hot on cold outreach and still be the rep who never lets a logo slip. Plenty of the strongest sellers are exactly that, which is the thing the two-bucket model cannot see.",
           "So the honest answer to 'am I a hunter or a farmer' is usually 'both, in a specific mix the label cannot capture.' That mix is the useful thing to know, because it tells you which roles will fit you and which will quietly grind you down.",
         ],
@@ -125,11 +128,14 @@ export const guides: Guide[] = [
     bridgeHeading: "Which way you're wired",
     bridgeParagraphs: [
       "Whether you lean hunter, lean farmer, or run high on both is a measurable thing, not a hunch. The Noble Quotient scores the dimensions underneath the binary, from prospecting comfort to how you carry a long relationship, and shows you the mix instead of forcing you into a bucket.",
-      "The seller who runs high on prospecting comfort and stays steady through rejection tends to land on the archetype we call the Resilient Hunter. It is one of 64, and the point of measuring is to find yours, not to hand you another label to argue with.",
+      "The seller who runs high on prospecting comfort and stays steady through rejection tends to land on the archetype we call the [Resilient Hunter](/archetypes/resilient-hunter). It is [one of 64](/archetypes), and the point of measuring is to find yours, not to hand you another label to argue with.",
     ],
     relatedArchetypeSlug: 'resilient-hunter',
     relatedArchetypeName: 'Resilient Hunter',
-    relatedGuides: [{ slug: 'consultative-selling', name: 'Consultative selling' }],
+    relatedGuides: [
+      { slug: 'consultative-selling', name: 'Consultative selling' },
+      { slug: 'sales-personality-types', name: 'Sales personality types: the four-type models and where they break' },
+    ],
     ctaHeadline: 'Stop guessing from a two-word label',
     ctaBody: '30 questions. 12 behavioral dimensions. The mix under the label.',
     ctaButton: 'Take the free assessment',
@@ -173,7 +179,7 @@ export const guides: Guide[] = [
     bridgeHeading: "Whether it's already how you sell",
     bridgeParagraphs: [
       "Whether consultative selling is your natural wiring or a mode you're still reaching for is a measurable thing, not a matter of self-image. The two dimensions underneath it, curiosity and customer focus, are exactly what the Noble Quotient scores.",
-      "When both run high, the pattern shows up without anyone coaching it, and the seller tends to land on the archetype we call the Devoted Advisor.",
+      "When both run high, the pattern shows up without anyone coaching it, and the seller tends to land on the archetype we call the [Devoted Advisor](/archetypes/devoted-advisor).",
     ],
     relatedArchetypeSlug: 'devoted-advisor',
     relatedArchetypeName: 'Devoted Advisor',
@@ -205,14 +211,14 @@ export const guides: Guide[] = [
         heading: 'What top salespeople actually have in common',
         paragraphs: [
           "Watch enough top performers across enough teams and the shared trait isn't a personality. It's a relationship they have with their own wiring. The great ones know, with unusual precision, what they're naturally good at, and they've built their entire selling motion around it instead of around someone else's.",
-          "The quiet analyst doesn't force herself to work a room. She wins with the most prepared business case in the deal. The relationship seller doesn't pretend to love cold outreach. He builds a referral engine so he rarely needs it. Neither is following the standard playbook. Each built a personal one on top of what was already there.",
+          "[The quiet analyst](/archetypes/methodical-architect) doesn't force herself to work a room. She wins with the most prepared business case in the deal. [The relationship seller](/archetypes/devoted-connector) doesn't pretend to love cold outreach. He builds a referral engine so he rarely needs it. Neither is following the standard playbook. Each built a personal one on top of what was already there.",
           "The second thing they share is that they keep updating. Top sellers treat every lost deal as information and every won deal as a hypothesis to test again. The rep who sells today the way they sold three years ago has usually been passed by someone who didn't.",
         ],
       },
       {
         heading: "Why there's no single profile of a great salesperson",
         paragraphs: [
-          "The other reason the checklist fails is that the job isn't one job. What makes someone great at closing transactional deals in an SMB motion has surprisingly little overlap with what makes someone great at running an eighteen-month enterprise cycle, and neither looks much like the person who grows a book of existing accounts year after year.",
+          "The other reason the checklist fails is that the job isn't one job. What makes someone great at closing transactional deals in an SMB motion has surprisingly little overlap with what makes someone great at running an eighteen-month enterprise cycle, and neither looks much like [the person who grows a book of existing accounts](/guides/hunter-vs-farmer) year after year.",
           "Greatness in sales is a matching problem. The same wiring that makes a rep unstoppable in one seat can make them mediocre in another, and most careers that stall haven't run out of talent. They're running the wrong motion for the person executing it.",
           "Which is why the most expensive mistake a developing rep makes is imitation. Copying the top performer's routine only works if you share the top performer's wiring, and you usually don't. The better move is the one the great ones already made: figure out what you are, then build deliberately on that.",
         ],
@@ -220,8 +226,8 @@ export const guides: Guide[] = [
     ],
     bridgeHeading: 'The version of great you can actually become',
     bridgeParagraphs: [
-      "Every path to the top of a leaderboard starts from an accurate read of your own wiring, and that read is a measurable thing, not a guess. The Noble Quotient scores twelve behavioral dimensions and shows you the raw material you're actually working with, which is the starting point the checklists skip.",
-      "The sellers who treat their own selling as a system to keep refining tend to land on the archetype we call the Adaptive Student. It's one of 64, and finding yours is the point.",
+      "Every path to the top of a leaderboard starts from an accurate read of your own wiring, and that read is a measurable thing, not a guess. The Noble Quotient scores [twelve behavioral dimensions](/methodology) and shows you the raw material you're actually working with, which is the starting point the checklists skip.",
+      "The sellers who treat their own selling as a system to keep refining tend to land on the archetype we call the [Adaptive Student](/archetypes/adaptive-student). It's one of 64, and finding yours is the point.",
     ],
     relatedArchetypeSlug: 'adaptive-student',
     relatedArchetypeName: 'Adaptive Student',
@@ -454,7 +460,7 @@ export const guides: Guide[] = [
                   "What are they using today?",
                   "Only then connect features to something they've told you.",
                   "The same principle applies to mock cold calls. Interviewers are watching for curiosity, listening skills, and composure under pressure.",
-                  "A perfect pitch isn't required. Thoughtful discovery usually is.",
+                  "A perfect pitch isn't required. [Thoughtful discovery](/guides/consultative-selling) usually is.",
                 ],
               },
             ],
@@ -831,7 +837,7 @@ export const guides: Guide[] = [
       'Most sellers describe themselves using whatever language their last sales trainer used.',
       "That's why interview answers often sound interchangeable.",
       'The sellers who stand out can describe their own patterns with precision, including the parts that are not flattering. A manager can coach that. A candidate can improve it. An interviewer can trust it.',
-      'The Noble Quotient measures twelve sales behaviors and identifies the sales archetype those behaviors create. It is free, and it gives you language for the question underneath every sales interview question: how you sell when the pressure is real.',
+      'The Noble Quotient measures [twelve sales behaviors](/methodology) and identifies [the sales archetype](/archetypes) those behaviors create. It is free, and it gives you language for the question underneath every sales interview question: how you sell when the pressure is real.',
     ],
     relatedGuides: [
       { slug: 'what-makes-a-great-salesperson', name: 'What makes a great salesperson' },
@@ -929,7 +935,7 @@ export const guides: Guide[] = [
         heading: 'The seller types: hunter, farmer, and the rest',
         paragraphs: [
           'On the seller side, the oldest split is hunter and farmer. Hunters open new accounts. Farmers grow the ones already signed. It started as a description of two jobs, and most companies still use it to decide who gets which territory.',
-          'That split gets its own guide. The short version: most good sellers do some of both, and the label usually follows the job description more closely than the person.',
+          '[The hunter vs farmer split](/guides/hunter-vs-farmer) gets its own guide. The short version: most good sellers do some of both, and the label usually follows the job description more closely than the person.',
           "The best-known attempt to replace it came from CEB's research for The Challenger Sale, which sorted several thousand reps into five profiles: the Hard Worker, the Challenger, the Relationship Builder, the Lone Wolf, and the Reactive Problem Solver. It used five boxes instead of four and was built from performance data, but it was still a sorting exercise.",
         ],
       },
@@ -945,7 +951,7 @@ export const guides: Guide[] = [
     bridgeHeading: 'From four types to sixty-four',
     bridgeParagraphs: [
       'Sixty-four is still a set of boxes. What changes is what goes into them. The Noble Seller model sorts sellers on two things four-box models leave out: eight traits for how a seller is wired (Adaptive, Authentic, Curious, Devoted, Empathic, Methodical, Resilient, Strategic), and eight styles for how they sell (Advisor, Architect, Challenger, Closer, Connector, Cultivator, Hunter, Student).',
-      "Cross them and you get 64 archetypes. Each page covers what that seller does well, where they struggle, and the archetype they're most often mistaken for. There are eight Hunters. A Curious Hunter and a Methodical Hunter lose different deals.",
+      "Cross them and you get 64 archetypes. Each page covers what that seller does well, where they struggle, and the archetype they're most often mistaken for. There are eight Hunters. A [Curious Hunter](/archetypes/curious-hunter) and a [Methodical Hunter](/archetypes/methodical-hunter) lose different deals.",
     ],
     bridgeCta: { label: 'See all 64 archetypes', href: '/archetypes' },
     relatedArchetypeSlug: 'adaptive-connector',
