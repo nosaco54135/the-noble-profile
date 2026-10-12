@@ -70,7 +70,7 @@ export default async function GuidePage({
       />
 
       {/* Hero */}
-      <section className="pt-tns-3xl pb-tns-lg">
+      <section className="pt-tns-3xl">
         <Container maxWidth="prose">
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex flex-wrap items-center gap-2 font-sans text-xs text-[#6B6B6B]">
@@ -92,7 +92,7 @@ export default async function GuidePage({
             {guide.title}
           </h1>
         </Container>
-        <div className="border-b border-[#E8E6DF] mt-tns-2xl" />
+        <div className="border-b border-[#E8E6DF] mt-tns-lg" />
       </section>
 
       {/* Intro */}
