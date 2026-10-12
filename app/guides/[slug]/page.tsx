@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { LinkButton } from '@/components/ui/Button'
+import { InlineText } from '@/components/InlineText'
 import { getGuide, getAllGuideSlugs } from '@/lib/guides'
 
 function slugify(text: string) {
@@ -101,7 +102,7 @@ export default async function GuidePage({
           <div className="space-y-5">
             {guide.intro.map((paragraph, i) => (
               <p key={i} className="font-sans text-base md:text-lg text-[#0F0F0F] leading-relaxed">
-                {paragraph}
+                <InlineText text={paragraph} />
               </p>
             ))}
           </div>
@@ -109,7 +110,7 @@ export default async function GuidePage({
             <ul className="mt-5 space-y-2 list-disc pl-5">
               {guide.introBullets.map((bullet, i) => (
                 <li key={i} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
-                  {bullet}
+                  <InlineText text={bullet} />
                 </li>
               ))}
             </ul>
@@ -118,7 +119,7 @@ export default async function GuidePage({
             <div className="space-y-5 mt-5">
               {guide.introOutro.map((paragraph, i) => (
                 <p key={i} className="font-sans text-base md:text-lg text-[#0F0F0F] leading-relaxed">
-                  {paragraph}
+                  <InlineText text={paragraph} />
                 </p>
               ))}
             </div>
@@ -181,7 +182,7 @@ export default async function GuidePage({
                 <div className="space-y-5">
                   {section.paragraphs.map((paragraph, j) => (
                     <p key={j} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
-                      {paragraph}
+                      <InlineText text={paragraph} />
                     </p>
                   ))}
                 </div>
@@ -190,7 +191,7 @@ export default async function GuidePage({
                 <ul className="mt-5 space-y-2 list-disc pl-5">
                   {section.bullets.map((bullet, j) => (
                     <li key={j} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
-                      {bullet}
+                      <InlineText text={bullet} />
                     </li>
                   ))}
                 </ul>
@@ -214,7 +215,7 @@ export default async function GuidePage({
                               <div className="space-y-5">
                                 {block.paragraphs.map((paragraph, pi) => (
                                   <p key={pi} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
-                                    {paragraph}
+                                    <InlineText text={paragraph} />
                                   </p>
                                 ))}
                               </div>
@@ -223,7 +224,7 @@ export default async function GuidePage({
                               <ul className="mt-5 space-y-2 list-disc pl-5">
                                 {block.bullets.map((bullet, li) => (
                                   <li key={li} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
-                                    {bullet}
+                                    <InlineText text={bullet} />
                                   </li>
                                 ))}
                               </ul>
@@ -239,7 +240,7 @@ export default async function GuidePage({
                                   <div className="space-y-5 mb-5">
                                     {block.paragraphs.map((paragraph, pi) => (
                                       <p key={pi} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
-                                        {paragraph}
+                                        <InlineText text={paragraph} />
                                       </p>
                                     ))}
                                   </div>
@@ -272,7 +273,7 @@ export default async function GuidePage({
           <div className="space-y-5 mb-6">
             {guide.bridgeParagraphs.map((paragraph, i) => (
               <p key={i} className="font-sans text-base text-[#0F0F0F] leading-relaxed">
-                {paragraph}
+                <InlineText text={paragraph} />
               </p>
             ))}
           </div>
