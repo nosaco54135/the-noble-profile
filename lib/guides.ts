@@ -843,6 +843,121 @@ export const guides: Guide[] = [
     ctaButton: 'Subscribe to the newsletter',
     ctaHref: 'https://thenobleseller.beehiiv.com/subscribe',
   },
+  {
+    slug: 'sales-personality-types',
+    title: 'Sales personality types: the four-type models and where they break',
+    metaDescription:
+      'The four sales personality types most people mean, for buyers and sellers, what each looks like once a deal is underway, and where four-box models stop being useful.',
+    intro: [
+      "Ask what the four personality types in sales are and you'll get one of two answers. The first sorts buyers: Driver, Analytical, Amiable, Expressive. The second sorts sellers, most often into hunters and farmers. Both hold up for about as long as the deal stays simple.",
+      'This guide covers each model, what the types look like in a live deal, and where four boxes stop describing the person in front of you.',
+    ],
+    sections: [
+      {
+        heading: 'The four buyer personality types',
+        paragraphs: [
+          "The buyer model comes from David Merrill and Roger Reid's Social Styles framework. It sorts people by how forcefully they communicate and how much emotion they show. DISC draws a similar map with different labels, which is why sales training often treats the two as cousins.",
+        ],
+        subsections: [
+          {
+            heading: 'The Driver',
+            blocks: [
+              {
+                paragraphs: [
+                  'Asks for the price in the first ten minutes and reads the last page of the proposal first. Cancels the second demo because the first one answered the question.',
+                ],
+              },
+              {
+                label: 'What works',
+                paragraphs: [
+                  'Lead with the outcome and the number. Bring two options, not five.',
+                ],
+              },
+            ],
+          },
+          {
+            heading: 'The Analytical',
+            blocks: [
+              {
+                paragraphs: [
+                  'Asks for the spreadsheet behind the slide. Replies three days later with eleven numbered questions, and one of them is about a footnote.',
+                ],
+              },
+              {
+                label: 'What works',
+                paragraphs: [
+                  'Send the detail before the meeting and leave room for the questions. Let them set the pace.',
+                ],
+              },
+            ],
+          },
+          {
+            heading: 'The Amiable',
+            blocks: [
+              {
+                paragraphs: [
+                  "Nods through the whole meeting and agrees to every next step. The objection arrives by email a week later, from someone you've never met.",
+                ],
+              },
+              {
+                label: 'What works',
+                paragraphs: [
+                  'Ask who else needs to be comfortable before they say yes. Then ask to meet them.',
+                ],
+              },
+            ],
+          },
+          {
+            heading: 'The Expressive',
+            blocks: [
+              {
+                paragraphs: [
+                  'Takes over the demo to describe what their team could do with it. Buys the story in the room and goes quiet when the redlines come back from legal.',
+                ],
+              },
+              {
+                label: 'What works',
+                paragraphs: [
+                  'Give them a version of the vision they can repeat internally, and get the detail in writing while the energy is high.',
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'The seller types: hunter, farmer, and the rest',
+        paragraphs: [
+          'On the seller side, the oldest split is hunter and farmer. Hunters open new accounts. Farmers grow the ones already signed. It started as a description of two jobs, and most companies still use it to decide who gets which territory.',
+          'That split gets its own guide. The short version: most good sellers do some of both, and the label usually follows the job description more closely than the person.',
+          "The best-known attempt to replace it came from CEB's research for The Challenger Sale, which sorted several thousand reps into five profiles: the Hard Worker, the Challenger, the Relationship Builder, the Lone Wolf, and the Reactive Problem Solver. It used five boxes instead of four and was built from performance data, but it was still a sorting exercise.",
+        ],
+      },
+      {
+        heading: 'Where four types stop working',
+        paragraphs: [
+          "Watch the same buyer across a full deal. They're a Driver in the kickoff, asking for the number. Three weeks later, once the CFO joins the thread and the questions turn to payback, they're an Analytical. The type describes a meeting, not a person.",
+          'A buying group with five people in it usually has every type in the room. Cut the deck to three slides for the Driver and the Analytical asks where the other twenty went.',
+          'On the seller side, the problem is the axes. Neither one records what a seller does the week after a lost deal, how long they stay in an account nobody else wanted, or whether they keep prospecting after three weeks of silence.',
+        ],
+      },
+    ],
+    bridgeHeading: 'From four types to sixty-four',
+    bridgeParagraphs: [
+      'Sixty-four is still a set of boxes. What changes is what goes into them. The Noble Seller model sorts sellers on two things four-box models leave out: eight traits for how a seller is wired (Adaptive, Authentic, Curious, Devoted, Empathic, Methodical, Resilient, Strategic), and eight styles for how they sell (Advisor, Architect, Challenger, Closer, Connector, Cultivator, Hunter, Student).',
+      "Cross them and you get 64 archetypes. Each page covers what that seller does well, where they struggle, and the archetype they're most often mistaken for. There are eight Hunters. A Curious Hunter and a Methodical Hunter lose different deals.",
+    ],
+    bridgeCta: { label: 'See all 64 archetypes', href: '/archetypes' },
+    relatedArchetypeSlug: 'adaptive-connector',
+    relatedArchetypeName: 'Adaptive Connector',
+    relatedGuides: [
+      { slug: 'hunter-vs-farmer', name: 'Hunter vs farmer in sales: which one are you?' },
+      { slug: 'what-makes-a-great-salesperson', name: 'What makes a great salesperson? The honest answer' },
+    ],
+    ctaHeadline: 'Find out which one you are',
+    ctaBody: 'Thirty questions. Your trait, your style, and the archetype where they meet.',
+    ctaButton: 'Take the Noble Quotient',
+  },
 ]
 
 export function getGuide(slug: string): Guide | undefined {
